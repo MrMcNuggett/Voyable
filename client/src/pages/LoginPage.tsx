@@ -26,7 +26,7 @@ export default function LoginPage(): React.ReactElement {
   const inputBase: React.CSSProperties = {
     width: '100%', padding: '11px 12px 11px 40px', border: '1px solid #d5d7d0',
     borderRadius: 12, fontSize: 'calc(14px * var(--fs-scale-body, 1))', fontFamily: 'inherit', outline: 'none',
-    color: '#20241f', background: 'white', boxSizing: 'border-box', transition: 'border-color 0.15s',
+    color: 'var(--text-primary)', background: 'white', boxSizing: 'border-box', transition: 'border-color 0.15s',
   }
 
   if (showTakeoff) {
@@ -56,7 +56,7 @@ export default function LoginPage(): React.ReactElement {
             width: 120 + i * 40,
             height: 40 + i * 10,
             borderRadius: '50%',
-            background: 'rgba(255,255,255,0.15)',
+            background: 'rgba(255,255,255,0.15)', /* theme-lint-disable: fixed on-dark brand/animation surface */
             filter: 'blur(8px)',
             right: -200,
             top: `${25 + i * 12}%`,
@@ -104,7 +104,7 @@ export default function LoginPage(): React.ReactElement {
           display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 8,
         }}>
           <img src="/logo-light.svg" alt="TREK" style={{ height: 72 }} />
-          <p style={{ margin: 0, fontSize: 'calc(20px * var(--fs-scale-title, 1))', color: 'rgba(255,255,255,0.6)', fontFamily: "'MuseoModerno', sans-serif", textTransform: 'lowercase', whiteSpace: 'nowrap' }}>{t('login.tagline')}</p>
+          <p style={{ /* theme-lint-disable: fixed on-dark brand/animation surface */  margin: 0, fontSize: 'calc(20px * var(--fs-scale-title, 1))', color: 'rgba(255,255,255,0.6)', fontFamily: "'MuseoModerno', sans-serif", textTransform: 'lowercase', whiteSpace: 'nowrap' }}>{t('login.tagline')}</p>
         </div>
 
 
@@ -193,8 +193,8 @@ export default function LoginPage(): React.ReactElement {
           style={{
             display: 'flex', alignItems: 'center', gap: 6,
             padding: '6px 12px', borderRadius: 99,
-            background: 'rgba(0,0,0,0.06)', border: 'none',
-            fontSize: 'calc(13px * var(--fs-scale-body, 1))', fontWeight: 500, color: '#374151',
+            background: 'var(--bg-tertiary)', border: 'none',
+            fontSize: 'calc(13px * var(--fs-scale-body, 1))', fontWeight: 500, color: 'var(--text-secondary)',
             cursor: 'pointer', fontFamily: 'inherit',
             transition: 'background 0.15s',
           }}
@@ -349,7 +349,7 @@ export default function LoginPage(): React.ReactElement {
           <h2 style={{ margin: '0 0 12px', fontSize: 'calc(36px * var(--fs-scale-title, 1))', fontWeight: 700, color: 'white', lineHeight: 1.15, letterSpacing: '-0.02em', fontFamily: "'MuseoModerno', sans-serif", textTransform: 'lowercase' }}>
             {t('login.tagline')}
           </h2>
-          <p style={{ margin: '0 0 44px', fontSize: 'calc(15px * var(--fs-scale-subtitle, 1))', color: 'rgba(255,255,255,0.5)', lineHeight: 1.7 }}>
+          <p style={{ /* theme-lint-disable: fixed on-dark brand/animation surface */  margin: '0 0 44px', fontSize: 'calc(15px * var(--fs-scale-subtitle, 1))', color: 'rgba(255,255,255,0.5)', lineHeight: 1.7 }}>
             {t('login.description')}
           </p>
 
@@ -364,24 +364,24 @@ export default function LoginPage(): React.ReactElement {
               { Icon: FolderOpen, label: t('login.features.files'), desc: t('login.features.filesDesc') },
               { Icon: Route, label: t('login.features.routes'), desc: t('login.features.routesDesc') },
             ].map(({ Icon, label, desc }) => (
-              <div key={label} style={{ background: 'rgba(255,255,255,0.04)', borderRadius: 14, padding: '14px 12px', border: '1px solid rgba(255,255,255,0.06)', textAlign: 'left', transition: 'background 200ms cubic-bezier(0.23,1,0.32,1), border-color 200ms cubic-bezier(0.23,1,0.32,1)' }}
+              <div key={label} style={{ /* theme-lint-disable: fixed on-dark brand/animation surface */  background: 'rgba(255,255,255,0.04)', borderRadius: 14, padding: '14px 12px', border: '1px solid rgba(255,255,255,0.06)', textAlign: 'left', transition: 'background 200ms cubic-bezier(0.23,1,0.32,1), border-color 200ms cubic-bezier(0.23,1,0.32,1)' }}
                 onMouseEnter={(e: React.MouseEvent<HTMLDivElement>) => { e.currentTarget.style.background = 'rgba(255,255,255,0.08)'; e.currentTarget.style.borderColor = 'rgba(255,255,255,0.12)' }}
                 onMouseLeave={(e: React.MouseEvent<HTMLDivElement>) => { e.currentTarget.style.background = 'rgba(255,255,255,0.04)'; e.currentTarget.style.borderColor = 'rgba(255,255,255,0.06)' }}>
-                <Icon size={17} style={{ color: 'rgba(255,255,255,0.7)', marginBottom: 7 }} />
+                <Icon size={17} style={{ /* theme-lint-disable: fixed on-dark brand/animation surface */  color: 'rgba(255,255,255,0.7)', marginBottom: 7 }} />
                 <div style={{ fontSize: 'calc(12.5px * var(--fs-scale-body, 1))', color: 'white', fontWeight: 600, marginBottom: 2 }}>{label}</div>
-                <div style={{ fontSize: 'calc(11px * var(--fs-scale-caption, 1))', color: 'rgba(255,255,255,0.35)', lineHeight: 1.4 }}>{desc}</div>
+                <div style={{ /* theme-lint-disable: fixed on-dark brand/animation surface */  fontSize: 'calc(11px * var(--fs-scale-caption, 1))', color: 'rgba(255,255,255,0.35)', lineHeight: 1.4 }}>{desc}</div>
               </div>
             ))}
           </div>
 
-          <p style={{ marginTop: 36, fontSize: 'calc(11.5px * var(--fs-scale-caption, 1))', color: 'rgba(255,255,255,0.25)', letterSpacing: '0.03em' }}>
+          <p style={{ /* theme-lint-disable: fixed on-dark brand/animation surface */  marginTop: 36, fontSize: 'calc(11.5px * var(--fs-scale-caption, 1))', color: 'rgba(255,255,255,0.25)', letterSpacing: '0.03em' }}>
             {t('login.selfHosted')}
           </p>
         </div>
       </div>
 
       {/* Right — form */}
-      <div style={{ flex: 1, display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '32px 24px', background: '#f1f2ef' }}>
+      <div style={{ flex: 1, display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '32px 24px', background: 'var(--bg-primary)' }}>
         <div style={{ width: '100%', maxWidth: 400 }}>
 
           {/* Mobile logo */}
@@ -389,23 +389,23 @@ export default function LoginPage(): React.ReactElement {
             className="mobile-logo">
             <style>{`@media(min-width:1024px){.mobile-logo{display:none!important}}`}</style>
             <img src="/logo-dark.svg" alt="TREK" style={{ height: 48 }} />
-            <p style={{ margin: 0, fontSize: 'calc(16px * var(--fs-scale-subtitle, 1))', color: '#9ca3af', fontFamily: "'MuseoModerno', sans-serif", textTransform: 'lowercase', whiteSpace: 'nowrap' }}>{t('login.tagline')}</p>
+            <p style={{ margin: 0, fontSize: 'calc(16px * var(--fs-scale-subtitle, 1))', color: 'var(--text-faint)', fontFamily: "'MuseoModerno', sans-serif", textTransform: 'lowercase', whiteSpace: 'nowrap' }}>{t('login.tagline')}</p>
           </div>
 
           <div style={{ background: 'white', borderRadius: 22, border: '1px solid #e6e7e2', padding: '36px 32px', boxShadow: '0 12px 32px rgba(32,36,35,.10), 0 2px 6px rgba(32,36,35,.06)' }}>
             {oidcOnly ? (
               <>
-                <h2 style={{ margin: '0 0 4px', fontSize: 'calc(22px * var(--fs-scale-title, 1))', fontWeight: 800, color: '#20241f', fontFamily: 'var(--font-display)', letterSpacing: '-0.02em' }}>{t('login.title')}</h2>
-                <p style={{ margin: '0 0 24px', fontSize: 'calc(13.5px * var(--fs-scale-body, 1))', color: '#9ca3af' }}>{noRedirect ? t('login.oidcLoggedOut') : t('login.oidcOnly')}</p>
+                <h2 style={{ margin: '0 0 4px', fontSize: 'calc(22px * var(--fs-scale-title, 1))', fontWeight: 800, color: 'var(--text-primary)', fontFamily: 'var(--font-display)', letterSpacing: '-0.02em' }}>{t('login.title')}</h2>
+                <p style={{ margin: '0 0 24px', fontSize: 'calc(13.5px * var(--fs-scale-body, 1))', color: 'var(--text-faint)' }}>{noRedirect ? t('login.oidcLoggedOut') : t('login.oidcOnly')}</p>
                 {error && (
-                  <div style={{ padding: '10px 14px', background: '#fef2f2', border: '1px solid #fecaca', borderRadius: 10, fontSize: 'calc(13px * var(--fs-scale-body, 1))', color: '#dc2626', marginBottom: 16 }}>
+                  <div style={{ padding: '10px 14px', background: 'var(--danger-soft)', border: '1px solid var(--danger)', borderRadius: 10, fontSize: 'calc(13px * var(--fs-scale-body, 1))', color: 'var(--danger)', marginBottom: 16 }}>
                     {error}
                   </div>
                 )}
                 <a href={`/api/auth/oidc/login${inviteToken ? '?invite=' + encodeURIComponent(inviteToken) : ''}`}
                   style={{
                     width: '100%', padding: '12px',
-                    background: '#276b64', color: 'white',
+                    background: 'var(--accent)', color: 'white',
                     border: 'none', borderRadius: 12,
                     fontSize: 'calc(14px * var(--fs-scale-body, 1))', fontWeight: 700, cursor: 'pointer',
                     fontFamily: 'inherit', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 8,
@@ -421,7 +421,7 @@ export default function LoginPage(): React.ReactElement {
               </>
             ) : (
             <>
-            <h2 style={{ margin: '0 0 4px', fontSize: 'calc(22px * var(--fs-scale-title, 1))', fontWeight: 800, color: '#20241f', fontFamily: 'var(--font-display)', letterSpacing: '-0.02em' }}>
+            <h2 style={{ margin: '0 0 4px', fontSize: 'calc(22px * var(--fs-scale-title, 1))', fontWeight: 800, color: 'var(--text-primary)', fontFamily: 'var(--font-display)', letterSpacing: '-0.02em' }}>
               {passwordChangeStep
                 ? t('login.setNewPassword')
                 : mode === 'login' && mfaStep
@@ -430,7 +430,7 @@ export default function LoginPage(): React.ReactElement {
                     ? (!appConfig?.has_users ? t('login.createAdmin') : t('login.createAccount'))
                     : t('login.title')}
             </h2>
-            <p style={{ margin: '0 0 28px', fontSize: 'calc(13.5px * var(--fs-scale-body, 1))', color: '#9ca3af' }}>
+            <p style={{ margin: '0 0 28px', fontSize: 'calc(13.5px * var(--fs-scale-body, 1))', color: 'var(--text-faint)' }}>
               {passwordChangeStep
                 ? t('login.setNewPasswordHint')
                 : mode === 'login' && mfaStep
@@ -442,17 +442,17 @@ export default function LoginPage(): React.ReactElement {
 
             <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: 16 }}>
               {error && (
-                <div style={{ padding: '10px 14px', background: '#fef2f2', border: '1px solid #fecaca', borderRadius: 10, fontSize: 'calc(13px * var(--fs-scale-body, 1))', color: '#dc2626' }}>
+                <div style={{ padding: '10px 14px', background: 'var(--danger-soft)', border: '1px solid var(--danger)', borderRadius: 10, fontSize: 'calc(13px * var(--fs-scale-body, 1))', color: 'var(--danger)' }}>
                   {error}
                 </div>
               )}
 
               {insecureCookie && (
-                <div style={{ padding: '12px 14px', background: '#fffbeb', border: '1px solid #fde68a', borderRadius: 10, fontSize: 'calc(13px * var(--fs-scale-body, 1))', color: '#92400e' }}>
+                <div style={{ padding: '12px 14px', background: 'var(--warning-soft)', border: '1px solid var(--warning)', borderRadius: 10, fontSize: 'calc(13px * var(--fs-scale-body, 1))', color: 'var(--warning)' }}>
                   <div style={{ fontWeight: 700, marginBottom: 4 }}>{t('login.insecureCookie.title')}</div>
                   <div style={{ lineHeight: 1.55 }}>{t('login.insecureCookie.body')}</div>
                   <a href="https://github.com/mauriceboe/TREK/wiki/Troubleshooting" target="_blank" rel="noopener noreferrer"
-                    style={{ display: 'inline-block', marginTop: 6, fontWeight: 600, color: '#b45309', textDecoration: 'underline' }}>
+                    style={{ display: 'inline-block', marginTop: 6, fontWeight: 600, color: 'var(--warning)', textDecoration: 'underline' }}>
                     {t('login.insecureCookie.link')} ↗
                   </a>
                 </div>
@@ -460,13 +460,13 @@ export default function LoginPage(): React.ReactElement {
 
               {passwordChangeStep && (
                 <>
-                  <div style={{ padding: '10px 14px', background: '#fefce8', border: '1px solid #fde68a', borderRadius: 10, fontSize: 'calc(13px * var(--fs-scale-body, 1))', color: '#92400e' }}>
+                  <div style={{ padding: '10px 14px', background: 'var(--warning-soft)', border: '1px solid var(--warning)', borderRadius: 10, fontSize: 'calc(13px * var(--fs-scale-body, 1))', color: 'var(--warning)' }}>
                     {t('settings.mustChangePassword')}
                   </div>
                   <div>
-                    <label style={{ display: 'block', fontSize: 'calc(12.5px * var(--fs-scale-body, 1))', fontWeight: 600, color: '#374151', marginBottom: 6 }}>{t('settings.newPassword')}</label>
+                    <label style={{ display: 'block', fontSize: 'calc(12.5px * var(--fs-scale-body, 1))', fontWeight: 600, color: 'var(--text-secondary)', marginBottom: 6 }}>{t('settings.newPassword')}</label>
                     <div style={{ position: 'relative' }}>
-                      <Lock size={15} className="text-[#9ca3af]" style={{ position: 'absolute', left: 13, top: '50%', transform: 'translateY(-50%)', pointerEvents: 'none' }} />
+                      <Lock size={15} className="text-content-faint" style={{ position: 'absolute', left: 13, top: '50%', transform: 'translateY(-50%)', pointerEvents: 'none' }} />
                       <input
                         type="password" value={newPassword} onChange={(e: React.ChangeEvent<HTMLInputElement>) => setNewPassword(e.target.value)} required
                         placeholder={t('settings.newPassword')} style={inputBase}
@@ -476,9 +476,9 @@ export default function LoginPage(): React.ReactElement {
                     </div>
                   </div>
                   <div>
-                    <label style={{ display: 'block', fontSize: 'calc(12.5px * var(--fs-scale-body, 1))', fontWeight: 600, color: '#374151', marginBottom: 6 }}>{t('settings.confirmPassword')}</label>
+                    <label style={{ display: 'block', fontSize: 'calc(12.5px * var(--fs-scale-body, 1))', fontWeight: 600, color: 'var(--text-secondary)', marginBottom: 6 }}>{t('settings.confirmPassword')}</label>
                     <div style={{ position: 'relative' }}>
-                      <Lock size={15} className="text-[#9ca3af]" style={{ position: 'absolute', left: 13, top: '50%', transform: 'translateY(-50%)', pointerEvents: 'none' }} />
+                      <Lock size={15} className="text-content-faint" style={{ position: 'absolute', left: 13, top: '50%', transform: 'translateY(-50%)', pointerEvents: 'none' }} />
                       <input
                         type="password" value={confirmPassword} onChange={(e: React.ChangeEvent<HTMLInputElement>) => setConfirmPassword(e.target.value)} required
                         placeholder={t('settings.confirmPassword')} style={inputBase}
@@ -492,9 +492,9 @@ export default function LoginPage(): React.ReactElement {
 
               {mode === 'login' && mfaStep && !passwordChangeStep && (
                 <div>
-                  <label style={{ display: 'block', fontSize: 'calc(12.5px * var(--fs-scale-body, 1))', fontWeight: 600, color: '#374151', marginBottom: 6 }}>{t('login.mfaCodeLabel')}</label>
+                  <label style={{ display: 'block', fontSize: 'calc(12.5px * var(--fs-scale-body, 1))', fontWeight: 600, color: 'var(--text-secondary)', marginBottom: 6 }}>{t('login.mfaCodeLabel')}</label>
                   <div style={{ position: 'relative' }}>
-                    <KeyRound size={15} className="text-[#9ca3af]" style={{ position: 'absolute', left: 13, top: '50%', transform: 'translateY(-50%)', pointerEvents: 'none' }} />
+                    <KeyRound size={15} className="text-content-faint" style={{ position: 'absolute', left: 13, top: '50%', transform: 'translateY(-50%)', pointerEvents: 'none' }} />
                     <input
                       type="text"
                       inputMode="text"
@@ -509,11 +509,11 @@ export default function LoginPage(): React.ReactElement {
                       onBlur={(e: React.FocusEvent<HTMLInputElement>) => e.target.style.borderColor = '#d5d7d0'}
                     />
                   </div>
-                  <p style={{ fontSize: 'calc(12px * var(--fs-scale-body, 1))', color: '#9ca3af', marginTop: 8 }}>{t('login.mfaHint')}</p>
+                  <p style={{ fontSize: 'calc(12px * var(--fs-scale-body, 1))', color: 'var(--text-faint)', marginTop: 8 }}>{t('login.mfaHint')}</p>
                   <button
                     type="button"
                     onClick={() => { setMfaStep(false); setMfaToken(''); setMfaCode(''); setError('') }}
-                    style={{ marginTop: 8, background: 'none', border: 'none', color: '#6b7280', fontSize: 'calc(13px * var(--fs-scale-body, 1))', cursor: 'pointer', padding: 0, fontFamily: 'inherit' }}
+                    style={{ marginTop: 8, background: 'none', border: 'none', color: 'var(--text-muted)', fontSize: 'calc(13px * var(--fs-scale-body, 1))', cursor: 'pointer', padding: 0, fontFamily: 'inherit' }}
                   >
                     {t('login.mfaBack')}
                   </button>
@@ -523,9 +523,9 @@ export default function LoginPage(): React.ReactElement {
               {/* Username (register only) */}
               {mode === 'register' && !passwordChangeStep && (
                 <div>
-                  <label style={{ display: 'block', fontSize: 'calc(12.5px * var(--fs-scale-body, 1))', fontWeight: 600, color: '#374151', marginBottom: 6 }}>{t('login.username')}</label>
+                  <label style={{ display: 'block', fontSize: 'calc(12.5px * var(--fs-scale-body, 1))', fontWeight: 600, color: 'var(--text-secondary)', marginBottom: 6 }}>{t('login.username')}</label>
                   <div style={{ position: 'relative' }}>
-                    <User size={15} className="text-[#9ca3af]" style={{ position: 'absolute', left: 13, top: '50%', transform: 'translateY(-50%)', pointerEvents: 'none' }} />
+                    <User size={15} className="text-content-faint" style={{ position: 'absolute', left: 13, top: '50%', transform: 'translateY(-50%)', pointerEvents: 'none' }} />
                     <input
                       type="text" value={username} onChange={(e: React.ChangeEvent<HTMLInputElement>) => setUsername(e.target.value)} required
                       placeholder="admin" style={inputBase}
@@ -539,9 +539,9 @@ export default function LoginPage(): React.ReactElement {
               {/* Email */}
               {!(mode === 'login' && mfaStep) && !passwordChangeStep && (
               <div>
-                <label style={{ display: 'block', fontSize: 'calc(12.5px * var(--fs-scale-body, 1))', fontWeight: 600, color: '#374151', marginBottom: 6 }}>{t('common.email')}</label>
+                <label style={{ display: 'block', fontSize: 'calc(12.5px * var(--fs-scale-body, 1))', fontWeight: 600, color: 'var(--text-secondary)', marginBottom: 6 }}>{t('common.email')}</label>
                 <div style={{ position: 'relative' }}>
-                  <Mail size={15} className="text-[#9ca3af]" style={{ position: 'absolute', left: 13, top: '50%', transform: 'translateY(-50%)', pointerEvents: 'none' }} />
+                  <Mail size={15} className="text-content-faint" style={{ position: 'absolute', left: 13, top: '50%', transform: 'translateY(-50%)', pointerEvents: 'none' }} />
                   <input
                     type="email" value={email} onChange={(e: React.ChangeEvent<HTMLInputElement>) => setEmail(e.target.value)} required
                     placeholder={t('login.emailPlaceholder')} style={inputBase}
@@ -555,9 +555,9 @@ export default function LoginPage(): React.ReactElement {
               {/* Password */}
               {!(mode === 'login' && mfaStep) && !passwordChangeStep && (
               <div>
-                <label style={{ display: 'block', fontSize: 'calc(12.5px * var(--fs-scale-body, 1))', fontWeight: 600, color: '#374151', marginBottom: 6 }}>{t('common.password')}</label>
+                <label style={{ display: 'block', fontSize: 'calc(12.5px * var(--fs-scale-body, 1))', fontWeight: 600, color: 'var(--text-secondary)', marginBottom: 6 }}>{t('common.password')}</label>
                 <div style={{ position: 'relative' }}>
-                  <Lock size={15} className="text-[#9ca3af]" style={{ position: 'absolute', left: 13, top: '50%', transform: 'translateY(-50%)', pointerEvents: 'none' }} />
+                  <Lock size={15} className="text-content-faint" style={{ position: 'absolute', left: 13, top: '50%', transform: 'translateY(-50%)', pointerEvents: 'none' }} />
                   <input
                     type={showPassword ? 'text' : 'password'} value={password} onChange={(e: React.ChangeEvent<HTMLInputElement>) => setPassword(e.target.value)} required
                     placeholder="••••••••" style={{ ...inputBase, paddingRight: 44 }}
@@ -566,7 +566,7 @@ export default function LoginPage(): React.ReactElement {
                   />
                   <button type="button" onClick={() => setShowPassword(v => !v)} style={{
                     position: 'absolute', right: 12, top: '50%', transform: 'translateY(-50%)',
-                    background: 'none', border: 'none', cursor: 'pointer', padding: 2, color: '#9ca3af',
+                    background: 'none', border: 'none', cursor: 'pointer', padding: 2, color: 'var(--text-faint)',
                     width: 22, height: 22,
                   }}>
                     <Eye size={16} style={{
@@ -589,14 +589,14 @@ export default function LoginPage(): React.ReactElement {
                       <ToggleSwitch on={rememberMe} onToggle={() => setRememberMe(!rememberMe)} label={t('login.rememberMe')} />
                       <span
                         onClick={() => setRememberMe(!rememberMe)}
-                        style={{ cursor: 'pointer', color: '#374151', fontSize: 'calc(12.5px * var(--fs-scale-body, 1))', fontWeight: 500, userSelect: 'none' }}
+                        style={{ cursor: 'pointer', color: 'var(--text-secondary)', fontSize: 'calc(12.5px * var(--fs-scale-body, 1))', fontWeight: 500, userSelect: 'none' }}
                       >
                         {t('login.rememberMe')}
                       </span>
                     </div>
                     <button type="button" onClick={() => navigate('/forgot-password')} style={{
                       background: 'none', border: 'none', cursor: 'pointer', padding: 0,
-                      color: '#6b7280', fontSize: 'calc(12.5px * var(--fs-scale-body, 1))', fontWeight: 500, fontFamily: 'inherit',
+                      color: 'var(--text-muted)', fontSize: 'calc(12.5px * var(--fs-scale-body, 1))', fontWeight: 500, fontFamily: 'inherit',
                     }}
                       onMouseEnter={(e: React.MouseEvent<HTMLButtonElement>) => { e.currentTarget.style.color = '#20241f' }}
                       onMouseLeave={(e: React.MouseEvent<HTMLButtonElement>) => { e.currentTarget.style.color = '#6b7280' }}
@@ -607,7 +607,7 @@ export default function LoginPage(): React.ReactElement {
               )}
 
               <button type="submit" disabled={isLoading} style={{
-                marginTop: 4, width: '100%', padding: '12px', background: '#276b64', color: 'white',
+                marginTop: 4, width: '100%', padding: '12px', background: 'var(--accent)', color: 'white',
                 border: 'none', borderRadius: 12, fontSize: 'calc(14px * var(--fs-scale-body, 1))', fontWeight: 700, cursor: isLoading ? 'default' : 'pointer',
                 fontFamily: 'inherit', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 8,
                 opacity: isLoading ? 0.7 : 1, transition: 'opacity 0.15s',
@@ -624,10 +624,10 @@ export default function LoginPage(): React.ReactElement {
 
             {/* Toggle login/register */}
             {showRegisterOption && appConfig?.has_users && !appConfig?.demo_mode && !passwordChangeStep && (
-              <p style={{ textAlign: 'center', marginTop: 16, fontSize: 'calc(13px * var(--fs-scale-body, 1))', color: '#9ca3af' }}>
+              <p style={{ textAlign: 'center', marginTop: 16, fontSize: 'calc(13px * var(--fs-scale-body, 1))', color: 'var(--text-faint)' }}>
                 {mode === 'login' ? t('login.noAccount') + ' ' : t('login.hasAccount') + ' '}
                 <button onClick={() => { setMode(m => m === 'login' ? 'register' : 'login'); setError(''); setMfaStep(false); setMfaToken(''); setMfaCode('') }}
-                  style={{ background: 'none', border: 'none', color: '#276b64', fontWeight: 600, cursor: 'pointer', fontFamily: 'inherit', fontSize: 'calc(13px * var(--fs-scale-body, 1))' }}>
+                  style={{ background: 'none', border: 'none', color: 'var(--accent)', fontWeight: 600, cursor: 'pointer', fontFamily: 'inherit', fontSize: 'calc(13px * var(--fs-scale-body, 1))' }}>
                   {mode === 'login' ? t('login.register') : t('login.signIn')}
                 </button>
               </p>
@@ -639,14 +639,14 @@ export default function LoginPage(): React.ReactElement {
           {appConfig?.oidc_configured && appConfig?.oidc_login && !oidcOnly && (
             <>
               <div style={{ display: 'flex', alignItems: 'center', gap: 12, marginTop: 16 }}>
-                <div style={{ flex: 1, height: 1, background: '#e5e7eb' }} />
-                <span style={{ fontSize: 'calc(12px * var(--fs-scale-body, 1))', color: '#9ca3af' }}>{t('common.or')}</span>
-                <div style={{ flex: 1, height: 1, background: '#e5e7eb' }} />
+                <div style={{ flex: 1, height: 1, background: 'var(--border-primary)' }} />
+                <span style={{ fontSize: 'calc(12px * var(--fs-scale-body, 1))', color: 'var(--text-faint)' }}>{t('common.or')}</span>
+                <div style={{ flex: 1, height: 1, background: 'var(--border-primary)' }} />
               </div>
               <a href={`/api/auth/oidc/login${inviteToken ? '?invite=' + encodeURIComponent(inviteToken) : ''}`}
                 style={{
                   marginTop: 12, width: '100%', padding: '12px',
-                  background: 'white', color: '#374151',
+                  background: 'white', color: 'var(--text-secondary)',
                   border: '1px solid #d1d5db', borderRadius: 12,
                   fontSize: 'calc(14px * var(--fs-scale-body, 1))', fontWeight: 600, cursor: 'pointer',
                   fontFamily: 'inherit', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 8,
@@ -667,15 +667,15 @@ export default function LoginPage(): React.ReactElement {
             <>
               {!oidcButtonShown && (
                 <div style={{ display: 'flex', alignItems: 'center', gap: 12, marginTop: 16 }}>
-                  <div style={{ flex: 1, height: 1, background: '#e5e7eb' }} />
-                  <span style={{ fontSize: 'calc(12px * var(--fs-scale-body, 1))', color: '#9ca3af' }}>{t('common.or')}</span>
-                  <div style={{ flex: 1, height: 1, background: '#e5e7eb' }} />
+                  <div style={{ flex: 1, height: 1, background: 'var(--border-primary)' }} />
+                  <span style={{ fontSize: 'calc(12px * var(--fs-scale-body, 1))', color: 'var(--text-faint)' }}>{t('common.or')}</span>
+                  <div style={{ flex: 1, height: 1, background: 'var(--border-primary)' }} />
                 </div>
               )}
               <button type="button" onClick={handlePasskeyLogin} disabled={isLoading}
                 style={{
                   marginTop: 12, width: '100%', padding: '12px',
-                  background: 'white', color: '#374151',
+                  background: 'white', color: 'var(--text-secondary)',
                   border: '1px solid #d1d5db', borderRadius: 12,
                   fontSize: 'calc(14px * var(--fs-scale-body, 1))', fontWeight: 600, cursor: isLoading ? 'default' : 'pointer',
                   fontFamily: 'inherit', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 8,
@@ -698,7 +698,7 @@ export default function LoginPage(): React.ReactElement {
               style={{
                 marginTop: 16, width: '100%', padding: '14px',
                 background: 'linear-gradient(135deg, #f59e0b, #d97706)',
-                color: '#451a03', border: 'none', borderRadius: 14,
+                color: 'var(--ink-900)', border: 'none', borderRadius: 14,
                 fontSize: 'calc(15px * var(--fs-scale-subtitle, 1))', fontWeight: 700, cursor: isLoading ? 'default' : 'pointer',
                 fontFamily: 'inherit', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 10,
                 opacity: isLoading ? 0.7 : 1, transition: 'transform 200ms cubic-bezier(0.23,1,0.32,1), box-shadow 200ms cubic-bezier(0.23,1,0.32,1), opacity 200ms cubic-bezier(0.23,1,0.32,1)',
