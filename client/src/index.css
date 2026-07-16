@@ -144,6 +144,30 @@ html.dark button[class*="text-slate-600"][class*="border-slate-200"]:hover { bac
 html.dark .border-dashed.border-gray-300 { border-color: var(--border-primary) !important; }
 html.dark .bg-slate-50\/60, html.dark [class*="bg-slate-50/"] { background-color: transparent !important; }
 
+/* ── Voyable light-scheme neutral bridge ──────────────────────────
+   The mirror of the dark shim above, for LIGHT mode: TREK's original light
+   design used raw slate/gray/zinc utility classes. Under the Voyable reskin
+   the light scheme is stone/ink, so redirect those neutral utilities to the
+   semantic tokens app-wide — the same low-risk, cascade-everywhere pattern the
+   dark shim uses. Scoped to html:not(.dark) so it never fights the dark shim.
+   Genuine data/category colors (mood, day, place-category, chart series) don't
+   use these neutral scales, so they're untouched. Migrate components to tokens
+   over time and this bridge shrinks. */
+html:not(.dark) :is(.bg-slate-50, .bg-gray-50, .bg-zinc-50, .bg-neutral-50) { background-color: var(--bg-secondary) !important; }
+html:not(.dark) :is(.bg-slate-100, .bg-gray-100, .bg-zinc-100, .bg-neutral-100) { background-color: var(--bg-tertiary) !important; }
+html:not(.dark) :is(.bg-slate-200, .bg-gray-200, .bg-zinc-200, .bg-neutral-200) { background-color: var(--bg-selected) !important; }
+html:not(.dark) :is(.text-slate-900, .text-gray-900, .text-zinc-900, .text-neutral-900, .text-slate-950, .text-gray-950, .text-zinc-950) { color: var(--text-primary) !important; }
+html:not(.dark) :is(.text-slate-800, .text-gray-800, .text-zinc-800, .text-neutral-800, .text-slate-700, .text-gray-700, .text-zinc-700, .text-neutral-700) { color: var(--text-secondary) !important; }
+html:not(.dark) :is(.text-slate-600, .text-gray-600, .text-zinc-600, .text-neutral-600, .text-slate-500, .text-gray-500, .text-zinc-500, .text-neutral-500) { color: var(--text-muted) !important; }
+html:not(.dark) :is(.text-slate-400, .text-gray-400, .text-zinc-400, .text-neutral-400, .text-slate-300, .text-gray-300, .text-zinc-300, .text-neutral-300) { color: var(--text-faint) !important; }
+html:not(.dark) :is(.border-slate-100, .border-gray-100, .border-zinc-100, .border-neutral-100, .border-slate-200, .border-gray-200, .border-zinc-200, .border-neutral-200) { border-color: var(--border-secondary) !important; }
+html:not(.dark) :is(.border-slate-300, .border-gray-300, .border-zinc-300, .border-neutral-300, .border-slate-400, .border-gray-400, .border-zinc-400, .border-neutral-400) { border-color: var(--border-primary) !important; }
+html:not(.dark) :is(.divide-slate-100, .divide-gray-100, .divide-zinc-100) > :not([hidden]) ~ :not([hidden]) { border-color: var(--border-secondary) !important; }
+html:not(.dark) :is(.divide-slate-200, .divide-gray-200, .divide-zinc-200) > :not([hidden]) ~ :not([hidden]) { border-color: var(--border-primary) !important; }
+html:not(.dark) :is(.hover\:bg-slate-50, .hover\:bg-gray-50, .hover\:bg-zinc-50, .hover\:bg-slate-100, .hover\:bg-gray-100, .hover\:bg-zinc-100):hover { background-color: var(--bg-hover) !important; }
+html:not(.dark) :is(.hover\:text-slate-900, .hover\:text-gray-900, .hover\:text-zinc-900):hover { color: var(--text-primary) !important; }
+html:not(.dark) :is(.hover\:border-slate-300, .hover\:border-gray-300, .hover\:border-zinc-300):hover { border-color: var(--border-primary) !important; }
+
 /* Reorder buttons: desktop = original style; mobile = always visible, larger touch targets */
 .reorder-buttons {
   flex-direction: column;
