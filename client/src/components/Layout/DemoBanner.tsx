@@ -267,7 +267,7 @@ export default function DemoBanner(): React.ReactElement | null {
   return (
     <div style={{
       position: 'fixed', inset: 0, zIndex: 99999,
-      background: 'rgba(0,0,0,0.6)', backdropFilter: 'blur(8px)',
+      background: 'var(--overlay)', backdropFilter: 'blur(8px)',
       display: 'flex', alignItems: 'center', justifyContent: 'center',
       paddingTop: 'max(16px, env(safe-area-inset-top))',
       paddingBottom: 'max(16px, calc(env(safe-area-inset-bottom) + 80px))',
@@ -300,10 +300,10 @@ export default function DemoBanner(): React.ReactElement | null {
         <div style={{ display: 'flex', gap: 8, marginBottom: 16 }}>
           <div style={{
             flex: 1, display: 'flex', alignItems: 'center', gap: 6,
-            background: '#f0f9ff', border: '1px solid #bae6fd', borderRadius: 10, padding: '8px 10px',
+            background: 'var(--info-soft)', border: '1px solid var(--info)', borderRadius: 10, padding: '8px 10px',
           }}>
             <Clock size={13} style={{ flexShrink: 0, color: 'var(--info)' }} />
-            <span style={{ fontSize: 'calc(11px * var(--fs-scale-caption, 1))', color: '#0369a1', fontWeight: 600 }}>
+            <span style={{ fontSize: 'calc(11px * var(--fs-scale-caption, 1))', color: 'var(--info)', fontWeight: 600 }}>
               {t.resetIn} {minutesLeft} {t.minutes}
             </span>
           </div>

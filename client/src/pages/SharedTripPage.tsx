@@ -75,17 +75,17 @@ export default function SharedTripPage() {
   return (
     <div className="bg-surface-secondary" style={{ minHeight: '100vh', fontFamily: "var(--font-system)" }}>
       {/* Header */}
-      <div className="text-white" style={{ background: 'linear-gradient(135deg, #000 0%, #0f172a 50%, #1e293b 100%)', padding: '32px 20px 28px', textAlign: 'center', position: 'relative' }}>
+      <div className="text-white" style={{ background: 'linear-gradient(135deg, var(--petrol-800) 0%, var(--petrol-700) 50%, var(--petrol-600) 100%)', padding: '32px 20px 28px', textAlign: 'center', position: 'relative' }}>
         {/* Cover image background */}
         {trip.cover_image && (
           <div style={{ position: 'absolute', inset: 0, backgroundImage: `url(${trip.cover_image.startsWith('http') ? trip.cover_image : trip.cover_image.startsWith('/') ? trip.cover_image : '/uploads/' + trip.cover_image})`, backgroundSize: 'cover', backgroundPosition: 'center', opacity: 0.15 }} />
         )}
         {/* Background decoration */}
-        <div className="bg-[rgba(255,255,255,0.03)]" style={{ position: 'absolute', top: -60, right: -60, width: 200, height: 200, borderRadius: '50%' }} />
-        <div className="bg-[rgba(255,255,255,0.02)]" style={{ position: 'absolute', bottom: -40, left: -40, width: 150, height: 150, borderRadius: '50%' }} />
+        <div className="bg-[rgba(255,255,255,0.03)]" style={{ position: 'absolute', top: -60, right: -60, width: 200, height: 200, borderRadius: '50%' }} />  // theme-lint-disable: fixed on-dark hero surface
+        <div className="bg-[rgba(255,255,255,0.02)]" style={{ position: 'absolute', bottom: -40, left: -40, width: 150, height: 150, borderRadius: '50%' }} />  // theme-lint-disable: fixed on-dark hero surface
 
         {/* Logo */}
-        <div className="bg-[rgba(255,255,255,0.08)]" style={{ display: 'inline-flex', alignItems: 'center', justifyContent: 'center', width: 44, height: 44, borderRadius: 12, backdropFilter: 'blur(8px)', marginBottom: 12, border: '1px solid rgba(255,255,255,0.1)' }}>
+        <div className="bg-[rgba(255,255,255,0.08)]" style={{ display: 'inline-flex', alignItems: 'center', justifyContent: 'center', width: 44, height: 44, borderRadius: 12, backdropFilter: 'blur(8px)', marginBottom: 12, border: '1px solid rgba(255,255,255,0.1)' }}>  // theme-lint-disable: fixed on-dark hero surface
           <img src="/icons/icon-white.svg" alt="TREK" width="26" height="26" />
         </div>
 
@@ -98,7 +98,7 @@ export default function SharedTripPage() {
         )}
 
         {(trip.start_date || trip.end_date) && (
-          <div className="bg-[rgba(255,255,255,0.08)]" style={{ marginTop: 10, display: 'inline-flex', alignItems: 'center', gap: 8, padding: '6px 14px', borderRadius: 20, backdropFilter: 'blur(4px)', border: '1px solid rgba(255,255,255,0.08)' }}>
+          <div className="bg-[rgba(255,255,255,0.08)]" style={{ marginTop: 10, display: 'inline-flex', alignItems: 'center', gap: 8, padding: '6px 14px', borderRadius: 20, backdropFilter: 'blur(4px)', border: '1px solid rgba(255,255,255,0.08)' }}>  // theme-lint-disable: fixed on-dark hero surface
             <span style={{ fontSize: 'calc(12px * var(--fs-scale-body, 1))', fontWeight: 500, opacity: 0.8 }}>
               {[trip.start_date, trip.end_date].filter(Boolean).map((d: string) => new Date(d + 'T00:00:00Z').toLocaleDateString(locale, { day: 'numeric', month: 'short', year: 'numeric', timeZone: 'UTC' })).join(' — ')}
             </span>
@@ -112,7 +112,7 @@ export default function SharedTripPage() {
         {/* Language picker - top right */}
         <div style={{ position: 'absolute', top: 12, right: 12, zIndex: 10 }}>
           <button onClick={() => setShowLangPicker(v => !v)}
-            className="bg-[rgba(255,255,255,0.1)] text-[rgba(255,255,255,0.7)]"
+            className="bg-[rgba(255,255,255,0.1)] text-[rgba(255,255,255,0.7)]"  // theme-lint-disable: fixed on-dark hero surface
             style={{
             padding: '5px 12px', borderRadius: 20, border: '1px solid rgba(255,255,255,0.15)',
             backdropFilter: 'blur(8px)',
@@ -348,7 +348,7 @@ export default function SharedTripPage() {
           return (
             <div style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
               {/* Total card */}
-              <div className="text-white" style={{ background: 'linear-gradient(135deg, #000 0%, #1a1a2e 100%)', borderRadius: 14, padding: '20px 24px' }}>
+              <div className="text-white" style={{ background: 'linear-gradient(135deg, var(--petrol-800) 0%, var(--petrol-700) 100%)', borderRadius: 14, padding: '20px 24px' }}>
                 <div style={{ fontSize: 'calc(10px * var(--fs-scale-caption, 1))', fontWeight: 500, letterSpacing: 1, textTransform: 'uppercase', opacity: 0.5 }}>{t('shared.totalBudget')}</div>
                 <div style={{ fontSize: 'calc(28px * var(--fs-scale-title, 1))', fontWeight: 700, marginTop: 4 }}>{total.toLocaleString(locale, { minimumFractionDigits: 2 })} {base}</div>
               </div>
@@ -390,7 +390,7 @@ export default function SharedTripPage() {
                       </div>
                     )}
                     <div style={{ display: 'flex', gap: 10 }}>
-                      <div className="bg-[#e5e7eb] text-[var(--text-muted)]" style={{ width: 32, height: 32, borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 'calc(11px * var(--fs-scale-caption, 1))', fontWeight: 700, flexShrink: 0, overflow: 'hidden' }}>
+                      <div className="bg-surface-tertiary text-[var(--text-muted)]" style={{ width: 32, height: 32, borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 'calc(11px * var(--fs-scale-caption, 1))', fontWeight: 700, flexShrink: 0, overflow: 'hidden' }}>
                         {msg.avatar ? <img src={avatarSrc(msg.avatar)!} style={{ width: '100%', height: '100%', objectFit: 'cover' }} /> : (msg.username || '?')[0].toUpperCase()}
                       </div>
                       <div style={{ flex: 1 }}>
@@ -414,7 +414,7 @@ export default function SharedTripPage() {
             <img src="/icons/icon.svg" alt="TREK" width="18" height="18" style={{ borderRadius: 4 }} />
             <span className="text-[var(--text-faint)]" style={{ fontSize: 'calc(11px * var(--fs-scale-caption, 1))' }}>{t('shared.sharedVia')} <strong className="text-[var(--text-muted)]">TREK</strong></span>
           </div>
-          <div className="text-[#d1d5db]" style={{ marginTop: 8, fontSize: 'calc(10px * var(--fs-scale-caption, 1))' }}>Made with <span className="text-[var(--danger)]">&hearts;</span> by Maurice · <a href="https://github.com/mauriceboe/TREK" className="text-[var(--text-faint)]" style={{ textDecoration: 'none' }}>GitHub</a></div>
+          <div className="text-[var(--text-faint)]" style={{ marginTop: 8, fontSize: 'calc(10px * var(--fs-scale-caption, 1))' }}>Made with <span className="text-[var(--danger)]">&hearts;</span> by Maurice · <a href="https://github.com/mauriceboe/TREK" className="text-[var(--text-faint)]" style={{ textDecoration: 'none' }}>GitHub</a></div>
         </div>
       </div>
     </div>

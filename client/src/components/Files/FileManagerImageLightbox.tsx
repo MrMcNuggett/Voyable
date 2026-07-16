@@ -51,9 +51,9 @@ export function ImageLightbox({ files, initialIndex, onClose }: ImageLightboxPro
     <button onClick={e => { e.stopPropagation(); onClick() }}
       style={{
         position: 'absolute', top: '50%', [side]: 12, transform: 'translateY(-50%)', zIndex: 10,
-        background: 'rgba(0,0,0,0.5)', border: 'none', borderRadius: '50%', width: 40, height: 40,
+        background: 'rgba(0,0,0,0.5)', border: 'none', borderRadius: '50%', width: 40, height: 40,  // theme-lint-disable: fixed dark media-viewer surface
         display: 'flex', alignItems: 'center', justifyContent: 'center', cursor: 'pointer',
-        color: 'rgba(255,255,255,0.8)', transition: 'background 0.15s',
+        color: 'rgba(255,255,255,0.8)', transition: 'background 0.15s',  // theme-lint-disable: fixed dark media-viewer surface
       }}
       onMouseEnter={e => (e.currentTarget.style.background = 'rgba(0,0,0,0.75)')}
       onMouseLeave={e => (e.currentTarget.style.background = 'rgba(0,0,0,0.5)')}>
@@ -63,7 +63,7 @@ export function ImageLightbox({ files, initialIndex, onClose }: ImageLightboxPro
 
   return (
     <div
-      style={{ position: 'fixed', inset: 0, background: 'rgba(0,0,0,0.92)', zIndex: 2000, display: 'flex', flexDirection: 'column', paddingBottom: 'var(--bottom-nav-h)' }}
+      style={{ position: 'fixed', inset: 0, background: 'rgba(0,0,0,0.92)', zIndex: 2000, display: 'flex', flexDirection: 'column', paddingBottom: 'var(--bottom-nav-h)' }}  // theme-lint-disable: fixed dark media-viewer surface
       onClick={onClose}
       onTouchStart={e => setTouchStart(e.touches[0].clientX)}
       onTouchEnd={e => {
@@ -76,24 +76,24 @@ export function ImageLightbox({ files, initialIndex, onClose }: ImageLightboxPro
     >
       {/* Header */}
       <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '10px 16px', flexShrink: 0 }} onClick={e => e.stopPropagation()}>
-        <span style={{ fontSize: 'calc(12px * var(--fs-scale-body, 1))', color: 'rgba(255,255,255,0.7)', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap', flex: 1 }}>
+        <span style={{ fontSize: 'calc(12px * var(--fs-scale-body, 1))', color: 'rgba(255,255,255,0.7)', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap', flex: 1 }}>  // theme-lint-disable: fixed dark media-viewer surface
           {file.original_name}
-          <span style={{ marginLeft: 8, color: 'rgba(255,255,255,0.4)' }}>{index + 1} / {files.length}</span>
+          <span style={{ marginLeft: 8, color: 'rgba(255,255,255,0.4)' }}>{index + 1} / {files.length}</span>  // theme-lint-disable: fixed dark media-viewer surface
         </span>
         <div style={{ display: 'flex', gap: 8, flexShrink: 0 }}>
           <button
             onClick={() => openFileUrl(file.url, file.original_name).catch(() => {})}
-            style={{ background: 'none', border: 'none', cursor: 'pointer', color: 'rgba(255,255,255,0.7)', display: 'flex', padding: 4 }}
+            style={{ background: 'none', border: 'none', cursor: 'pointer', color: 'rgba(255,255,255,0.7)', display: 'flex', padding: 4 }}  // theme-lint-disable: fixed dark media-viewer surface
             title={t('files.openTab')}>
             <ExternalLink size={16} />
           </button>
           <button
             onClick={() => triggerDownload(file.url, file.original_name)}
-            style={{ background: 'none', border: 'none', cursor: 'pointer', color: 'rgba(255,255,255,0.7)', display: 'flex', padding: 4 }}
+            style={{ background: 'none', border: 'none', cursor: 'pointer', color: 'rgba(255,255,255,0.7)', display: 'flex', padding: 4 }}  // theme-lint-disable: fixed dark media-viewer surface
             title={t('files.download') || 'Download'}>
             <Download size={16} />
           </button>
-          <button onClick={onClose} style={{ background: 'none', border: 'none', cursor: 'pointer', color: 'rgba(255,255,255,0.7)', display: 'flex', padding: 4 }}>
+          <button onClick={onClose} style={{ background: 'none', border: 'none', cursor: 'pointer', color: 'rgba(255,255,255,0.7)', display: 'flex', padding: 4 }}>  // theme-lint-disable: fixed dark media-viewer surface
             <X size={18} />
           </button>
         </div>
@@ -134,8 +134,8 @@ function ThumbImg({ file, active, onClick }: { file: TripFile & { url: string };
   return (
     <button onClick={onClick} style={{
       width: 48, height: 48, borderRadius: 6, overflow: 'hidden', border: active ? '2px solid #fff' : '2px solid transparent',
-      opacity: active ? 1 : 0.5, cursor: 'pointer', padding: 0, background: '#111', flexShrink: 0, transition: 'opacity 0.15s',
-      display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'rgba(255,255,255,0.7)',
+      opacity: active ? 1 : 0.5, cursor: 'pointer', padding: 0, background: '#111', flexShrink: 0, transition: 'opacity 0.15s',  // theme-lint-disable: fixed dark media-viewer surface
+      display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'rgba(255,255,255,0.7)',  // theme-lint-disable: fixed dark media-viewer surface
     }}>
       {fileIsVideo
         ? <Play size={16} fill="currentColor" />

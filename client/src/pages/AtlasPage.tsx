@@ -239,7 +239,7 @@ export default function AtlasPage(): React.ReactElement {
                   style={{ display: 'flex', alignItems: 'center', gap: 10, width: '100%', padding: '12px 16px', borderRadius: 12, background: 'none', cursor: 'pointer', fontFamily: 'inherit', textAlign: 'left', transition: 'background 0.12s' }}
                   onMouseEnter={e => e.currentTarget.style.background = 'var(--bg-secondary)'}
                   onMouseLeave={e => e.currentTarget.style.background = 'none'}>
-                  <Star size={18} className="text-[#fbbf24]" style={{ flexShrink: 0 }} />
+                  <Star size={18} className="text-olive-300" style={{ flexShrink: 0 }} />
                   <div>
                     <div className="text-content" style={{ fontSize: 'calc(13px * var(--fs-scale-body, 1))', fontWeight: 600 }}>{t('atlas.addToBucket')}</div>
                     <div className="text-content-muted" style={{ fontSize: 'calc(11px * var(--fs-scale-caption, 1))', marginTop: 1 }}>{t('atlas.addToBucketHint')}</div>
@@ -288,7 +288,7 @@ export default function AtlasPage(): React.ReactElement {
                   style={{ display: 'flex', alignItems: 'center', gap: 10, width: '100%', padding: '12px 16px', borderRadius: 12, background: 'none', cursor: 'pointer', fontFamily: 'inherit', textAlign: 'left', transition: 'background 0.12s' }}
                   onMouseEnter={e => e.currentTarget.style.background = 'var(--bg-secondary)'}
                   onMouseLeave={e => e.currentTarget.style.background = 'none'}>
-                  <Star size={18} className="text-[#fbbf24]" style={{ flexShrink: 0 }} />
+                  <Star size={18} className="text-olive-300" style={{ flexShrink: 0 }} />
                   <div>
                     <div className="text-content" style={{ fontSize: 'calc(13px * var(--fs-scale-body, 1))', fontWeight: 600 }}>{t('atlas.addToBucket')}</div>
                     <div className="text-content-muted" style={{ fontSize: 'calc(11px * var(--fs-scale-caption, 1))', marginTop: 1 }}>{t('atlas.addToBucketHint')}</div>
@@ -412,7 +412,7 @@ export default function AtlasPage(): React.ReactElement {
                     setBucketMonth(0); setBucketYear(0)
                     setConfirmAction(null)
                   }}
-                    className="bg-[#fbbf24] text-[#1a1a1a]"
+                    className="bg-olive-300 text-ink-900"
                     style={{ padding: '8px 20px', borderRadius: 10, border: 'none', fontSize: 'calc(13px * var(--fs-scale-body, 1))', fontWeight: 600, cursor: 'pointer', fontFamily: 'inherit' }}>
                     {t('atlas.addToBucket')}
                   </button>
@@ -546,7 +546,7 @@ function SidebarContent({ data, stats, countries, selectedCountry, countryDetail
             const code = item.country_code?.length === 2 ? item.country_code : (Object.entries(A2_TO_A3).find(([, v]) => v === item.country_code)?.[0] || '')
             return code ? (
               <img src={`https://flagcdn.com/w40/${code.toLowerCase()}.png`} alt={code} style={{ width: 28, height: 20, borderRadius: 4, objectFit: 'cover', marginBottom: 4 }} />
-            ) : <Star size={16} className="text-[#fbbf24]" style={{ marginBottom: 4 }} fill="#fbbf24" />
+            ) : <Star size={16} className="text-olive-300" style={{ marginBottom: 4 }} fill="var(--olive-300)" />
           })()}
           <span className="text-xs font-semibold text-center leading-tight" style={{ color: tp, maxWidth: 90, overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>{item.name}</span>
           {item.target_date && (() => {
@@ -631,7 +631,7 @@ function SidebarContent({ data, stats, countries, selectedCountry, countryDetail
             {t('common.cancel')}
           </button>
           <button onClick={onAddBucket} disabled={!bucketForm.name.trim()}
-            className="bg-[#fbbf24] text-[#1a1a1a]"
+            className="bg-olive-300 text-ink-900"
             style={{ fontSize: 'calc(11px * var(--fs-scale-caption, 1))', padding: '4px 12px', borderRadius: 6, border: 'none', fontWeight: 600, cursor: 'pointer', fontFamily: 'inherit', opacity: bucketForm.name.trim() ? 1 : 0.5 }}>
             {t('common.add')}
           </button>

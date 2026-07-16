@@ -69,7 +69,7 @@ export default function PhotoLightbox({ photos, startIndex = 0, onClose }: Props
     <div
       style={{
         position: 'fixed', inset: 0, zIndex: 10000,
-        background: 'rgba(0,0,0,0.92)', backdropFilter: 'blur(20px)',
+        background: 'rgba(0,0,0,0.92)', backdropFilter: 'blur(20px)',  // theme-lint-disable: fixed dark media-viewer surface
         display: 'flex', flexDirection: 'column',
         paddingBottom: 'var(--bottom-nav-h)',
       }}
@@ -83,11 +83,11 @@ export default function PhotoLightbox({ photos, startIndex = 0, onClose }: Props
       >
         {/* Top bar */}
         <div style={{ position: 'absolute', top: 0, left: 0, right: 0, zIndex: 10, display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '16px 20px' }}>
-          <span style={{ color: 'rgba(255,255,255,0.5)', fontSize: 'calc(13px * var(--fs-scale-body, 1))', fontWeight: 500 }}>
+          <span style={{ color: 'rgba(255,255,255,0.5)', fontSize: 'calc(13px * var(--fs-scale-body, 1))', fontWeight: 500 }}>  // theme-lint-disable: fixed dark media-viewer surface
             {idx + 1} / {photos.length}
           </span>
           <button onClick={onClose} style={{
-            background: 'rgba(255,255,255,0.1)', border: 'none', borderRadius: '50%',
+            background: 'rgba(255,255,255,0.1)', border: 'none', borderRadius: '50%',  // theme-lint-disable: fixed dark media-viewer surface
             width: 36, height: 36, display: 'flex', alignItems: 'center', justifyContent: 'center',
             color: 'var(--text-inverse)', cursor: 'pointer',
           }}>
@@ -100,7 +100,7 @@ export default function PhotoLightbox({ photos, startIndex = 0, onClose }: Props
           <button onClick={prev} className="flex sm:opacity-0 sm:group-hover/lightbox:opacity-100 transition-opacity" style={{
             position: 'absolute', left: 16, zIndex: 5,
             width: 44, height: 44, borderRadius: '50%',
-            background: 'rgba(0,0,0,0.4)', backdropFilter: 'blur(8px)',
+            background: 'rgba(0,0,0,0.4)', backdropFilter: 'blur(8px)',  // theme-lint-disable: fixed dark media-viewer surface
             border: '1px solid rgba(255,255,255,0.1)',
             alignItems: 'center', justifyContent: 'center',
             color: 'var(--text-inverse)', cursor: 'pointer',
@@ -130,7 +130,7 @@ export default function PhotoLightbox({ photos, startIndex = 0, onClose }: Props
           <button onClick={next} className="flex sm:opacity-0 sm:group-hover/lightbox:opacity-100 transition-opacity" style={{
             position: 'absolute', right: 16, zIndex: 5,
             width: 44, height: 44, borderRadius: '50%',
-            background: 'rgba(0,0,0,0.4)', backdropFilter: 'blur(8px)',
+            background: 'rgba(0,0,0,0.4)', backdropFilter: 'blur(8px)',  // theme-lint-disable: fixed dark media-viewer surface
             border: '1px solid rgba(255,255,255,0.1)',
             alignItems: 'center', justifyContent: 'center',
             color: 'var(--text-inverse)', cursor: 'pointer',
@@ -144,8 +144,8 @@ export default function PhotoLightbox({ photos, startIndex = 0, onClose }: Props
           <div style={{ position: 'absolute', bottom: 20, left: '50%', transform: 'translateX(-50%)', zIndex: 5, maxWidth: '70%', textAlign: 'center' }}>
             <p style={{
               fontSize: 'calc(14px * var(--fs-scale-body, 1))', fontStyle: 'italic',
-              color: 'rgba(255,255,255,0.75)', margin: 0, lineHeight: 1.5,
-              background: 'rgba(0,0,0,0.3)', backdropFilter: 'blur(8px)',
+              color: 'rgba(255,255,255,0.75)', margin: 0, lineHeight: 1.5,  // theme-lint-disable: fixed dark media-viewer surface
+              background: 'rgba(0,0,0,0.3)', backdropFilter: 'blur(8px)',  // theme-lint-disable: fixed dark media-viewer surface
               padding: '6px 14px', borderRadius: 10,
             }}>{photo.caption}</p>
           </div>
