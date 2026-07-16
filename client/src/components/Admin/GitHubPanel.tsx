@@ -302,12 +302,12 @@ export default function GitHubPanel({ isPrerelease = false }: { isPrerelease?: b
                           {release.tag_name}
                         </span>
                         {isLatest && (
-                          <span className="text-[10px] font-semibold px-2 py-0.5 rounded-full bg-[rgba(34,197,94,0.12)] text-[var(--success)]">
+                          <span className="text-[10px] font-semibold px-2 py-0.5 rounded-full bg-[var(--success-soft)] text-[var(--success)]">
                             {t('admin.github.latest')}
                           </span>
                         )}
                         {release.prerelease && (
-                          <span className="text-[10px] font-semibold px-2 py-0.5 rounded-full bg-[rgba(245,158,11,0.12)] text-[var(--warning)]">
+                          <span className="text-[10px] font-semibold px-2 py-0.5 rounded-full bg-[var(--warning-soft)] text-[var(--warning)]">
                             {t('admin.github.prerelease')}
                           </span>
                         )}

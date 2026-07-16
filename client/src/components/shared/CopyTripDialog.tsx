@@ -42,7 +42,7 @@ export default function CopyTripDialog({ isOpen, tripTitle, onClose, onConfirm }
 
   return ReactDOM.createPortal(
     <div
-      className="fixed inset-0 z-[10000] flex items-center justify-center px-4 trek-backdrop-enter bg-[rgba(15,23,42,0.5)]"
+      className="fixed inset-0 z-[10000] flex items-center justify-center px-4 trek-backdrop-enter bg-[var(--overlay)]"
       style={{ paddingBottom: 'var(--bottom-nav-h)' }}
       onClick={onClose}
     >

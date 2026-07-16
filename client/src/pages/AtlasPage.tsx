@@ -198,7 +198,7 @@ export default function AtlasPage(): React.ReactElement {
 
       {/* Country action popup */}
       {confirmAction && (
-        <div className="bg-[rgba(0,0,0,0.4)]" style={{ position: 'fixed', inset: 0, zIndex: 1000, display: 'flex', alignItems: 'center', justifyContent: 'center', padding: 20 }}
+        <div className="bg-[var(--overlay)]" style={{ position: 'fixed', inset: 0, zIndex: 1000, display: 'flex', alignItems: 'center', justifyContent: 'center', padding: 20 }}
           onClick={() => setConfirmAction(null)}>
           <div className="bg-surface-card" style={{ borderRadius: 16, padding: 24, maxWidth: 340, width: '100%', boxShadow: '0 16px 48px rgba(0,0,0,0.2)', textAlign: 'center' }}
             onClick={e => e.stopPropagation()}>
@@ -745,7 +745,7 @@ function SidebarContent({ data, stats, countries, selectedCountry, countryDetail
                 ))}
                 {countryDetail.manually_marked && onUnmarkCountry && (
                   <button onClick={() => onUnmarkCountry(selectedCountry!)}
-                    className="flex items-center gap-1 px-2 py-0.5 rounded text-[10px] font-semibold transition-opacity hover:opacity-75 bg-[rgba(239,68,68,0.1)] text-[var(--danger)]">
+                    className="flex items-center gap-1 px-2 py-0.5 rounded text-[10px] font-semibold transition-opacity hover:opacity-75 bg-[var(--danger-soft)] text-[var(--danger)]">
                     <X size={9} />
                     {t('atlas.unmark')}
                   </button>

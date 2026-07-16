@@ -204,7 +204,7 @@ export default function Navbar({ tripTitle, tripId, onBack, showBack, onShare }:
       {/* Prerelease badge */}
       {isPrerelease && appVersion && (
         <span
-          className="hidden sm:flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[11px] font-semibold flex-shrink-0 bg-[rgba(245,158,11,0.15)] text-[var(--warning)] border border-[rgba(245,158,11,0.3)]"
+          className="hidden sm:flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[11px] font-semibold flex-shrink-0 bg-[var(--warning-soft)] text-[var(--warning)] border border-[var(--warning-soft)]"
         >
           <span className="w-1.5 h-1.5 rounded-full flex-shrink-0 bg-[var(--warning)]" />
           {appVersion}

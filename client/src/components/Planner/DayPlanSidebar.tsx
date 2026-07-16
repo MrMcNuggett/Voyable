@@ -1819,7 +1819,7 @@ const DayPlanSidebar = React.memo(function DayPlanSidebar(props: DayPlanSidebarP
                                 const active = hasEndpoints ? visibleConnectionIds.includes(res.id) : false
                                 return (
                                   <div style={{ marginTop: 3, display: 'inline-flex', alignItems: 'center', gap: 4 }}>
-                                    <div className={confirmed ? 'bg-[rgba(22,163,74,0.1)] text-[var(--success)]' : 'bg-[rgba(217,119,6,0.1)] text-[var(--warning)]'} style={{ display: 'inline-flex', alignItems: 'center', gap: 3, padding: '1px 6px', borderRadius: 5, fontSize: 'calc(9px * var(--fs-scale-caption, 1))', fontWeight: 600,
+                                    <div className={confirmed ? 'bg-[var(--success-soft)] text-[var(--success)]' : 'bg-[var(--warning-soft)] text-[var(--warning)]'} style={{ display: 'inline-flex', alignItems: 'center', gap: 3, padding: '1px 6px', borderRadius: 5, fontSize: 'calc(9px * var(--fs-scale-caption, 1))', fontWeight: 600,
                                     }}>
                                       {(() => { const RI = RES_ICONS[res.type] || Ticket; return <RI size={8} /> })()}
                                       <span className="hidden sm:inline">{confirmed ? t('planner.resConfirmed') : t('planner.resPending')}</span>

@@ -22,7 +22,7 @@ interface DayPlanSidebarTimeConfirmModalProps {
 export function DayPlanSidebarTimeConfirmModal({ timeConfirm, setTimeConfirm, confirmTimeRemoval, t }: DayPlanSidebarTimeConfirmModalProps) {
   if (!timeConfirm) return null
   return ReactDOM.createPortal(
-    <div className="bg-[rgba(0,0,0,0.3)]" style={{
+    <div className="bg-[var(--overlay)]" style={{
       position: 'fixed', inset: 0, zIndex: 1000,
       display: 'flex', alignItems: 'center', justifyContent: 'center',
       backdropFilter: 'blur(3px)',
@@ -33,7 +33,7 @@ export function DayPlanSidebarTimeConfirmModal({ timeConfirm, setTimeConfirm, co
         display: 'flex', flexDirection: 'column', gap: 12,
       }} onClick={e => e.stopPropagation()}>
         <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
-          <div className="bg-[rgba(239,68,68,0.12)]" style={{
+          <div className="bg-[var(--danger-soft)]" style={{
             width: 36, height: 36, flexShrink: 0, display: 'flex', alignItems: 'center', justifyContent: 'center',
             borderRadius: '50%',
           }}>

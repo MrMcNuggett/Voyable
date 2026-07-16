@@ -161,7 +161,7 @@ function ReservationCard({ r, tripId, onEdit, onDelete, files = [], onNavigateTo
     >
       {/* Header — wraps to a second row on narrow screens so the status/category chips
           never collide with the title. */}
-      <div className={confirmed ? 'bg-[rgba(22,163,74,0.06)]' : 'bg-[rgba(217,119,6,0.06)]'} style={{
+      <div className={confirmed ? 'bg-[var(--success-soft)]' : 'bg-[var(--warning-soft)]'} style={{
         display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: 12,
         flexWrap: 'wrap',
         padding: '12px 14px',
@@ -183,7 +183,7 @@ function ReservationCard({ r, tripId, onEdit, onDelete, files = [], onNavigateTo
             {t(typeInfo.labelKey)}
           </span>
           {r.needs_review ? (
-            <span className="text-[var(--warning)] bg-[rgba(245,158,11,0.12)]" style={{
+            <span className="text-[var(--warning)] bg-[var(--warning-soft)]" style={{
               display: 'inline-flex', alignItems: 'center', gap: 4,
               fontSize: 'calc(11px * var(--fs-scale-caption, 1))', fontWeight: 600,
               padding: '3px 8px', borderRadius: 6,
@@ -194,7 +194,7 @@ function ReservationCard({ r, tripId, onEdit, onDelete, files = [], onNavigateTo
           ) : null}
           {r.external_source === 'airtrail' ? (
             <span
-              className={r.sync_enabled ? 'text-[var(--info)] bg-[rgba(59,130,246,0.12)]' : 'text-content-faint bg-surface-tertiary'}
+              className={r.sync_enabled ? 'text-[var(--info)] bg-[var(--info-soft)]' : 'text-content-faint bg-surface-tertiary'}
               style={{ display: 'inline-flex', alignItems: 'center', gap: 4, fontSize: 'calc(11px * var(--fs-scale-caption, 1))', fontWeight: 600, padding: '3px 8px', borderRadius: 6 }}
               title={r.sync_enabled ? t('reservations.airtrail.syncedHint') : t('reservations.airtrail.notSyncedHint')}
             >
@@ -429,7 +429,7 @@ function ReservationCard({ r, tripId, onEdit, onDelete, files = [], onNavigateTo
 
       {/* Delete confirmation */}
       {showDeleteConfirm && ReactDOM.createPortal(
-        <div className="bg-[rgba(0,0,0,0.3)]" style={{
+        <div className="bg-[var(--overlay)]" style={{
           position: 'fixed', inset: 0, zIndex: 1000,
           display: 'flex', alignItems: 'center', justifyContent: 'center',
           backdropFilter: 'blur(3px)',
@@ -440,7 +440,7 @@ function ReservationCard({ r, tripId, onEdit, onDelete, files = [], onNavigateTo
             display: 'flex', flexDirection: 'column', gap: 12,
           }} onClick={e => e.stopPropagation()}>
             <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
-              <div className="bg-[rgba(239,68,68,0.12)]" style={{
+              <div className="bg-[var(--danger-soft)]" style={{
                 width: 36, height: 36, flexShrink: 0, display: 'flex', alignItems: 'center', justifyContent: 'center',
                 borderRadius: '50%',
               }}>
@@ -602,7 +602,7 @@ function TransitJourneyCard({ r, days, onOpen, onDelete, canEdit, tripId, contri
         </div>
       )}
       {confirmOpen && ReactDOM.createPortal(
-        <div className="bg-[rgba(0,0,0,0.35)]" style={{ position: 'fixed', inset: 0, zIndex: 3000, display: 'flex', alignItems: 'center', justifyContent: 'center' }} onClick={e => { e.stopPropagation(); setConfirmOpen(false) }}>
+        <div className="bg-[var(--overlay)]" style={{ position: 'fixed', inset: 0, zIndex: 3000, display: 'flex', alignItems: 'center', justifyContent: 'center' }} onClick={e => { e.stopPropagation(); setConfirmOpen(false) }}>
           <div className="bg-surface-card" style={{ borderRadius: 14, padding: 20, width: 340, boxShadow: '0 16px 48px rgba(0,0,0,0.22)' }} onClick={e => e.stopPropagation()}>
             <div className="text-content" style={{ fontWeight: 600, fontSize: 'calc(14px * var(--fs-scale-body, 1))', marginBottom: 6 }}>{t('reservations.confirm.deleteTitle')}</div>
             <div className="text-content-muted" style={{ fontSize: 'calc(12.5px * var(--fs-scale-body, 1))', marginBottom: 14 }}>{t('reservations.confirm.deleteBody', { name: r.title })}</div>

@@ -21,7 +21,7 @@ export function DayPlanSidebarNoteModal({ noteUi, setNoteUi, noteInputRef, cance
   return (
     <>
       {Object.entries(noteUi).map(([dayId, ui]) => ui && ReactDOM.createPortal(
-        <div key={dayId} className="bg-[rgba(0,0,0,0.3)]" style={{
+        <div key={dayId} className="bg-[var(--overlay)]" style={{
           position: 'fixed', inset: 0, zIndex: 10000,
           display: 'flex', alignItems: 'center', justifyContent: 'center',
           backdropFilter: 'blur(3px)',

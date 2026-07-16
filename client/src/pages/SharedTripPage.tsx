@@ -235,8 +235,8 @@ export default function SharedTripPage() {
                           }
                         }
                         return (
-                          <div key={r.__leg ? `t-${r.id}-leg${r.__leg.index}` : `t-${r.id}`} className="bg-[rgba(59,130,246,0.06)]" style={{ display: 'flex', alignItems: 'center', gap: 8, padding: '6px 8px', borderRadius: 6, border: '1px solid rgba(59,130,246,0.15)' }}>
-                            <div className="bg-[rgba(59,130,246,0.12)]" style={{ width: 24, height: 24, borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
+                          <div key={r.__leg ? `t-${r.id}-leg${r.__leg.index}` : `t-${r.id}`} className="bg-[var(--info-soft)]" style={{ display: 'flex', alignItems: 'center', gap: 8, padding: '6px 8px', borderRadius: 6, border: '1px solid rgba(59,130,246,0.15)' }}>
+                            <div className="bg-[var(--info-soft)]" style={{ width: 24, height: 24, borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
                               <TIcon size={12} color="#3b82f6" />
                             </div>
                             <div style={{ flex: 1, minWidth: 0 }}>
@@ -312,7 +312,7 @@ export default function SharedTripPage() {
                           : meta.airline && <span>{meta.airline} {meta.flight_number || ''}</span>}
                     </div>
                   </div>
-                  <span className={r.status === 'confirmed' ? 'bg-[rgba(22,163,74,0.1)] text-[var(--success)]' : 'bg-[rgba(217,119,6,0.1)] text-[var(--warning)]'} style={{ fontSize: 'calc(10px * var(--fs-scale-caption, 1))', padding: '2px 8px', borderRadius: 20, fontWeight: 600 }}>
+                  <span className={r.status === 'confirmed' ? 'bg-[var(--success-soft)] text-[var(--success)]' : 'bg-[var(--warning-soft)] text-[var(--warning)]'} style={{ fontSize: 'calc(10px * var(--fs-scale-caption, 1))', padding: '2px 8px', borderRadius: 20, fontWeight: 600 }}>
                     {r.status === 'confirmed' ? t('shared.confirmed') : t('shared.pending')}
                   </span>
                 </div>

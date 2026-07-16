@@ -11,7 +11,7 @@ export function ListImportModal(S: SidebarState) {
   return ReactDOM.createPortal(
     <div
       onClick={() => { setListImportOpen(false); setListImportUrl('') }}
-      className="bg-[rgba(0,0,0,0.4)]"
+      className="bg-[var(--overlay)]"
       style={{ position: 'fixed', inset: 0, zIndex: 99999, display: 'flex', alignItems: 'center', justifyContent: 'center', padding: 16 }}
     >
       <div

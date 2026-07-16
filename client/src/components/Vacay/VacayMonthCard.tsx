@@ -110,7 +110,7 @@ export default function VacayMonthCard({
                   onMouseLeave={e => { e.currentTarget.style.background = weekend ? 'var(--bg-secondary)' : 'transparent' }}
                 >
                   {holiday && <div className="absolute inset-0.5 rounded" style={{ background: hexToRgba(holiday.color, 0.12) }} />}
-                  {isCompany && <div className="absolute inset-0.5 rounded bg-[rgba(245,158,11,0.15)]" />}
+                  {isCompany && <div className="absolute inset-0.5 rounded bg-[var(--warning-soft)]" />}
 
                   {dayEntries.length === 1 && (
                     <div className="absolute inset-0.5 rounded" style={{ backgroundColor: dayEntries[0].person_color, opacity: 0.4 }} />

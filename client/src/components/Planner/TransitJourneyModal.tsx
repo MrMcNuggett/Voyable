@@ -144,7 +144,7 @@ export default function TransitJourneyModal({ reservation, onClose, onSave, onDe
           {canEdit && (
             <button onClick={() => setConfirmDelete(true)} aria-label={t('common.delete')} title={t('common.delete')} style={{
               display: 'inline-flex', alignItems: 'center', gap: 5, padding: isMobile ? '9px 11px' : '8px 14px', borderRadius: 10,
-              border: '1px solid rgba(239,68,68,0.3)', background: 'rgba(239,68,68,0.06)', color: 'var(--danger)',
+              border: '1px solid rgba(239,68,68,0.3)', background: 'var(--danger-soft)', color: 'var(--danger)',
               fontSize: 'calc(12px * var(--fs-scale-body, 1))', fontWeight: 500, cursor: 'pointer', fontFamily: 'inherit',
             }}>
               <Trash2 size={13} /> {!isMobile && t('common.delete')}

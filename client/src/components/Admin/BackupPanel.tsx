@@ -458,7 +458,7 @@ export default function BackupPanel() {
       {/* Restore Warning Modal */}
       {restoreConfirm && (
         <div
-          className="bg-[rgba(0,0,0,0.5)]"
+          className="bg-[var(--overlay)]"
           style={{ position: 'fixed', inset: 0, zIndex: 9999, backdropFilter: 'blur(4px)', display: 'flex', alignItems: 'center', justifyContent: 'center', padding: 16 }}
           onClick={() => setRestoreConfirm(null)}
         >

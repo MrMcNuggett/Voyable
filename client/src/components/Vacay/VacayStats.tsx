@@ -129,7 +129,7 @@ function StatCard({ stat: s, isMe, canEdit, selectedYear, onSave, t }: StatCardP
         </div>
       </div>
       {s.carried_over > 0 && (
-        <div className="flex items-center gap-1.5 px-2 py-1 rounded-md bg-[rgba(245,158,11,0.08)] border border-[rgba(245,158,11,0.15)]">
+        <div className="flex items-center gap-1.5 px-2 py-1 rounded-md bg-[var(--warning-soft)] border border-[var(--warning-soft)]">
           <span className="text-[10px] text-[var(--warning)]">+{s.carried_over} {t('vacay.carriedOver', { year: selectedYear - 1 })}</span>
         </div>
       )}

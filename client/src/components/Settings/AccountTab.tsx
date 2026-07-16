@@ -503,7 +503,7 @@ export default function AccountTab(): React.ReactElement {
 
       {/* Delete Account Blocked */}
       {showDeleteConfirm === 'blocked' && (
-        <div className="bg-[rgba(0,0,0,0.5)]" style={{
+        <div className="bg-[var(--overlay)]" style={{
           position: 'fixed', inset: 0, zIndex: 9999,
           backdropFilter: 'blur(4px)',
           display: 'flex', alignItems: 'center', justifyContent: 'center', padding: 24,
@@ -539,7 +539,7 @@ export default function AccountTab(): React.ReactElement {
 
       {/* Delete Account Confirm */}
       {showDeleteConfirm === true && (
-        <div className="bg-[rgba(0,0,0,0.5)]" style={{
+        <div className="bg-[var(--overlay)]" style={{
           position: 'fixed', inset: 0, zIndex: 9999,
           backdropFilter: 'blur(4px)',
           display: 'flex', alignItems: 'center', justifyContent: 'center', padding: 24,

@@ -218,7 +218,7 @@ export default function FileImportModal({ isOpen, onClose, tripId, pushUndo, ini
   return ReactDOM.createPortal(
     <div
       onClick={handleClose}
-      className="bg-[rgba(0,0,0,0.4)]"
+      className="bg-[var(--overlay)]"
       style={{ position: 'fixed', inset: 0, zIndex: 99999, display: 'flex', alignItems: 'center', justifyContent: 'center', padding: 16 }}
     >
       <div
@@ -350,7 +350,7 @@ export default function FileImportModal({ isOpen, onClose, tripId, pushUndo, ini
         )}
 
         {error && (
-          <div className="bg-[rgba(239,68,68,0.08)] text-[var(--danger)]" style={{
+          <div className="bg-[var(--danger-soft)] text-[var(--danger)]" style={{
             border: '1px solid rgba(239,68,68,0.35)', borderRadius: 10,
             padding: '8px 10px',
             fontSize: 'calc(12px * var(--fs-scale-body, 1))', whiteSpace: 'pre-wrap', marginBottom: 10,

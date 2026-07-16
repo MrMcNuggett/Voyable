@@ -143,7 +143,7 @@ function ShareLinkSection({ tripId, t }: { tripId: number; t: (key: string, para
           <button onClick={handleDelete} style={{
             display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 5,
             padding: '6px 0', borderRadius: 8, border: '1px solid rgba(239,68,68,0.3)',
-            background: 'rgba(239,68,68,0.06)', color: 'var(--danger)', fontSize: 'calc(11px * var(--fs-scale-caption, 1))', fontWeight: 500,
+            background: 'var(--danger-soft)', color: 'var(--danger)', fontSize: 'calc(11px * var(--fs-scale-caption, 1))', fontWeight: 500,
             cursor: 'pointer', fontFamily: 'inherit',
           }}>
             <Trash2 size={11} /> {t('share.deleteLink')}
@@ -242,7 +242,7 @@ function TripInviteLinkSection({ tripId, t }: { tripId: number; t: (key: string,
             <button onClick={remove} disabled={busy} style={{
               flex: 1, display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 5,
               padding: '6px 0', borderRadius: 8, border: '1px solid rgba(239,68,68,0.3)',
-              background: 'rgba(239,68,68,0.06)', color: 'var(--danger)', fontSize: 'calc(11px * var(--fs-scale-caption, 1))', fontWeight: 500,
+              background: 'var(--danger-soft)', color: 'var(--danger)', fontSize: 'calc(11px * var(--fs-scale-caption, 1))', fontWeight: 500,
               cursor: busy ? 'default' : 'pointer', fontFamily: 'inherit',
             }}>
               <Trash2 size={11} /> {t('trip.invite.disable')}
