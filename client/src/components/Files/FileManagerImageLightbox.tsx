@@ -76,9 +76,9 @@ export function ImageLightbox({ files, initialIndex, onClose }: ImageLightboxPro
     >
       {/* Header */}
       <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '10px 16px', flexShrink: 0 }} onClick={e => e.stopPropagation()}>
-        <span style={{ fontSize: 'calc(12px * var(--fs-scale-body, 1))', color: 'rgba(255,255,255,0.7)', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap', flex: 1 }}>  // theme-lint-disable: fixed dark media-viewer surface
+        <span style={{ fontSize: 'calc(12px * var(--fs-scale-body, 1))', color: 'rgba(255,255,255,0.7)', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap', flex: 1 }}>{/* theme-lint-disable: fixed dark media-viewer surface */}
           {file.original_name}
-          <span style={{ marginLeft: 8, color: 'rgba(255,255,255,0.4)' }}>{index + 1} / {files.length}</span>  // theme-lint-disable: fixed dark media-viewer surface
+          <span style={{ marginLeft: 8, color: 'rgba(255,255,255,0.4)' }}>{index + 1} / {files.length}</span>{/* theme-lint-disable: fixed dark media-viewer surface */}
         </span>
         <div style={{ display: 'flex', gap: 8, flexShrink: 0 }}>
           <button
@@ -93,7 +93,7 @@ export function ImageLightbox({ files, initialIndex, onClose }: ImageLightboxPro
             title={t('files.download') || 'Download'}>
             <Download size={16} />
           </button>
-          <button onClick={onClose} style={{ background: 'none', border: 'none', cursor: 'pointer', color: 'rgba(255,255,255,0.7)', display: 'flex', padding: 4 }}>  // theme-lint-disable: fixed dark media-viewer surface
+          <button onClick={onClose} style={{ background: 'none', border: 'none', cursor: 'pointer', color: 'rgba(255,255,255,0.7)', display: 'flex', padding: 4 }}>{/* theme-lint-disable: fixed dark media-viewer surface */}
             <X size={18} />
           </button>
         </div>

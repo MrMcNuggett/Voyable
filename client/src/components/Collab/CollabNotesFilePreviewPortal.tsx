@@ -28,19 +28,19 @@ export function FilePreviewPortal({ file, onClose }: FilePreviewPortalProps) {
   const openInNewTab = () => openFile(rawUrl).catch(() => {})
 
   return ReactDOM.createPortal(
-    <div style={{ position: 'fixed', inset: 0, background: 'rgba(0,0,0,0.88)', zIndex: 10000, display: 'flex', alignItems: 'center', justifyContent: 'center', padding: 16 }} onClick={onClose}>  // theme-lint-disable: fixed dark media-viewer surface
+    <div style={{ position: 'fixed', inset: 0, background: 'rgba(0,0,0,0.88)', zIndex: 10000, display: 'flex', alignItems: 'center', justifyContent: 'center', padding: 16 }} onClick={onClose}>{/* theme-lint-disable: fixed dark media-viewer surface */}
       {isImage ? (
         /* Image lightbox — floating controls */
         <div style={{ position: 'relative', maxWidth: '90vw', maxHeight: '90vh' }} onClick={e => e.stopPropagation()}>
           {authUrl
             ? <img src={authUrl} alt={file.original_name} style={{ maxWidth: '90vw', maxHeight: '90vh', objectFit: 'contain', borderRadius: 8, display: 'block' }} />
-            : <Loader2 size={32} className="animate-spin text-[rgba(255,255,255,0.5)]" />  // theme-lint-disable: fixed dark media-viewer surface
+            : <Loader2 size={32} /* theme-lint-disable: fixed dark media-viewer surface */ className="animate-spin text-[rgba(255,255,255,0.5)]" />
           }
           <div style={{ position: 'absolute', top: -36, left: 0, right: 0, display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '0 4px' }}>
-            <span style={{ fontSize: 'calc(11px * var(--fs-scale-caption, 1))', color: 'rgba(255,255,255,0.7)', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap', maxWidth: '70%' }}>{file.original_name}</span>  // theme-lint-disable: fixed dark media-viewer surface
+            <span style={{ fontSize: 'calc(11px * var(--fs-scale-caption, 1))', color: 'rgba(255,255,255,0.7)', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap', maxWidth: '70%' }}>{file.original_name}</span>{/* theme-lint-disable: fixed dark media-viewer surface */}
             <div style={{ display: 'flex', gap: 8 }}>
-              <button onClick={openInNewTab} style={{ background: 'none', border: 'none', cursor: 'pointer', color: 'rgba(255,255,255,0.7)', display: 'flex', padding: 0 }}><ExternalLink size={15} /></button>  // theme-lint-disable: fixed dark media-viewer surface
-              <button onClick={onClose} style={{ background: 'none', border: 'none', cursor: 'pointer', color: 'rgba(255,255,255,0.7)', display: 'flex', padding: 0 }}><X size={17} /></button>  // theme-lint-disable: fixed dark media-viewer surface
+              <button onClick={openInNewTab} style={{ background: 'none', border: 'none', cursor: 'pointer', color: 'rgba(255,255,255,0.7)', display: 'flex', padding: 0 }}><ExternalLink size={15} /></button>{/* theme-lint-disable: fixed dark media-viewer surface */}
+              <button onClick={onClose} style={{ background: 'none', border: 'none', cursor: 'pointer', color: 'rgba(255,255,255,0.7)', display: 'flex', padding: 0 }}><X size={17} /></button>{/* theme-lint-disable: fixed dark media-viewer surface */}
             </div>
           </div>
         </div>

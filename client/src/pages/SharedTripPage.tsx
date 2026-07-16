@@ -81,11 +81,11 @@ export default function SharedTripPage() {
           <div style={{ position: 'absolute', inset: 0, backgroundImage: `url(${trip.cover_image.startsWith('http') ? trip.cover_image : trip.cover_image.startsWith('/') ? trip.cover_image : '/uploads/' + trip.cover_image})`, backgroundSize: 'cover', backgroundPosition: 'center', opacity: 0.15 }} />
         )}
         {/* Background decoration */}
-        <div className="bg-[rgba(255,255,255,0.03)]" style={{ position: 'absolute', top: -60, right: -60, width: 200, height: 200, borderRadius: '50%' }} />  // theme-lint-disable: fixed on-dark hero surface
-        <div className="bg-[rgba(255,255,255,0.02)]" style={{ position: 'absolute', bottom: -40, left: -40, width: 150, height: 150, borderRadius: '50%' }} />  // theme-lint-disable: fixed on-dark hero surface
+        <div className="bg-[rgba(255,255,255,0.03)]" style={{ position: 'absolute', top: -60, right: -60, width: 200, height: 200, borderRadius: '50%' }} />{/* theme-lint-disable: fixed on-dark hero surface */}
+        <div className="bg-[rgba(255,255,255,0.02)]" style={{ position: 'absolute', bottom: -40, left: -40, width: 150, height: 150, borderRadius: '50%' }} />{/* theme-lint-disable: fixed on-dark hero surface */}
 
         {/* Logo */}
-        <div className="bg-[rgba(255,255,255,0.08)]" style={{ display: 'inline-flex', alignItems: 'center', justifyContent: 'center', width: 44, height: 44, borderRadius: 12, backdropFilter: 'blur(8px)', marginBottom: 12, border: '1px solid rgba(255,255,255,0.1)' }}>  // theme-lint-disable: fixed on-dark hero surface
+        <div className="bg-[rgba(255,255,255,0.08)]" style={{ display: 'inline-flex', alignItems: 'center', justifyContent: 'center', width: 44, height: 44, borderRadius: 12, backdropFilter: 'blur(8px)', marginBottom: 12, border: '1px solid rgba(255,255,255,0.1)' }}>{/* theme-lint-disable: fixed on-dark hero surface */}
           <img src="/icons/icon-white.svg" alt="TREK" width="26" height="26" />
         </div>
 
@@ -98,7 +98,7 @@ export default function SharedTripPage() {
         )}
 
         {(trip.start_date || trip.end_date) && (
-          <div className="bg-[rgba(255,255,255,0.08)]" style={{ marginTop: 10, display: 'inline-flex', alignItems: 'center', gap: 8, padding: '6px 14px', borderRadius: 20, backdropFilter: 'blur(4px)', border: '1px solid rgba(255,255,255,0.08)' }}>  // theme-lint-disable: fixed on-dark hero surface
+          <div className="bg-[rgba(255,255,255,0.08)]" style={{ marginTop: 10, display: 'inline-flex', alignItems: 'center', gap: 8, padding: '6px 14px', borderRadius: 20, backdropFilter: 'blur(4px)', border: '1px solid rgba(255,255,255,0.08)' }}>{/* theme-lint-disable: fixed on-dark hero surface */}
             <span style={{ fontSize: 'calc(12px * var(--fs-scale-body, 1))', fontWeight: 500, opacity: 0.8 }}>
               {[trip.start_date, trip.end_date].filter(Boolean).map((d: string) => new Date(d + 'T00:00:00Z').toLocaleDateString(locale, { day: 'numeric', month: 'short', year: 'numeric', timeZone: 'UTC' })).join(' — ')}
             </span>

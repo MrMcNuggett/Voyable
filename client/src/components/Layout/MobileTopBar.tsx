@@ -32,7 +32,7 @@ export default function MobileTopBar() {
         >
           <Bell size={20} strokeWidth={1.9} />
           {unread > 0 && (
-            <span style={{ position: 'absolute', top: 7, right: 7, width: 8, height: 8, borderRadius: '50%', background: 'oklch(0.7 0.17 38)', boxShadow: '0 0 0 2px var(--bg, #fff)' }} />  // theme-lint-disable: category color (data value)
+            <span style={{ /* theme-lint-disable: category color (data value) */ position: 'absolute', top: 7, right: 7, width: 8, height: 8, borderRadius: '50%', background: 'oklch(0.7 0.17 38)', boxShadow: '0 0 0 2px var(--bg, #fff)' }} />
           )}
         </button>
         <button

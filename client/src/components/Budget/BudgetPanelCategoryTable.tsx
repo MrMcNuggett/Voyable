@@ -93,7 +93,7 @@ export default function BudgetCategoryTable({ cat, grouped, categoryColor, canEd
                     {canEdit && (
                       <div draggable onDragStart={e => { e.stopPropagation(); e.dataTransfer.effectAllowed = 'move'; e.dataTransfer.setData('text/x-budget-cat', cat); setDragCat(cat) }}
                         onDragEnd={() => { setDragCat(null); setDragOverCat(null) }}
-                        style={{ cursor: 'grab', display: 'flex', alignItems: 'center', color: 'rgba(255,255,255,0.4)', flexShrink: 0 }}>  // theme-lint-disable: fixed on-dark surface
+                        style={{ cursor: 'grab', display: 'flex', alignItems: 'center', color: 'rgba(255,255,255,0.4)', flexShrink: 0 }}>{/* theme-lint-disable: fixed on-dark surface */}
                         <GripVertical size={14} />
                       </div>
                     )}
