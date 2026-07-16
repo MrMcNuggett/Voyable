@@ -27,6 +27,32 @@ whole app stays coherent.
 The design handoff bundle (tokens, screen mocks, component specs) is the design
 reference; its values are already transcribed into the files above.
 
+## Reusable component library (`client/src/components/voyable/`)
+
+Compose screens from the canonical Voyable set — do **not** re-improvise buttons,
+pills, tiles, etc. per screen. Import from the barrel: `import { Button, Badge, … }
+from '../components/voyable'`.
+
+| Component | Notes |
+|---|---|
+| `Button` | variants: primary (petrol) / secondary (olive) / outline / ghost / danger; sizes sm/md/lg; full-pill; `icon`, `block` |
+| `IconButton` | icon-only toolbar action; required `label` for a11y; ghost/surface/accent |
+| `Badge` | pill; tones neutral/primary/success/warning/danger/info |
+| `SegmentedFilter` | pill filter/segmented control (Planned/Archived/…) — distinct from `Tabs` |
+| `Avatar` / `AvatarStack` | image or initials on an on-brand petrol/olive/ink gradient; overflow `+N` |
+| `StatTile` | dashboard glass stat card; `hero` = the one dark-petrol accent surface per screen |
+| `EmptyState` | icon well + display-font title + optional action |
+| `Dropzone` | file drop target with petrol drag-over state (chrome only; caller handles files) |
+
+Canonicalized existing components re-exported from the same barrel (already
+token-based): `Modal` (dialog shell), `Tabs`/`SlidingTabs`, `Select`
+(`CustomSelect`), `DateTimePicker`/`DatePicker`, `PlaceAvatar`, `ConfirmDialog`.
+`Navbar` (account dropdown + bell) and the boarding-pass hero card stay as
+page-level compositions (both token-based).
+
+All library components are **token-only** and pass `npm run theme:lint` — keep
+them that way.
+
 ## Color tokens
 
 Prefer the **semantic** tokens; reach for the raw palette only for the
