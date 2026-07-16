@@ -124,7 +124,7 @@ export default function CategoryManager() {
                   }`}
                   style={{ background: isSelected ? `${form.color}18` : undefined }}
                 >
-                  <Icon size={17} strokeWidth={1.8} color={isSelected ? form.color : '#374151'} />
+                  <Icon size={17} strokeWidth={1.8} color={isSelected ? form.color : 'var(--text-secondary)'} />
                 </button>
               )
             })}

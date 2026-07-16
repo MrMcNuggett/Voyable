@@ -92,7 +92,7 @@ export default function AboutTab({ appVersion }: Props): React.ReactElement {
           onMouseLeave={e => { e.currentTarget.style.borderColor = 'var(--border-primary)'; e.currentTarget.style.boxShadow = 'none' }}
         >
           <div className="bg-[#ef444415]" style={{ width: 40, height: 40, borderRadius: 10, display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
-            <Bug size={20} className="text-[#ef4444]" />
+            <Bug size={20} className="text-[var(--danger)]" />
           </div>
           <div>
             <div className="text-sm font-semibold text-content">{t('settings.about.reportBug')}</div>
@@ -109,7 +109,7 @@ export default function AboutTab({ appVersion }: Props): React.ReactElement {
           onMouseLeave={e => { e.currentTarget.style.borderColor = 'var(--border-primary)'; e.currentTarget.style.boxShadow = 'none' }}
         >
           <div className="bg-[#f59e0b15]" style={{ width: 40, height: 40, borderRadius: 10, display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
-            <Lightbulb size={20} className="text-[#f59e0b]" />
+            <Lightbulb size={20} className="text-[var(--warning)]" />
           </div>
           <div>
             <div className="text-sm font-semibold text-content">{t('settings.about.featureRequest')}</div>

@@ -83,7 +83,7 @@ export default function CollabChat({ tripId, currentUser }: CollabChatProps) {
             <button onClick={handleSend} disabled={!text.trim() || sending} style={{
               width: 34, height: 34, borderRadius: '50%', border: 'none',
               background: text.trim() ? '#007AFF' : 'var(--border-primary)',
-              color: '#fff', display: 'flex', alignItems: 'center', justifyContent: 'center',
+              color: 'var(--text-inverse)', display: 'flex', alignItems: 'center', justifyContent: 'center',
               cursor: text.trim() ? 'pointer' : 'default', flexShrink: 0,
               transition: 'background 0.15s',
             }}>

@@ -9,8 +9,8 @@ export function TrashView(S: FileManagerState) {
       {trashFiles.length > 0 && can('file_delete', trip) && (
         <div style={{ display: 'flex', justifyContent: 'flex-end', marginBottom: 12 }}>
           <button onClick={handleEmptyTrash} style={{
-            padding: '5px 12px', borderRadius: 8, border: '1px solid #fecaca',
-            background: '#fef2f2', color: '#dc2626', fontSize: 'calc(12px * var(--fs-scale-body, 1))', fontWeight: 500,
+            padding: '5px 12px', borderRadius: 8, border: '1px solid var(--danger)',
+            background: 'var(--danger-soft)', color: 'var(--danger)', fontSize: 'calc(12px * var(--fs-scale-body, 1))', fontWeight: 500,
             cursor: 'pointer', fontFamily: 'inherit',
           }}>
             {t('files.emptyTrash') || 'Empty Trash'}

@@ -117,7 +117,7 @@ export default function BudgetSummary({ theme, currency, locale, grandTotal, has
                       >
                         <RingAvatar userId={flow.from.user_id} username={flow.from.username} avatarUrl={flow.from.avatar_url} size={32} innerBg={theme.centerBg} textColor={theme.text} />
                         <div style={{ flex: 1, display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 5 }}>
-                          <span style={{ fontSize: 'calc(13px * var(--fs-scale-body, 1))', fontWeight: 700, color: '#ef4444', letterSpacing: '-0.01em' }}>
+                          <span style={{ fontSize: 'calc(13px * var(--fs-scale-body, 1))', fontWeight: 700, color: 'var(--danger)', letterSpacing: '-0.01em' }}>
                             {fmt(flow.amount, currency)}
                           </span>
                           <div style={{ width: '100%', height: 2, borderRadius: 2, background: 'linear-gradient(90deg, rgba(239,68,68,0.1), rgba(239,68,68,0.55), rgba(239,68,68,0.3))', position: 'relative' }}>

@@ -337,7 +337,7 @@ export default function OfflineTab(): React.ReactElement {
             <button
               onClick={handleClear}
               disabled={clearing || rows.length === 0}
-              className="border border-edge bg-surface-secondary text-[#ef4444]"
+              className="border border-edge bg-surface-secondary text-[var(--danger)]"
               style={btnStyle(clearing || rows.length === 0)}
             >
               <Trash2 size={14} />

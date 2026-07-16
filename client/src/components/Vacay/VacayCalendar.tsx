@@ -102,7 +102,7 @@ export default function VacayCalendar() {
           {companyHolidaysEnabled && (
             <button
               onClick={() => setCompanyMode(true)}
-              className={`flex items-center gap-1 sm:gap-1.5 px-2 sm:px-3 py-1.5 rounded-lg text-[11px] sm:text-xs font-medium transition-[background-color,color,border-color] duration-150 ease-[cubic-bezier(0.23,1,0.32,1)] border ${companyMode ? 'bg-[#d97706] text-[#fff] border-transparent' : 'bg-transparent text-content-muted border-edge'}`}>
+              className={`flex items-center gap-1 sm:gap-1.5 px-2 sm:px-3 py-1.5 rounded-lg text-[11px] sm:text-xs font-medium transition-[background-color,color,border-color] duration-150 ease-[cubic-bezier(0.23,1,0.32,1)] border ${companyMode ? 'bg-[var(--warning)] text-[var(--text-inverse)] border-transparent' : 'bg-transparent text-content-muted border-edge'}`}>
               <Building2 size={13} />
               {t('vacay.modeCompany')}
             </button>

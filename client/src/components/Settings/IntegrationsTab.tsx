@@ -335,7 +335,7 @@ function IntegrationsMcpSection(props: any) {
                 activeMcpTab === 'apitokens' ? 'bg-slate-900 text-white' : 'text-slate-600 hover:text-slate-900 hover:bg-slate-50'
               }`}>
               {t('settings.mcp.apiTokens')}
-              <span className="px-1.5 py-0.5 rounded text-[10px] font-medium bg-[rgba(245,158,11,0.15)] text-[#b45309] border border-[rgba(245,158,11,0.4)]">
+              <span className="px-1.5 py-0.5 rounded text-[10px] font-medium bg-[rgba(245,158,11,0.15)] text-[var(--warning)] border border-[rgba(245,158,11,0.4)]">
                 Deprecated
               </span>
             </button>
@@ -465,7 +465,7 @@ function IntegrationsMcpSection(props: any) {
             <>
               <div className="flex items-baseline gap-2 px-3 py-2.5 rounded-lg bg-[rgba(245,158,11,0.06)] border border-[rgba(245,158,11,0.3)]">
                 <span className="text-amber-500 flex-shrink-0 leading-none">⚠</span>
-                <p className="text-xs text-[#92400e]">{t('settings.mcp.apiTokensDeprecated')}</p>
+                <p className="text-xs text-[var(--warning)]">{t('settings.mcp.apiTokensDeprecated')}</p>
               </div>
 
               {/* JSON config — API Token (collapsible) */}

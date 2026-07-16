@@ -170,15 +170,15 @@ export default function DayDetailPanel({ day, days, places, categories = [], tri
                 onKeyDown={e => { if (e.key === 'Enter') commitRename(); if (e.key === 'Escape') setEditingTitle(false) }}
                 placeholder={t('planner.dayN', { n: (days.indexOf(day) + 1) || '?' })}
                 className="text-content"
-                style={{ width: '100%', border: 'none', outline: 'none', background: 'transparent', padding: 0, fontFamily: 'inherit', fontSize: 15, fontWeight: 700, borderBottom: '1.5px solid var(--text-primary)' }}
+                style={{ width: '100%', border: 'none', outline: 'none', background: 'transparent', padding: 0, fontFamily: 'inherit', fontSize: 'calc(15px * var(--fs-scale-body, 1))', fontWeight: 700, borderBottom: '1.5px solid var(--text-primary)' }}
               />
             ) : collapsed ? (
-              <div className="text-content" style={{ fontSize: 13, fontWeight: 700, transition: 'font-size 0.15s ease' }}>
+              <div className="text-content" style={{ fontSize: 'calc(13px * var(--fs-scale-body, 1))', fontWeight: 700, transition: 'font-size 0.15s ease' }}>
                 {day.title || t('planner.dayN', { n: (days.indexOf(day) + 1) || '?' })}
                 {formattedDate && <span className="text-content-muted" style={{ fontWeight: 500, marginLeft: 8 }}>{formattedDate}</span>}
               </div>
             ) : (
-              <div className="text-content" style={{ display: 'flex', alignItems: 'center', gap: 6, fontSize: 15, fontWeight: 700, transition: 'font-size 0.15s ease', minWidth: 0 }}>
+              <div className="text-content" style={{ display: 'flex', alignItems: 'center', gap: 6, fontSize: 'calc(15px * var(--fs-scale-body, 1))', fontWeight: 700, transition: 'font-size 0.15s ease', minWidth: 0 }}>
                 <span style={{ overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>
                   {day.title || t('planner.dayN', { n: (days.indexOf(day) + 1) || '?' })}
                 </span>
@@ -265,7 +265,7 @@ export default function DayDetailPanel({ day, days, places, categories = [], tri
                           <WIcon main={h.main} size={12} />
                           <span style={{ fontSize: 'calc(10px * var(--fs-scale-caption, 1))', fontWeight: 600, color: 'var(--text-primary)' }}>{cTemp(h.temp, isFahrenheit)}°</span>
                           {h.precipitation_probability > 0 && (
-                            <span style={{ fontSize: 'calc(8px * var(--fs-scale-caption, 1))', color: '#3b82f6', fontWeight: 500 }}>{h.precipitation_probability}%</span>
+                            <span style={{ fontSize: 'calc(8px * var(--fs-scale-caption, 1))', color: 'var(--info)', fontWeight: 500 }}>{h.precipitation_probability}%</span>
                           )}
                         </div>
                       ))}
@@ -460,8 +460,8 @@ function AccommodationList({ dayAccommodations, day, reservations, canEditDays, 
                       {/* Day label */}
                       {dayLabel && (
                         <div style={{ padding: '4px 12px 0', display: 'flex', alignItems: 'center', gap: 4 }}>
-                          {isCheckInDay && <LogIn size={9} style={{ color: '#22c55e' }} />}
-                          {isCheckOutDay && !isCheckInDay && <LogOut size={9} style={{ color: '#ef4444' }} />}
+                          {isCheckInDay && <LogIn size={9} style={{ color: 'var(--success)' }} />}
+                          {isCheckOutDay && !isCheckInDay && <LogOut size={9} style={{ color: 'var(--danger)' }} />}
                           <span style={{ fontSize: 'calc(9px * var(--fs-scale-caption, 1))', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.05em', color: isCheckOutDay && !isCheckInDay ? '#ef4444' : '#22c55e' }}>{dayLabel}</span>
                         </div>
                       )}

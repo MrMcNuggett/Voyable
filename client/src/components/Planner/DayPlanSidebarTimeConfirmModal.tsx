@@ -51,7 +51,7 @@ export function DayPlanSidebarTimeConfirmModal({ timeConfirm, setTimeConfirm, co
             fontSize: 'calc(12px * var(--fs-scale-body, 1))', background: 'none', border: '1px solid var(--border-primary)',
             borderRadius: 8, padding: '6px 14px', cursor: 'pointer', fontFamily: 'inherit',
           }}>{t('common.cancel')}</button>
-          <button onClick={confirmTimeRemoval} className="bg-[#ef4444] text-white" style={{
+          <button onClick={confirmTimeRemoval} className="bg-[var(--danger)] text-white" style={{
             fontSize: 'calc(12px * var(--fs-scale-body, 1))',
             border: 'none', borderRadius: 8, padding: '6px 16px', cursor: 'pointer', fontWeight: 600, fontFamily: 'inherit',
           }}>{t('common.confirm')}</button>

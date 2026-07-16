@@ -52,7 +52,7 @@ export function PackingHeader(S: PackingState) {
           {inlineHeader && canEdit && abgehakt > 0 && (
             <button onClick={handleClearChecked} style={{
               fontSize: 'calc(11.5px * var(--fs-scale-caption, 1))', padding: '5px 10px', borderRadius: 99, border: '1px solid rgba(239,68,68,0.3)',
-              background: 'rgba(239,68,68,0.1)', color: '#ef4444', cursor: 'pointer', fontFamily: 'inherit',
+              background: 'rgba(239,68,68,0.1)', color: 'var(--danger)', cursor: 'pointer', fontFamily: 'inherit',
             }}>
               <span className="hidden sm:inline">{t('packing.clearChecked', { count: abgehakt })}</span>
               <span className="sm:hidden">{t('packing.clearCheckedShort', { count: abgehakt })}</span>

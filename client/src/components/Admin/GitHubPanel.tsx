@@ -195,7 +195,7 @@ export default function GitHubPanel({ isPrerelease = false }: { isPrerelease?: b
           onMouseLeave={e => { e.currentTarget.style.borderColor = 'var(--border-primary)'; e.currentTarget.style.boxShadow = 'none' }}
         >
           <div className="bg-[#ef444415]" style={{ width: 40, height: 40, borderRadius: 10, display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
-            <Bug size={20} className="text-[#ef4444]" />
+            <Bug size={20} className="text-[var(--danger)]" />
           </div>
           <div>
             <div className="text-sm font-semibold text-content">{t('settings.about.reportBug')}</div>
@@ -212,7 +212,7 @@ export default function GitHubPanel({ isPrerelease = false }: { isPrerelease?: b
           onMouseLeave={e => { e.currentTarget.style.borderColor = 'var(--border-primary)'; e.currentTarget.style.boxShadow = 'none' }}
         >
           <div className="bg-[#f59e0b15]" style={{ width: 40, height: 40, borderRadius: 10, display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
-            <Lightbulb size={20} className="text-[#f59e0b]" />
+            <Lightbulb size={20} className="text-[var(--warning)]" />
           </div>
           <div>
             <div className="text-sm font-semibold text-content">{t('settings.about.featureRequest')}</div>
@@ -302,12 +302,12 @@ export default function GitHubPanel({ isPrerelease = false }: { isPrerelease?: b
                           {release.tag_name}
                         </span>
                         {isLatest && (
-                          <span className="text-[10px] font-semibold px-2 py-0.5 rounded-full bg-[rgba(34,197,94,0.12)] text-[#16a34a]">
+                          <span className="text-[10px] font-semibold px-2 py-0.5 rounded-full bg-[rgba(34,197,94,0.12)] text-[var(--success)]">
                             {t('admin.github.latest')}
                           </span>
                         )}
                         {release.prerelease && (
-                          <span className="text-[10px] font-semibold px-2 py-0.5 rounded-full bg-[rgba(245,158,11,0.12)] text-[#d97706]">
+                          <span className="text-[10px] font-semibold px-2 py-0.5 rounded-full bg-[rgba(245,158,11,0.12)] text-[var(--warning)]">
                             {t('admin.github.prerelease')}
                           </span>
                         )}

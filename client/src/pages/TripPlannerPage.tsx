@@ -118,7 +118,7 @@ function ListsContainer({ tripId, packingItems, todoItems }: { tripId: number; p
               <div style={{ display: 'flex', gap: 6, flexShrink: 0, marginLeft: 'auto', flexWrap: 'wrap' }}>
                 {packingAbgehakt > 0 && (
                   <button onClick={() => setClearCheckedSignal(s => s + 1)}
-                    className={`hidden sm:inline-flex items-center gap-1.5 px-[14px] py-[9px] hover:opacity-[0.88] bg-[rgba(239,68,68,0.14)] text-[#ef4444]`}
+                    className={`hidden sm:inline-flex items-center gap-1.5 px-[14px] py-[9px] hover:opacity-[0.88] bg-[rgba(239,68,68,0.14)] text-[var(--danger)]`}
                     style={sharedBtnStyle}
                   >
                     <Trash2 size={14} strokeWidth={2.5} />

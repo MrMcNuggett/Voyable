@@ -64,7 +64,7 @@ export function ChipWithTooltip({ label, avatarUrl, size = 20, paid, onClick }: 
           {paid && (
             <span style={{
               fontSize: 'calc(9px * var(--fs-scale-caption, 1))', fontWeight: 700, padding: '1px 5px', borderRadius: 4,
-              background: 'rgba(34,197,94,0.15)', color: '#16a34a',
+              background: 'rgba(34,197,94,0.15)', color: 'var(--success)',
               textTransform: 'uppercase', letterSpacing: '0.03em',
             }}>Paid</span>
           )}

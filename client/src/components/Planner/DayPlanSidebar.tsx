@@ -1487,7 +1487,7 @@ const DayPlanSidebar = React.memo(function DayPlanSidebar(props: DayPlanSidebarP
                   )}
                   {cost && (
                     <div style={{ marginTop: 2 }}>
-                      <span className="text-[#059669]" style={{ fontSize: 'calc(11px * var(--fs-scale-caption, 1))' }}>{cost}</span>
+                      <span className="text-[var(--success)]" style={{ fontSize: 'calc(11px * var(--fs-scale-caption, 1))' }}>{cost}</span>
                     </div>
                   )}
                 </div>
@@ -1819,7 +1819,7 @@ const DayPlanSidebar = React.memo(function DayPlanSidebar(props: DayPlanSidebarP
                                 const active = hasEndpoints ? visibleConnectionIds.includes(res.id) : false
                                 return (
                                   <div style={{ marginTop: 3, display: 'inline-flex', alignItems: 'center', gap: 4 }}>
-                                    <div className={confirmed ? 'bg-[rgba(22,163,74,0.1)] text-[#16a34a]' : 'bg-[rgba(217,119,6,0.1)] text-[#d97706]'} style={{ display: 'inline-flex', alignItems: 'center', gap: 3, padding: '1px 6px', borderRadius: 5, fontSize: 'calc(9px * var(--fs-scale-caption, 1))', fontWeight: 600,
+                                    <div className={confirmed ? 'bg-[rgba(22,163,74,0.1)] text-[var(--success)]' : 'bg-[rgba(217,119,6,0.1)] text-[var(--warning)]'} style={{ display: 'inline-flex', alignItems: 'center', gap: 3, padding: '1px 6px', borderRadius: 5, fontSize: 'calc(9px * var(--fs-scale-caption, 1))', fontWeight: 600,
                                     }}>
                                       {(() => { const RI = RES_ICONS[res.type] || Ticket; return <RI size={8} /> })()}
                                       <span className="hidden sm:inline">{confirmed ? t('planner.resConfirmed') : t('planner.resPending')}</span>
@@ -1848,7 +1848,7 @@ const DayPlanSidebar = React.memo(function DayPlanSidebar(props: DayPlanSidebarP
                                         type="button"
                                         onClick={e => { e.stopPropagation(); onToggleConnection!(res.id) }}
                                         title={t(active ? 'map.hideConnections' : 'map.showConnections')}
-                                        className={active ? 'bg-[#3b82f6] text-[#fff]' : 'bg-transparent text-content-faint'}
+                                        className={active ? 'bg-[var(--info)] text-[var(--text-inverse)]' : 'bg-transparent text-content-faint'}
                                         style={{
                                           flexShrink: 0, appearance: 'none',
                                           width: 20, height: 20, borderRadius: 4,

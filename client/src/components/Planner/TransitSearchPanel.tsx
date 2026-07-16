@@ -220,7 +220,7 @@ function ItineraryCard({ it, tzFrom, tzTo, is12h, expanded, onToggle, onAdd, add
         <div style={{ display: 'flex', alignItems: 'center', gap: 5, marginTop: 8, flexWrap: 'wrap' }}>
           {it.legs.map((leg, i) => (
             <React.Fragment key={i}>
-              {i > 0 && <span className="text-content-faint" style={{ fontSize: 10 }}>›</span>}
+              {i > 0 && <span className="text-content-faint" style={{ fontSize: 'calc(10px * var(--fs-scale-body, 1))' }}>›</span>}
               {leg.mode === 'WALK'
                 ? <Footprints size={13} className="text-content-faint" />
                 : <LineBadge leg={leg} />}

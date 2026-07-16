@@ -113,7 +113,7 @@ export default function DevNotificationsPanel(): React.ReactElement {
   return (
     <div className="space-y-8">
       <div className="flex items-center gap-2">
-        <div className="px-2 py-0.5 rounded text-xs font-mono font-bold bg-[#fbbf24] text-[#000]">
+        <div className="px-2 py-0.5 rounded text-xs font-mono font-bold bg-[#fbbf24] text-[var(--text-primary)]">
           DEV ONLY
         </div>
         <span className="text-sm font-medium text-content">

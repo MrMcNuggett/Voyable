@@ -89,7 +89,7 @@ export default function PhotoLightbox({ photos, startIndex = 0, onClose }: Props
           <button onClick={onClose} style={{
             background: 'rgba(255,255,255,0.1)', border: 'none', borderRadius: '50%',
             width: 36, height: 36, display: 'flex', alignItems: 'center', justifyContent: 'center',
-            color: '#fff', cursor: 'pointer',
+            color: 'var(--text-inverse)', cursor: 'pointer',
           }}>
             <X size={18} />
           </button>
@@ -103,7 +103,7 @@ export default function PhotoLightbox({ photos, startIndex = 0, onClose }: Props
             background: 'rgba(0,0,0,0.4)', backdropFilter: 'blur(8px)',
             border: '1px solid rgba(255,255,255,0.1)',
             alignItems: 'center', justifyContent: 'center',
-            color: '#fff', cursor: 'pointer',
+            color: 'var(--text-inverse)', cursor: 'pointer',
           }}>
             <ChevronLeft size={22} />
           </button>
@@ -133,7 +133,7 @@ export default function PhotoLightbox({ photos, startIndex = 0, onClose }: Props
             background: 'rgba(0,0,0,0.4)', backdropFilter: 'blur(8px)',
             border: '1px solid rgba(255,255,255,0.1)',
             alignItems: 'center', justifyContent: 'center',
-            color: '#fff', cursor: 'pointer',
+            color: 'var(--text-inverse)', cursor: 'pointer',
           }}>
             <ChevronRight size={22} />
           </button>

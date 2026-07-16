@@ -143,7 +143,7 @@ function ShareLinkSection({ tripId, t }: { tripId: number; t: (key: string, para
           <button onClick={handleDelete} style={{
             display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 5,
             padding: '6px 0', borderRadius: 8, border: '1px solid rgba(239,68,68,0.3)',
-            background: 'rgba(239,68,68,0.06)', color: '#ef4444', fontSize: 'calc(11px * var(--fs-scale-caption, 1))', fontWeight: 500,
+            background: 'rgba(239,68,68,0.06)', color: 'var(--danger)', fontSize: 'calc(11px * var(--fs-scale-caption, 1))', fontWeight: 500,
             cursor: 'pointer', fontFamily: 'inherit',
           }}>
             <Trash2 size={11} /> {t('share.deleteLink')}
@@ -242,7 +242,7 @@ function TripInviteLinkSection({ tripId, t }: { tripId: number; t: (key: string,
             <button onClick={remove} disabled={busy} style={{
               flex: 1, display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 5,
               padding: '6px 0', borderRadius: 8, border: '1px solid rgba(239,68,68,0.3)',
-              background: 'rgba(239,68,68,0.06)', color: '#ef4444', fontSize: 'calc(11px * var(--fs-scale-caption, 1))', fontWeight: 500,
+              background: 'rgba(239,68,68,0.06)', color: 'var(--danger)', fontSize: 'calc(11px * var(--fs-scale-caption, 1))', fontWeight: 500,
               cursor: busy ? 'default' : 'pointer', fontFamily: 'inherit',
             }}>
               <Trash2 size={11} /> {t('trip.invite.disable')}
@@ -511,7 +511,7 @@ export default function TripMembersModal({ isOpen, onClose, tripId, tripTitle, o
                         <span className="text-content" style={{ fontSize: 'calc(13px * var(--fs-scale-body, 1))', fontWeight: 600 }}>{member.username}</span>
                         {isSelf && <span className="text-content-faint" style={{ fontSize: 'calc(10px * var(--fs-scale-caption, 1))' }}>({t('members.you')})</span>}
                         {member.role === 'owner' && (
-                          <span style={{ display: 'inline-flex', alignItems: 'center', gap: 3, fontSize: 'calc(10px * var(--fs-scale-caption, 1))', fontWeight: 700, color: '#d97706', background: '#fef9c3', padding: '1px 6px', borderRadius: 99 }}>
+                          <span style={{ display: 'inline-flex', alignItems: 'center', gap: 3, fontSize: 'calc(10px * var(--fs-scale-caption, 1))', fontWeight: 700, color: 'var(--warning)', background: '#fef9c3', padding: '1px 6px', borderRadius: 99 }}>
                             <Crown size={9} /> {t('members.owner')}
                           </span>
                         )}

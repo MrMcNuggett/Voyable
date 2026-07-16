@@ -75,7 +75,7 @@ export function MobileDayPickerSheet(S: SidebarState) {
           {canEditPlaces && (
             <button
               onClick={() => { onDeletePlace(dayPickerPlace.id); setDayPickerPlace(null); setMobileShowDays(false) }}
-              style={{ display: 'flex', alignItems: 'center', gap: 12, width: '100%', padding: '12px 14px', borderRadius: 12, border: 'none', cursor: 'pointer', background: 'transparent', fontFamily: 'inherit', textAlign: 'left', fontSize: 'calc(14px * var(--fs-scale-body, 1))', color: '#ef4444' }}
+              style={{ display: 'flex', alignItems: 'center', gap: 12, width: '100%', padding: '12px 14px', borderRadius: 12, border: 'none', cursor: 'pointer', background: 'transparent', fontFamily: 'inherit', textAlign: 'left', fontSize: 'calc(14px * var(--fs-scale-body, 1))', color: 'var(--danger)' }}
             >
               <Trash2 size={18} /> {t('common.delete')}
             </button>

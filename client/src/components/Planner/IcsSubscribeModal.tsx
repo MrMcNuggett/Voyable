@@ -87,7 +87,7 @@ export function IcsSubscribeModal({ endpoint, title, description, onClose }: Ics
         <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: 14 }}>
           <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
             <Calendar size={16} strokeWidth={2} style={{ color: 'var(--accent, #6366f1)' }} />
-            <span style={{ fontWeight: 600, fontSize: 14 }}>{title}</span>
+            <span style={{ fontWeight: 600, fontSize: 'calc(14px * var(--fs-scale-body, 1))' }}>{title}</span>
           </div>
           <button
             onClick={onClose}
@@ -100,12 +100,12 @@ export function IcsSubscribeModal({ endpoint, title, description, onClose }: Ics
           </button>
         </div>
 
-        <p style={{ fontSize: 12, color: 'var(--text-muted)', marginBottom: 16, lineHeight: 1.5 }}>
+        <p style={{ fontSize: 'calc(12px * var(--fs-scale-body, 1))', color: 'var(--text-muted)', marginBottom: 16, lineHeight: 1.5 }}>
           {description}
         </p>
 
         {loading ? (
-          <div style={{ textAlign: 'center', padding: '16px 0', color: 'var(--text-muted)', fontSize: 12 }}>
+          <div style={{ textAlign: 'center', padding: '16px 0', color: 'var(--text-muted)', fontSize: 'calc(12px * var(--fs-scale-body, 1))' }}>
             Loading…
           </div>
         ) : !feedUrl ? (
@@ -117,14 +117,14 @@ export function IcsSubscribeModal({ endpoint, title, description, onClose }: Ics
                 display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 8,
                 width: '100%', padding: '9px 14px', borderRadius: 9, border: 'none',
                 background: 'var(--accent, #6366f1)', color: 'var(--accent-text, #fff)',
-                fontSize: 12, fontWeight: 600, fontFamily: 'inherit',
+                fontSize: 'calc(12px * var(--fs-scale-body, 1))', fontWeight: 600, fontFamily: 'inherit',
                 cursor: busy ? 'default' : 'pointer', opacity: busy ? 0.6 : 1,
               }}
             >
               <Calendar size={14} strokeWidth={2} />
               Enable calendar subscription
             </button>
-            <p style={{ fontSize: 10, color: 'var(--text-muted)', marginTop: 8, lineHeight: 1.4 }}>
+            <p style={{ fontSize: 'calc(10px * var(--fs-scale-body, 1))', color: 'var(--text-muted)', marginTop: 8, lineHeight: 1.4 }}>
               Creates a secret link anyone with it can read without logging in. You can turn it off anytime.
             </p>
           </>
@@ -140,7 +140,7 @@ export function IcsSubscribeModal({ endpoint, title, description, onClose }: Ics
                   display: 'flex', alignItems: 'center', gap: 6,
                   background: 'none', border: '1px solid var(--border-primary)',
                   borderRadius: 7, padding: '5px 10px',
-                  fontSize: 11, color: 'var(--text-muted)',
+                  fontSize: 'calc(11px * var(--fs-scale-body, 1))', color: 'var(--text-muted)',
                   cursor: busy ? 'default' : 'pointer',
                   fontFamily: 'inherit', opacity: busy ? 0.6 : 1,
                 }}
@@ -155,7 +155,7 @@ export function IcsSubscribeModal({ endpoint, title, description, onClose }: Ics
                   display: 'flex', alignItems: 'center', gap: 6,
                   background: 'none', border: '1px solid var(--border-primary)',
                   borderRadius: 7, padding: '5px 10px',
-                  fontSize: 11, color: 'var(--danger, #dc2626)',
+                  fontSize: 'calc(11px * var(--fs-scale-body, 1))', color: 'var(--danger, #dc2626)',
                   cursor: busy ? 'default' : 'pointer',
                   fontFamily: 'inherit', opacity: busy ? 0.6 : 1,
                 }}
@@ -164,7 +164,7 @@ export function IcsSubscribeModal({ endpoint, title, description, onClose }: Ics
                 Turn off
               </button>
             </div>
-            <p style={{ fontSize: 10, color: 'var(--text-muted)', marginTop: 6, lineHeight: 1.4 }}>
+            <p style={{ fontSize: 'calc(10px * var(--fs-scale-body, 1))', color: 'var(--text-muted)', marginTop: 6, lineHeight: 1.4 }}>
               Regenerating creates a new link and invalidates the old one. Turning off disables the link entirely.
             </p>
           </>

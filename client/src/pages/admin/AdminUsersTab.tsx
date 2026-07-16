@@ -71,7 +71,7 @@ export default function AdminUsersTab({ admin, t, locale }: AdminUsersTabProps):
                               {u.username.charAt(0).toUpperCase()}
                             </div>
                           )}
-                          <span className={`absolute -bottom-0.5 -right-0.5 w-3 h-3 rounded-full border-2 border-surface-card ${u.online ? 'bg-[#22c55e]' : 'bg-[#94a3b8]'}`} />
+                          <span className={`absolute -bottom-0.5 -right-0.5 w-3 h-3 rounded-full border-2 border-surface-card ${u.online ? 'bg-[var(--success)]' : 'bg-[#94a3b8]'}`} />
                         </div>
                         <div>
                           <p className="text-sm font-medium text-slate-900">{u.username}</p>

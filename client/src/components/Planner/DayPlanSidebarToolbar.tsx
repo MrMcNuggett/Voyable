@@ -62,7 +62,7 @@ export function DayPlanSidebarToolbar({
     display: 'flex', alignItems: 'center', gap: 7,
     width: '100%', padding: '7px 12px', border: 'none',
     background: 'transparent', cursor: 'pointer',
-    fontSize: 11, fontWeight: 500, fontFamily: 'inherit',
+    fontSize: 'calc(11px * var(--fs-scale-body, 1))', fontWeight: 500, fontFamily: 'inherit',
     color: 'var(--text-primary)', textAlign: 'left',
     transition: 'background 0.1s',
   }

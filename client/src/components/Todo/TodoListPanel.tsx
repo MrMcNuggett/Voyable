@@ -126,7 +126,7 @@ export default function TodoListPanel({ tripId, items, addItemSignal = 0 }: { tr
             </span>
           </div>
           <div style={{ height: 4, background: 'var(--border-faint)', borderRadius: 2, overflow: 'hidden', marginBottom: 6 }}>
-            <div style={{ height: '100%', width: totalCount > 0 ? `${Math.round((doneCount / totalCount) * 100)}%` : '0%', background: '#22c55e', borderRadius: 2, transition: 'width 0.3s' }} />
+            <div style={{ height: '100%', width: totalCount > 0 ? `${Math.round((doneCount / totalCount) * 100)}%` : '0%', background: 'var(--success)', borderRadius: 2, transition: 'width 0.3s' }} />
           </div>
           <div style={{ fontSize: 'calc(11px * var(--fs-scale-caption, 1))', color: 'var(--text-faint)' }}>
             {doneCount} / {totalCount} {t('todo.completed')}
@@ -178,7 +178,7 @@ export default function TodoListPanel({ tripId, items, addItemSignal = 0 }: { tr
                 onKeyDown={e => { if (e.key === 'Enter') addCategory(); if (e.key === 'Escape') { setAddingCategory(false); setNewCategoryName('') } }}
                 placeholder={t('todo.newCategory')}
                 style={{ flex: 1, fontSize: 'calc(12px * var(--fs-scale-body, 1))', padding: '4px 6px', border: '1px solid var(--border-primary)', borderRadius: 5, background: 'var(--bg-hover)', color: 'var(--text-primary)', fontFamily: 'inherit', minWidth: 0 }} />
-              <button onClick={addCategory} style={{ background: 'none', border: 'none', cursor: 'pointer', color: '#22c55e', padding: 2 }}><Check size={13} /></button>
+              <button onClick={addCategory} style={{ background: 'none', border: 'none', cursor: 'pointer', color: 'var(--success)', padding: 2 }}><Check size={13} /></button>
             </div>
           ) : (
             <button onClick={() => setAddingCategory(true)}

@@ -88,7 +88,7 @@ export default function OfflineBanner(): React.ReactElement | null {
         transform: 'translateX(-50%)',
         zIndex: 9999,
         background: bg,
-        color: '#fff',
+        color: 'var(--text-inverse)',
         display: 'inline-flex',
         alignItems: 'center',
         gap: 6,

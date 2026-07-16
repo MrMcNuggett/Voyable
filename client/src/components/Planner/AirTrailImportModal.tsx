@@ -232,7 +232,7 @@ export default function AirTrailImportModal({ isOpen, onClose, tripId, pushUndo 
           )}
 
           {error && (
-            <div className="bg-[rgba(239,68,68,0.08)] text-[#b91c1c]" style={{ border: '1px solid rgba(239,68,68,0.35)', borderRadius: 10, padding: '8px 10px', fontSize: 'calc(12px * var(--fs-scale-body, 1))', whiteSpace: 'pre-wrap', marginTop: 8 }}>
+            <div className="bg-[rgba(239,68,68,0.08)] text-[var(--danger)]" style={{ border: '1px solid rgba(239,68,68,0.35)', borderRadius: 10, padding: '8px 10px', fontSize: 'calc(12px * var(--fs-scale-body, 1))', whiteSpace: 'pre-wrap', marginTop: 8 }}>
               {error}
             </div>
           )}

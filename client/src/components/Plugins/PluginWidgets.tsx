@@ -31,7 +31,7 @@ export default function PluginWidgets({ plugins, tripId = null }: { plugins: Act
           <div
             style={{
               display: 'flex', alignItems: 'center', gap: 8, padding: '16px 20px 8px',
-              fontSize: 13, fontWeight: 500, textTransform: 'uppercase', letterSpacing: '0.14em',
+              fontSize: 'calc(13px * var(--fs-scale-body, 1))', fontWeight: 500, textTransform: 'uppercase', letterSpacing: '0.14em',
               color: 'var(--ink-3)',
             }}
           >

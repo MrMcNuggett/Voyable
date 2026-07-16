@@ -307,7 +307,7 @@ export default function AtlasPage(): React.ReactElement {
                     {t('common.cancel')}
                   </button>
                   <button onClick={executeConfirmAction}
-                    className="bg-[#ef4444] text-white"
+                    className="bg-[var(--danger)] text-white"
                     style={{ padding: '8px 20px', borderRadius: 10, border: 'none', fontSize: 'calc(13px * var(--fs-scale-body, 1))', fontWeight: 600, cursor: 'pointer', fontFamily: 'inherit' }}>
                     {t('atlas.unmark')}
                   </button>
@@ -358,7 +358,7 @@ export default function AtlasPage(): React.ReactElement {
                     }
                     setConfirmAction(null)
                   }}
-                    className="bg-[#ef4444] text-white"
+                    className="bg-[var(--danger)] text-white"
                     style={{ padding: '8px 20px', borderRadius: 10, border: 'none', fontSize: 'calc(13px * var(--fs-scale-body, 1))', fontWeight: 600, cursor: 'pointer', fontFamily: 'inherit' }}>
                     {t('atlas.unmark')}
                   </button>
@@ -745,7 +745,7 @@ function SidebarContent({ data, stats, countries, selectedCountry, countryDetail
                 ))}
                 {countryDetail.manually_marked && onUnmarkCountry && (
                   <button onClick={() => onUnmarkCountry(selectedCountry!)}
-                    className="flex items-center gap-1 px-2 py-0.5 rounded text-[10px] font-semibold transition-opacity hover:opacity-75 bg-[rgba(239,68,68,0.1)] text-[#ef4444]">
+                    className="flex items-center gap-1 px-2 py-0.5 rounded text-[10px] font-semibold transition-opacity hover:opacity-75 bg-[rgba(239,68,68,0.1)] text-[var(--danger)]">
                     <X size={9} />
                     {t('atlas.unmark')}
                   </button>

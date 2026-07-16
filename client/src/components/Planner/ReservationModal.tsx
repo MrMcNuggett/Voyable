@@ -476,7 +476,7 @@ export function ReservationModal({ isOpen, onClose, onSave, reservation, days, p
               </div>
             </div>
             {isEndBeforeStart && (
-              <div className="text-[#ef4444]" style={{ fontSize: 'calc(11px * var(--fs-scale-caption, 1))', marginTop: -6 }}>{t('reservations.validation.endBeforeStart')}</div>
+              <div className="text-[var(--danger)]" style={{ fontSize: 'calc(11px * var(--fs-scale-caption, 1))', marginTop: -6 }}>{t('reservations.validation.endBeforeStart')}</div>
             )}
           </>
         )}

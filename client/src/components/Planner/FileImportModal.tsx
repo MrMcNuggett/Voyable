@@ -299,7 +299,7 @@ export default function FileImportModal({ isOpen, onClose, tripId, pushUndo, ini
               </label>
             ))}
             {gpxNoneSelected && (
-              <div className="text-[#b45309]" style={{ fontSize: 'calc(11px * var(--fs-scale-caption, 1))', marginTop: 4 }}>{t('places.gpxImportNoneSelected')}</div>
+              <div className="text-[var(--warning)]" style={{ fontSize: 'calc(11px * var(--fs-scale-caption, 1))', marginTop: 4 }}>{t('places.gpxImportNoneSelected')}</div>
             )}
           </div>
         )}
@@ -324,7 +324,7 @@ export default function FileImportModal({ isOpen, onClose, tripId, pushUndo, ini
               </label>
             ))}
             {kmlNoneSelected && (
-              <div className="text-[#b45309]" style={{ fontSize: 'calc(11px * var(--fs-scale-caption, 1))', marginTop: 4 }}>{t('places.kmlImportNoneSelected')}</div>
+              <div className="text-[var(--warning)]" style={{ fontSize: 'calc(11px * var(--fs-scale-caption, 1))', marginTop: 4 }}>{t('places.kmlImportNoneSelected')}</div>
             )}
           </div>
         )}
@@ -342,7 +342,7 @@ export default function FileImportModal({ isOpen, onClose, tripId, pushUndo, ini
               })}
             </div>
             {summary.warnings?.length > 0 && (
-              <div className="text-[#b45309]" style={{ marginTop: 8, fontSize: 'calc(12px * var(--fs-scale-body, 1))', whiteSpace: 'pre-wrap' }}>
+              <div className="text-[var(--warning)]" style={{ marginTop: 8, fontSize: 'calc(12px * var(--fs-scale-body, 1))', whiteSpace: 'pre-wrap' }}>
                 {summary.warnings.join('\n')}
               </div>
             )}
@@ -350,7 +350,7 @@ export default function FileImportModal({ isOpen, onClose, tripId, pushUndo, ini
         )}
 
         {error && (
-          <div className="bg-[rgba(239,68,68,0.08)] text-[#b91c1c]" style={{
+          <div className="bg-[rgba(239,68,68,0.08)] text-[var(--danger)]" style={{
             border: '1px solid rgba(239,68,68,0.35)', borderRadius: 10,
             padding: '8px 10px',
             fontSize: 'calc(12px * var(--fs-scale-body, 1))', whiteSpace: 'pre-wrap', marginBottom: 10,

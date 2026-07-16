@@ -506,7 +506,7 @@ export default function BackupPanel() {
               </button>
               <button
                 onClick={executeRestore}
-                className="bg-[#dc2626] text-white"
+                className="bg-[var(--danger)] text-white"
                 style={{ padding: '9px 20px', borderRadius: 10, fontSize: 'calc(13px * var(--fs-scale-body, 1))', fontWeight: 600, border: 'none', cursor: 'pointer', fontFamily: 'inherit' }}
                 onMouseEnter={e => e.currentTarget.style.background = '#b91c1c'}
                 onMouseLeave={e => e.currentTarget.style.background = '#dc2626'}

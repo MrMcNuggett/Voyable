@@ -287,12 +287,12 @@ export default function DemoBanner(): React.ReactElement | null {
         {/* Header */}
         <div style={{ display: 'flex', alignItems: 'center', gap: 10, marginBottom: 14 }}>
           <img src="/icons/icon-dark.svg" alt="" style={{ width: 36, height: 36, borderRadius: 10 }} />
-          <h2 style={{ margin: 0, fontSize: 'calc(17px * var(--fs-scale-subtitle, 1))', fontWeight: 700, color: '#111827', display: 'flex', alignItems: 'center', gap: 5 }}>
+          <h2 style={{ margin: 0, fontSize: 'calc(17px * var(--fs-scale-subtitle, 1))', fontWeight: 700, color: 'var(--text-primary)', display: 'flex', alignItems: 'center', gap: 5 }}>
             {t.titleBefore}<img src="/text-dark.svg" alt="TREK" style={{ height: 18 }} />{t.titleAfter}
           </h2>
         </div>
 
-        <p style={{ fontSize: 'calc(13px * var(--fs-scale-body, 1))', color: '#6b7280', lineHeight: 1.6, margin: '0 0 12px' }}>
+        <p style={{ fontSize: 'calc(13px * var(--fs-scale-body, 1))', color: 'var(--text-muted)', lineHeight: 1.6, margin: '0 0 12px' }}>
           {t.description}
         </p>
 
@@ -302,36 +302,36 @@ export default function DemoBanner(): React.ReactElement | null {
             flex: 1, display: 'flex', alignItems: 'center', gap: 6,
             background: '#f0f9ff', border: '1px solid #bae6fd', borderRadius: 10, padding: '8px 10px',
           }}>
-            <Clock size={13} style={{ flexShrink: 0, color: '#0284c7' }} />
+            <Clock size={13} style={{ flexShrink: 0, color: 'var(--info)' }} />
             <span style={{ fontSize: 'calc(11px * var(--fs-scale-caption, 1))', color: '#0369a1', fontWeight: 600 }}>
               {t.resetIn} {minutesLeft} {t.minutes}
             </span>
           </div>
           <div style={{
             flex: 1, display: 'flex', alignItems: 'center', gap: 6,
-            background: '#fffbeb', border: '1px solid #fde68a', borderRadius: 10, padding: '8px 10px',
+            background: 'var(--warning-soft)', border: '1px solid var(--warning)', borderRadius: 10, padding: '8px 10px',
           }}>
-            <Upload size={13} style={{ flexShrink: 0, color: '#b45309' }} />
-            <span style={{ fontSize: 'calc(11px * var(--fs-scale-caption, 1))', color: '#b45309' }}>{t.uploadNote}</span>
+            <Upload size={13} style={{ flexShrink: 0, color: 'var(--warning)' }} />
+            <span style={{ fontSize: 'calc(11px * var(--fs-scale-caption, 1))', color: 'var(--warning)' }}>{t.uploadNote}</span>
           </div>
         </div>
 
         {/* What is TREK */}
         <div style={{
-          background: '#f8fafc', borderRadius: 12, padding: '12px 14px', marginBottom: 16,
-          border: '1px solid #e2e8f0',
+          background: 'var(--bg-secondary)', borderRadius: 12, padding: '12px 14px', marginBottom: 16,
+          border: '1px solid var(--border-primary)',
         }}>
           <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 6 }}>
-            <Map size={14} style={{ color: '#111827' }} />
-            <span style={{ fontSize: 'calc(12px * var(--fs-scale-body, 1))', fontWeight: 700, color: '#111827', display: 'flex', alignItems: 'center', gap: 4 }}>
+            <Map size={14} style={{ color: 'var(--text-primary)' }} />
+            <span style={{ fontSize: 'calc(12px * var(--fs-scale-body, 1))', fontWeight: 700, color: 'var(--text-primary)', display: 'flex', alignItems: 'center', gap: 4 }}>
               {t.whatIs}
             </span>
           </div>
-          <p style={{ fontSize: 'calc(12px * var(--fs-scale-body, 1))', color: '#64748b', lineHeight: 1.5, margin: 0 }}>{t.whatIsDesc}</p>
+          <p style={{ fontSize: 'calc(12px * var(--fs-scale-body, 1))', color: 'var(--text-muted)', lineHeight: 1.5, margin: 0 }}>{t.whatIsDesc}</p>
         </div>
 
         {/* Addons */}
-        <p style={{ fontSize: 'calc(10px * var(--fs-scale-caption, 1))', fontWeight: 700, color: '#374151', margin: '0 0 8px', textTransform: 'uppercase', letterSpacing: '0.08em', display: 'flex', alignItems: 'center', gap: 6 }}>
+        <p style={{ fontSize: 'calc(10px * var(--fs-scale-caption, 1))', fontWeight: 700, color: 'var(--text-secondary)', margin: '0 0 8px', textTransform: 'uppercase', letterSpacing: '0.08em', display: 'flex', alignItems: 'center', gap: 6 }}>
           <Puzzle size={12} />
           {t.addonsTitle}
         </p>
@@ -340,21 +340,21 @@ export default function DemoBanner(): React.ReactElement | null {
             const Icon = addonIcons[i]
             return (
               <div key={name} style={{
-                background: '#f8fafc', borderRadius: 10, padding: '8px 10px',
-                border: '1px solid #f1f5f9',
+                background: 'var(--bg-secondary)', borderRadius: 10, padding: '8px 10px',
+                border: '1px solid var(--border-secondary)',
               }}>
                 <div style={{ display: 'flex', alignItems: 'center', gap: 6, marginBottom: 2 }}>
-                  <Icon size={12} style={{ flexShrink: 0, color: '#111827' }} />
-                  <span style={{ fontSize: 'calc(11px * var(--fs-scale-caption, 1))', fontWeight: 700, color: '#111827' }}>{name}</span>
+                  <Icon size={12} style={{ flexShrink: 0, color: 'var(--text-primary)' }} />
+                  <span style={{ fontSize: 'calc(11px * var(--fs-scale-caption, 1))', fontWeight: 700, color: 'var(--text-primary)' }}>{name}</span>
                 </div>
-                <p style={{ fontSize: 'calc(10px * var(--fs-scale-caption, 1))', color: '#94a3b8', margin: 0, lineHeight: 1.3, paddingLeft: 18 }}>{desc}</p>
+                <p style={{ fontSize: 'calc(10px * var(--fs-scale-caption, 1))', color: 'var(--text-faint)', margin: 0, lineHeight: 1.3, paddingLeft: 18 }}>{desc}</p>
               </div>
             )
           })}
         </div>
 
         {/* Full version features */}
-        <p style={{ fontSize: 'calc(10px * var(--fs-scale-caption, 1))', fontWeight: 700, color: '#374151', margin: '0 0 8px', textTransform: 'uppercase', letterSpacing: '0.08em', display: 'flex', alignItems: 'center', gap: 6 }}>
+        <p style={{ fontSize: 'calc(10px * var(--fs-scale-caption, 1))', fontWeight: 700, color: 'var(--text-secondary)', margin: '0 0 8px', textTransform: 'uppercase', letterSpacing: '0.08em', display: 'flex', alignItems: 'center', gap: 6 }}>
           <Shield size={12} />
           {t.fullVersionTitle}
         </p>
@@ -363,7 +363,7 @@ export default function DemoBanner(): React.ReactElement | null {
             const Icon = featureIcons[i]
             return (
               <div key={text} style={{ display: 'flex', alignItems: 'center', gap: 8, fontSize: 'calc(11px * var(--fs-scale-caption, 1))', color: '#4b5563', padding: '4px 0' }}>
-                <Icon size={13} style={{ flexShrink: 0, color: '#9ca3af' }} />
+                <Icon size={13} style={{ flexShrink: 0, color: 'var(--text-faint)' }} />
                 <span>{text}</span>
               </div>
             )
@@ -372,21 +372,21 @@ export default function DemoBanner(): React.ReactElement | null {
 
         {/* Footer */}
         <div style={{
-          padding: '14px 0 20px', borderTop: '1px solid #e5e7eb',
+          padding: '14px 0 20px', borderTop: '1px solid var(--border-primary)',
           display: 'flex', alignItems: 'center', justifyContent: 'space-between',
           position: 'sticky', bottom: 0, background: 'white',
           marginTop: 'auto',
         }}>
-          <div style={{ display: 'flex', alignItems: 'center', gap: 6, fontSize: 'calc(11px * var(--fs-scale-caption, 1))', color: '#9ca3af' }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: 6, fontSize: 'calc(11px * var(--fs-scale-caption, 1))', color: 'var(--text-faint)' }}>
             <Github size={13} />
             <span>{t.selfHost}</span>
             <a href="https://github.com/mauriceboe/TREK" target="_blank" rel="noopener noreferrer"
-              style={{ color: '#111827', fontWeight: 600, textDecoration: 'none' }}>
+              style={{ color: 'var(--text-primary)', fontWeight: 600, textDecoration: 'none' }}>
               {t.selfHostLink}
             </a>
           </div>
           <button onClick={() => setDismissed(true)} style={{
-            background: '#111827', color: 'white', border: 'none',
+            background: 'var(--accent)', color: 'white', border: 'none',
             borderRadius: 10, padding: '8px 20px', fontSize: 'calc(12px * var(--fs-scale-body, 1))',
             fontWeight: 600, cursor: 'pointer', fontFamily: 'inherit',
           }}>
