@@ -179,7 +179,7 @@ export default function TransitJourneyModal({ reservation, onClose, onSave, onDe
       <div style={{ display: 'flex', flexDirection: 'column', gap: 18, fontFamily: 'var(--font-system)' }}>
         {/* header: icon + inline-renamable title + date/time */}
         <div style={{ display: 'flex', alignItems: 'center', gap: 14 }}>
-          <div style={{ width: isMobile ? 40 : 48, height: isMobile ? 40 : 48, flexShrink: 0, display: 'flex', alignItems: 'center', justifyContent: 'center', borderRadius: 13, background: '#7c3aed18' }}>
+          <div style={{ width: isMobile ? 40 : 48, height: isMobile ? 40 : 48, flexShrink: 0, display: 'flex', alignItems: 'center', justifyContent: 'center', borderRadius: 13, background: '#7c3aed18' }}>  // theme-lint-disable: category color (data value)
             <TramFront size={isMobile ? 19 : 23} strokeWidth={1.8} color="#7c3aed" />
           </div>
           <div style={{ flex: 1, minWidth: 0 }}>

@@ -46,7 +46,7 @@ const TYPE_OPTIONS = [
   { value: 'transit',     labelKey: 'reservations.type.transit',     Icon: TramFront, color: '#7c3aed' },  // theme-lint-disable: reservation category color
   { value: 'transport_other', labelKey: 'reservations.type.transport_other', Icon: Route, color: 'var(--text-muted)' },
   { value: 'event',       labelKey: 'reservations.type.event',       Icon: Ticket, color: 'var(--warning)' },
-  { value: 'tour',        labelKey: 'reservations.type.tour',        Icon: Users, color: '#10b981' },  // theme-lint-disable: reservation category color
+  { value: 'tour',        labelKey: 'reservations.type.tour',        Icon: Users, color: 'var(--success)' },  // theme-lint-disable: reservation category color
   { value: 'other',       labelKey: 'reservations.type.other',       Icon: FileText, color: 'var(--text-muted)' },
 ]
 
@@ -547,7 +547,7 @@ function TransitJourneyCard({ r, days, onOpen, onDelete, canEdit, tripId, contri
       onMouseLeave={e => e.currentTarget.style.boxShadow = 'none'}
     >
       <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
-        <div style={{ width: 34, height: 34, flexShrink: 0, display: 'flex', alignItems: 'center', justifyContent: 'center', borderRadius: 10, background: 'rgba(124,58,237,0.1)' }}>
+        <div style={{ width: 34, height: 34, flexShrink: 0, display: 'flex', alignItems: 'center', justifyContent: 'center', borderRadius: 10, background: 'var(--accent-subtle)' }}>
           <TramFront size={16} strokeWidth={1.8} color="#7c3aed" />
         </div>
         <div style={{ flex: 1, minWidth: 0 }}>

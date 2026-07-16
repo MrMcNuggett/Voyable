@@ -227,7 +227,7 @@ function PollCard({ poll, currentUser, canEdit, onVote, onClose, onDelete, t }: 
               </span>
             )}
             {remaining && !isClosed && (
-              <span style={{ display: 'inline-flex', alignItems: 'center', gap: 3, fontSize: 'calc(9px * var(--fs-scale-caption, 1))', fontWeight: 600, color: 'var(--warning)', background: '#f59e0b18', padding: '2px 7px', borderRadius: 99 }}>
+              <span style={{ display: 'inline-flex', alignItems: 'center', gap: 3, fontSize: 'calc(9px * var(--fs-scale-caption, 1))', fontWeight: 600, color: 'var(--warning)', background: 'var(--warning-soft)', padding: '2px 7px', borderRadius: 99 }}>
                 <Clock size={8} /> {remaining}
               </span>
             )}

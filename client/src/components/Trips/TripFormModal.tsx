@@ -344,11 +344,11 @@ export default function TripFormModal({ isOpen, onClose, onSave, trip, onCoverUp
               <img src={coverPreview} alt="" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
               <div style={{ position: 'absolute', bottom: 8, right: 8, display: 'flex', gap: 6 }}>
                 <button type="button" onClick={() => fileRef.current?.click()} disabled={uploadingCover}
-                  style={{ display: 'flex', alignItems: 'center', gap: 4, padding: '5px 10px', borderRadius: 8, background: 'rgba(0,0,0,0.55)', border: 'none', color: 'white', fontSize: 'calc(11.5px * var(--fs-scale-caption, 1))', fontWeight: 600, cursor: 'pointer', backdropFilter: 'blur(4px)' }}>
+                  style={{ display: 'flex', alignItems: 'center', gap: 4, padding: '5px 10px', borderRadius: 8, background: 'var(--overlay)', border: 'none', color: 'white', fontSize: 'calc(11.5px * var(--fs-scale-caption, 1))', fontWeight: 600, cursor: 'pointer', backdropFilter: 'blur(4px)' }}>
                   <Camera size={12} /> {uploadingCover ? t('common.uploading') : t('common.change')}
                 </button>
                 <button type="button" onClick={handleRemoveCover}
-                  style={{ display: 'flex', alignItems: 'center', padding: '5px 8px', borderRadius: 8, background: 'rgba(0,0,0,0.55)', border: 'none', color: 'white', cursor: 'pointer', backdropFilter: 'blur(4px)' }}>
+                  style={{ display: 'flex', alignItems: 'center', padding: '5px 8px', borderRadius: 8, background: 'var(--overlay)', border: 'none', color: 'white', cursor: 'pointer', backdropFilter: 'blur(4px)' }}>
                   <X size={12} />
                 </button>
               </div>

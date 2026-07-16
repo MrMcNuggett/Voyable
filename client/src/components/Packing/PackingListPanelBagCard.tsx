@@ -80,7 +80,7 @@ export function BagCard({ bag, bagItems, totalWeight, pct, tripId, tripMembers, 
                     </span>
                   )}
                   <span style={{ flex: 1, fontWeight: isSelected ? 600 : 400 }}>{m.username}</span>
-                  {isSelected && <Check size={12} style={{ color: '#10b981' }} />}
+                  {isSelected && <Check size={12} style={{ color: 'var(--success)' }} />}
                 </button>
               )
             })}

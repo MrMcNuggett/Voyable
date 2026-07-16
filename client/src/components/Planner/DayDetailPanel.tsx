@@ -566,7 +566,7 @@ function HotelPickerModal({ showHotelPicker, setShowHotelPicker, font, t, hotelD
     <>
             {/* Hotel Picker Popup — portal to body to escape transform stacking context */}
             {showHotelPicker && ReactDOM.createPortal(
-              <div style={{ position: 'fixed', inset: 0, zIndex: 99999, background: 'rgba(0,0,0,0.4)', backdropFilter: 'blur(4px)', display: 'flex', alignItems: 'center', justifyContent: 'center', padding: 16 }}
+              <div style={{ position: 'fixed', inset: 0, zIndex: 99999, background: 'var(--overlay)', backdropFilter: 'blur(4px)', display: 'flex', alignItems: 'center', justifyContent: 'center', padding: 16 }}
                 onClick={() => setShowHotelPicker(false)}>
                 <div onClick={e => e.stopPropagation()} style={{
                   width: '100%', maxWidth: 900, borderRadius: 16, overflow: 'hidden',

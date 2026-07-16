@@ -216,7 +216,7 @@ export default function VacayPage(): React.ReactElement {
 
       {/* Incoming invite — forced fullscreen modal */}
       {incomingInvites.length > 0 && ReactDOM.createPortal(
-        <div className="fixed inset-0 flex items-center justify-center px-4 bg-[rgba(0,0,0,0.7)]"
+        <div className="fixed inset-0 flex items-center justify-center px-4 bg-[var(--overlay)]"
           style={{ zIndex: 99995, backdropFilter: 'blur(8px)' }}>
           {incomingInvites.map(inv => (
             <div key={inv.plan_id} className="trek-modal-enter w-full max-w-md rounded-2xl shadow-2xl overflow-hidden bg-surface-card">

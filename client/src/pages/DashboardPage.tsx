@@ -488,7 +488,7 @@ function AtlasStats({ stats }: { stats: TravelStats | null }): React.ReactElemen
       {showAtlas && (
         <div className="atlas-card passport">
           <div className="label">{t('dashboard.atlas.countriesVisited')}</div>
-          <div className="value mono">{countries.length} <span className="unit text-[oklch(1_0_0_/_.55)]">{t('dashboard.atlas.ofTotal', { total: 195 })}</span></div>
+          <div className="value mono">{countries.length} <span className="unit text-[oklch(1_0_0_/_.55)]">{t('dashboard.atlas.ofTotal', { total: 195 })}</span></div>{/* theme-lint-disable: white unit text on the dark-petrol passport tile */}
           <div className="passport-flags">
             {countries.slice(0, 5).map((c, i) => (
               <span key={i} className="flag" title={c}>

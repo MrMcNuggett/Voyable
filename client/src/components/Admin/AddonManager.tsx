@@ -495,7 +495,7 @@ function LlmParsingConfig({ addon }: { addon: Addon }) {
                           <div className="flex items-center gap-2">
                             <span className="text-sm text-content">{m.label}</span>
                             {m.recommended && (
-                              <span className="rounded-md bg-[rgba(16,185,129,0.15)] px-1.5 py-px text-[10px] font-semibold text-emerald-600">Recommended</span>
+                              <span className="rounded-md bg-[var(--success-soft)] px-1.5 py-px text-[10px] font-semibold text-emerald-600">Recommended</span>
                             )}
                           </div>
                           <div className="text-xs text-content-faint">{m.note}</div>

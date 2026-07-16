@@ -45,7 +45,7 @@ const ForgotPasswordPage: React.FC = () => {
             <h1 style={{ fontSize: 'calc(22px * var(--fs-scale-title, 1))', fontWeight: 700, color: 'var(--text-primary)', margin: '0 0 10px 0' }}>
               {t('login.forgotPasswordSentTitle')}
             </h1>
-            <p style={{ fontSize: 'calc(14px * var(--fs-scale-body, 1))', color: '#4b5563', lineHeight: 1.55, margin: 0 }}>
+            <p style={{ fontSize: 'calc(14px * var(--fs-scale-body, 1))', color: 'var(--text-muted)', lineHeight: 1.55, margin: 0 }}>
               {t('login.forgotPasswordSentBody')}
             </p>
             {smtpConfigured === false && (

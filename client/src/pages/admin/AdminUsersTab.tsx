@@ -71,7 +71,7 @@ export default function AdminUsersTab({ admin, t, locale }: AdminUsersTabProps):
                               {u.username.charAt(0).toUpperCase()}
                             </div>
                           )}
-                          <span className={`absolute -bottom-0.5 -right-0.5 w-3 h-3 rounded-full border-2 border-surface-card ${u.online ? 'bg-[var(--success)]' : 'bg-[#94a3b8]'}`} />
+                          <span className={`absolute -bottom-0.5 -right-0.5 w-3 h-3 rounded-full border-2 border-surface-card ${u.online ? 'bg-[var(--success)]' : 'bg-[var(--text-faint)]'}`} />
                         </div>
                         <div>
                           <p className="text-sm font-medium text-slate-900">{u.username}</p>
@@ -151,7 +151,7 @@ export default function AdminUsersTab({ admin, t, locale }: AdminUsersTabProps):
               const isActive = !isExpired && !isUsedUp
               return (
                 <div key={inv.id} className="px-5 py-3 flex items-center gap-4">
-                  <Link2 className={`w-4 h-4 flex-shrink-0 ${isActive ? 'text-content' : 'text-[#d1d5db]'}`} />
+                  <Link2 className={`w-4 h-4 flex-shrink-0 ${isActive ? 'text-content' : 'text-[var(--text-faint)]'}`} />
                   <div className="flex-1 min-w-0">
                     <div className="flex items-center gap-2">
                       <code className="text-xs font-mono text-slate-600 truncate">{inv.token.slice(0, 12)}...</code>

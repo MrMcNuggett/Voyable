@@ -9,7 +9,7 @@ import { transportIcon } from './FileManager.helpers'
 export function AssignModal(S: FileManagerState) {
   const { files, assignFileId, setAssignFileId, t, days, assignments, places, reservations, tripId, handleAssign, refreshFiles } = S
   return ReactDOM.createPortal(
-    <div style={{ position: 'fixed', inset: 0, background: 'rgba(0,0,0,0.5)', zIndex: 5000, display: 'flex', alignItems: 'center', justifyContent: 'center' }}
+    <div style={{ position: 'fixed', inset: 0, background: 'var(--overlay)', zIndex: 5000, display: 'flex', alignItems: 'center', justifyContent: 'center' }}
       onClick={() => setAssignFileId(null)}>
       <div style={{
         background: 'var(--bg-card)', borderRadius: 16, boxShadow: '0 20px 60px rgba(0,0,0,0.2)',

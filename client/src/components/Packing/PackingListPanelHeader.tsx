@@ -36,7 +36,7 @@ export function PackingHeader(S: PackingState) {
                 placeholder={t('packing.templateName')}
                 style={{ fontSize: 'calc(12px * var(--fs-scale-body, 1))', padding: '5px 10px', borderRadius: 99, border: '1px solid var(--border-primary)', outline: 'none', fontFamily: 'inherit', width: 140, background: 'var(--bg-card)', color: 'var(--text-primary)' }}
               />
-              <button onClick={handleSaveAsTemplate} style={{ background: 'none', border: 'none', cursor: 'pointer', padding: 2, color: '#10b981' }}><Check size={14} /></button>
+              <button onClick={handleSaveAsTemplate} style={{ background: 'none', border: 'none', cursor: 'pointer', padding: 2, color: 'var(--success)' }}><Check size={14} /></button>
               <button onClick={() => { setShowSaveTemplate(false); setSaveTemplateName('') }} style={{ background: 'none', border: 'none', cursor: 'pointer', padding: 2, color: 'var(--text-faint)' }}><X size={14} /></button>
             </div>
           )}
@@ -127,7 +127,7 @@ export function PackingHeader(S: PackingState) {
             {fortschritt === 100 ? (
               <div style={{
                 display: 'flex', alignItems: 'center', gap: 8,
-                fontSize: 'calc(16px * var(--fs-scale-subtitle, 1))', fontWeight: 700, color: '#10b981',
+                fontSize: 'calc(16px * var(--fs-scale-subtitle, 1))', fontWeight: 700, color: 'var(--success)',
                 letterSpacing: '-0.01em', flexShrink: 0,
               }}>
                 <CheckCheck size={18} strokeWidth={2.5} />

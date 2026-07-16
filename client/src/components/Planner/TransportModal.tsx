@@ -631,7 +631,7 @@ export function TransportModal({ isOpen, onClose, onSave, reservation, days, sel
         <div style={{ display: 'flex', flexDirection: 'column', gap: 18 }}>
           {/* search header: what this is + the day it plans for */}
           <div className="bg-surface-tertiary" style={{ display: 'flex', alignItems: 'center', gap: 14, padding: '14px 16px', borderRadius: 14, flexWrap: 'wrap' }}>
-            <div style={{ width: 42, height: 42, flexShrink: 0, display: 'flex', alignItems: 'center', justifyContent: 'center', borderRadius: 12, background: '#7c3aed18' }}>
+            <div style={{ width: 42, height: 42, flexShrink: 0, display: 'flex', alignItems: 'center', justifyContent: 'center', borderRadius: 12, background: '#7c3aed18' }}>  // theme-lint-disable: category color (data value)
               <TramFront size={20} strokeWidth={1.8} color="#7c3aed" />
             </div>
             <div style={{ flex: 1, minWidth: 180 }}>

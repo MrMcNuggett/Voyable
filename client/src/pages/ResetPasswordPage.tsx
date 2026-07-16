@@ -44,7 +44,7 @@ const ResetPasswordPage: React.FC = () => {
         <h1 style={{ fontSize: 'calc(22px * var(--fs-scale-title, 1))', fontWeight: 700, color: 'var(--text-primary)', margin: '0 0 10px 0' }}>
           {t('login.resetPasswordSuccessTitle')}
         </h1>
-        <p style={{ fontSize: 'calc(14px * var(--fs-scale-body, 1))', color: '#4b5563', lineHeight: 1.55, margin: 0 }}>
+        <p style={{ fontSize: 'calc(14px * var(--fs-scale-body, 1))', color: 'var(--text-muted)', lineHeight: 1.55, margin: 0 }}>
           {t('login.resetPasswordSuccessBody')}
         </p>
         <button type="button" onClick={() => navigate('/login')} style={{
@@ -67,7 +67,7 @@ const ResetPasswordPage: React.FC = () => {
         <h1 style={{ fontSize: 'calc(22px * var(--fs-scale-title, 1))', fontWeight: 700, color: 'var(--text-primary)', margin: '0 0 10px 0' }}>
           {t('login.resetPasswordInvalidLink')}
         </h1>
-        <p style={{ fontSize: 'calc(14px * var(--fs-scale-body, 1))', color: '#4b5563', lineHeight: 1.55, margin: 0 }}>
+        <p style={{ fontSize: 'calc(14px * var(--fs-scale-body, 1))', color: 'var(--text-muted)', lineHeight: 1.55, margin: 0 }}>
           {t('login.resetPasswordInvalidLinkBody')}
         </p>
         <button type="button" onClick={() => navigate('/forgot-password')} style={{

@@ -393,7 +393,7 @@ function IntegrationsMcpSection(props: any) {
                             <div className="flex items-center gap-2">
                               <p className="text-sm font-medium truncate text-content">{client.name}</p>
                               {client.allows_client_credentials && (
-                                <span className="px-1.5 py-0.5 rounded text-[10px] font-medium flex-shrink-0 bg-[rgba(99,102,241,0.12)] text-[#4f46e5] border border-[rgba(99,102,241,0.3)]">
+                                <span className="px-1.5 py-0.5 rounded text-[10px] font-medium flex-shrink-0 bg-[var(--accent-subtle)] text-accent-on border border-[var(--accent-subtle)]">
                                   {t('settings.oauth.badge.machine')}
                                 </span>
                               )}

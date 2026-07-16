@@ -343,7 +343,7 @@ function usePlaceFormModal(props: PlaceFormModalProps) {
   const handleCreateCategory = async () => {
     if (!newCategoryName.trim()) return
     try {
-      const cat = await onCategoryCreated?.({ name: newCategoryName, color: '#6366f1', icon: 'MapPin' })
+      const cat = await onCategoryCreated?.({ name: newCategoryName, color: '#276b64', icon: 'MapPin' })  // theme-lint-disable: default category color (data value)
       if (cat) setForm(prev => ({ ...prev, category_id: String(cat.id) }))
       setNewCategoryName('')
       setShowNewCategory(false)

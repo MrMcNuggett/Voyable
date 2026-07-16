@@ -192,7 +192,7 @@ const JourneyMap = forwardRef<JourneyMapHandle, Props>(function JourneyMap(
     if (stableTrail.length > 1) {
       const coords = stableTrail.map(p => [p.lat, p.lng] as L.LatLngTuple)
       L.polyline(coords, {
-        color: '#6366f1', weight: 3, opacity: 0.4,
+        color: '#c98736', weight: 3, opacity: 0.4, // theme-lint-disable: amber map route color (Leaflet literal)
         dashArray: '6 4', lineCap: 'round',
       }).addTo(map)
       coords.forEach(c => allCoords.push(c))

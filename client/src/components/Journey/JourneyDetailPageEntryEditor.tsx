@@ -134,7 +134,7 @@ export function EntryEditor({ entry, journeyId, tripDates, galleryPhotos, onClos
   }
 
   return (
-    <div className="fixed inset-0 z-[9999]" style={{ background: 'rgba(9,9,11,0.6)', backdropFilter: 'blur(6px)', WebkitBackdropFilter: 'blur(6px)' }}>
+    <div className="fixed inset-0 z-[9999]" style={{ background: 'var(--overlay)', backdropFilter: 'blur(6px)', WebkitBackdropFilter: 'blur(6px)' }}>
       {/* The modal itself is constrained to the feed column on desktop so it
           centers there — but the backdrop stays full-width (covering the map
           too) for a uniform dim/blur across the whole page. */}

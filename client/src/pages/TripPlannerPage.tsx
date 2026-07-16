@@ -98,7 +98,7 @@ function ListsContainer({ tripId, packingItems, todoItems }: { tripId: number; p
                 >
                   <Icon size={13} className={active ? 'text-content' : 'text-content-faint'} />
                   <span className="hidden sm:inline">{tab.label}</span>
-                  <span className={`text-content-faint ${active ? 'bg-surface-tertiary' : 'bg-[rgba(0,0,0,0.06)]'}`} style={{
+                  <span className={`text-content-faint ${active ? 'bg-surface-tertiary' : 'bg-[var(--bg-hover)]'}`} style={{
                     fontSize: 'calc(10px * var(--fs-scale-caption, 1))', fontWeight: 600,
                     padding: '1px 6px', borderRadius: 99, minWidth: 16, textAlign: 'center',
                   }}>{tab.count}</span>

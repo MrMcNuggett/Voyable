@@ -8,7 +8,7 @@ export function BulkImportModal(S: PackingState) {
     <div style={{
       position: 'fixed', inset: 0, zIndex: 1000,
       display: 'flex', alignItems: 'center', justifyContent: 'center',
-      background: 'rgba(0,0,0,0.3)', backdropFilter: 'blur(3px)',
+      background: 'var(--overlay)', backdropFilter: 'blur(3px)',
     }} onClick={() => setShowImportModal(false)}>
       <div style={{
         width: 420, maxHeight: '80vh', background: 'var(--bg-card)', borderRadius: 16,

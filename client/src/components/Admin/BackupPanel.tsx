@@ -468,15 +468,15 @@ export default function BackupPanel() {
             className="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700"
           >
             {/* Red header */}
-            <div style={{ background: 'linear-gradient(135deg, #dc2626, #b91c1c)', padding: '20px 24px', display: 'flex', alignItems: 'center', gap: 12 }}>
-              <div className="bg-[rgba(255,255,255,0.2)]" style={{ width: 40, height: 40, borderRadius: 10, display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
+            <div style={{ background: 'var(--danger)', padding: '20px 24px', display: 'flex', alignItems: 'center', gap: 12 }}>
+              <div className="bg-[rgba(255,255,255,0.2)]" style={{ /* theme-lint-disable: white icon well on danger header */ width: 40, height: 40, borderRadius: 10, display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
                 <AlertTriangle size={20} className="text-white" />
               </div>
               <div>
                 <h3 className="text-white" style={{ margin: 0, fontSize: 'calc(16px * var(--fs-scale-subtitle, 1))', fontWeight: 700 }}>
                   {t('backup.restoreConfirmTitle')}
                 </h3>
-                <p className="text-[rgba(255,255,255,0.8)]" style={{ margin: '2px 0 0', fontSize: 'calc(12px * var(--fs-scale-body, 1))' }}>
+                <p className="text-[rgba(255,255,255,0.8)]" style={{ /* theme-lint-disable: white text on danger header */ margin: '2px 0 0', fontSize: 'calc(12px * var(--fs-scale-body, 1))' }}>
                   {restoreConfirm.filename}
                 </p>
               </div>

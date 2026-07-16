@@ -362,7 +362,7 @@ export default function DemoBanner(): React.ReactElement | null {
           {t.features.map((text, i) => {
             const Icon = featureIcons[i]
             return (
-              <div key={text} style={{ display: 'flex', alignItems: 'center', gap: 8, fontSize: 'calc(11px * var(--fs-scale-caption, 1))', color: '#4b5563', padding: '4px 0' }}>
+              <div key={text} style={{ display: 'flex', alignItems: 'center', gap: 8, fontSize: 'calc(11px * var(--fs-scale-caption, 1))', color: 'var(--text-muted)', padding: '4px 0' }}>
                 <Icon size={13} style={{ flexShrink: 0, color: 'var(--text-faint)' }} />
                 <span>{text}</span>
               </div>

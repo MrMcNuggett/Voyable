@@ -29,7 +29,7 @@ export function PlacesBulkCategoryModal({ count, categories, onPick, onClose }: 
   return createPortal(
     <div
       onClick={e => { if (e.target === e.currentTarget) onClose() }}
-      style={{ position: 'fixed', inset: 0, zIndex: 9999, background: 'rgba(0,0,0,0.5)', display: 'flex', alignItems: 'center', justifyContent: 'center', padding: 16 }}
+      style={{ position: 'fixed', inset: 0, zIndex: 9999, background: 'var(--overlay)', display: 'flex', alignItems: 'center', justifyContent: 'center', padding: 16 }}
     >
       <div className="bg-surface-card text-content" style={{
         borderRadius: 14, padding: '18px 20px', width: '100%', maxWidth: 380,

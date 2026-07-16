@@ -57,7 +57,7 @@ export default function JournalBody({ text, dark }: Props) {
             return (
               <code style={{
                 background: dark ? 'rgba(255,255,255,0.08)' : 'rgba(0,0,0,0.06)',
-                borderRadius: 4, padding: '2px 5px', fontSize: '0.9em', fontFamily: 'monospace',
+                borderRadius: 4, padding: '2px 5px', fontSize: '0.9em', fontFamily: 'monospace',  // theme-lint-disable: relative em font size
               }}>{children}</code>
             )
           },

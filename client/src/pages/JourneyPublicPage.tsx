@@ -346,8 +346,8 @@ export default function JourneyPublicPage() {
         <div style={{ position: 'absolute', top: 12, right: 12, zIndex: 10 }}>
           <button onClick={() => setShowLangPicker(v => !v)} style={{
             padding: '5px 12px', borderRadius: 20, border: '1px solid rgba(255,255,255,0.15)',
-            background: 'rgba(255,255,255,0.1)', backdropFilter: 'blur(8px)',
-            color: 'rgba(255,255,255,0.7)', fontSize: 'calc(11px * var(--fs-scale-caption, 1))', fontWeight: 500, cursor: 'pointer', fontFamily: 'inherit',
+            background: 'rgba(255,255,255,0.1)', backdropFilter: 'blur(8px)', /* theme-lint-disable: fixed on-dark hero */
+            color: 'rgba(255,255,255,0.7)', /* theme-lint-disable: fixed on-dark hero */ fontSize: 'calc(11px * var(--fs-scale-caption, 1))', fontWeight: 500, cursor: 'pointer', fontFamily: 'inherit',
           }}>
             {SUPPORTED_LANGUAGES.find(l => l.value === (locale?.split('-')[0] || 'en'))?.label || 'Language'}
           </button>
