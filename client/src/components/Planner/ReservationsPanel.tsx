@@ -34,19 +34,19 @@ interface AssignmentLookupEntry {
 
 const TYPE_OPTIONS = [
   { value: 'flight',      labelKey: 'reservations.type.flight',      Icon: Plane, color: 'var(--info)' },
-  { value: 'hotel',       labelKey: 'reservations.type.hotel',       Icon: Hotel, color: '#8b5cf6' },
+  { value: 'hotel',       labelKey: 'reservations.type.hotel',       Icon: Hotel, color: '#8b5cf6' },  // theme-lint-disable: reservation category color
   { value: 'restaurant',  labelKey: 'reservations.type.restaurant',  Icon: Utensils, color: 'var(--danger)' },
-  { value: 'train',       labelKey: 'reservations.type.train',       Icon: Train, color: '#06b6d4' },
+  { value: 'train',       labelKey: 'reservations.type.train',       Icon: Train, color: '#06b6d4' },  // theme-lint-disable: reservation category color
   { value: 'bus',         labelKey: 'reservations.type.bus',         Icon: Bus, color: 'var(--success)' },
   { value: 'car',         labelKey: 'reservations.type.car',         Icon: Car, color: 'var(--text-muted)' },
-  { value: 'taxi',        labelKey: 'reservations.type.taxi',        Icon: CarTaxiFront, color: '#ca8a04' },
-  { value: 'bicycle',     labelKey: 'reservations.type.bicycle',     Icon: Bike, color: '#84cc16' },
-  { value: 'cruise',      labelKey: 'reservations.type.cruise',      Icon: Ship, color: '#0ea5e9' },
-  { value: 'ferry',       labelKey: 'reservations.type.ferry',       Icon: Sailboat, color: '#0d9488' },
-  { value: 'transit',     labelKey: 'reservations.type.transit',     Icon: TramFront, color: '#7c3aed' },
+  { value: 'taxi',        labelKey: 'reservations.type.taxi',        Icon: CarTaxiFront, color: '#ca8a04' },  // theme-lint-disable: reservation category color
+  { value: 'bicycle',     labelKey: 'reservations.type.bicycle',     Icon: Bike, color: '#84cc16' },  // theme-lint-disable: reservation category color
+  { value: 'cruise',      labelKey: 'reservations.type.cruise',      Icon: Ship, color: '#0ea5e9' },  // theme-lint-disable: reservation category color
+  { value: 'ferry',       labelKey: 'reservations.type.ferry',       Icon: Sailboat, color: '#0d9488' },  // theme-lint-disable: reservation category color
+  { value: 'transit',     labelKey: 'reservations.type.transit',     Icon: TramFront, color: '#7c3aed' },  // theme-lint-disable: reservation category color
   { value: 'transport_other', labelKey: 'reservations.type.transport_other', Icon: Route, color: 'var(--text-muted)' },
   { value: 'event',       labelKey: 'reservations.type.event',       Icon: Ticket, color: 'var(--warning)' },
-  { value: 'tour',        labelKey: 'reservations.type.tour',        Icon: Users, color: '#10b981' },
+  { value: 'tour',        labelKey: 'reservations.type.tour',        Icon: Users, color: '#10b981' },  // theme-lint-disable: reservation category color
   { value: 'other',       labelKey: 'reservations.type.other',       Icon: FileText, color: 'var(--text-muted)' },
 ]
 
@@ -747,7 +747,7 @@ export default function ReservationsPanel({ tripId, reservations, days, assignme
                   }}
                 >
                   {t('common.all')}
-                  <span className={`text-content-faint ${typeFilters.size === 0 ? 'bg-surface-tertiary' : 'bg-[rgba(0,0,0,0.06)]'}`} style={{
+                  <span className={`text-content-faint ${typeFilters.size === 0 ? 'bg-surface-tertiary' : 'bg-[var(--bg-hover)]'}`} style={{
                     fontSize: 'calc(10px * var(--fs-scale-caption, 1))', fontWeight: 600,
                     padding: '1px 6px', borderRadius: 99, minWidth: 16, textAlign: 'center',
                   }}>{reservations.length}</span>
@@ -771,7 +771,7 @@ export default function ReservationsPanel({ tripId, reservations, days, assignme
                     >
                       <Icon size={13} style={{ color: active ? opt.color : 'var(--text-faint)' }} />
                       {t(opt.labelKey)}
-                      <span className={`text-content-faint ${active ? 'bg-surface-tertiary' : 'bg-[rgba(0,0,0,0.06)]'}`} style={{
+                      <span className={`text-content-faint ${active ? 'bg-surface-tertiary' : 'bg-[var(--bg-hover)]'}`} style={{
                         fontSize: 'calc(10px * var(--fs-scale-caption, 1))', fontWeight: 600,
                         padding: '1px 6px', borderRadius: 99, minWidth: 16, textAlign: 'center',
                       }}>{typeCounts[opt.value] || 0}</span>

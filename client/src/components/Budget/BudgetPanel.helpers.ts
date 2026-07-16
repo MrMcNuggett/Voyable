@@ -4,7 +4,7 @@ import { SYMBOLS, SPLIT_COLORS } from './BudgetPanel.constants'
 export function widgetTheme(dark: boolean) {
   if (dark) return {
     bg: 'linear-gradient(180deg, #17171d 0%, #0d0d12 100%)',
-    border: 'rgba(255,255,255,0.07)',
+    border: 'rgba(255,255,255,0.07)',  // theme-lint-disable: intentional data/category color
     text: '#ffffff',
     sub: 'rgba(255,255,255,0.6)',
     faint: 'rgba(255,255,255,0.4)',
@@ -24,7 +24,7 @@ export function widgetTheme(dark: boolean) {
   }
   return {
     bg: 'linear-gradient(180deg, #ffffff 0%, #f9fafb 100%)',
-    border: 'rgba(15,23,42,0.08)',
+    border: 'rgba(15,23,42,0.08)',  // theme-lint-disable: intentional data/category color
     text: '#111827',
     sub: 'rgba(17,24,39,0.6)',
     faint: 'rgba(17,24,39,0.4)',

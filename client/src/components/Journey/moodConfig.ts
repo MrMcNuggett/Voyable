@@ -10,11 +10,11 @@ export interface MoodDef {
 }
 
 export const MOODS: MoodDef[] = [
-  { id: 'amazing', label: 'Amazing', icon: Sparkles, color: '#E8654A', cssVar: 'var(--mood-amazing)' },
-  { id: 'good',    label: 'Good',    icon: Sun,      color: '#EF9F27', cssVar: 'var(--mood-good)' },
-  { id: 'neutral', label: 'Neutral', icon: Minus,    color: '#94928C', cssVar: 'var(--mood-neutral)' },
-  { id: 'tired',   label: 'Tired',   icon: Moon,     color: '#6B9BD2', cssVar: 'var(--mood-tired)' },
-  { id: 'rough',   label: 'Rough',   icon: CloudRain,color: '#9B8EC4', cssVar: 'var(--mood-rough)' },
+  { id: 'amazing', label: 'Amazing', icon: Sparkles, color: '#E8654A', cssVar: 'var(--mood-amazing)' },  // theme-lint-disable: intentional data/category color
+  { id: 'good',    label: 'Good',    icon: Sun,      color: '#EF9F27', cssVar: 'var(--mood-good)' },  // theme-lint-disable: intentional data/category color
+  { id: 'neutral', label: 'Neutral', icon: Minus,    color: '#94928C', cssVar: 'var(--mood-neutral)' },  // theme-lint-disable: intentional data/category color
+  { id: 'tired',   label: 'Tired',   icon: Moon,     color: '#6B9BD2', cssVar: 'var(--mood-tired)' },  // theme-lint-disable: intentional data/category color
+  { id: 'rough',   label: 'Rough',   icon: CloudRain,color: '#9B8EC4', cssVar: 'var(--mood-rough)' },  // theme-lint-disable: intentional data/category color
 ]
 
 export const MOOD_DEFAULT_COLOR = '#D4D4D4'
