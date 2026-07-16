@@ -2,17 +2,20 @@ import React from 'react'
 import ReactDOM from 'react-dom/client'
 import { BrowserRouter } from 'react-router-dom'
 import App from './App'
-// Self-hosted Poppins (bundled, same-origin) so the app font can't be blocked by
-// ad/tracker blockers the way the Google Fonts CDN can.
-import '@fontsource/poppins/300.css'
-import '@fontsource/poppins/400.css'
-import '@fontsource/poppins/500.css'
-import '@fontsource/poppins/600.css'
-import '@fontsource/poppins/700.css'
-// Geist Sans (self-hosted too) — used only for secondary "subtext" via --font-subtext.
-import '@fontsource/geist-sans/400.css'
-import '@fontsource/geist-sans/500.css'
-import '@fontsource/geist-sans/600.css'
+// Voyable Design System fonts, self-hosted (bundled, same-origin) so the app font
+// can't be blocked by ad/tracker blockers the way the Google Fonts CDN can.
+// Body / UI font — Plus Jakarta Sans (--font-system).
+import '@fontsource/plus-jakarta-sans/400.css'
+import '@fontsource/plus-jakarta-sans/500.css'
+import '@fontsource/plus-jakarta-sans/600.css'
+import '@fontsource/plus-jakarta-sans/700.css'
+// Display / headline font — Bricolage Grotesque (--font-display, h1/h2/hero numerals).
+import '@fontsource/bricolage-grotesque/600.css'
+import '@fontsource/bricolage-grotesque/700.css'
+import '@fontsource/bricolage-grotesque/800.css'
+// Data / mono font — JetBrains Mono (--font-mono, dates, day numbers, prices, coords).
+import '@fontsource/jetbrains-mono/400.css'
+import '@fontsource/jetbrains-mono/500.css'
 // Leaflet CSS bundled from node_modules instead of unpkg: the service worker
 // cached the CDN stylesheet as an opaque response, which the browser then
 // rejected, breaking the Atlas/trip maps (#1497). Bundling keeps it same-origin

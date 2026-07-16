@@ -25,7 +25,10 @@
     "format:check": "prettier --check \"src/**/*.tsx\" \"src/**/*.css\""
   },
   "dependencies": {
+    "@fontsource/bricolage-grotesque": "^5.2.10",
     "@fontsource/geist-sans": "^5.2.5",
+    "@fontsource/jetbrains-mono": "^5.2.8",
+    "@fontsource/plus-jakarta-sans": "^5.2.8",
     "@fontsource/poppins": "^5.2.7",
     "@react-pdf/renderer": "^4.5.1",
     "@simplewebauthn/browser": "^13.1.2",
