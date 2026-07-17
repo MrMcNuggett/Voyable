@@ -14,6 +14,7 @@ import TripPlannerPage from './pages/TripPlannerPage'
 import FilesPage from './pages/FilesPage'
 import AdminPage from './pages/AdminPage'
 import SettingsPage from './pages/SettingsPage'
+import PricingPage from './pages/PricingPage'
 import VacayPage from './pages/VacayPage'
 import HelpPage from './pages/HelpPage'
 import AtlasPage from './pages/AtlasPage'
@@ -285,6 +286,14 @@ export default function App() {
           element={
             <ProtectedRoute>
               <SettingsPage />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/pricing"
+          element={
+            <ProtectedRoute>
+              <PricingPage />
             </ProtectedRoute>
           }
         />

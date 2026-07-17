@@ -28,6 +28,9 @@ function createTables(db: Database.Database): void {
       password_version INTEGER NOT NULL DEFAULT 0,
       feed_token TEXT,
       is_guest INTEGER NOT NULL DEFAULT 0,
+      ai_planning_status TEXT NOT NULL DEFAULT 'none' CHECK (ai_planning_status IN ('none', 'active', 'canceled', 'past_due')),
+      ai_planning_provider_ref TEXT,
+      ai_planning_current_period_end TEXT,
       created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
       updated_at DATETIME DEFAULT CURRENT_TIMESTAMP
     );
@@ -608,6 +611,18 @@ function createTables(db: Database.Database): void {
     );
     CREATE INDEX IF NOT EXISTS idx_inquiries_status ON inquiries (status, id DESC);
     CREATE INDEX IF NOT EXISTS idx_inquiries_trip ON inquiries (trip_id);
+
+    CREATE TABLE IF NOT EXISTS subscription_events (
+      id INTEGER PRIMARY KEY AUTOINCREMENT,
+      user_id INTEGER NOT NULL REFERENCES users(id) ON DELETE CASCADE,
+      kind TEXT NOT NULL,
+      amount_cents INTEGER,
+      currency TEXT DEFAULT 'EUR',
+      provider TEXT,
+      provider_ref TEXT,
+      created_at DATETIME DEFAULT CURRENT_TIMESTAMP
+    );
+    CREATE INDEX IF NOT EXISTS idx_subscription_events_user ON subscription_events (user_id, id DESC);
 
     CREATE TABLE IF NOT EXISTS migrations (id integer PRIMARY KEY AUTOINCREMENT NOT NULL, timestamp bigint NOT NULL, name varchar NOT NULL);
   `);

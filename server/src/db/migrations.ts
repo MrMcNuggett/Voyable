@@ -3652,6 +3652,37 @@ function runMigrations(db: Database.Database): void {
       db.exec('CREATE INDEX IF NOT EXISTS idx_inquiries_status ON inquiries (status, id DESC);');
       db.exec('CREATE INDEX IF NOT EXISTS idx_inquiries_trip ON inquiries (trip_id);');
     },
+
+    // Subscription/entitlement state on users (#subscription). Greenfield — no
+    // billing provider wired in yet (see paymentAdapter.ts's NullPaymentAdapter).
+    // Advisory has no subscription state of its own — it's pay-per-request,
+    // tracked via the inquiries table. subscription_events is an append-only
+    // ledger for the billing-history UI and future provider webhooks.
+    () => {
+      const cols = db.prepare("PRAGMA table_info('users')").all() as Array<{ name: string }>;
+      if (!cols.some((c) => c.name === 'ai_planning_status')) {
+        db.exec("ALTER TABLE users ADD COLUMN ai_planning_status TEXT NOT NULL DEFAULT 'none' CHECK (ai_planning_status IN ('none', 'active', 'canceled', 'past_due'));");
+      }
+      if (!cols.some((c) => c.name === 'ai_planning_provider_ref')) {
+        db.exec('ALTER TABLE users ADD COLUMN ai_planning_provider_ref TEXT;');
+      }
+      if (!cols.some((c) => c.name === 'ai_planning_current_period_end')) {
+        db.exec('ALTER TABLE users ADD COLUMN ai_planning_current_period_end TEXT;');
+      }
+      db.exec(`
+        CREATE TABLE IF NOT EXISTS subscription_events (
+          id INTEGER PRIMARY KEY AUTOINCREMENT,
+          user_id INTEGER NOT NULL REFERENCES users(id) ON DELETE CASCADE,
+          kind TEXT NOT NULL,
+          amount_cents INTEGER,
+          currency TEXT DEFAULT 'EUR',
+          provider TEXT,
+          provider_ref TEXT,
+          created_at DATETIME DEFAULT CURRENT_TIMESTAMP
+        );
+      `);
+      db.exec('CREATE INDEX IF NOT EXISTS idx_subscription_events_user ON subscription_events (user_id, id DESC);');
+    },
   ];
 
   if (currentVersion < migrations.length) {

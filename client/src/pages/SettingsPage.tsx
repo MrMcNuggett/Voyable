@@ -1,5 +1,5 @@
 import React from 'react'
-import { Settings, SlidersHorizontal, Paintbrush, Map, Bell, Plug, CloudOff, User, Info, Blocks } from 'lucide-react'
+import { Settings, SlidersHorizontal, Paintbrush, Map, Bell, Plug, CloudOff, User, Info, Blocks, CreditCard } from 'lucide-react'
 import { useTranslation } from '../i18n'
 import PageShell from '../components/Layout/PageShell'
 import PageSidebar, { type PageSidebarTab } from '../components/Layout/PageSidebar'
@@ -10,6 +10,7 @@ import NotificationsTab from '../components/Settings/NotificationsTab'
 import IntegrationsTab from '../components/Settings/IntegrationsTab'
 import AccountTab from '../components/Settings/AccountTab'
 import AboutTab from '../components/Settings/AboutTab'
+import SubscriptionTab from '../components/Settings/SubscriptionTab'
 import OfflineTab from '../components/Settings/OfflineTab'
 import PluginSettingsTab from '../components/Settings/PluginSettingsTab'
 import { usePluginStore } from '../store/pluginStore'
@@ -34,6 +35,7 @@ export default function SettingsPage(): React.ReactElement {
       : []),
     { id: 'offline', label: t('settings.tabs.offline'), icon: CloudOff },
     { id: 'account', label: t('settings.tabs.account'), icon: User },
+    { id: 'subscription', label: t('settings.tabs.subscription'), icon: CreditCard },
     ...(appVersion
       ? [{ id: 'about', label: t('settings.tabs.about'), icon: Info }]
       : []),
@@ -69,6 +71,7 @@ export default function SettingsPage(): React.ReactElement {
             {activeTab === 'plugins' && hasPlugins && <PluginSettingsTab />}
             {activeTab === 'offline' && <OfflineTab />}
             {activeTab === 'account' && <AccountTab />}
+            {activeTab === 'subscription' && <SubscriptionTab />}
             {activeTab === 'about' && appVersion && <AboutTab appVersion={appVersion} />}
           </PageSidebar>
         </div>

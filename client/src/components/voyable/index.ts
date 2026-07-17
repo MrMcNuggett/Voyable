@@ -40,6 +40,8 @@ export { default as Input } from './Input'
 export type { InputProps } from './Input'
 export { default as Textarea } from './Textarea'
 export type { TextareaProps } from './Textarea'
+export { default as PricingCard } from './PricingCard'
+export type { PricingCardProps } from './PricingCard'
 
 // Canonicalized existing components (single import surface)
 export { default as Modal } from '../shared/Modal'
