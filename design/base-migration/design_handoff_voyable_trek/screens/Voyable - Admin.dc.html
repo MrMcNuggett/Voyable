@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+
+<helmet>
+  <link rel="stylesheet" href="_ds/voyable-design-system-20d63b1d-fb41-47b0-8049-741c2094f669/tokens/fonts.css">
+  <link rel="stylesheet" href="_ds/voyable-design-system-20d63b1d-fb41-47b0-8049-741c2094f669/tokens/colors.css">
+  <link rel="stylesheet" href="_ds/voyable-design-system-20d63b1d-fb41-47b0-8049-741c2094f669/tokens/typography.css">
+  <link rel="stylesheet" href="_ds/voyable-design-system-20d63b1d-fb41-47b0-8049-741c2094f669/tokens/spacing.css">
+  <link rel="stylesheet" href="_ds/voyable-design-system-20d63b1d-fb41-47b0-8049-741c2094f669/tokens/effects.css">
+  <link rel="stylesheet" href="_ds/voyable-design-system-20d63b1d-fb41-47b0-8049-741c2094f669/styles.css">
+  <script src="_ds/voyable-design-system-20d63b1d-fb41-47b0-8049-741c2094f669/_ds_bundle.js"></script>
+  <style>
+    html,body{margin:0;background:var(--surface-page);}
+    *{box-sizing:border-box;}
+    .mono{font-family:var(--font-mono);font-feature-settings:"tnum";}
+    .grp{font-size:10px;text-transform:uppercase;letter-spacing:0.1em;color:var(--text-faint);font-weight:700;padding:12px 12px 4px;}
+  </style>
+</helmet>
+
+<div style="font-family:var(--font-sans);color:var(--text-primary);min-height:100vh;">
+  <nav style="height:64px;display:flex;align-items:center;padding:0 24px;gap:10px;background:color-mix(in oklch, var(--surface-raised) 92%, transparent);backdrop-filter:blur(16px);border-bottom:1px solid var(--border-subtle);">
+    <svg width="26" height="26" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="11" fill="var(--petrol-500)"/><path d="M12 6c-2.2 0-4 1.7-4 4 0 3 4 8 4 8s4-5 4-8c0-2.3-1.8-4-4-4Zm0 5.5A1.5 1.5 0 1 1 12 8.5a1.5 1.5 0 0 1 0 3Z" fill="var(--stone-50)"/></svg>
+    <span style="font-family:var(--font-display);font-weight:700;font-size:var(--text-xl);letter-spacing:-0.01em;">voyable</span>
+  </nav>
+
+  <div style="max-width:1200px;margin:0 auto;padding:32px 28px 80px;">
+    <div style="display:flex;align-items:center;gap:12px;margin-bottom:20px;">
+      <div style="width:40px;height:40px;border-radius:12px;background:var(--surface-sunken);display:flex;align-items:center;justify-content:center;color:var(--text-secondary);">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z"/></svg>
+      </div>
+      <div>
+        <h1 style="margin:0;font-family:var(--font-display);font-size:22px;font-weight:700;letter-spacing:-0.01em;">Admin</h1>
+        <p style="margin:2px 0 0;font-size:13px;color:var(--text-muted);">Manage users, addons, and instance settings</p>
+      </div>
+    </div>
+
+    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-bottom:24px;">
+      <div style="border:1px solid var(--border-subtle);background:var(--surface-raised);border-radius:16px;padding:16px;">
+        <div style="font-size:10.5px;text-transform:uppercase;letter-spacing:0.08em;color:var(--text-muted);font-weight:600;">Users</div>
+        <div class="mono" style="font-size:26px;font-weight:700;margin-top:6px;">12</div>
+      </div>
+      <div style="border:1px solid var(--border-subtle);background:var(--surface-raised);border-radius:16px;padding:16px;">
+        <div style="font-size:10.5px;text-transform:uppercase;letter-spacing:0.08em;color:var(--text-muted);font-weight:600;">Trips</div>
+        <div class="mono" style="font-size:26px;font-weight:700;margin-top:6px;">48</div>
+      </div>
+      <div style="border:1px solid var(--border-subtle);background:var(--surface-raised);border-radius:16px;padding:16px;">
+        <div style="font-size:10.5px;text-transform:uppercase;letter-spacing:0.08em;color:var(--text-muted);font-weight:600;">Places</div>
+        <div class="mono" style="font-size:26px;font-weight:700;margin-top:6px;">612</div>
+      </div>
+      <div style="border:1px solid var(--border-subtle);background:var(--surface-raised);border-radius:16px;padding:16px;">
+        <div style="font-size:10.5px;text-transform:uppercase;letter-spacing:0.08em;color:var(--text-muted);font-weight:600;">Files</div>
+        <div class="mono" style="font-size:26px;font-weight:700;margin-top:6px;">93</div>
+      </div>
+    </div>
+
+    <div style="display:flex;gap:24px;align-items:flex-start;">
+      <div style="width:200px;flex-shrink:0;display:flex;flex-direction:column;position:sticky;top:88px;">
+        <div class="grp">Users</div>
+        <button onclick="{{ setTabUsers }}" style="display:flex;align-items:center;gap:9px;padding:9px 12px;border-radius:10px;border:none;background:{{ usersS.bg }};font-size:13px;font-weight:{{ usersS.fw }};cursor:pointer;font-family:inherit;color:{{ usersS.fg }};text-align:left;">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>
+          Users
+        </button>
+        <button style="display:flex;align-items:center;gap:9px;padding:9px 12px;border-radius:10px;border:none;background:none;font-size:13px;cursor:pointer;font-family:inherit;color:var(--text-secondary);text-align:left;">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="5"/><path d="M20 21a8 8 0 1 0-16 0"/></svg>
+          Default settings
+        </button>
+        <div class="grp">Configuration</div>
+        <button style="display:flex;align-items:center;gap:9px;padding:9px 12px;border-radius:10px;border:none;background:none;font-size:13px;cursor:pointer;font-family:inherit;color:var(--text-secondary);text-align:left;">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="4" y1="21" x2="4" y2="14"/><line x1="4" y1="10" x2="4" y2="3"/><line x1="12" y1="21" x2="12" y2="12"/></svg>
+          Categories &amp; templates
+        </button>
+        <button style="display:flex;align-items:center;gap:9px;padding:9px 12px;border-radius:10px;border:none;background:none;font-size:13px;cursor:pointer;font-family:inherit;color:var(--text-secondary);text-align:left;">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2Z"/><circle cx="12" cy="12" r="3"/></svg>
+          Settings
+        </button>
+        <button onclick="{{ setTabAddons }}" style="display:flex;align-items:center;gap:9px;padding:9px 12px;border-radius:10px;border:none;background:{{ addonsS.bg }};font-size:13px;font-weight:{{ addonsS.fw }};cursor:pointer;font-family:inherit;color:{{ addonsS.fg }};text-align:left;">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M19.44 12.99l-1.75.15c-.16-.94-.5-1.83-1.01-2.62l1.3-1.2a.6.6 0 0 0 .04-.85l-1.42-1.42a.6.6 0 0 0-.85.04l-1.2 1.3c-.79-.5-1.68-.85-2.62-1.01l.15-1.75a.6.6 0 0 0-.6-.63h-2a.6.6 0 0 0-.6.63l.15 1.75c-.94.16-1.83.5-2.62 1.01l-1.2-1.3a.6.6 0 0 0-.85-.04L2.9 8.47a.6.6 0 0 0 .04.85l1.3 1.2c-.5.79-.85 1.68-1.01 2.62l-1.75-.15a.6.6 0 0 0-.63.6v2a.6.6 0 0 0 .63.6l1.75-.15c.16.94.5 1.83 1.01 2.62l-1.3 1.2a.6.6 0 0 0-.04.85l1.42 1.42a.6.6 0 0 0 .85-.04l1.2-1.3c.79.5 1.68.85 2.62 1.01l-.15 1.75a.6.6 0 0 0 .6.63h2a.6.6 0 0 0 .6-.63l-.15-1.75c.94-.16 1.83-.5 2.62-1.01l1.2 1.3a.6.6 0 0 0 .85.04l1.42-1.42a.6.6 0 0 0 .04-.85l-1.3-1.2c.5-.79.85-1.68 1.01-2.62l1.75.15a.6.6 0 0 0 .63-.6v-2a.6.6 0 0 0-.63-.6Z"/><circle cx="12" cy="12" r="3"/></svg>
+          Addons
+        </button>
+        <button style="display:flex;align-items:center;gap:9px;padding:9px 12px;border-radius:10px;border:none;background:none;font-size:13px;cursor:pointer;font-family:inherit;color:var(--text-secondary);text-align:left;">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/></svg>
+          Plugins
+        </button>
+        <div class="grp">Integration</div>
+        <button style="display:flex;align-items:center;gap:9px;padding:9px 12px;border-radius:10px;border:none;background:none;font-size:13px;cursor:pointer;font-family:inherit;color:var(--text-secondary);text-align:left;">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8a6 6 0 0 0-12 0c0 7-3 9-3 9h18s-3-2-3-9"/></svg>
+          Notifications
+        </button>
+        <div class="grp">Maintenance</div>
+        <button style="display:flex;align-items:center;gap:9px;padding:9px 12px;border-radius:10px;border:none;background:none;font-size:13px;cursor:pointer;font-family:inherit;color:var(--text-secondary);text-align:left;">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5v14a9 3 0 0 0 18 0V5"/></svg>
+          Backups
+        </button>
+        <button style="display:flex;align-items:center;gap:9px;padding:9px 12px;border-radius:10px;border:none;background:none;font-size:13px;cursor:pointer;font-family:inherit;color:var(--text-secondary);text-align:left;">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M9 15h6M9 11h6"/></svg>
+          Audit log
+        </button>
+      </div>
+
+      <div style="flex:1;min-width:0;background:var(--surface-raised);border:1px solid var(--border-subtle);border-radius:18px;padding:26px;">
+
+      <sc-if value="{{ isUsers }}" hint-placeholder-val="{{ false }}">
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:16px;">
+          <div><h2 style="margin:0 0 4px;font-family:var(--font-display);font-size:16px;font-weight:700;">Users</h2><p style="margin:0;font-size:12.5px;color:var(--text-muted);">12 accounts on this instance</p></div>
+          <button style="display:inline-flex;align-items:center;gap:6px;padding:8px 14px;border-radius:10px;border:none;background:var(--accent-primary);color:var(--text-on-accent);font-size:12.5px;font-weight:600;cursor:pointer;font-family:inherit;">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12h14"/></svg>
+            Invite user
+          </button>
+        </div>
+        <div style="border:1px solid var(--border-subtle);border-radius:12px;overflow:hidden;">
+          <div style="display:grid;grid-template-columns:2fr 1.4fr 1fr 80px;padding:9px 14px;background:var(--surface-sunken);font-size:10.5px;font-weight:700;text-transform:uppercase;letter-spacing:0.05em;color:var(--text-muted);">
+            <span>User</span><span>Email</span><span>Role</span><span></span>
+          </div>
+          <div style="display:grid;grid-template-columns:2fr 1.4fr 1fr 80px;padding:11px 14px;border-top:1px solid var(--border-subtle);align-items:center;">
+            <span style="display:flex;align-items:center;gap:9px;font-size:13px;font-weight:600;"><span style="width:24px;height:24px;border-radius:50%;background:var(--olive-300);display:inline-flex;align-items:center;justify-content:center;font-size:10px;font-weight:700;color:var(--ink-900);">J</span>Jae Santos</span>
+            <span style="font-size:12.5px;color:var(--text-muted);">jae@example.com</span>
+            <span style="font-size:11px;font-weight:600;padding:2px 9px;border-radius:99px;background:var(--petrol-50);color:var(--accent-primary);display:inline-flex;width:fit-content;">Admin</span>
+            <button style="border:none;background:none;color:var(--text-faint);cursor:pointer;"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="1"/><circle cx="12" cy="5" r="1"/><circle cx="12" cy="19" r="1"/></svg></button>
+          </div>
+          <div style="display:grid;grid-template-columns:2fr 1.4fr 1fr 80px;padding:11px 14px;border-top:1px solid var(--border-subtle);align-items:center;">
+            <span style="display:flex;align-items:center;gap:9px;font-size:13px;font-weight:600;"><span style="width:24px;height:24px;border-radius:50%;background:var(--petrol-300);display:inline-flex;align-items:center;justify-content:center;font-size:10px;font-weight:700;color:white;">M</span>Mika Kwan</span>
+            <span style="font-size:12.5px;color:var(--text-muted);">mika@example.com</span>
+            <span style="font-size:11px;font-weight:600;padding:2px 9px;border-radius:99px;background:var(--surface-sunken);color:var(--text-secondary);display:inline-flex;width:fit-content;">Member</span>
+            <button style="border:none;background:none;color:var(--text-faint);cursor:pointer;"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="1"/><circle cx="12" cy="5" r="1"/><circle cx="12" cy="19" r="1"/></svg></button>
+          </div>
+        </div>
+      </sc-if>
+
+      <sc-if value="{{ isAddons }}" hint-placeholder-val="{{ true }}">
+        <h2 style="margin:0 0 4px;font-family:var(--font-display);font-size:16px;font-weight:700;">Addons</h2>
+        <p style="margin:0 0 18px;font-size:12.5px;color:var(--text-muted);">Turn optional features on or off for this instance.</p>
+
+        <div style="display:flex;flex-direction:column;gap:10px;">
+          <div style="display:flex;align-items:center;gap:14px;padding:14px;border:1px solid var(--border-subtle);border-radius:14px;">
+            <div style="width:36px;height:36px;border-radius:10px;background:var(--petrol-50);color:var(--accent-primary);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+              <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
+            </div>
+            <div style="flex:1;"><div style="font-size:13.5px;font-weight:600;">Vacay</div><div style="font-size:11.5px;color:var(--text-muted);margin-top:2px;">Personal vacation planner with calendar and holidays</div></div>
+            <span style="width:38px;height:22px;border-radius:99px;background:var(--accent-primary);position:relative;flex-shrink:0;"><span style="position:absolute;top:2px;right:2px;width:18px;height:18px;border-radius:50%;background:white;"></span></span>
+          </div>
+          <div style="display:flex;align-items:center;gap:14px;padding:14px;border:1px solid var(--border-subtle);border-radius:14px;">
+            <div style="width:36px;height:36px;border-radius:10px;background:var(--petrol-50);color:var(--accent-primary);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+              <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15 15 0 0 1 0 20 15 15 0 0 1 0-20"/></svg>
+            </div>
+            <div style="flex:1;"><div style="font-size:13.5px;font-weight:600;">Atlas</div><div style="font-size:11.5px;color:var(--text-muted);margin-top:2px;">Visited-countries map, bucket list, and travel stats</div></div>
+            <span style="width:38px;height:22px;border-radius:99px;background:var(--accent-primary);position:relative;flex-shrink:0;"><span style="position:absolute;top:2px;right:2px;width:18px;height:18px;border-radius:50%;background:white;"></span></span>
+          </div>
+          <div style="display:flex;align-items:center;gap:14px;padding:14px;border:1px solid var(--border-subtle);border-radius:14px;">
+            <div style="width:36px;height:36px;border-radius:10px;background:var(--olive-50);color:var(--olive-500);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+              <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+            </div>
+            <div style="flex:1;"><div style="font-size:13.5px;font-weight:600;">Journey</div><div style="font-size:11.5px;color:var(--text-muted);margin-top:2px;">Magazine-style travel journal with photos and maps</div></div>
+            <span style="width:38px;height:22px;border-radius:99px;background:var(--accent-primary);position:relative;flex-shrink:0;"><span style="position:absolute;top:2px;right:2px;width:18px;height:18px;border-radius:50%;background:white;"></span></span>
+          </div>
+          <div style="display:flex;align-items:center;gap:14px;padding:14px;border:1px solid var(--border-subtle);border-radius:14px;">
+            <div style="width:36px;height:36px;border-radius:10px;background:var(--surface-sunken);color:var(--text-muted);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+              <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+            </div>
+            <div style="flex:1;"><div style="font-size:13.5px;font-weight:600;">Collections</div><div style="font-size:11.5px;color:var(--text-muted);margin-top:2px;">Saved place lists shareable across trips</div></div>
+            <span style="width:38px;height:22px;border-radius:99px;background:var(--border-default);position:relative;flex-shrink:0;"><span style="position:absolute;top:2px;left:2px;width:18px;height:18px;border-radius:50%;background:white;"></span></span>
+          </div>
+        </div>
+      </sc-if>
+      </div>
+    </div>
+  </div>
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { tab: 'addons' };
+  renderVals() {
+    const t = this.state.tab;
+    const on = (id) => ({ bg: t === id ? 'var(--surface-sunken)' : 'none', fg: t === id ? 'var(--text-primary)' : 'var(--text-secondary)', fw: t === id ? '600' : '400' });
+    return {
+      isAddons: t === 'addons', isUsers: t === 'users',
+      addonsS: on('addons'), usersS: on('users'),
+      setTabAddons: () => this.setState({ tab: 'addons' }),
+      setTabUsers: () => this.setState({ tab: 'users' }),
+    };
+  }
+}
+</script>
+</body>
+</html>

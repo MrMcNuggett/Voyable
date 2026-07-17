@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+
+<helmet>
+  <link rel="stylesheet" href="_ds/voyable-design-system-20d63b1d-fb41-47b0-8049-741c2094f669/tokens/fonts.css">
+  <link rel="stylesheet" href="_ds/voyable-design-system-20d63b1d-fb41-47b0-8049-741c2094f669/tokens/colors.css">
+  <link rel="stylesheet" href="_ds/voyable-design-system-20d63b1d-fb41-47b0-8049-741c2094f669/tokens/typography.css">
+  <link rel="stylesheet" href="_ds/voyable-design-system-20d63b1d-fb41-47b0-8049-741c2094f669/tokens/spacing.css">
+  <link rel="stylesheet" href="_ds/voyable-design-system-20d63b1d-fb41-47b0-8049-741c2094f669/tokens/effects.css">
+  <link rel="stylesheet" href="_ds/voyable-design-system-20d63b1d-fb41-47b0-8049-741c2094f669/styles.css">
+  <script src="_ds/voyable-design-system-20d63b1d-fb41-47b0-8049-741c2094f669/_ds_bundle.js"></script>
+  <style>html,body{margin:0;background:var(--surface-page);}*{box-sizing:border-box;}</style>
+</helmet>
+
+<div style="min-height:100vh;display:flex;align-items:center;justify-content:center;padding:24px;font-family:var(--font-sans);">
+  <div style="width:100%;max-width:420px;background:var(--surface-raised);border:1px solid var(--border-subtle);border-radius:var(--radius-xl);padding:32px 28px;text-align:center;box-shadow:var(--shadow-md);">
+    <div style="width:52px;height:52px;border-radius:50%;background:var(--petrol-50);display:flex;align-items:center;justify-content:center;margin:0 auto 16px;color:var(--accent-primary);">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+    </div>
+    <h1 style="margin:0 0 8px;font-family:var(--font-display);font-size:19px;font-weight:700;color:var(--text-primary);">Join this trip</h1>
+    <p style="margin:0 0 22px;font-size:14px;color:var(--text-secondary);line-height:1.5;">You've been invited to <strong style="color:var(--text-primary);">Portugal Road Trip</strong>.</p>
+    <div style="display:flex;gap:10px;justify-content:center;">
+      <button style="height:44px;padding:0 20px;border-radius:999px;border:1.5px solid var(--border-default);background:transparent;font-family:inherit;font-weight:600;font-size:14px;cursor:pointer;color:var(--text-primary);">Cancel</button>
+      <x-import component-from-global-scope="VoyableDesignSystem_20d63b.Button" hint-size="auto,44px">Join trip</x-import>
+    </div>
+  </div>
+</div>
+
+</x-dc>
+</body>
+</html>

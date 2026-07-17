@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+
+<helmet>
+  <link rel="stylesheet" href="_ds/voyable-design-system-20d63b1d-fb41-47b0-8049-741c2094f669/tokens/fonts.css">
+  <link rel="stylesheet" href="_ds/voyable-design-system-20d63b1d-fb41-47b0-8049-741c2094f669/tokens/colors.css">
+  <link rel="stylesheet" href="_ds/voyable-design-system-20d63b1d-fb41-47b0-8049-741c2094f669/tokens/typography.css">
+  <link rel="stylesheet" href="_ds/voyable-design-system-20d63b1d-fb41-47b0-8049-741c2094f669/tokens/spacing.css">
+  <link rel="stylesheet" href="_ds/voyable-design-system-20d63b1d-fb41-47b0-8049-741c2094f669/tokens/effects.css">
+  <link rel="stylesheet" href="_ds/voyable-design-system-20d63b1d-fb41-47b0-8049-741c2094f669/styles.css">
+  <script src="_ds/voyable-design-system-20d63b1d-fb41-47b0-8049-741c2094f669/_ds_bundle.js"></script>
+  <style>
+    html,body{margin:0;background:var(--surface-page);}
+    *{box-sizing:border-box;}
+    label.field{display:block;font-size:12.5px;font-weight:600;color:var(--text-secondary);margin-bottom:6px;}
+    input.vy-input{width:100%;padding:9px 12px;border:1.5px solid var(--border-default);border-radius:12px;font-size:13.5px;font-family:inherit;outline:none;color:var(--text-primary);background:var(--surface-raised);box-sizing:border-box;}
+  </style>
+</helmet>
+
+<div style="font-family:var(--font-sans);color:var(--text-primary);min-height:100vh;">
+  <nav style="height:64px;display:flex;align-items:center;padding:0 24px;gap:10px;background:color-mix(in oklch, var(--surface-raised) 92%, transparent);backdrop-filter:blur(16px);border-bottom:1px solid var(--border-subtle);">
+    <svg width="26" height="26" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="11" fill="var(--petrol-500)"/><path d="M12 6c-2.2 0-4 1.7-4 4 0 3 4 8 4 8s4-5 4-8c0-2.3-1.8-4-4-4Zm0 5.5A1.5 1.5 0 1 1 12 8.5a1.5 1.5 0 0 1 0 3Z" fill="var(--stone-50)"/></svg>
+    <span style="font-family:var(--font-display);font-weight:700;font-size:var(--text-xl);letter-spacing:-0.01em;">voyable</span>
+  </nav>
+
+  <div style="max-width:1100px;margin:0 auto;padding:32px 28px 80px;">
+    <div style="display:flex;align-items:center;gap:12px;margin-bottom:24px;">
+      <div style="width:40px;height:40px;border-radius:12px;background:var(--surface-sunken);display:flex;align-items:center;justify-content:center;color:var(--text-secondary);">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2Z"/><circle cx="12" cy="12" r="3"/></svg>
+      </div>
+      <div>
+        <h1 style="margin:0;font-family:var(--font-display);font-size:22px;font-weight:700;letter-spacing:-0.01em;">Settings</h1>
+        <p style="margin:2px 0 0;font-size:13px;color:var(--text-muted);">Manage your account and preferences</p>
+      </div>
+    </div>
+
+    <div style="display:flex;gap:24px;align-items:flex-start;">
+      <div style="width:200px;flex-shrink:0;display:flex;flex-direction:column;gap:2px;position:sticky;top:88px;">
+        <button onclick="{{ setTabDisplay }}" style="display:flex;align-items:center;gap:9px;padding:9px 12px;border-radius:10px;border:none;background:{{ displayS.bg }};font-size:13px;font-weight:{{ displayS.fw }};cursor:pointer;font-family:inherit;color:{{ displayS.fg }};text-align:left;">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="4" y1="21" x2="4" y2="14"/><line x1="4" y1="10" x2="4" y2="3"/><line x1="12" y1="21" x2="12" y2="12"/><line x1="12" y1="8" x2="12" y2="3"/><line x1="20" y1="21" x2="20" y2="16"/><line x1="20" y1="12" x2="20" y2="3"/></svg>
+          Display
+        </button>
+        <button style="display:flex;align-items:center;gap:9px;padding:9px 12px;border-radius:10px;border:none;background:none;font-size:13px;cursor:pointer;font-family:inherit;color:var(--text-secondary);text-align:left;">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="13.5" cy="6.5" r=".5"/><circle cx="17.5" cy="10.5" r=".5"/><circle cx="8.5" cy="7.5" r=".5"/><circle cx="6.5" cy="12.5" r=".5"/><path d="M12 2a10 10 0 1 0 10 10 4 4 0 0 1-5-4 4 4 0 0 1-5-4 4 4 0 0 1-5-4A10 10 0 0 0 12 2Z"/></svg>
+          Appearance
+        </button>
+        <button style="display:flex;align-items:center;gap:9px;padding:9px 12px;border-radius:10px;border:none;background:none;font-size:13px;cursor:pointer;font-family:inherit;color:var(--text-secondary);text-align:left;">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polygon points="1 6 1 22 8 18 16 22 23 18 23 2 16 6 8 2 1 6"/></svg>
+          Map
+        </button>
+        <button onclick="{{ setTabNotifications }}" style="display:flex;align-items:center;gap:9px;padding:9px 12px;border-radius:10px;border:none;background:{{ notificationsS.bg }};font-size:13px;font-weight:{{ notificationsS.fw }};cursor:pointer;font-family:inherit;color:{{ notificationsS.fg }};text-align:left;">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8a6 6 0 0 0-12 0c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>
+          Notifications
+        </button>
+        <button style="display:flex;align-items:center;gap:9px;padding:9px 12px;border-radius:10px;border:none;background:none;font-size:13px;cursor:pointer;font-family:inherit;color:var(--text-secondary);text-align:left;">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12.5A4.5 4.5 0 0 0 6.5 17H18a4 4 0 0 0 .35-7.98A5.5 5.5 0 0 0 8 6.7"/><line x1="1" y1="1" x2="23" y2="23"/></svg>
+          Offline
+        </button>
+        <button onclick="{{ setTabAccount }}" style="display:flex;align-items:center;gap:9px;padding:9px 12px;border-radius:10px;border:none;background:{{ accountS.bg }};font-size:13px;font-weight:{{ accountS.fw }};cursor:pointer;font-family:inherit;color:{{ accountS.fg }};text-align:left;">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+          Account
+        </button>
+        <button style="display:flex;align-items:center;gap:9px;padding:9px 12px;border-radius:10px;border:none;background:none;font-size:13px;cursor:pointer;font-family:inherit;color:var(--text-secondary);text-align:left;">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+          About
+        </button>
+        <div style="margin-top:14px;padding:9px 12px;font-size:10.5px;color:var(--text-faint);">v3.3.0 · self-hosted</div>
+      </div>
+
+      <div style="flex:1;min-width:0;background:var(--surface-raised);border:1px solid var(--border-subtle);border-radius:18px;padding:26px;">
+
+      <sc-if value="{{ isDisplay }}" hint-placeholder-val="{{ false }}">
+        <h2 style="margin:0 0 4px;font-family:var(--font-display);font-size:16px;font-weight:700;">Display</h2>
+        <p style="margin:0 0 18px;font-size:12.5px;color:var(--text-muted);">Units and formatting preferences.</p>
+        <div style="display:flex;flex-direction:column;gap:14px;max-width:440px;">
+          <div>
+            <label class="field">Distance unit</label>
+            <div style="display:flex;gap:8px;">
+              <button style="flex:1;padding:9px;border-radius:10px;border:1.5px solid var(--accent-primary);background:var(--petrol-50);color:var(--accent-primary);font-size:13px;font-weight:600;cursor:pointer;font-family:inherit;">Kilometers</button>
+              <button style="flex:1;padding:9px;border-radius:10px;border:1.5px solid var(--border-default);background:none;color:var(--text-secondary);font-size:13px;cursor:pointer;font-family:inherit;">Miles</button>
+            </div>
+          </div>
+          <div>
+            <label class="field">Date format</label>
+            <div style="display:flex;gap:8px;">
+              <button style="flex:1;padding:9px;border-radius:10px;border:1.5px solid var(--accent-primary);background:var(--petrol-50);color:var(--accent-primary);font-size:13px;font-weight:600;cursor:pointer;font-family:inherit;">DD/MM/YYYY</button>
+              <button style="flex:1;padding:9px;border-radius:10px;border:1.5px solid var(--border-default);background:none;color:var(--text-secondary);font-size:13px;cursor:pointer;font-family:inherit;">MM/DD/YYYY</button>
+            </div>
+          </div>
+          <div>
+            <label class="field">Language</label>
+            <input class="vy-input" type="text" value="English" readonly>
+          </div>
+        </div>
+      </sc-if>
+
+      <sc-if value="{{ isNotifications }}" hint-placeholder-val="{{ false }}">
+        <h2 style="margin:0 0 4px;font-family:var(--font-display);font-size:16px;font-weight:700;">Notifications</h2>
+        <p style="margin:0 0 18px;font-size:12.5px;color:var(--text-muted);">Choose what you want to hear about.</p>
+        <div style="display:flex;flex-direction:column;gap:2px;max-width:480px;">
+          <div style="display:flex;align-items:center;justify-content:space-between;padding:12px 4px;border-bottom:1px solid var(--border-subtle);">
+            <div><div style="font-size:13.5px;font-weight:600;">Upcoming trip reminders</div><div style="font-size:11.5px;color:var(--text-muted);margin-top:2px;">Flights, check-ins, and bookings coming up</div></div>
+            <span style="width:38px;height:22px;border-radius:99px;background:var(--accent-primary);position:relative;flex-shrink:0;"><span style="position:absolute;top:2px;right:2px;width:18px;height:18px;border-radius:50%;background:white;"></span></span>
+          </div>
+          <div style="display:flex;align-items:center;justify-content:space-between;padding:12px 4px;border-bottom:1px solid var(--border-subtle);">
+            <div><div style="font-size:13.5px;font-weight:600;">Collaborator activity</div><div style="font-size:11.5px;color:var(--text-muted);margin-top:2px;">When someone edits a shared trip</div></div>
+            <span style="width:38px;height:22px;border-radius:99px;background:var(--accent-primary);position:relative;flex-shrink:0;"><span style="position:absolute;top:2px;right:2px;width:18px;height:18px;border-radius:50%;background:white;"></span></span>
+          </div>
+          <div style="display:flex;align-items:center;justify-content:space-between;padding:12px 4px;">
+            <div><div style="font-size:13.5px;font-weight:600;">Chat messages</div><div style="font-size:11.5px;color:var(--text-muted);margin-top:2px;">New messages in trip chat</div></div>
+            <span style="width:38px;height:22px;border-radius:99px;background:var(--border-default);position:relative;flex-shrink:0;"><span style="position:absolute;top:2px;left:2px;width:18px;height:18px;border-radius:50%;background:white;"></span></span>
+          </div>
+        </div>
+      </sc-if>
+
+      <sc-if value="{{ isAccount }}" hint-placeholder-val="{{ true }}">
+        <h2 style="margin:0 0 18px;font-family:var(--font-display);font-size:16px;font-weight:700;display:flex;align-items:center;gap:8px;">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="var(--text-secondary)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+          Account
+        </h2>
+
+        <div style="display:flex;flex-direction:column;gap:16px;max-width:440px;">
+          <div>
+            <label class="field">Username</label>
+            <input class="vy-input" type="text" value="jaesantos" readonly>
+          </div>
+          <div>
+            <label class="field">Email</label>
+            <input class="vy-input" type="email" value="jae@example.com" readonly>
+          </div>
+
+          <div style="border-top:1px solid var(--border-subtle);padding-top:16px;margin-top:4px;">
+            <label class="field">Change password</label>
+            <div style="display:flex;flex-direction:column;gap:10px;">
+              <input class="vy-input" type="password" placeholder="Current password">
+              <input class="vy-input" type="password" placeholder="New password">
+              <input class="vy-input" type="password" placeholder="Confirm new password">
+              <button style="align-self:flex-start;display:flex;align-items:center;gap:7px;padding:9px 16px;border-radius:10px;border:1px solid var(--border-default);background:none;font-size:13px;font-weight:600;color:var(--text-secondary);cursor:pointer;font-family:inherit;">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+                Update password
+              </button>
+            </div>
+          </div>
+
+          <div style="border-top:1px solid var(--border-subtle);padding-top:16px;display:flex;align-items:center;gap:14px;">
+            <div style="width:56px;height:56px;border-radius:50%;background:var(--olive-300);display:flex;align-items:center;justify-content:center;font-size:20px;font-weight:700;color:var(--ink-900);flex-shrink:0;">J</div>
+            <div>
+              <div style="font-size:13px;font-weight:600;display:flex;align-items:center;gap:5px;">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z"/></svg>
+                Administrator
+              </div>
+              <div style="font-size:11.5px;color:var(--text-muted);margin-top:2px;">Signed in with email</div>
+            </div>
+          </div>
+
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-top:6px;">
+            <x-import component-from-global-scope="VoyableDesignSystem_20d63b.Button" hint-size="auto,44px">Save profile</x-import>
+            <button style="display:flex;align-items:center;gap:6px;padding:9px 14px;border-radius:10px;border:1px solid color-mix(in oklch, var(--error-500) 35%, var(--border-subtle));background:none;font-size:13px;color:var(--error-500);cursor:pointer;font-family:inherit;">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6h18M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2m3 0v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6h14Z"/></svg>
+              Delete account
+            </button>
+          </div>
+        </div>
+      </sc-if>
+      </div>
+    </div>
+  </div>
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { tab: 'account' };
+  renderVals() {
+    const t = this.state.tab;
+    const on = (id) => ({ bg: t === id ? 'var(--surface-sunken)' : 'none', fg: t === id ? 'var(--text-primary)' : 'var(--text-secondary)', fw: t === id ? '600' : '400' });
+    return {
+      isAccount: t === 'account', isDisplay: t === 'display', isNotifications: t === 'notifications',
+      accountS: on('account'), displayS: on('display'), notificationsS: on('notifications'),
+      setTabAccount: () => this.setState({ tab: 'account' }),
+      setTabDisplay: () => this.setState({ tab: 'display' }),
+      setTabNotifications: () => this.setState({ tab: 'notifications' }),
+    };
+  }
+}
+</script>
+</body>
+</html>

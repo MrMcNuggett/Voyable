@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+
+<helmet>
+  <link rel="stylesheet" href="_ds/voyable-design-system-20d63b1d-fb41-47b0-8049-741c2094f669/tokens/fonts.css">
+  <link rel="stylesheet" href="_ds/voyable-design-system-20d63b1d-fb41-47b0-8049-741c2094f669/tokens/colors.css">
+  <link rel="stylesheet" href="_ds/voyable-design-system-20d63b1d-fb41-47b0-8049-741c2094f669/tokens/typography.css">
+  <link rel="stylesheet" href="_ds/voyable-design-system-20d63b1d-fb41-47b0-8049-741c2094f669/tokens/spacing.css">
+  <link rel="stylesheet" href="_ds/voyable-design-system-20d63b1d-fb41-47b0-8049-741c2094f669/tokens/effects.css">
+  <link rel="stylesheet" href="_ds/voyable-design-system-20d63b1d-fb41-47b0-8049-741c2094f669/styles.css">
+  <script src="_ds/voyable-design-system-20d63b1d-fb41-47b0-8049-741c2094f669/_ds_bundle.js"></script>
+  <style>
+    html,body{margin:0;background:var(--surface-page);}
+    *{box-sizing:border-box;}
+  </style>
+</helmet>
+
+<div style="font-family:var(--font-sans);color:var(--text-primary);min-height:100vh;">
+  <nav style="height:64px;display:flex;align-items:center;padding:0 24px;gap:10px;background:color-mix(in oklch, var(--surface-raised) 92%, transparent);backdrop-filter:blur(16px);border-bottom:1px solid var(--border-subtle);">
+    <svg width="26" height="26" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="11" fill="var(--petrol-500)"/><path d="M12 6c-2.2 0-4 1.7-4 4 0 3 4 8 4 8s4-5 4-8c0-2.3-1.8-4-4-4Zm0 5.5A1.5 1.5 0 1 1 12 8.5a1.5 1.5 0 0 1 0 3Z" fill="var(--stone-50)"/></svg>
+    <span style="font-family:var(--font-display);font-weight:700;font-size:var(--text-xl);letter-spacing:-0.01em;">voyable</span>
+  </nav>
+
+  <div style="max-width:680px;margin:0 auto;padding:32px 24px 80px;">
+    <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:16px;">
+      <div>
+        <h1 style="margin:0;font-family:var(--font-display);font-size:22px;font-weight:700;letter-spacing:-0.01em;display:flex;align-items:center;gap:10px;">
+          Notifications
+          <span style="background:var(--ink-900);color:var(--stone-50);font-size:12px;font-weight:700;padding:2px 9px;border-radius:999px;">3</span>
+        </h1>
+        <p style="margin:3px 0 0;font-size:13px;color:var(--text-muted);">14 notifications</p>
+      </div>
+      <div style="display:flex;gap:8px;">
+        <button style="display:flex;align-items:center;gap:6px;padding:8px 13px;border-radius:10px;border:none;background:var(--surface-sunken);font-size:12.5px;font-weight:600;color:var(--text-secondary);cursor:pointer;font-family:inherit;">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6L7 17l-5-5"/><path d="M22 10L12 20l-2-2"/></svg>
+          Mark all read
+        </button>
+        <button style="display:flex;align-items:center;gap:6px;padding:8px 13px;border-radius:10px;border:none;background:none;font-size:12.5px;color:var(--error-500);cursor:pointer;font-family:inherit;">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6h18M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2m3 0v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6h14Z"/></svg>
+          Delete all
+        </button>
+      </div>
+    </div>
+
+    <div style="display:flex;gap:6px;margin-bottom:16px;">
+      <button onclick="{{ setAll }}" style="padding:6px 14px;border-radius:999px;border:none;font-size:12.5px;font-weight:600;cursor:pointer;font-family:inherit;background:{{ allBg }};color:{{ allFg }};">All</button>
+      <button onclick="{{ setUnread }}" style="padding:6px 14px;border-radius:999px;border:none;font-size:12.5px;font-weight:600;cursor:pointer;font-family:inherit;background:{{ unreadBg }};color:{{ unreadFg }};">Unread only</button>
+    </div>
+
+    <div style="border:1px solid var(--border-subtle);border-radius:16px;background:var(--surface-raised);overflow:hidden;">
+
+      <div style="display:flex;gap:12px;padding:14px 16px;border-bottom:1px solid var(--border-subtle);background:var(--petrol-50);">
+        <div style="width:9px;height:9px;border-radius:50%;background:var(--accent-primary);margin-top:5px;flex-shrink:0;"></div>
+        <div style="flex:1;min-width:0;">
+          <div style="font-size:13.5px;font-weight:600;">Mika Kwan added a place to Portugal Road Trip</div>
+          <div style="font-size:11.5px;color:var(--text-muted);margin-top:3px;">Miradouro da Graça · 2 hours ago</div>
+        </div>
+      </div>
+      <div style="display:flex;gap:12px;padding:14px 16px;border-bottom:1px solid var(--border-subtle);background:var(--petrol-50);">
+        <div style="width:9px;height:9px;border-radius:50%;background:var(--accent-primary);margin-top:5px;flex-shrink:0;"></div>
+        <div style="flex:1;min-width:0;">
+          <div style="font-size:13.5px;font-weight:600;">Reminder: TAP flight to Lisbon tomorrow at 08:40</div>
+          <div style="font-size:11.5px;color:var(--text-muted);margin-top:3px;">Portugal Road Trip · 5 hours ago</div>
+        </div>
+      </div>
+      <div style="display:flex;gap:12px;padding:14px 16px;border-bottom:1px solid var(--border-subtle);background:var(--petrol-50);">
+        <div style="width:9px;height:9px;border-radius:50%;background:var(--accent-primary);margin-top:5px;flex-shrink:0;"></div>
+        <div style="flex:1;min-width:0;">
+          <div style="font-size:13.5px;font-weight:600;">Mika Kwan sent a message in Portugal Road Trip</div>
+          <div style="font-size:11.5px;color:var(--text-muted);margin-top:3px;">"Should we do Sintra on day 2 or day 3?" · Yesterday</div>
+        </div>
+      </div>
+      <div style="display:flex;gap:12px;padding:14px 16px;border-bottom:1px solid var(--border-subtle);">
+        <div style="width:9px;height:9px;flex-shrink:0;margin-top:5px;"></div>
+        <div style="flex:1;min-width:0;">
+          <div style="font-size:13.5px;font-weight:500;color:var(--text-secondary);">Your Kyoto in Autumn trip starts in 6 weeks</div>
+          <div style="font-size:11.5px;color:var(--text-faint);margin-top:3px;">3 days ago</div>
+        </div>
+      </div>
+      <div style="display:flex;gap:12px;padding:14px 16px;">
+        <div style="width:9px;height:9px;flex-shrink:0;margin-top:5px;"></div>
+        <div style="flex:1;min-width:0;">
+          <div style="font-size:13.5px;font-weight:500;color:var(--text-secondary);">Jae Santos settled up 98.00 EUR</div>
+          <div style="font-size:11.5px;color:var(--text-faint);margin-top:3px;">Portugal Road Trip · 5 days ago</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { unreadOnly: false };
+  renderVals() {
+    const u = this.state.unreadOnly;
+    return {
+      allBg: !u ? 'var(--ink-900)' : 'transparent', allFg: !u ? 'var(--stone-50)' : 'var(--text-muted)',
+      unreadBg: u ? 'var(--ink-900)' : 'transparent', unreadFg: u ? 'var(--stone-50)' : 'var(--text-muted)',
+      setAll: () => this.setState({ unreadOnly: false }),
+      setUnread: () => this.setState({ unreadOnly: true }),
+    };
+  }
+}
+</script>
+</body>
+</html>

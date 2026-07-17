@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+
+<helmet>
+  <link rel="stylesheet" href="_ds/voyable-design-system-20d63b1d-fb41-47b0-8049-741c2094f669/tokens/fonts.css">
+  <link rel="stylesheet" href="_ds/voyable-design-system-20d63b1d-fb41-47b0-8049-741c2094f669/tokens/colors.css">
+  <link rel="stylesheet" href="_ds/voyable-design-system-20d63b1d-fb41-47b0-8049-741c2094f669/tokens/typography.css">
+  <link rel="stylesheet" href="_ds/voyable-design-system-20d63b1d-fb41-47b0-8049-741c2094f669/tokens/spacing.css">
+  <link rel="stylesheet" href="_ds/voyable-design-system-20d63b1d-fb41-47b0-8049-741c2094f669/tokens/effects.css">
+  <link rel="stylesheet" href="_ds/voyable-design-system-20d63b1d-fb41-47b0-8049-741c2094f669/styles.css">
+  <script src="_ds/voyable-design-system-20d63b1d-fb41-47b0-8049-741c2094f669/_ds_bundle.js"></script>
+  <style>html,body{margin:0;background:var(--surface-page);}*{box-sizing:border-box;}</style>
+</helmet>
+
+<div style="min-height:100vh;display:flex;align-items:center;justify-content:center;padding:24px;font-family:var(--font-sans);">
+  <div style="width:100%;max-width:680px;background:var(--surface-raised);border:1px solid var(--border-subtle);border-radius:var(--radius-xl);box-shadow:var(--shadow-md);display:flex;overflow:hidden;">
+
+    <div style="width:250px;flex-shrink:0;border-right:1px solid var(--border-subtle);padding:30px 26px;display:flex;flex-direction:column;">
+      <div style="width:44px;height:44px;border-radius:50%;background:var(--petrol-50);color:var(--accent-primary);display:flex;align-items:center;justify-content:center;margin-bottom:14px;">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z"/></svg>
+      </div>
+      <div style="font-size:11px;text-transform:uppercase;letter-spacing:0.08em;color:var(--text-faint);font-weight:600;margin-bottom:4px;">Requesting access</div>
+      <h1 style="margin:0 0 10px;font-family:var(--font-display);font-size:17px;font-weight:700;line-height:1.3;">Wanderlog Sync</h1>
+      <p style="margin:0;font-size:12.5px;color:var(--text-secondary);line-height:1.5;">wants to connect to your Voyable account.</p>
+
+      <div style="flex:1;"></div>
+      <p style="font-size:11px;color:var(--text-faint);margin:0 0 12px;">You can revoke this access anytime in settings.</p>
+      <x-import component-from-global-scope="VoyableDesignSystem_20d63b.Button" hint-size="100%,42px" style="width:100%;margin-bottom:8px;">Allow access</x-import>
+      <button style="width:100%;height:40px;border-radius:10px;border:1px solid var(--border-default);background:transparent;font-family:inherit;font-weight:600;font-size:13px;cursor:pointer;color:var(--text-secondary);">Deny</button>
+    </div>
+
+    <div style="flex:1;min-width:0;padding:30px 26px;max-height:520px;overflow-y:auto;">
+      <div style="font-size:11px;text-transform:uppercase;letter-spacing:0.08em;color:var(--text-faint);font-weight:600;margin-bottom:14px;">Permissions requested</div>
+
+      <div style="display:flex;flex-direction:column;gap:8px;margin-bottom:18px;">
+        <div style="display:flex;gap:10px;padding:11px 12px;border-radius:12px;background:var(--surface-sunken);">
+          <span style="flex-shrink:0;">👁️</span>
+          <div><div style="font-size:13px;font-weight:600;">View your trips</div><div style="font-size:11.5px;color:var(--text-muted);margin-top:2px;">See trip names, dates, and destinations</div></div>
+        </div>
+        <div style="display:flex;gap:10px;padding:11px 12px;border-radius:12px;background:var(--surface-sunken);">
+          <span style="flex-shrink:0;">✏️</span>
+          <div><div style="font-size:13px;font-weight:600;">Edit day plans</div><div style="font-size:11.5px;color:var(--text-muted);margin-top:2px;">Add, reorder, and remove places on your itinerary</div></div>
+        </div>
+        <div style="display:flex;gap:10px;padding:11px 12px;border-radius:12px;background:var(--surface-sunken);">
+          <span style="flex-shrink:0;">👁️</span>
+          <div><div style="font-size:13px;font-weight:600;">View your places</div><div style="font-size:11.5px;color:var(--text-muted);margin-top:2px;">Read saved and planned places</div></div>
+        </div>
+      </div>
+
+      <div style="font-size:11px;text-transform:uppercase;letter-spacing:0.08em;color:var(--text-faint);font-weight:600;margin-bottom:10px;">Always included</div>
+      <div style="display:flex;gap:10px;padding:11px 12px;border-radius:12px;background:var(--surface-sunken);">
+        <span style="flex-shrink:0;">👁️</span>
+        <div><div style="font-size:13px;font-weight:600;font-family:var(--font-mono);">list_trips</div><div style="font-size:11.5px;color:var(--text-muted);margin-top:2px;">List your trips by name</div></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+</x-dc>
+</body>
+</html>

@@ -369,7 +369,7 @@ export default function JourneyPublicPage() {
 
         {/* Logo */}
         <div style={{ /* theme-lint-disable: fixed on-dark hero surface */  display: 'inline-flex', alignItems: 'center', justifyContent: 'center', width: 44, height: 44, borderRadius: 12, background: 'rgba(255,255,255,0.08)', backdropFilter: 'blur(8px)', marginBottom: 12, border: '1px solid rgba(255,255,255,0.1)', position: 'relative' }}>
-          <img src="/icons/icon-white.svg" alt="TREK" width={26} height={26} />
+          <img src="/icons/icon-white.svg" alt="Voyable" width={26} height={26} />
         </div>
 
         <div style={{ fontSize: 'calc(10px * var(--fs-scale-caption, 1))', fontWeight: 600, letterSpacing: 3, textTransform: 'uppercase', opacity: 0.35, marginBottom: 12, position: 'relative' }}>{t('journey.public.tagline')}</div>
@@ -489,8 +489,8 @@ export default function JourneyPublicPage() {
       {/* Powered by */}
       <div className="flex flex-col items-center py-8 gap-2">
         <div style={{ display: 'inline-flex', alignItems: 'center', gap: 8, padding: '8px 16px', borderRadius: 20, background: 'white', border: '1px solid var(--border-primary)', boxShadow: '0 1px 3px rgba(0,0,0,0.04)' }}>
-          <img src="/icons/icon.svg" alt="TREK" width={18} height={18} style={{ borderRadius: 4 }} />
-          <span style={{ fontSize: 'calc(11px * var(--fs-scale-caption, 1))', color: 'var(--text-faint)' }}>{t('journey.public.sharedVia')} <strong style={{ color: 'var(--text-muted)' }}>TREK</strong></span>
+          <img src="/icons/icon.svg" alt="Voyable" width={18} height={18} style={{ borderRadius: 4 }} />
+          <span style={{ fontSize: 'calc(11px * var(--fs-scale-caption, 1))', color: 'var(--text-faint)' }}>{t('journey.public.sharedVia')} <strong style={{ color: 'var(--text-muted)' }}>Voyable</strong></span>
         </div>
         <div style={{ fontSize: 'calc(10px * var(--fs-scale-caption, 1))', color: 'var(--text-faint)' }}>
           Made with <span style={{ color: 'var(--danger)' }}>♥</span> by Maurice · <a href="https://github.com/mauriceboe/TREK" style={{ color: 'var(--text-faint)', textDecoration: 'none' }}>GitHub</a>
