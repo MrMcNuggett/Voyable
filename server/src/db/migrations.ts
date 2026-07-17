@@ -3683,6 +3683,23 @@ function runMigrations(db: Database.Database): void {
       `);
       db.exec('CREATE INDEX IF NOT EXISTS idx_subscription_events_user ON subscription_events (user_id, id DESC);');
     },
+
+    // Durable per-user usage ledger for the AI planning add-on (#ai-planning).
+    // Mirrors the plugin DailyBudget pattern (server/src/nest/plugins/host/daily-budget.ts)
+    // but the counting window is a calendar month, not a UTC day, and it's keyed by
+    // user_id instead of plugin_id. Seeded from this table on boot so a restart
+    // doesn't reset the month's quota.
+    () => {
+      db.exec(`
+        CREATE TABLE IF NOT EXISTS ai_planning_usage (
+          id INTEGER PRIMARY KEY AUTOINCREMENT,
+          user_id INTEGER NOT NULL REFERENCES users(id) ON DELETE CASCADE,
+          trip_id INTEGER REFERENCES trips(id) ON DELETE SET NULL,
+          created_at DATETIME DEFAULT CURRENT_TIMESTAMP
+        );
+      `);
+      db.exec('CREATE INDEX IF NOT EXISTS idx_ai_planning_usage_user_month ON ai_planning_usage (user_id, created_at);');
+    },
   ];
 
   if (currentVersion < migrations.length) {

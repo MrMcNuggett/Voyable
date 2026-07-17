@@ -4,6 +4,7 @@ import { useAuthStore } from './store/authStore'
 import { useSettingsStore } from './store/settingsStore'
 import { applyAppearance } from './theme/applyAppearance'
 import { useAddonStore } from './store/addonStore'
+import { useSubscriptionStore } from './store/subscriptionStore'
 import { usePluginStore } from './store/pluginStore'
 import PluginPage from './pages/PluginPage'
 import LoginPage from './pages/LoginPage'
@@ -115,6 +116,7 @@ export default function App() {
   const { loadSettings } = useSettingsStore()
   const { loadAddons } = useAddonStore()
   const { loadPlugins } = usePluginStore()
+  const { load: loadSubscription } = useSubscriptionStore()
 
   useEffect(() => {
     if (!location.pathname.startsWith('/shared/') && !location.pathname.startsWith('/public/') && !location.pathname.startsWith('/login')) {
@@ -173,6 +175,7 @@ export default function App() {
       loadSettings()
       loadAddons()
       loadPlugins()
+      loadSubscription()
     }
   }, [isAuthenticated])
 

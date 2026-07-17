@@ -93,6 +93,17 @@ const subscription: TranslationStrings = {
   'subscription.tab.seePlansCta': 'See plans',
   'subscription.tab.billingHistoryLabel': 'Billing history',
   'subscription.tab.billingHistoryEmpty': 'No invoices yet',
+
+  'aiPlanning.sparkleTitle': 'Generate AI suggestion',
+  'aiPlanning.upgrade.title': 'AI planning is a paid add-on',
+  'aiPlanning.upgrade.body': 'Upgrade to get AI-generated route suggestions for this trip. The core planner stays free either way.',
+  'aiPlanning.upgrade.notNow': 'Not now',
+  'aiPlanning.upgrade.seePlans': 'See plans',
+  'aiPlanning.results.title': 'AI suggestions',
+  'aiPlanning.results.add': 'Add',
+  'aiPlanning.results.dismiss': 'Dismiss',
+  'aiPlanning.results.error': 'Could not generate suggestions. Please try again.',
+  'aiPlanning.results.monthlyLimitReached': 'Monthly AI planning limit reached.',
 };
 
 export default subscription;

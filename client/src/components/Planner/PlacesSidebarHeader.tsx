@@ -1,7 +1,12 @@
-import { Search, Plus, X, Upload, ChevronDown, Check, MapPin } from 'lucide-react'
+import { useState } from 'react'
+import { Search, Plus, X, Upload, ChevronDown, Check, MapPin, Sparkles, Loader2 } from 'lucide-react'
 import { getCategoryIcon } from '../shared/categoryIcons'
 import Tooltip from '../shared/Tooltip'
 import type { SidebarState } from './usePlacesSidebar'
+import { useSubscriptionStore } from '../../store/subscriptionStore'
+import { aiSuggestionsApi } from '../../api/aiSuggestions'
+import AiUpgradeModal from '../Trip/AiUpgradeModal'
+import type { AiPlaceSuggestion } from '@trek/shared'
 
 export function PlacesDropOverlay({ t }: SidebarState) {
   return (
@@ -25,21 +30,103 @@ export function PlacesHeader(S: SidebarState) {
     places, categories, categoryFilters, search, setSearch, plannedIds, hasTracks,
     filter, setFilter, onPlacesFilterChange, setSelectedIds, selectMode, setSelectMode,
     catDropOpen, setCatDropOpen, toggleCategoryFilter, setCategoryFiltersLocal, onCategoryFilterChange,
+    tripId,
   } = S
+  const isAiPlanningEntitled = useSubscriptionStore(s => s.isAiPlanningEntitled)
+  const [aiLoading, setAiLoading] = useState(false)
+  const [aiSuggestions, setAiSuggestions] = useState<AiPlaceSuggestion[] | null>(null)
+  const [aiError, setAiError] = useState('')
+  const [showAiUpgrade, setShowAiUpgrade] = useState(false)
+
+  const handleGenerateAiSuggestion = async (): Promise<void> => {
+    if (!isAiPlanningEntitled()) { setShowAiUpgrade(true); return }
+    setAiLoading(true)
+    setAiError('')
+    try {
+      const { suggestions } = await aiSuggestionsApi.suggest(tripId)
+      setAiSuggestions(suggestions)
+    } catch (err: unknown) {
+      const status = (err as { response?: { status?: number } })?.response?.status
+      setAiError(status === 429 ? t('aiPlanning.results.monthlyLimitReached') : t('aiPlanning.results.error'))
+    } finally {
+      setAiLoading(false)
+    }
+  }
+
   return (
     <div className="border-b border-edge-faint" style={{ padding: '14px 16px 10px', flexShrink: 0 }}>
-      {canEditPlaces && <button
+      {canEditPlaces && <div style={{ display: 'flex', gap: 6, marginBottom: 10 }}>
+      <button
         onClick={onAddPlace}
         className="bg-accent text-accent-text"
         style={{
           display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 6,
-          width: '100%', padding: '8px 12px', borderRadius: 12, border: 'none',
+          flex: 1, padding: '8px 12px', borderRadius: 12, border: 'none',
           fontSize: 'calc(13px * var(--fs-scale-body, 1))', fontWeight: 500,
-          cursor: 'pointer', fontFamily: 'inherit', marginBottom: 10,
+          cursor: 'pointer', fontFamily: 'inherit',
         }}
       >
         <Plus size={14} strokeWidth={2} /> {t('places.addPlace')}
-      </button>}
+      </button>
+      <Tooltip label={t('aiPlanning.sparkleTitle')} placement="bottom">
+        <button
+          onClick={handleGenerateAiSuggestion}
+          disabled={aiLoading}
+          aria-label={t('aiPlanning.sparkleTitle')}
+          className="border border-edge bg-surface-card text-[var(--olive-500)]"
+          style={{
+            width: 38, flexShrink: 0, borderRadius: 12, display: 'flex',
+            alignItems: 'center', justifyContent: 'center', cursor: aiLoading ? 'default' : 'pointer',
+            fontFamily: 'inherit',
+          }}
+        >
+          {aiLoading ? <Loader2 size={16} className="animate-spin" /> : <Sparkles size={16} />}
+        </button>
+      </Tooltip>
+      </div>}
+
+      {aiError && (
+        <div className="text-caption text-danger" style={{ marginBottom: 10 }}>{aiError}</div>
+      )}
+
+      {aiSuggestions && aiSuggestions.length > 0 && (
+        <div className="rounded-xl border border-edge bg-surface-tertiary" style={{ padding: 10, marginBottom: 10, display: 'flex', flexDirection: 'column', gap: 8 }}>
+          <div className="flex items-center justify-between">
+            <span className="text-caption font-semibold text-content" style={{ display: 'flex', alignItems: 'center', gap: 5 }}>
+              <Sparkles size={12} className="text-[var(--olive-500)]" /> {t('aiPlanning.results.title')}
+            </span>
+            <button onClick={() => setAiSuggestions(null)} className="text-content-faint" style={{ background: 'none', border: 'none', cursor: 'pointer', padding: 0, display: 'flex' }}>
+              <X size={12} />
+            </button>
+          </div>
+          {aiSuggestions.map((s, i) => (
+            <div key={i} className="bg-surface-card rounded-lg" style={{ padding: '8px 10px', display: 'flex', alignItems: 'flex-start', gap: 8 }}>
+              <div style={{ flex: 1, minWidth: 0 }}>
+                <div className="text-caption font-semibold text-content">{s.name}</div>
+                <div className="text-caption text-content-muted">{s.reason}</div>
+              </div>
+              <div style={{ display: 'flex', gap: 6, flexShrink: 0 }}>
+                <button
+                  onClick={() => { onAddPlace(); setAiSuggestions(prev => prev ? prev.filter((_, idx) => idx !== i) : prev) }}
+                  className="bg-accent text-accent-text"
+                  style={{ padding: '3px 9px', borderRadius: 99, border: 'none', fontSize: 'calc(10.5px * var(--fs-scale-caption, 1))', fontWeight: 600, cursor: 'pointer', fontFamily: 'inherit' }}
+                >
+                  {t('aiPlanning.results.add')}
+                </button>
+                <button
+                  onClick={() => setAiSuggestions(prev => prev ? prev.filter((_, idx) => idx !== i) : prev)}
+                  className="border border-edge text-content-muted"
+                  style={{ padding: '3px 9px', borderRadius: 99, background: 'none', fontSize: 'calc(10.5px * var(--fs-scale-caption, 1))', fontWeight: 600, cursor: 'pointer', fontFamily: 'inherit' }}
+                >
+                  {t('aiPlanning.results.dismiss')}
+                </button>
+              </div>
+            </div>
+          ))}
+        </div>
+      )}
+
+      <AiUpgradeModal isOpen={showAiUpgrade} onClose={() => setShowAiUpgrade(false)} />
       {canEditPlaces && <>
       <div style={{ display: 'flex', gap: 6, marginBottom: 10 }}>
         <button
