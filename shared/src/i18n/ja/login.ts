@@ -43,6 +43,7 @@ const login: TranslationStrings = {
   'login.oidc.invalidState': 'セッションが無効です。もう一度お試しください。',
   'login.demoFailed': 'デモログインに失敗しました',
   'login.oidcSignIn': '{name}でサインイン',
+  'login.continueWithGoogle': 'Continue with Google', // TODO: untranslated
   'login.oidcOnly': 'パスワード認証は無効です。SSOプロバイダーでサインインしてください。',
   'login.oidcLoggedOut': 'ログアウトしました。SSOプロバイダーで再度サインインしてください。',
   'login.demoHint': 'デモを試す — 登録不要',

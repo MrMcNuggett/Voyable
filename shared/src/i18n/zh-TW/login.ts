@@ -77,6 +77,7 @@ const login: TranslationStrings = {
   'login.oidc.invalidState': '會話無效，請重試。',
   'login.demoFailed': '演示登入失敗',
   'login.oidcSignIn': '透過 {name} 登入',
+  'login.continueWithGoogle': 'Continue with Google', // TODO: untranslated
   'login.oidcOnly': '密碼登入已關閉。請透過 SSO 提供商登入。',
   'login.oidcLoggedOut': '您已登出。請重新透過 SSO 提供商登入。',
   'login.demoHint': '試用演示——無需註冊',

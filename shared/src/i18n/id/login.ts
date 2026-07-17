@@ -43,6 +43,7 @@ const login: TranslationStrings = {
   'login.oidc.invalidState': 'Sesi tidak valid. Coba lagi.',
   'login.demoFailed': 'Login demo gagal',
   'login.oidcSignIn': 'Masuk dengan {name}',
+  'login.continueWithGoogle': 'Continue with Google', // TODO: untranslated
   'login.oidcOnly': 'Autentikasi kata sandi dinonaktifkan. Masuk menggunakan penyedia SSO kamu.',
   'login.oidcLoggedOut': 'Kamu telah keluar. Masuk kembali menggunakan penyedia SSO kamu.',
   'login.demoHint': 'Coba demo — tidak perlu registrasi',

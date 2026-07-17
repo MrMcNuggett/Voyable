@@ -44,6 +44,7 @@ const login: TranslationStrings = {
   'login.oidc.invalidState': 'Sessione non valida. Riprova.',
   'login.demoFailed': 'Accesso demo fallito',
   'login.oidcSignIn': 'Accedi con {name}',
+  'login.continueWithGoogle': 'Continue with Google', // TODO: untranslated
   'login.oidcOnly': "L'autenticazione tramite password è disabilitata. Accedi utilizzando il tuo provider SSO.",
   'login.oidcLoggedOut': 'Sei stato disconnesso. Accedi nuovamente tramite il tuo provider SSO.',
   'login.demoHint': 'Prova la demo — nessuna registrazione necessaria',

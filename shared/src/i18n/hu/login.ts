@@ -44,6 +44,7 @@ const login: TranslationStrings = {
   'login.oidc.invalidState': 'Érvénytelen munkamenet. Kérjük, próbáld újra.',
   'login.demoFailed': 'Demo bejelentkezés sikertelen',
   'login.oidcSignIn': 'Bejelentkezés ezzel: {name}',
+  'login.continueWithGoogle': 'Continue with Google', // TODO: untranslated
   'login.oidcOnly': 'A jelszavas hitelesítés le van tiltva. Kérjük, jelentkezz be az SSO szolgáltatódon keresztül.',
   'login.oidcLoggedOut': 'Kijelentkeztél. Jelentkezz be újra az SSO szolgáltatódon keresztül.',
   'login.demoHint': 'Próbáld ki a demót — regisztráció nélkül',
