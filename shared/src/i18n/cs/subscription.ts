@@ -104,6 +104,21 @@ const subscription: TranslationStrings = {
   'aiPlanning.results.dismiss': 'Dismiss',
   'aiPlanning.results.error': 'Could not generate suggestions. Please try again.',
   'aiPlanning.results.monthlyLimitReached': 'Monthly AI planning limit reached.',
+
+  'places.comparePrices': 'Compare prices',
+  'hotelSearch.title': 'Stays & bookings',
+  'hotelSearch.subtitle': 'Compare prices across booking partners — commission-free advisory is separate.',
+  'hotelSearch.whereLabel': 'Where',
+  'hotelSearch.wherePlaceholder': 'City or region',
+  'hotelSearch.datesLabel': 'Dates',
+  'hotelSearch.guestsLabel': 'Guests',
+  'hotelSearch.searchCta': 'Search',
+  'hotelSearch.perNight': '/ night, {nights} nights',
+  'hotelSearch.disclaimer': 'Prices from affiliate partners, updated periodically. Voyable earns a commission on bookings made through these links.',
+  'hotelSearch.empty': 'Search a location to compare prices across partners.',
+  'hotelSearch.error': 'Could not load prices. Please try again.',
+  'hotelSearch.myBookings': 'My bookings',
+  'hotelSearch.searchHotels': 'Search hotels',
 };
 
 export default subscription;

@@ -33,6 +33,8 @@ export interface PlacesSidebarProps {
   isMobile: boolean
   onCategoryFilterChange?: (categoryIds: Set<string>) => void
   onPlacesFilterChange?: (filter: string) => void
+  /** "Compare prices" chip on Stay-category places (#hotel-search) — switches to the Bookings tab. */
+  onComparePrices?: () => void
   pushUndo?: (label: string, undoFn: () => Promise<void> | void) => void
   initialScrollTop?: number
   onScrollTopChange?: (top: number) => void
