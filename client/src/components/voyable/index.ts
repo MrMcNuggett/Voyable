@@ -7,7 +7,7 @@
  *
  *   New primitives (this folder):
  *     Button, IconButton, Badge, SegmentedFilter, Avatar/AvatarStack,
- *     StatTile (+ dark-petrol hero variant), EmptyState, Dropzone
+ *     StatTile (+ dark-petrol hero variant), EmptyState, Dropzone, Input, Textarea
  *
  *   Canonicalized existing TREK components (re-exported with Voyable names so
  *     there is a single import surface; already token-based / Voyable-styled):
@@ -36,6 +36,10 @@ export { default as EmptyState } from './EmptyState'
 export type { EmptyStateProps } from './EmptyState'
 export { default as Dropzone } from './Dropzone'
 export type { DropzoneProps } from './Dropzone'
+export { default as Input } from './Input'
+export type { InputProps } from './Input'
+export { default as Textarea } from './Textarea'
+export type { TextareaProps } from './Textarea'
 
 // Canonicalized existing components (single import surface)
 export { default as Modal } from '../shared/Modal'

@@ -3626,6 +3626,32 @@ function runMigrations(db: Database.Database): void {
         );
       `);
     },
+
+    // Advisory-request inquiries (#advisory). trip_id/trip_snapshot are nullable —
+    // a request can be filed with no trip attached (global entry point) or with a
+    // frozen snapshot of an in-progress trip (per-trip entry points), immune to
+    // later trip edits/deletion since the snapshot is denormalized JSON at submit time.
+    () => {
+      db.exec(`
+        CREATE TABLE IF NOT EXISTS inquiries (
+          id INTEGER PRIMARY KEY AUTOINCREMENT,
+          trip_id INTEGER REFERENCES trips(id) ON DELETE SET NULL,
+          user_id INTEGER REFERENCES users(id) ON DELETE SET NULL,
+          trip_snapshot TEXT,
+          budget_range TEXT,
+          travel_start TEXT,
+          travel_end TEXT,
+          interests TEXT,
+          message TEXT,
+          email TEXT NOT NULL,
+          status TEXT NOT NULL DEFAULT 'new' CHECK (status IN ('new', 'answered', 'archived')),
+          created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+          updated_at DATETIME DEFAULT CURRENT_TIMESTAMP
+        );
+      `);
+      db.exec('CREATE INDEX IF NOT EXISTS idx_inquiries_status ON inquiries (status, id DESC);');
+      db.exec('CREATE INDEX IF NOT EXISTS idx_inquiries_trip ON inquiries (trip_id);');
+    },
   ];
 
   if (currentVersion < migrations.length) {

@@ -44,6 +44,8 @@ export * from './auth/auth.schema';
 export * from './oidc/oidc.schema';
 export * from './oauth/oauth.schema';
 export * from './admin/admin.schema';
+export * from './inquiry/inquiry.schema';
+export * from './subscription/subscription.constants';
 
 // Sanitisation helpers — used by the client today, scoped here so the server
 // has them ready if rich-text input ever ships.
