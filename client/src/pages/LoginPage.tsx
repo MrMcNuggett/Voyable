@@ -3,6 +3,7 @@ import { SUPPORTED_LANGUAGES, useTranslation } from '../i18n'
 import { Plane, Eye, EyeOff, Mail, Lock, MapPin, Calendar, Package, User, Globe, Zap, Users, Wallet, Map, CheckSquare, BookMarked, FolderOpen, Route, Shield, KeyRound, ChevronDown, Fingerprint } from 'lucide-react'
 import { useLogin } from './login/useLogin'
 import ToggleSwitch from '../components/Settings/ToggleSwitch'
+import GoogleIcon from '../components/icons/GoogleIcon'
 
 export default function LoginPage(): React.ReactElement {
   const { t, language } = useTranslation()
@@ -20,6 +21,7 @@ export default function LoginPage(): React.ReactElement {
   } = useLogin()
 
   const oidcButtonShown = !!(appConfig?.oidc_configured && appConfig?.oidc_login && !oidcOnly)
+  const googleButtonShown = !!(appConfig?.google_configured && !oidcOnly)
   const passkeyAvailable = !!(appConfig?.passkey_login && appConfig?.passkey_configured && !oidcOnly
     && mode === 'login' && !mfaStep && !passwordChangeStep)
 
@@ -103,7 +105,7 @@ export default function LoginPage(): React.ReactElement {
           position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)',
           display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 8,
         }}>
-          <img src="/logo-light.svg" alt="TREK" style={{ height: 72 }} />
+          <img src="/logo-light.svg" alt="Voyable" style={{ height: 72 }} />
           <p style={{ /* theme-lint-disable: fixed on-dark brand/animation surface */  margin: 0, fontSize: 'calc(20px * var(--fs-scale-title, 1))', color: 'rgba(255,255,255,0.6)', fontFamily: "'MuseoModerno', sans-serif", textTransform: 'lowercase', whiteSpace: 'nowrap' }}>{t('login.tagline')}</p>
         </div>
 
@@ -343,7 +345,7 @@ export default function LoginPage(): React.ReactElement {
         <div style={{ position: 'relative', zIndex: 1, maxWidth: 560, textAlign: 'center' }}>
           {/* Logo */}
           <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: 48 }}>
-            <img src="/logo-light.svg" alt="TREK" style={{ height: 64 }} />
+            <img src="/logo-light.svg" alt="Voyable" style={{ height: 64 }} />
           </div>
 
           <h2 style={{ margin: '0 0 12px', fontSize: 'calc(36px * var(--fs-scale-title, 1))', fontWeight: 700, color: 'white', lineHeight: 1.15, letterSpacing: '-0.02em', fontFamily: "'MuseoModerno', sans-serif", textTransform: 'lowercase' }}>
@@ -388,7 +390,7 @@ export default function LoginPage(): React.ReactElement {
           <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 6, marginBottom: 36 }}
             className="mobile-logo">
             <style>{`@media(min-width:1024px){.mobile-logo{display:none!important}}`}</style>
-            <img src="/logo-dark.svg" alt="TREK" style={{ height: 48 }} />
+            <img src="/logo-dark.svg" alt="Voyable" style={{ height: 48 }} />
             <p style={{ margin: 0, fontSize: 'calc(16px * var(--fs-scale-subtitle, 1))', color: 'var(--text-faint)', fontFamily: "'MuseoModerno', sans-serif", textTransform: 'lowercase', whiteSpace: 'nowrap' }}>{t('login.tagline')}</p>
           </div>
 
@@ -662,10 +664,39 @@ export default function LoginPage(): React.ReactElement {
             </>
           )}
 
+          {/* Google login button (additional, parallel OIDC provider — env-configured only) */}
+          {googleButtonShown && (
+            <>
+              {!oidcButtonShown && (
+                <div style={{ display: 'flex', alignItems: 'center', gap: 12, marginTop: 16 }}>
+                  <div style={{ flex: 1, height: 1, background: 'var(--border-primary)' }} />
+                  <span style={{ fontSize: 'calc(12px * var(--fs-scale-body, 1))', color: 'var(--text-faint)' }}>{t('common.or')}</span>
+                  <div style={{ flex: 1, height: 1, background: 'var(--border-primary)' }} />
+                </div>
+              )}
+              <a href={`/api/auth/google/login${inviteToken ? '?invite=' + encodeURIComponent(inviteToken) : ''}`}
+                style={{
+                  marginTop: 12, width: '100%', padding: '12px',
+                  background: 'var(--surface-raised)', color: 'var(--text-secondary)',
+                  border: '1px solid var(--border-default)', borderRadius: 12,
+                  fontSize: 'calc(14px * var(--fs-scale-body, 1))', fontWeight: 600, cursor: 'pointer',
+                  fontFamily: 'inherit', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 8,
+                  textDecoration: 'none', transition: 'background 180ms cubic-bezier(0.23,1,0.32,1), border-color 180ms cubic-bezier(0.23,1,0.32,1)',
+                  boxSizing: 'border-box',
+                }}
+                onMouseEnter={(e: React.MouseEvent<HTMLAnchorElement>) => { e.currentTarget.style.background = 'var(--surface-sunken)'; e.currentTarget.style.borderColor = 'var(--border-strong)' }}
+                onMouseLeave={(e: React.MouseEvent<HTMLAnchorElement>) => { e.currentTarget.style.background = 'var(--surface-raised)'; e.currentTarget.style.borderColor = 'var(--border-default)' }}
+              >
+                <GoogleIcon size={16} />
+                {t('login.continueWithGoogle')}
+              </a>
+            </>
+          )}
+
           {/* Passkey login button (instance toggle on + a usable RP ID resolves) */}
           {passkeyAvailable && (
             <>
-              {!oidcButtonShown && (
+              {!oidcButtonShown && !googleButtonShown && (
                 <div style={{ display: 'flex', alignItems: 'center', gap: 12, marginTop: 16 }}>
                   <div style={{ flex: 1, height: 1, background: 'var(--border-primary)' }} />
                   <span style={{ fontSize: 'calc(12px * var(--fs-scale-body, 1))', color: 'var(--text-faint)' }}>{t('common.or')}</span>

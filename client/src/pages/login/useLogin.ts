@@ -14,6 +14,7 @@ interface AppConfig {
   demo_mode: boolean
   oidc_configured: boolean
   oidc_display_name?: string
+  google_configured: boolean
   oidc_only_mode: boolean
   password_login: boolean
   password_registration: boolean
@@ -88,6 +89,8 @@ export function useLogin() {
     const invite = params.get('invite')
     const oidcCode = params.get('oidc_code')
     const oidcError = params.get('oidc_error')
+    const googleCode = params.get('google_code')
+    const googleError = params.get('google_error')
 
     if (invite) {
       setInviteToken(invite)
@@ -125,6 +128,31 @@ export function useLogin() {
       return
     }
 
+    if (googleCode) {
+      if (exchangeInitiated.current) return
+      exchangeInitiated.current = true
+      setIsLoading(true)
+      fetch('/api/auth/google/exchange?code=' + encodeURIComponent(googleCode), { credentials: 'include' })
+        .then(r => r.json())
+        .then(async data => {
+          window.history.replaceState({}, '', '/login')
+          if (data.token) {
+            await loadUser()
+            const savedRedirect = sessionStorage.getItem('oidc_redirect') || '/dashboard'
+            sessionStorage.removeItem('oidc_redirect')
+            navigate(savedRedirect, { replace: true })
+          } else {
+            setError(data.error || t('login.oidcFailed'))
+          }
+        })
+        .catch(() => {
+          window.history.replaceState({}, '', '/login')
+          setError(t('login.oidcFailed'))
+        })
+        .finally(() => setIsLoading(false))
+      return
+    }
+
     if (oidcError) {
       const errorMessages: Record<string, string> = {
         registration_disabled: t('login.oidc.registrationDisabled'),
@@ -133,6 +161,19 @@ export function useLogin() {
         invalid_state: t('login.oidc.invalidState'),
       }
       setError(errorMessages[oidcError] || oidcError)
+      sessionStorage.removeItem('oidc_redirect')
+      window.history.replaceState({}, '', '/login')
+      return
+    }
+
+    if (googleError) {
+      const errorMessages: Record<string, string> = {
+        registration_disabled: t('login.oidc.registrationDisabled'),
+        no_email: t('login.oidc.noEmail'),
+        token_failed: t('login.oidc.tokenFailed'),
+        invalid_state: t('login.oidc.invalidState'),
+      }
+      setError(errorMessages[googleError] || googleError)
       sessionStorage.removeItem('oidc_redirect')
       window.history.replaceState({}, '', '/login')
       return

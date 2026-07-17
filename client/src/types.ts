@@ -225,6 +225,7 @@ export interface AppConfig {
   demo_mode: boolean
   oidc_configured: boolean
   oidc_display_name?: string
+  google_configured?: boolean
   oidc_only_mode?: boolean
   has_maps_key?: boolean
   allowed_file_types?: string
