@@ -1,0 +1,28 @@
+title = "Voyable gitleaks config"
+
+# Extends the default gitleaks ruleset (no rules are disabled/replaced).
+[extend]
+useDefault = true
+
+# Allowlist of exact, manually-verified test-fixture values only.
+# No path/directory exclusions here on purpose: a real secret accidentally
+# committed into a test file must still be flagged. Each entry below was
+# checked against its source file and confirmed to be a fixture, not a
+# live credential:
+#   - ENCRYPTION_KEY test fixture (sequential/counting hex pattern),
+#     used across ~90 server test files' vi.mock(config) blocks.
+#   - `token` fixture in client/src/pages/AdminPage.test.tsx (mock invite list).
+#   - `openweather_api_key` fixture in server/tests/integration/security.test.ts.
+#   - `PLAINTEXT_KEY` fixture in server/tests/unit/services/apiKeyCrypto.test.ts.
+#   - `fakeToken` synthetic JWT fixture in server/tests/integration/oidc.test.ts
+#     (literal ".test.sig" suffix, not a real signature).
+#   - YOUR_API_KEY placeholder in a curl example in wiki/Troubleshooting.md.
+[allowlist]
+  regexes = [
+    '''a1b2c3d4e5f6a7b8c9d0e1f2a3b4c5d6a7b8c9d0e1f2a3b4c5d6a7b8c9d0e1f2''',
+    '''abcdef123456789''',
+    '''test-api-key-12345''',
+    '''my-secret-api-key-12345''',
+    '''eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9\.test\.sig''',
+    '''YOUR_API_KEY''',
+  ]
