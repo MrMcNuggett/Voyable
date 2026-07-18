@@ -10,5 +10,9 @@ import { z } from 'zod';
  */
 export const publicConfigSchema = z.object({
   defaultLanguage: z.string(),
+  // Paddle overlay-checkout needs a client-side token; safe to expose publicly
+  // (it's not a secret — the webhook secret/API key stay server-only).
+  paddleClientToken: z.string().nullable(),
+  paddleEnvironment: z.enum(['sandbox', 'production']),
 });
 export type PublicConfig = z.infer<typeof publicConfigSchema>;

@@ -4,9 +4,14 @@ export const AI_PLANNING_STATUSES = ['none', 'active', 'canceled', 'past_due'] a
 export const aiPlanningStatusSchema = z.enum(AI_PLANNING_STATUSES).catch('none').default('none');
 export type AiPlanningStatus = (typeof AI_PLANNING_STATUSES)[number];
 
+export const AI_PLANNING_PLANS = ['monthly', 'yearly'] as const;
+export const aiPlanningPlanSchema = z.enum(AI_PLANNING_PLANS).nullable();
+export type AiPlanningPlan = (typeof AI_PLANNING_PLANS)[number];
+
 export const subscriptionStatusResponseSchema = z.object({
   ai_planning_status: aiPlanningStatusSchema,
   ai_planning_current_period_end: z.string().nullable(),
+  ai_planning_plan: aiPlanningPlanSchema,
   // Advisory is pay-per-request, not a subscription — no status beyond "available".
   advisory: z.object({ pay_per_request: z.literal(true) }),
 });

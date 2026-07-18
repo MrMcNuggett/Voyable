@@ -39,7 +39,14 @@ export default function SubscriptionTab(): React.ReactElement {
               {aiActive ? t('subscription.tab.aiStatusActive') : t('subscription.tab.aiStatusNotSubscribed')}
             </div>
           </div>
-          {!aiActive && (
+          {aiActive ? (
+            <a
+              href="#" // PADDLE-TODO: replace with the real Paddle customer portal URL once available
+              className="inline-flex items-center px-4 py-2 rounded-lg border border-edge text-content-secondary text-caption font-semibold no-underline"
+            >
+              {t('subscription.tab.manageCta')}
+            </a>
+          ) : (
             <Link to="/pricing" className="inline-flex items-center px-4 py-2 rounded-lg bg-accent text-accent-text text-caption font-semibold no-underline">
               {t('subscription.tab.upgradeCta')}
             </Link>

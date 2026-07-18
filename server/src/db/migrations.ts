@@ -3700,6 +3700,26 @@ function runMigrations(db: Database.Database): void {
       `);
       db.exec('CREATE INDEX IF NOT EXISTS idx_ai_planning_usage_user_month ON ai_planning_usage (user_id, created_at);');
     },
+
+    // Paddle billing correlation IDs + subscription plan cadence (#paddle-billing).
+    // ai_planning_status/ai_planning_current_period_end (added above) remain the
+    // single source of truth for entitlement — this only adds the provider-
+    // correlation columns needed to map a Paddle webhook back to a user, plus
+    // which cadence they're on. ai_planning_provider_ref is left unused/untouched
+    // (nothing reads it today) — now a superseded legacy column.
+    () => {
+      const cols = db.prepare("PRAGMA table_info('users')").all() as Array<{ name: string }>;
+      if (!cols.some((c) => c.name === 'paddle_customer_id')) {
+        db.exec('ALTER TABLE users ADD COLUMN paddle_customer_id TEXT;');
+      }
+      if (!cols.some((c) => c.name === 'paddle_subscription_id')) {
+        db.exec('ALTER TABLE users ADD COLUMN paddle_subscription_id TEXT;');
+      }
+      if (!cols.some((c) => c.name === 'ai_planning_plan')) {
+        db.exec("ALTER TABLE users ADD COLUMN ai_planning_plan TEXT CHECK (ai_planning_plan IN ('monthly', 'yearly'));");
+      }
+      db.exec('CREATE INDEX IF NOT EXISTS idx_users_paddle_customer_id ON users (paddle_customer_id);');
+    },
   ];
 
   if (currentVersion < migrations.length) {

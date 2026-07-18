@@ -30,6 +30,7 @@
     "@fontsource/jetbrains-mono": "^5.2.8",
     "@fontsource/plus-jakarta-sans": "^5.2.8",
     "@fontsource/poppins": "^5.2.7",
+    "@paddle/paddle-js": "^1.6.4",
     "@react-pdf/renderer": "^4.5.1",
     "@simplewebauthn/browser": "^13.1.2",
     "@trek/shared": "*",

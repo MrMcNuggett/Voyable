@@ -29,8 +29,11 @@ function createTables(db: Database.Database): void {
       feed_token TEXT,
       is_guest INTEGER NOT NULL DEFAULT 0,
       ai_planning_status TEXT NOT NULL DEFAULT 'none' CHECK (ai_planning_status IN ('none', 'active', 'canceled', 'past_due')),
-      ai_planning_provider_ref TEXT,
+      ai_planning_provider_ref TEXT, -- legacy/unused; superseded by paddle_subscription_id (kept for schema stability, not dual-written)
       ai_planning_current_period_end TEXT,
+      paddle_customer_id TEXT,
+      paddle_subscription_id TEXT,
+      ai_planning_plan TEXT CHECK (ai_planning_plan IN ('monthly', 'yearly')),
       created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
       updated_at DATETIME DEFAULT CURRENT_TIMESTAMP
     );
@@ -623,6 +626,12 @@ function createTables(db: Database.Database): void {
       created_at DATETIME DEFAULT CURRENT_TIMESTAMP
     );
     CREATE INDEX IF NOT EXISTS idx_subscription_events_user ON subscription_events (user_id, id DESC);
+    -- idx_users_paddle_customer_id is created by the migration (migrations.ts),
+    -- not here: paddle_customer_id/paddle_subscription_id/ai_planning_plan are
+    -- new columns on the existing users table above, but CREATE TABLE IF NOT
+    -- EXISTS is a no-op on a pre-existing table — it doesn't retroactively add
+    -- those columns, so an index on them here would fail on any DB that
+    -- predates this change (the table exists, the column doesn't, yet).
 
     CREATE TABLE IF NOT EXISTS ai_planning_usage (
       id INTEGER PRIMARY KEY AUTOINCREMENT,

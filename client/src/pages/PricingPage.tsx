@@ -1,31 +1,16 @@
-import React, { useState } from 'react'
+import React, { useRef, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { useTranslation } from '../i18n'
 import PageShell from '../components/Layout/PageShell'
 import { PricingCard, Button } from '../components/voyable'
-import { useToast } from '../components/shared/Toast'
-import { subscriptionApi } from '../api/subscription'
+import CheckoutButton, { type CheckoutButtonHandle } from '../components/Subscription/CheckoutButton'
 import RequestAdvisoryModal from '../components/Trip/RequestAdvisoryModal'
-import { getApiErrorMessage } from '../types'
 import { ADVISORY_PRICE, ADVISORY_PERIOD, AI_PLANNING_PRICE, AI_PLANNING_PERIOD } from '@trek/shared'
 
 export default function PricingPage(): React.ReactElement {
   const { t } = useTranslation()
-  const toast = useToast()
   const [showAdvisoryModal, setShowAdvisoryModal] = useState(false)
-  const [checkingOut, setCheckingOut] = useState(false)
-
-  const startAiCheckout = async (): Promise<void> => {
-    setCheckingOut(true)
-    try {
-      const { checkoutUrl } = await subscriptionApi.checkout('ai_planning')
-      window.location.href = checkoutUrl
-    } catch (err: unknown) {
-      toast.error(getApiErrorMessage(err, t('pricing.billingNotConfigured')))
-    } finally {
-      setCheckingOut(false)
-    }
-  }
+  const checkoutButtonRef = useRef<CheckoutButtonHandle>(null)
 
   return (
     <PageShell background="var(--bg-secondary)">
@@ -64,9 +49,9 @@ export default function PricingPage(): React.ReactElement {
             features={[t('pricing.ai.feature1'), t('pricing.ai.feature2'), t('pricing.ai.feature3'), t('pricing.ai.feature4')]}
             featured
             ctaLabel={t('pricing.ai.cta')}
-            onCtaClick={startAiCheckout}
-            disabled={checkingOut}
+            onCtaClick={() => checkoutButtonRef.current?.open()}
           />
+          <CheckoutButton ref={checkoutButtonRef} />
 
           <PricingCard
             tier={t('pricing.advisory.tier')}

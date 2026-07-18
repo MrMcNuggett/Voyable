@@ -44,6 +44,7 @@ import {
   type BookingImportPreviewResponse,
   type BookingImportConfirmResponse,
   type BookingImportMode,
+  type PublicConfig,
 } from '@trek/shared'
 import { getSocketId } from './websocket'
 import { probeNow } from '../sync/connectivity'
@@ -889,7 +890,7 @@ export const weatherApi = {
 }
 
 export const configApi = {
-  getPublicConfig: (): Promise<{ defaultLanguage: string }> =>
+  getPublicConfig: (): Promise<PublicConfig> =>
       apiClient.get('/config').then(r => r.data),
 }
 

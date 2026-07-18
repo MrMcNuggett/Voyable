@@ -88,6 +88,7 @@ const subscription: TranslationStrings = {
   'subscription.tab.aiStatusNotSubscribed': 'Not subscribed',
   'subscription.tab.aiStatusActive': 'Active',
   'subscription.tab.upgradeCta': 'Upgrade',
+  'subscription.tab.manageCta': 'Manage',
   'subscription.tab.advisoryLabel': 'Advisory',
   'subscription.tab.advisoryStatus': 'Pay per request · no active request',
   'subscription.tab.seePlansCta': 'See plans',
