@@ -118,8 +118,8 @@ export default function DashboardPage(): React.ReactElement {
     deleteTrip, setDeleteTrip, copyTrip, setCopyTrip, setTrips,
     handleCreate, handleUpdate, confirmDelete, handleArchive, handleUnarchive, confirmCopy,
     allSubOpen, setAllSubOpen,
+    showAdvisoryModal, setShowAdvisoryModal,
   } = useDashboard()
-  const [showAdvisoryModal, setShowAdvisoryModal] = useState(false)
 
   // Per-device dashboard widget visibility (from the appearance config).
   const isMobile = useIsMobile()

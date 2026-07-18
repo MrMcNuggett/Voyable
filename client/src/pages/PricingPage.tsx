@@ -1,16 +1,16 @@
-import React, { useRef, useState } from 'react'
+import React from 'react'
 import { Link } from 'react-router-dom'
 import { useTranslation } from '../i18n'
 import PageShell from '../components/Layout/PageShell'
 import { PricingCard, Button } from '../components/voyable'
-import CheckoutButton, { type CheckoutButtonHandle } from '../components/Subscription/CheckoutButton'
+import CheckoutButton from '../components/Subscription/CheckoutButton'
 import RequestAdvisoryModal from '../components/Trip/RequestAdvisoryModal'
 import { ADVISORY_PRICE, ADVISORY_PERIOD, AI_PLANNING_PRICE, AI_PLANNING_PERIOD } from '@trek/shared'
+import { usePricing } from './pricing/usePricing'
 
 export default function PricingPage(): React.ReactElement {
   const { t } = useTranslation()
-  const [showAdvisoryModal, setShowAdvisoryModal] = useState(false)
-  const checkoutButtonRef = useRef<CheckoutButtonHandle>(null)
+  const { showAdvisoryModal, setShowAdvisoryModal, checkoutButtonRef } = usePricing()
 
   return (
     <PageShell background="var(--bg-secondary)">
