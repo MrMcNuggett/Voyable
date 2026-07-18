@@ -46,18 +46,18 @@ export default function SharedTripPage() {
   const { data, error, base, convert, selectedDay, setSelectedDay, activeTab, setActiveTab, showLangPicker, setShowLangPicker } = useSharedTrip()
 
   if (error) return (
-    <div className="bg-[#f3f4f6]" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', minHeight: '100vh' }}>
+    <div className="bg-[var(--bg-tertiary)]" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', minHeight: '100vh' }}>
       <div style={{ textAlign: 'center', padding: 40 }}>
         <div style={{ fontSize: 'calc(48px * var(--fs-scale-title, 1))', marginBottom: 16 }}>🔒</div>
-        <h1 className="text-[#111827]" style={{ fontSize: 'calc(20px * var(--fs-scale-title, 1))', fontWeight: 700 }}>{t('shared.expired')}</h1>
-        <p className="text-[#6b7280]" style={{ marginTop: 8 }}>{t('shared.expiredHint')}</p>
+        <h1 className="text-[var(--text-primary)]" style={{ fontSize: 'calc(20px * var(--fs-scale-title, 1))', fontWeight: 700 }}>{t('shared.expired')}</h1>
+        <p className="text-[var(--text-muted)]" style={{ marginTop: 8 }}>{t('shared.expiredHint')}</p>
       </div>
     </div>
   )
 
   if (!data) return (
-    <div className="bg-[#f3f4f6]" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', minHeight: '100vh' }}>
-      <div style={{ width: 32, height: 32, border: '3px solid #e5e7eb', borderTopColor: '#111827', borderRadius: '50%', animation: 'spin 0.6s linear infinite' }} />
+    <div className="bg-[var(--bg-tertiary)]" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', minHeight: '100vh' }}>
+      <div style={{ width: 32, height: 32, border: '3px solid var(--border-primary)', borderTopColor: 'var(--text-primary)', borderRadius: '50%', animation: 'spin 0.6s linear infinite' }} />
       <style>{`@keyframes spin { to { transform: rotate(360deg) } }`}</style>
     </div>
   )
@@ -75,18 +75,18 @@ export default function SharedTripPage() {
   return (
     <div className="bg-surface-secondary" style={{ minHeight: '100vh', fontFamily: "var(--font-system)" }}>
       {/* Header */}
-      <div className="text-white" style={{ background: 'linear-gradient(135deg, #000 0%, #0f172a 50%, #1e293b 100%)', padding: '32px 20px 28px', textAlign: 'center', position: 'relative' }}>
+      <div className="text-white" style={{ background: 'linear-gradient(135deg, var(--petrol-800) 0%, var(--petrol-700) 50%, var(--petrol-600) 100%)', padding: '32px 20px 28px', textAlign: 'center', position: 'relative' }}>
         {/* Cover image background */}
         {trip.cover_image && (
           <div style={{ position: 'absolute', inset: 0, backgroundImage: `url(${trip.cover_image.startsWith('http') ? trip.cover_image : trip.cover_image.startsWith('/') ? trip.cover_image : '/uploads/' + trip.cover_image})`, backgroundSize: 'cover', backgroundPosition: 'center', opacity: 0.15 }} />
         )}
         {/* Background decoration */}
-        <div className="bg-[rgba(255,255,255,0.03)]" style={{ position: 'absolute', top: -60, right: -60, width: 200, height: 200, borderRadius: '50%' }} />
-        <div className="bg-[rgba(255,255,255,0.02)]" style={{ position: 'absolute', bottom: -40, left: -40, width: 150, height: 150, borderRadius: '50%' }} />
+        <div className="bg-[rgba(255,255,255,0.03)]" style={{ position: 'absolute', top: -60, right: -60, width: 200, height: 200, borderRadius: '50%' }} />{/* theme-lint-disable: fixed on-dark hero surface */}
+        <div className="bg-[rgba(255,255,255,0.02)]" style={{ position: 'absolute', bottom: -40, left: -40, width: 150, height: 150, borderRadius: '50%' }} />{/* theme-lint-disable: fixed on-dark hero surface */}
 
         {/* Logo */}
-        <div className="bg-[rgba(255,255,255,0.08)]" style={{ display: 'inline-flex', alignItems: 'center', justifyContent: 'center', width: 44, height: 44, borderRadius: 12, backdropFilter: 'blur(8px)', marginBottom: 12, border: '1px solid rgba(255,255,255,0.1)' }}>
-          <img src="/icons/icon-white.svg" alt="TREK" width="26" height="26" />
+        <div className="bg-[rgba(255,255,255,0.08)]" style={{ display: 'inline-flex', alignItems: 'center', justifyContent: 'center', width: 44, height: 44, borderRadius: 12, backdropFilter: 'blur(8px)', marginBottom: 12, border: '1px solid rgba(255,255,255,0.1)' }}>{/* theme-lint-disable: fixed on-dark hero surface */}
+          <img src="/icons/icon-white.svg" alt="Voyable" width="26" height="26" />
         </div>
 
         <div style={{ fontSize: 'calc(10px * var(--fs-scale-caption, 1))', fontWeight: 600, letterSpacing: 3, textTransform: 'uppercase', opacity: 0.35, marginBottom: 12 }}>Travel Resource & Exploration Kit</div>
@@ -98,7 +98,7 @@ export default function SharedTripPage() {
         )}
 
         {(trip.start_date || trip.end_date) && (
-          <div className="bg-[rgba(255,255,255,0.08)]" style={{ marginTop: 10, display: 'inline-flex', alignItems: 'center', gap: 8, padding: '6px 14px', borderRadius: 20, backdropFilter: 'blur(4px)', border: '1px solid rgba(255,255,255,0.08)' }}>
+          <div className="bg-[rgba(255,255,255,0.08)]" style={{ marginTop: 10, display: 'inline-flex', alignItems: 'center', gap: 8, padding: '6px 14px', borderRadius: 20, backdropFilter: 'blur(4px)', border: '1px solid rgba(255,255,255,0.08)' }}>{/* theme-lint-disable: fixed on-dark hero surface */}
             <span style={{ fontSize: 'calc(12px * var(--fs-scale-body, 1))', fontWeight: 500, opacity: 0.8 }}>
               {[trip.start_date, trip.end_date].filter(Boolean).map((d: string) => new Date(d + 'T00:00:00Z').toLocaleDateString(locale, { day: 'numeric', month: 'short', year: 'numeric', timeZone: 'UTC' })).join(' — ')}
             </span>
@@ -112,7 +112,7 @@ export default function SharedTripPage() {
         {/* Language picker - top right */}
         <div style={{ position: 'absolute', top: 12, right: 12, zIndex: 10 }}>
           <button onClick={() => setShowLangPicker(v => !v)}
-            className="bg-[rgba(255,255,255,0.1)] text-[rgba(255,255,255,0.7)]"
+            className="bg-[rgba(255,255,255,0.1)] text-[rgba(255,255,255,0.7)]"  // theme-lint-disable: fixed on-dark hero surface
             style={{
             padding: '5px 12px', borderRadius: 20, border: '1px solid rgba(255,255,255,0.15)',
             backdropFilter: 'blur(8px)',
@@ -128,7 +128,7 @@ export default function SharedTripPage() {
                   useSettingsStore.setState(s => ({ settings: { ...s.settings, language: lang.value } }))
                   setShowLangPicker(false)
                 }}
-                  className="text-[#374151]"
+                  className="text-[var(--text-secondary)]"
                   style={{ display: 'block', width: '100%', padding: '6px 12px', border: 'none', background: 'none', textAlign: 'left', cursor: 'pointer', fontSize: 'calc(12px * var(--fs-scale-body, 1))', borderRadius: 6, fontFamily: 'inherit' }}
                   onMouseEnter={e => e.currentTarget.style.background = '#f3f4f6'}
                   onMouseLeave={e => e.currentTarget.style.background = 'none'}
@@ -150,7 +150,7 @@ export default function SharedTripPage() {
             ...(permissions?.share_collab ? [{ id: 'collab', label: t('shared.tabChat'), Icon: MessageCircle }] : []),
           ].map(tab => (
             <button key={tab.id} onClick={() => setActiveTab(tab.id)}
-              className={activeTab === tab.id ? 'bg-[#111827] text-white' : 'bg-surface-card text-[#6b7280]'}
+              className={activeTab === tab.id ? 'bg-[var(--accent)] text-white' : 'bg-surface-card text-[var(--text-muted)]'}
               style={{
               padding: '8px 18px', borderRadius: 12, border: '1.5px solid', cursor: 'pointer',
               fontSize: 'calc(12px * var(--fs-scale-body, 1))', fontWeight: 600, fontFamily: 'inherit', transition: 'all 0.15s', whiteSpace: 'nowrap',
@@ -195,17 +195,17 @@ export default function SharedTripPage() {
               <div key={day.id} className="bg-surface-card border border-edge-faint" style={{ borderRadius: 14, overflow: 'hidden' }}>
                 <div onClick={() => setSelectedDay(selectedDay === day.id ? null : day.id)}
                   style={{ padding: '12px 16px', cursor: 'pointer', display: 'flex', alignItems: 'center', gap: 10 }}>
-                  <div className={selectedDay === day.id ? 'bg-[#111827] text-white' : 'bg-[#f3f4f6] text-[#6b7280]'} style={{ width: 28, height: 28, borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 'calc(12px * var(--fs-scale-body, 1))', fontWeight: 700, flexShrink: 0 }}>{di + 1}</div>
+                  <div className={selectedDay === day.id ? 'bg-[var(--accent)] text-white' : 'bg-[var(--bg-tertiary)] text-[var(--text-muted)]'} style={{ width: 28, height: 28, borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 'calc(12px * var(--fs-scale-body, 1))', fontWeight: 700, flexShrink: 0 }}>{di + 1}</div>
                   <div style={{ flex: 1 }}>
-                    <div className="text-[#111827]" style={{ fontSize: 'calc(14px * var(--fs-scale-body, 1))', fontWeight: 600 }}>{day.title || t('dayplan.dayN', { n: day.day_number })}</div>
-                    {day.date && <div className="text-[#9ca3af]" style={{ fontSize: 'calc(11px * var(--fs-scale-caption, 1))', marginTop: 1 }}>{new Date(day.date + 'T00:00:00Z').toLocaleDateString(locale, { weekday: 'short', day: 'numeric', month: 'short', timeZone: 'UTC' })}</div>}
+                    <div className="text-[var(--text-primary)]" style={{ fontSize: 'calc(14px * var(--fs-scale-body, 1))', fontWeight: 600 }}>{day.title || t('dayplan.dayN', { n: day.day_number })}</div>
+                    {day.date && <div className="text-[var(--text-faint)]" style={{ fontSize: 'calc(11px * var(--fs-scale-caption, 1))', marginTop: 1 }}>{new Date(day.date + 'T00:00:00Z').toLocaleDateString(locale, { weekday: 'short', day: 'numeric', month: 'short', timeZone: 'UTC' })}</div>}
                   </div>
                   {dayAccs.map((acc: any) => (
-                    <span key={acc.id} className="bg-[#f3f4f6] text-[#6b7280]" style={{ fontSize: 'calc(9px * var(--fs-scale-caption, 1))', padding: '2px 6px', borderRadius: 4, display: 'flex', alignItems: 'center', gap: 3 }}>
+                    <span key={acc.id} className="bg-[var(--bg-tertiary)] text-[var(--text-muted)]" style={{ fontSize: 'calc(9px * var(--fs-scale-caption, 1))', padding: '2px 6px', borderRadius: 4, display: 'flex', alignItems: 'center', gap: 3 }}>
                       <Hotel size={8} /> {acc.place_name}
                     </span>
                   ))}
-                  <span className="text-[#9ca3af]" style={{ fontSize: 'calc(11px * var(--fs-scale-caption, 1))' }}>{da.length} {t('shared.places')}</span>
+                  <span className="text-[var(--text-faint)]" style={{ fontSize: 'calc(11px * var(--fs-scale-caption, 1))' }}>{da.length} {t('shared.places')}</span>
                 </div>
 
                 {selectedDay === day.id && merged.length > 0 && (
@@ -235,24 +235,24 @@ export default function SharedTripPage() {
                           }
                         }
                         return (
-                          <div key={r.__leg ? `t-${r.id}-leg${r.__leg.index}` : `t-${r.id}`} className="bg-[rgba(59,130,246,0.06)]" style={{ display: 'flex', alignItems: 'center', gap: 8, padding: '6px 8px', borderRadius: 6, border: '1px solid rgba(59,130,246,0.15)' }}>
-                            <div className="bg-[rgba(59,130,246,0.12)]" style={{ width: 24, height: 24, borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
+                          <div key={r.__leg ? `t-${r.id}-leg${r.__leg.index}` : `t-${r.id}`} className="bg-[var(--info-soft)]" style={{ display: 'flex', alignItems: 'center', gap: 8, padding: '6px 8px', borderRadius: 6, border: '1px solid rgba(59,130,246,0.15)' }}>
+                            <div className="bg-[var(--info-soft)]" style={{ width: 24, height: 24, borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
                               <TIcon size={12} color="#3b82f6" />
                             </div>
                             <div style={{ flex: 1, minWidth: 0 }}>
-                              <div className="text-[#111827]" style={{ fontSize: 'calc(12px * var(--fs-scale-body, 1))', fontWeight: 500 }}>{r.title}{time ? ` · ${time}${endTime ? `–${endTime}` : ''}` : ''}</div>
-                              {sub && <div className="text-[#6b7280]" style={{ fontSize: 'calc(10px * var(--fs-scale-caption, 1))' }}>{sub}</div>}
+                              <div className="text-[var(--text-primary)]" style={{ fontSize: 'calc(12px * var(--fs-scale-body, 1))', fontWeight: 500 }}>{r.title}{time ? ` · ${time}${endTime ? `–${endTime}` : ''}` : ''}</div>
+                              {sub && <div className="text-[var(--text-muted)]" style={{ fontSize: 'calc(10px * var(--fs-scale-caption, 1))' }}>{sub}</div>}
                             </div>
                           </div>
                         )
                       }
                       if (item.type === 'note') {
                         return (
-                          <div key={`n-${item.data.id}`} className="bg-[#f9fafb]" style={{ display: 'flex', alignItems: 'center', gap: 8, padding: '5px 8px', borderRadius: 6, border: '1px solid #f3f4f6' }}>
+                          <div key={`n-${item.data.id}`} className="bg-[var(--bg-secondary)]" style={{ display: 'flex', alignItems: 'center', gap: 8, padding: '5px 8px', borderRadius: 6, border: '1px solid var(--border-secondary)' }}>
                             <FileText size={12} color="#9ca3af" />
                             <div>
-                              <div className="text-[#374151]" style={{ fontSize: 'calc(12px * var(--fs-scale-body, 1))' }}>{item.data.text}</div>
-                              {item.data.time && <div className="text-[#9ca3af]" style={{ fontSize: 'calc(10px * var(--fs-scale-caption, 1))' }}>{item.data.time}</div>}
+                              <div className="text-[var(--text-secondary)]" style={{ fontSize: 'calc(12px * var(--fs-scale-body, 1))' }}>{item.data.text}</div>
+                              {item.data.time && <div className="text-[var(--text-faint)]" style={{ fontSize: 'calc(10px * var(--fs-scale-caption, 1))' }}>{item.data.time}</div>}
                             </div>
                           </div>
                         )
@@ -266,10 +266,10 @@ export default function SharedTripPage() {
                             {place.image_url ? <img src={place.image_url} style={{ width: 28, height: 28, borderRadius: '50%', objectFit: 'cover' }} /> : <MapPin size={13} color="white" />}
                           </div>
                           <div style={{ flex: 1, minWidth: 0 }}>
-                            <div className="text-[#111827]" style={{ fontSize: 'calc(12.5px * var(--fs-scale-body, 1))', fontWeight: 500 }}>{place.name}</div>
-                            {(place.address || place.description) && <div className="text-[#9ca3af]" style={{ fontSize: 'calc(10px * var(--fs-scale-caption, 1))', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>{place.address || place.description}</div>}
+                            <div className="text-[var(--text-primary)]" style={{ fontSize: 'calc(12.5px * var(--fs-scale-body, 1))', fontWeight: 500 }}>{place.name}</div>
+                            {(place.address || place.description) && <div className="text-[var(--text-faint)]" style={{ fontSize: 'calc(10px * var(--fs-scale-caption, 1))', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>{place.address || place.description}</div>}
                           </div>
-                          {place.place_time && <span className="text-[#6b7280]" style={{ fontSize: 'calc(10px * var(--fs-scale-caption, 1))', display: 'flex', alignItems: 'center', gap: 3, flexShrink: 0 }}><Clock size={9} />{place.place_time}{place.end_time ? ` – ${place.end_time}` : ''}</span>}
+                          {place.place_time && <span className="text-[var(--text-muted)]" style={{ fontSize: 'calc(10px * var(--fs-scale-caption, 1))', display: 'flex', alignItems: 'center', gap: 3, flexShrink: 0 }}><Clock size={9} />{place.place_time}{place.end_time ? ` – ${place.end_time}` : ''}</span>}
                         </div>
                       )
                     })}
@@ -292,12 +292,12 @@ export default function SharedTripPage() {
               const date = rDate ? new Date(rDate + 'T00:00:00Z').toLocaleDateString(locale, { day: 'numeric', month: 'short', timeZone: 'UTC' }) : ''
               return (
                 <div key={r.id} className="bg-surface-card border border-edge-faint" style={{ borderRadius: 10, padding: '12px 16px', display: 'flex', alignItems: 'center', gap: 12 }}>
-                  <div className="bg-[#f3f4f6]" style={{ width: 32, height: 32, borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
+                  <div className="bg-[var(--bg-tertiary)]" style={{ width: 32, height: 32, borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
                     <TIcon size={15} color="#6b7280" />
                   </div>
                   <div style={{ flex: 1, minWidth: 0 }}>
-                    <div className="text-[#111827]" style={{ fontSize: 'calc(13px * var(--fs-scale-body, 1))', fontWeight: 600 }}>{r.title}</div>
-                    <div className="text-[#9ca3af]" style={{ fontSize: 'calc(11px * var(--fs-scale-caption, 1))', display: 'flex', gap: 8, flexWrap: 'wrap', marginTop: 2 }}>
+                    <div className="text-[var(--text-primary)]" style={{ fontSize: 'calc(13px * var(--fs-scale-body, 1))', fontWeight: 600 }}>{r.title}</div>
+                    <div className="text-[var(--text-faint)]" style={{ fontSize: 'calc(11px * var(--fs-scale-caption, 1))', display: 'flex', gap: 8, flexWrap: 'wrap', marginTop: 2 }}>
                       {date && <span>{date}</span>}
                       {time && <span>{time}</span>}
                       {r.location && <span>{r.location}</span>}
@@ -312,7 +312,7 @@ export default function SharedTripPage() {
                           : meta.airline && <span>{meta.airline} {meta.flight_number || ''}</span>}
                     </div>
                   </div>
-                  <span className={r.status === 'confirmed' ? 'bg-[rgba(22,163,74,0.1)] text-[#16a34a]' : 'bg-[rgba(217,119,6,0.1)] text-[#d97706]'} style={{ fontSize: 'calc(10px * var(--fs-scale-caption, 1))', padding: '2px 8px', borderRadius: 20, fontWeight: 600 }}>
+                  <span className={r.status === 'confirmed' ? 'bg-[var(--success-soft)] text-[var(--success)]' : 'bg-[var(--warning-soft)] text-[var(--warning)]'} style={{ fontSize: 'calc(10px * var(--fs-scale-caption, 1))', padding: '2px 8px', borderRadius: 20, fontWeight: 600 }}>
                     {r.status === 'confirmed' ? t('shared.confirmed') : t('shared.pending')}
                   </span>
                 </div>
@@ -326,10 +326,10 @@ export default function SharedTripPage() {
           <div className="bg-surface-card border border-edge-faint" style={{ borderRadius: 14, overflow: 'hidden' }}>
             {Object.entries((packing || []).reduce((g: any, i: any) => { const c = i.category || t('shared.other'); (g[c] = g[c] || []).push(i); return g }, {})).map(([cat, items]: [string, any]) => (
               <div key={cat}>
-                <div className="bg-[#f9fafb] text-[#6b7280]" style={{ padding: '8px 16px', fontSize: 'calc(11px * var(--fs-scale-caption, 1))', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.05em', borderBottom: '1px solid #f3f4f6' }}>{cat}</div>
+                <div className="bg-[var(--bg-secondary)] text-[var(--text-muted)]" style={{ padding: '8px 16px', fontSize: 'calc(11px * var(--fs-scale-caption, 1))', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.05em', borderBottom: '1px solid var(--border-secondary)' }}>{cat}</div>
                 {items.map((item: any) => (
                   <div key={item.id} style={{ padding: '6px 16px', display: 'flex', alignItems: 'center', gap: 8, borderBottom: '1px solid #f9fafb' }}>
-                    <span className={item.checked ? 'text-[#9ca3af]' : 'text-[#111827]'} style={{ fontSize: 'calc(13px * var(--fs-scale-body, 1))', textDecoration: item.checked ? 'line-through' : 'none' }}>{item.name}</span>
+                    <span className={item.checked ? 'text-[var(--text-faint)]' : 'text-[var(--text-primary)]'} style={{ fontSize: 'calc(13px * var(--fs-scale-body, 1))', textDecoration: item.checked ? 'line-through' : 'none' }}>{item.name}</span>
                   </div>
                 ))}
               </div>
@@ -348,21 +348,21 @@ export default function SharedTripPage() {
           return (
             <div style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
               {/* Total card */}
-              <div className="text-white" style={{ background: 'linear-gradient(135deg, #000 0%, #1a1a2e 100%)', borderRadius: 14, padding: '20px 24px' }}>
+              <div className="text-white" style={{ background: 'linear-gradient(135deg, var(--petrol-800) 0%, var(--petrol-700) 100%)', borderRadius: 14, padding: '20px 24px' }}>
                 <div style={{ fontSize: 'calc(10px * var(--fs-scale-caption, 1))', fontWeight: 500, letterSpacing: 1, textTransform: 'uppercase', opacity: 0.5 }}>{t('shared.totalBudget')}</div>
                 <div style={{ fontSize: 'calc(28px * var(--fs-scale-title, 1))', fontWeight: 700, marginTop: 4 }}>{total.toLocaleString(locale, { minimumFractionDigits: 2 })} {base}</div>
               </div>
               {/* By category */}
               {Object.entries(grouped).map(([cat, items]: [string, any]) => (
                 <div key={cat} className="bg-surface-card border border-edge-faint" style={{ borderRadius: 12, overflow: 'hidden' }}>
-                  <div className="bg-[#f9fafb]" style={{ padding: '10px 16px', display: 'flex', justifyContent: 'space-between', alignItems: 'center', borderBottom: '1px solid #f3f4f6' }}>
-                    <span className="text-[#374151]" style={{ fontSize: 'calc(12px * var(--fs-scale-body, 1))', fontWeight: 700 }}>{cat}</span>
-                    <span className="text-[#6b7280]" style={{ fontSize: 'calc(12px * var(--fs-scale-body, 1))', fontWeight: 600 }}>{sumIn(items).toLocaleString(locale, { minimumFractionDigits: 2 })} {base}</span>
+                  <div className="bg-[var(--bg-secondary)]" style={{ padding: '10px 16px', display: 'flex', justifyContent: 'space-between', alignItems: 'center', borderBottom: '1px solid var(--border-secondary)' }}>
+                    <span className="text-[var(--text-secondary)]" style={{ fontSize: 'calc(12px * var(--fs-scale-body, 1))', fontWeight: 700 }}>{cat}</span>
+                    <span className="text-[var(--text-muted)]" style={{ fontSize: 'calc(12px * var(--fs-scale-body, 1))', fontWeight: 600 }}>{sumIn(items).toLocaleString(locale, { minimumFractionDigits: 2 })} {base}</span>
                   </div>
                   {items.map((item: any) => (
                     <div key={item.id} style={{ padding: '8px 16px', display: 'flex', justifyContent: 'space-between', alignItems: 'center', borderBottom: '1px solid #fafafa' }}>
-                      <span className="text-[#111827]" style={{ fontSize: 'calc(13px * var(--fs-scale-body, 1))' }}>{item.name}</span>
-                      <span className="text-[#111827]" style={{ fontSize: 'calc(13px * var(--fs-scale-body, 1))', fontWeight: 600 }}>{item.total_price ? `${convert(parseFloat(item.total_price) || 0, curOf(item)).toLocaleString(locale, { minimumFractionDigits: 2 })} ${base}` : '—'}</span>
+                      <span className="text-[var(--text-primary)]" style={{ fontSize: 'calc(13px * var(--fs-scale-body, 1))' }}>{item.name}</span>
+                      <span className="text-[var(--text-primary)]" style={{ fontSize: 'calc(13px * var(--fs-scale-body, 1))', fontWeight: 600 }}>{item.total_price ? `${convert(parseFloat(item.total_price) || 0, curOf(item)).toLocaleString(locale, { minimumFractionDigits: 2 })} ${base}` : '—'}</span>
                     </div>
                   ))}
                 </div>
@@ -374,9 +374,9 @@ export default function SharedTripPage() {
         {/* Collab Chat */}
         {activeTab === 'collab' && (collab || []).length > 0 && (
           <div className="bg-surface-card border border-edge-faint" style={{ borderRadius: 14, overflow: 'hidden' }}>
-            <div className="bg-[#f9fafb]" style={{ padding: '12px 16px', borderBottom: '1px solid #f3f4f6', display: 'flex', alignItems: 'center', gap: 8 }}>
+            <div className="bg-[var(--bg-secondary)]" style={{ padding: '12px 16px', borderBottom: '1px solid var(--border-secondary)', display: 'flex', alignItems: 'center', gap: 8 }}>
               <MessageCircle size={14} color="#6b7280" />
-              <span className="text-[#374151]" style={{ fontSize: 'calc(12px * var(--fs-scale-body, 1))', fontWeight: 700 }}>{t('shared.tabChat')} · {(collab || []).length} {t('shared.messages')}</span>
+              <span className="text-[var(--text-secondary)]" style={{ fontSize: 'calc(12px * var(--fs-scale-body, 1))', fontWeight: 700 }}>{t('shared.tabChat')} · {(collab || []).length} {t('shared.messages')}</span>
             </div>
             <div style={{ maxHeight: 500, overflowY: 'auto', padding: '12px 16px', display: 'flex', flexDirection: 'column', gap: 10 }}>
               {(collab || []).map((msg: any, i: number) => {
@@ -385,20 +385,20 @@ export default function SharedTripPage() {
                 return (
                   <div key={msg.id}>
                     {showDate && (
-                      <div className="text-[#9ca3af]" style={{ textAlign: 'center', margin: '8px 0', fontSize: 'calc(10px * var(--fs-scale-caption, 1))', fontWeight: 600 }}>
+                      <div className="text-[var(--text-faint)]" style={{ textAlign: 'center', margin: '8px 0', fontSize: 'calc(10px * var(--fs-scale-caption, 1))', fontWeight: 600 }}>
                         {new Date(msg.created_at).toLocaleDateString(locale, { weekday: 'short', day: 'numeric', month: 'short' })}
                       </div>
                     )}
                     <div style={{ display: 'flex', gap: 10 }}>
-                      <div className="bg-[#e5e7eb] text-[#6b7280]" style={{ width: 32, height: 32, borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 'calc(11px * var(--fs-scale-caption, 1))', fontWeight: 700, flexShrink: 0, overflow: 'hidden' }}>
+                      <div className="bg-surface-tertiary text-[var(--text-muted)]" style={{ width: 32, height: 32, borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 'calc(11px * var(--fs-scale-caption, 1))', fontWeight: 700, flexShrink: 0, overflow: 'hidden' }}>
                         {msg.avatar ? <img src={avatarSrc(msg.avatar)!} style={{ width: '100%', height: '100%', objectFit: 'cover' }} /> : (msg.username || '?')[0].toUpperCase()}
                       </div>
                       <div style={{ flex: 1 }}>
                         <div style={{ display: 'flex', alignItems: 'baseline', gap: 6 }}>
-                          <span className="text-[#111827]" style={{ fontSize: 'calc(12px * var(--fs-scale-body, 1))', fontWeight: 600 }}>{msg.username}</span>
-                          <span className="text-[#9ca3af]" style={{ fontSize: 'calc(10px * var(--fs-scale-caption, 1))' }}>{new Date(msg.created_at).toLocaleTimeString(locale, { hour: '2-digit', minute: '2-digit' })}</span>
+                          <span className="text-[var(--text-primary)]" style={{ fontSize: 'calc(12px * var(--fs-scale-body, 1))', fontWeight: 600 }}>{msg.username}</span>
+                          <span className="text-[var(--text-faint)]" style={{ fontSize: 'calc(10px * var(--fs-scale-caption, 1))' }}>{new Date(msg.created_at).toLocaleTimeString(locale, { hour: '2-digit', minute: '2-digit' })}</span>
                         </div>
-                        <div className="text-[#374151]" style={{ fontSize: 'calc(13px * var(--fs-scale-body, 1))', marginTop: 3, lineHeight: 1.5, whiteSpace: 'pre-wrap' }}>{msg.text}</div>
+                        <div className="text-[var(--text-secondary)]" style={{ fontSize: 'calc(13px * var(--fs-scale-body, 1))', marginTop: 3, lineHeight: 1.5, whiteSpace: 'pre-wrap' }}>{msg.text}</div>
                       </div>
                     </div>
                   </div>
@@ -411,10 +411,10 @@ export default function SharedTripPage() {
         {/* Footer */}
         <div style={{ textAlign: 'center', padding: '40px 0 20px' }}>
           <div className="bg-surface-card border border-edge-faint" style={{ display: 'inline-flex', alignItems: 'center', gap: 8, padding: '8px 16px', borderRadius: 20, boxShadow: '0 1px 3px rgba(0,0,0,0.04)' }}>
-            <img src="/icons/icon.svg" alt="TREK" width="18" height="18" style={{ borderRadius: 4 }} />
-            <span className="text-[#9ca3af]" style={{ fontSize: 'calc(11px * var(--fs-scale-caption, 1))' }}>{t('shared.sharedVia')} <strong className="text-[#6b7280]">TREK</strong></span>
+            <img src="/icons/icon.svg" alt="Voyable" width="18" height="18" style={{ borderRadius: 4 }} />
+            <span className="text-[var(--text-faint)]" style={{ fontSize: 'calc(11px * var(--fs-scale-caption, 1))' }}>{t('shared.sharedVia')} <strong className="text-[var(--text-muted)]">Voyable</strong></span>
           </div>
-          <div className="text-[#d1d5db]" style={{ marginTop: 8, fontSize: 'calc(10px * var(--fs-scale-caption, 1))' }}>Made with <span className="text-[#ef4444]">&hearts;</span> by Maurice · <a href="https://github.com/mauriceboe/TREK" className="text-[#9ca3af]" style={{ textDecoration: 'none' }}>GitHub</a></div>
+          <div className="text-[var(--text-faint)]" style={{ marginTop: 8, fontSize: 'calc(10px * var(--fs-scale-caption, 1))' }}>Made with <span className="text-[var(--danger)]">&hearts;</span> by Maurice · <a href="https://github.com/mauriceboe/TREK" className="text-[var(--text-faint)]" style={{ textDecoration: 'none' }}>GitHub</a></div>
         </div>
       </div>
     </div>

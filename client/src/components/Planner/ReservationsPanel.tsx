@@ -33,21 +33,21 @@ interface AssignmentLookupEntry {
 }
 
 const TYPE_OPTIONS = [
-  { value: 'flight',      labelKey: 'reservations.type.flight',      Icon: Plane, color: '#3b82f6' },
-  { value: 'hotel',       labelKey: 'reservations.type.hotel',       Icon: Hotel, color: '#8b5cf6' },
-  { value: 'restaurant',  labelKey: 'reservations.type.restaurant',  Icon: Utensils, color: '#ef4444' },
-  { value: 'train',       labelKey: 'reservations.type.train',       Icon: Train, color: '#06b6d4' },
-  { value: 'bus',         labelKey: 'reservations.type.bus',         Icon: Bus, color: '#059669' },
-  { value: 'car',         labelKey: 'reservations.type.car',         Icon: Car, color: '#6b7280' },
-  { value: 'taxi',        labelKey: 'reservations.type.taxi',        Icon: CarTaxiFront, color: '#ca8a04' },
-  { value: 'bicycle',     labelKey: 'reservations.type.bicycle',     Icon: Bike, color: '#84cc16' },
-  { value: 'cruise',      labelKey: 'reservations.type.cruise',      Icon: Ship, color: '#0ea5e9' },
-  { value: 'ferry',       labelKey: 'reservations.type.ferry',       Icon: Sailboat, color: '#0d9488' },
-  { value: 'transit',     labelKey: 'reservations.type.transit',     Icon: TramFront, color: '#7c3aed' },
-  { value: 'transport_other', labelKey: 'reservations.type.transport_other', Icon: Route, color: '#6b7280' },
-  { value: 'event',       labelKey: 'reservations.type.event',       Icon: Ticket, color: '#f59e0b' },
-  { value: 'tour',        labelKey: 'reservations.type.tour',        Icon: Users, color: '#10b981' },
-  { value: 'other',       labelKey: 'reservations.type.other',       Icon: FileText, color: '#6b7280' },
+  { value: 'flight',      labelKey: 'reservations.type.flight',      Icon: Plane, color: 'var(--info)' },
+  { value: 'hotel',       labelKey: 'reservations.type.hotel',       Icon: Hotel, color: '#8b5cf6' },  // theme-lint-disable: reservation category color
+  { value: 'restaurant',  labelKey: 'reservations.type.restaurant',  Icon: Utensils, color: 'var(--danger)' },
+  { value: 'train',       labelKey: 'reservations.type.train',       Icon: Train, color: '#06b6d4' },  // theme-lint-disable: reservation category color
+  { value: 'bus',         labelKey: 'reservations.type.bus',         Icon: Bus, color: 'var(--success)' },
+  { value: 'car',         labelKey: 'reservations.type.car',         Icon: Car, color: 'var(--text-muted)' },
+  { value: 'taxi',        labelKey: 'reservations.type.taxi',        Icon: CarTaxiFront, color: '#ca8a04' },  // theme-lint-disable: reservation category color
+  { value: 'bicycle',     labelKey: 'reservations.type.bicycle',     Icon: Bike, color: '#84cc16' },  // theme-lint-disable: reservation category color
+  { value: 'cruise',      labelKey: 'reservations.type.cruise',      Icon: Ship, color: '#0ea5e9' },  // theme-lint-disable: reservation category color
+  { value: 'ferry',       labelKey: 'reservations.type.ferry',       Icon: Sailboat, color: '#0d9488' },  // theme-lint-disable: reservation category color
+  { value: 'transit',     labelKey: 'reservations.type.transit',     Icon: TramFront, color: '#7c3aed' },  // theme-lint-disable: reservation category color
+  { value: 'transport_other', labelKey: 'reservations.type.transport_other', Icon: Route, color: 'var(--text-muted)' },
+  { value: 'event',       labelKey: 'reservations.type.event',       Icon: Ticket, color: 'var(--warning)' },
+  { value: 'tour',        labelKey: 'reservations.type.tour',        Icon: Users, color: 'var(--success)' },  // theme-lint-disable: reservation category color
+  { value: 'other',       labelKey: 'reservations.type.other',       Icon: FileText, color: 'var(--text-muted)' },
 ]
 
 function getType(type) {
@@ -161,17 +161,17 @@ function ReservationCard({ r, tripId, onEdit, onDelete, files = [], onNavigateTo
     >
       {/* Header — wraps to a second row on narrow screens so the status/category chips
           never collide with the title. */}
-      <div className={confirmed ? 'bg-[rgba(22,163,74,0.06)]' : 'bg-[rgba(217,119,6,0.06)]'} style={{
+      <div className={confirmed ? 'bg-[var(--success-soft)]' : 'bg-[var(--warning-soft)]'} style={{
         display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: 12,
         flexWrap: 'wrap',
         padding: '12px 14px',
       }}>
         <div style={{ display: 'inline-flex', alignItems: 'center', gap: 10, minWidth: 0, flexWrap: 'wrap' }}>
-          <span className={confirmed ? 'text-[#16a34a]' : 'text-[#d97706]'} style={{
+          <span className={confirmed ? 'text-[var(--success)]' : 'text-[var(--warning)]'} style={{
             display: 'inline-flex', alignItems: 'center', gap: 6,
             fontSize: 'calc(12px * var(--fs-scale-body, 1))', fontWeight: 600,
           }}>
-            <span className={confirmed ? 'bg-[#16a34a]' : 'bg-[#d97706]'} style={{ width: 7, height: 7, borderRadius: '50%', flexShrink: 0 }} />
+            <span className={confirmed ? 'bg-[var(--success)]' : 'bg-[var(--warning)]'} style={{ width: 7, height: 7, borderRadius: '50%', flexShrink: 0 }} />
             {confirmed ? t('reservations.confirmed') : t('reservations.pending')}
           </span>
           <span className="text-content-muted bg-surface-secondary" style={{
@@ -183,7 +183,7 @@ function ReservationCard({ r, tripId, onEdit, onDelete, files = [], onNavigateTo
             {t(typeInfo.labelKey)}
           </span>
           {r.needs_review ? (
-            <span className="text-[#b45309] bg-[rgba(245,158,11,0.12)]" style={{
+            <span className="text-[var(--warning)] bg-[var(--warning-soft)]" style={{
               display: 'inline-flex', alignItems: 'center', gap: 4,
               fontSize: 'calc(11px * var(--fs-scale-caption, 1))', fontWeight: 600,
               padding: '3px 8px', borderRadius: 6,
@@ -194,7 +194,7 @@ function ReservationCard({ r, tripId, onEdit, onDelete, files = [], onNavigateTo
           ) : null}
           {r.external_source === 'airtrail' ? (
             <span
-              className={r.sync_enabled ? 'text-[#2563eb] bg-[rgba(59,130,246,0.12)]' : 'text-content-faint bg-surface-tertiary'}
+              className={r.sync_enabled ? 'text-[var(--info)] bg-[var(--info-soft)]' : 'text-content-faint bg-surface-tertiary'}
               style={{ display: 'inline-flex', alignItems: 'center', gap: 4, fontSize: 'calc(11px * var(--fs-scale-caption, 1))', fontWeight: 600, padding: '3px 8px', borderRadius: 6 }}
               title={r.sync_enabled ? t('reservations.airtrail.syncedHint') : t('reservations.airtrail.notSyncedHint')}
             >
@@ -429,7 +429,7 @@ function ReservationCard({ r, tripId, onEdit, onDelete, files = [], onNavigateTo
 
       {/* Delete confirmation */}
       {showDeleteConfirm && ReactDOM.createPortal(
-        <div className="bg-[rgba(0,0,0,0.3)]" style={{
+        <div className="bg-[var(--overlay)]" style={{
           position: 'fixed', inset: 0, zIndex: 1000,
           display: 'flex', alignItems: 'center', justifyContent: 'center',
           backdropFilter: 'blur(3px)',
@@ -440,7 +440,7 @@ function ReservationCard({ r, tripId, onEdit, onDelete, files = [], onNavigateTo
             display: 'flex', flexDirection: 'column', gap: 12,
           }} onClick={e => e.stopPropagation()}>
             <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
-              <div className="bg-[rgba(239,68,68,0.12)]" style={{
+              <div className="bg-[var(--danger-soft)]" style={{
                 width: 36, height: 36, flexShrink: 0, display: 'flex', alignItems: 'center', justifyContent: 'center',
                 borderRadius: '50%',
               }}>
@@ -458,7 +458,7 @@ function ReservationCard({ r, tripId, onEdit, onDelete, files = [], onNavigateTo
                 fontSize: 'calc(12px * var(--fs-scale-body, 1))', background: 'none', border: '1px solid var(--border-primary)',
                 borderRadius: 8, padding: '6px 14px', cursor: 'pointer', fontFamily: 'inherit',
               }}>{t('common.cancel')}</button>
-              <button onClick={handleDelete} className="bg-[#ef4444] text-white" style={{
+              <button onClick={handleDelete} className="bg-[var(--danger)] text-white" style={{
                 fontSize: 'calc(12px * var(--fs-scale-body, 1))',
                 border: 'none', borderRadius: 8, padding: '6px 16px', cursor: 'pointer', fontWeight: 600, fontFamily: 'inherit',
               }}>{t('common.confirm')}</button>
@@ -547,7 +547,7 @@ function TransitJourneyCard({ r, days, onOpen, onDelete, canEdit, tripId, contri
       onMouseLeave={e => e.currentTarget.style.boxShadow = 'none'}
     >
       <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
-        <div style={{ width: 34, height: 34, flexShrink: 0, display: 'flex', alignItems: 'center', justifyContent: 'center', borderRadius: 10, background: 'rgba(124,58,237,0.1)' }}>
+        <div style={{ width: 34, height: 34, flexShrink: 0, display: 'flex', alignItems: 'center', justifyContent: 'center', borderRadius: 10, background: 'var(--accent-subtle)' }}>
           <TramFront size={16} strokeWidth={1.8} color="#7c3aed" />
         </div>
         <div style={{ flex: 1, minWidth: 0 }}>
@@ -602,13 +602,13 @@ function TransitJourneyCard({ r, days, onOpen, onDelete, canEdit, tripId, contri
         </div>
       )}
       {confirmOpen && ReactDOM.createPortal(
-        <div className="bg-[rgba(0,0,0,0.35)]" style={{ position: 'fixed', inset: 0, zIndex: 3000, display: 'flex', alignItems: 'center', justifyContent: 'center' }} onClick={e => { e.stopPropagation(); setConfirmOpen(false) }}>
+        <div className="bg-[var(--overlay)]" style={{ position: 'fixed', inset: 0, zIndex: 3000, display: 'flex', alignItems: 'center', justifyContent: 'center' }} onClick={e => { e.stopPropagation(); setConfirmOpen(false) }}>
           <div className="bg-surface-card" style={{ borderRadius: 14, padding: 20, width: 340, boxShadow: '0 16px 48px rgba(0,0,0,0.22)' }} onClick={e => e.stopPropagation()}>
             <div className="text-content" style={{ fontWeight: 600, fontSize: 'calc(14px * var(--fs-scale-body, 1))', marginBottom: 6 }}>{t('reservations.confirm.deleteTitle')}</div>
             <div className="text-content-muted" style={{ fontSize: 'calc(12.5px * var(--fs-scale-body, 1))', marginBottom: 14 }}>{t('reservations.confirm.deleteBody', { name: r.title })}</div>
             <div style={{ display: 'flex', justifyContent: 'flex-end', gap: 8 }}>
               <button onClick={e => { e.stopPropagation(); setConfirmOpen(false) }} className="text-content-muted" style={{ padding: '7px 14px', borderRadius: 9, border: '1px solid var(--border-primary)', background: 'none', fontSize: 'calc(12px * var(--fs-scale-body, 1))', cursor: 'pointer', fontFamily: 'inherit' }}>{t('common.cancel')}</button>
-              <button onClick={e => { e.stopPropagation(); setConfirmOpen(false); onDelete(r.id) }} style={{ padding: '7px 14px', borderRadius: 9, border: 'none', background: '#ef4444', color: '#fff', fontSize: 'calc(12px * var(--fs-scale-body, 1))', fontWeight: 600, cursor: 'pointer', fontFamily: 'inherit' }}>{t('common.delete')}</button>
+              <button onClick={e => { e.stopPropagation(); setConfirmOpen(false); onDelete(r.id) }} style={{ padding: '7px 14px', borderRadius: 9, border: 'none', background: 'var(--danger)', color: 'var(--text-inverse)', fontSize: 'calc(12px * var(--fs-scale-body, 1))', fontWeight: 600, cursor: 'pointer', fontFamily: 'inherit' }}>{t('common.delete')}</button>
             </div>
           </div>
         </div>,
@@ -747,7 +747,7 @@ export default function ReservationsPanel({ tripId, reservations, days, assignme
                   }}
                 >
                   {t('common.all')}
-                  <span className={`text-content-faint ${typeFilters.size === 0 ? 'bg-surface-tertiary' : 'bg-[rgba(0,0,0,0.06)]'}`} style={{
+                  <span className={`text-content-faint ${typeFilters.size === 0 ? 'bg-surface-tertiary' : 'bg-[var(--bg-hover)]'}`} style={{
                     fontSize: 'calc(10px * var(--fs-scale-caption, 1))', fontWeight: 600,
                     padding: '1px 6px', borderRadius: 99, minWidth: 16, textAlign: 'center',
                   }}>{reservations.length}</span>
@@ -771,7 +771,7 @@ export default function ReservationsPanel({ tripId, reservations, days, assignme
                     >
                       <Icon size={13} style={{ color: active ? opt.color : 'var(--text-faint)' }} />
                       {t(opt.labelKey)}
-                      <span className={`text-content-faint ${active ? 'bg-surface-tertiary' : 'bg-[rgba(0,0,0,0.06)]'}`} style={{
+                      <span className={`text-content-faint ${active ? 'bg-surface-tertiary' : 'bg-[var(--bg-hover)]'}`} style={{
                         fontSize: 'calc(10px * var(--fs-scale-caption, 1))', fontWeight: 600,
                         padding: '1px 6px', borderRadius: 99, minWidth: 16, textAlign: 'center',
                       }}>{typeCounts[opt.value] || 0}</span>

@@ -82,6 +82,7 @@ const login: TranslationStrings = {
   'login.oidc.invalidState': 'Session invalide. Veuillez réessayer.',
   'login.demoFailed': 'Échec de la connexion démo',
   'login.oidcSignIn': 'Se connecter avec {name}',
+  'login.continueWithGoogle': 'Continue with Google', // TODO: untranslated
   'login.oidcOnly':
     "L'authentification par mot de passe est désactivée. Veuillez vous connecter via votre fournisseur SSO.",
   'login.oidcLoggedOut': 'Vous avez été déconnecté. Reconnectez-vous via votre fournisseur SSO.',

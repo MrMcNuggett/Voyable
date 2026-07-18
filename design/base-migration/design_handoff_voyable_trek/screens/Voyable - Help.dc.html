@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+
+<helmet>
+  <link rel="stylesheet" href="_ds/voyable-design-system-20d63b1d-fb41-47b0-8049-741c2094f669/tokens/fonts.css">
+  <link rel="stylesheet" href="_ds/voyable-design-system-20d63b1d-fb41-47b0-8049-741c2094f669/tokens/colors.css">
+  <link rel="stylesheet" href="_ds/voyable-design-system-20d63b1d-fb41-47b0-8049-741c2094f669/tokens/typography.css">
+  <link rel="stylesheet" href="_ds/voyable-design-system-20d63b1d-fb41-47b0-8049-741c2094f669/tokens/spacing.css">
+  <link rel="stylesheet" href="_ds/voyable-design-system-20d63b1d-fb41-47b0-8049-741c2094f669/tokens/effects.css">
+  <link rel="stylesheet" href="_ds/voyable-design-system-20d63b1d-fb41-47b0-8049-741c2094f669/styles.css">
+  <script src="_ds/voyable-design-system-20d63b1d-fb41-47b0-8049-741c2094f669/_ds_bundle.js"></script>
+  <style>
+    html,body{margin:0;background:var(--surface-page);}
+    *{box-sizing:border-box;}
+    a{color:var(--accent-primary);text-decoration:none;}
+    .wiki p{font-size:14px;color:var(--text-secondary);line-height:1.7;margin:10px 0;}
+    .wiki ul{padding-left:20px;color:var(--text-secondary);font-size:14px;line-height:1.6;}
+    .wiki h2{font-family:var(--font-display);font-size:19px;font-weight:700;margin:28px 0 10px;padding-bottom:6px;border-bottom:1px solid var(--border-subtle);}
+  </style>
+</helmet>
+
+<div style="font-family:var(--font-sans);color:var(--text-primary);min-height:100vh;">
+  <nav style="height:64px;display:flex;align-items:center;padding:0 24px;gap:10px;background:color-mix(in oklch, var(--surface-raised) 92%, transparent);backdrop-filter:blur(16px);border-bottom:1px solid var(--border-subtle);">
+    <svg width="26" height="26" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="11" fill="var(--petrol-500)"/><path d="M12 6c-2.2 0-4 1.7-4 4 0 3 4 8 4 8s4-5 4-8c0-2.3-1.8-4-4-4Zm0 5.5A1.5 1.5 0 1 1 12 8.5a1.5 1.5 0 0 1 0 3Z" fill="var(--stone-50)"/></svg>
+    <span style="font-family:var(--font-display);font-weight:700;font-size:var(--text-xl);letter-spacing:-0.01em;">voyable</span>
+  </nav>
+
+  <div style="max-width:1400px;margin:0 auto;padding:28px 32px 80px;display:flex;gap:48px;">
+    <aside style="width:250px;flex-shrink:0;position:sticky;top:88px;align-self:flex-start;">
+      <div style="display:flex;align-items:center;gap:8px;margin-bottom:16px;">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--accent-primary)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+        <span style="font-family:var(--font-display);font-size:14px;font-weight:700;">Help center</span>
+      </div>
+      <div style="position:relative;margin-bottom:20px;">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="var(--text-muted)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="position:absolute;left:10px;top:50%;transform:translateY(-50%);"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.3-4.3"/></svg>
+        <input type="text" placeholder="Search help" style="width:100%;padding:8px 10px 8px 30px;border-radius:10px;border:1px solid var(--border-subtle);font-size:13px;outline:none;font-family:inherit;color:var(--text-primary);background:var(--surface-raised);">
+      </div>
+
+      <div style="font-size:10px;text-transform:uppercase;letter-spacing:0.1em;color:var(--text-faint);font-weight:700;padding:4px 8px;margin-bottom:2px;">Getting started</div>
+      <a href="#" style="display:flex;align-items:center;gap:6px;padding:8px 8px;border-radius:8px;font-size:13px;font-weight:600;background:var(--petrol-50);color:var(--accent-primary);margin-bottom:2px;">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg>
+        Creating your first trip
+      </a>
+      <a href="#" style="display:block;padding:8px 8px 8px 26px;border-radius:8px;font-size:13px;color:var(--text-secondary);">Adding places</a>
+      <a href="#" style="display:block;padding:8px 8px 8px 26px;border-radius:8px;font-size:13px;color:var(--text-secondary);">Building a day plan</a>
+
+      <div style="font-size:10px;text-transform:uppercase;letter-spacing:0.1em;color:var(--text-faint);font-weight:700;padding:14px 8px 2px;">Collaboration</div>
+      <a href="#" style="display:block;padding:8px 8px 8px 26px;border-radius:8px;font-size:13px;color:var(--text-secondary);">Inviting travelers</a>
+      <a href="#" style="display:block;padding:8px 8px 8px 26px;border-radius:8px;font-size:13px;color:var(--text-secondary);">Splitting costs</a>
+
+      <div style="font-size:10px;text-transform:uppercase;letter-spacing:0.1em;color:var(--text-faint);font-weight:700;padding:14px 8px 2px;">Account</div>
+      <a href="#" style="display:block;padding:8px 8px 8px 26px;border-radius:8px;font-size:13px;color:var(--text-secondary);">Managing your profile</a>
+      <a href="#" style="display:block;padding:8px 8px 8px 26px;border-radius:8px;font-size:13px;color:var(--text-secondary);">Connected apps</a>
+    </aside>
+
+    <main style="flex:1;min-width:0;max-width:760px;">
+      <h1 style="margin:0 0 4px;font-family:var(--font-display);font-size:28px;font-weight:700;letter-spacing:-0.01em;">Creating your first trip</h1>
+      <p style="margin:0 0 20px;font-size:13px;color:var(--text-faint);">Getting started · 3 min read</p>
+      <div class="wiki">
+        <p>A trip holds everything for one journey: your day plan, places, transports, bookings, packing lists, and costs.</p>
+        <h2>Start a trip</h2>
+        <p>From your dashboard, select New trip and give it a name. Dates are optional — you can add them later once your plan takes shape.</p>
+        <h2>Add places</h2>
+        <p>Use the places sidebar inside the planner to search for a destination or drop a pin. Drag any place onto a day to schedule it.</p>
+        <ul>
+          <li>Search finds places by name or address</li>
+          <li>Imported lists bring places in from a file</li>
+          <li>Unplanned places stay in the sidebar until you assign them to a day</li>
+        </ul>
+        <h2>Invite your travelers</h2>
+        <p>Share gives collaborators edit access to the whole trip, or a read-only link for people who just need the itinerary.</p>
+      </div>
+    </main>
+  </div>
+</div>
+
+</x-dc>
+</body>
+</html>

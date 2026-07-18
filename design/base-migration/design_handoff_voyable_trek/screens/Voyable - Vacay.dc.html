@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+
+<helmet>
+  <link rel="stylesheet" href="_ds/voyable-design-system-20d63b1d-fb41-47b0-8049-741c2094f669/tokens/fonts.css">
+  <link rel="stylesheet" href="_ds/voyable-design-system-20d63b1d-fb41-47b0-8049-741c2094f669/tokens/colors.css">
+  <link rel="stylesheet" href="_ds/voyable-design-system-20d63b1d-fb41-47b0-8049-741c2094f669/tokens/typography.css">
+  <link rel="stylesheet" href="_ds/voyable-design-system-20d63b1d-fb41-47b0-8049-741c2094f669/tokens/spacing.css">
+  <link rel="stylesheet" href="_ds/voyable-design-system-20d63b1d-fb41-47b0-8049-741c2094f669/tokens/effects.css">
+  <link rel="stylesheet" href="_ds/voyable-design-system-20d63b1d-fb41-47b0-8049-741c2094f669/styles.css">
+  <script src="_ds/voyable-design-system-20d63b1d-fb41-47b0-8049-741c2094f669/_ds_bundle.js"></script>
+  <style>
+    html,body{margin:0;background:var(--surface-page);}
+    *{box-sizing:border-box;}
+    .mono{font-family:var(--font-mono);font-feature-settings:"tnum";}
+    .vy-cell{height:26px;display:flex;align-items:center;justify-content:center;font-size:11px;border-top:1px solid var(--border-subtle);border-right:1px solid var(--border-subtle);position:relative;}
+  </style>
+</helmet>
+
+<div style="font-family:var(--font-sans);color:var(--text-primary);min-height:100vh;">
+  <nav style="height:64px;display:flex;align-items:center;padding:0 24px;gap:10px;background:color-mix(in oklch, var(--surface-raised) 92%, transparent);backdrop-filter:blur(16px);border-bottom:1px solid var(--border-subtle);">
+    <svg width="26" height="26" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="11" fill="var(--petrol-500)"/><path d="M12 6c-2.2 0-4 1.7-4 4 0 3 4 8 4 8s4-5 4-8c0-2.3-1.8-4-4-4Zm0 5.5A1.5 1.5 0 1 1 12 8.5a1.5 1.5 0 0 1 0 3Z" fill="var(--stone-50)"/></svg>
+    <span style="font-family:var(--font-display);font-weight:700;font-size:var(--text-xl);letter-spacing:-0.01em;">voyable</span>
+  </nav>
+
+  <div style="max-width:1500px;margin:0 auto;padding:24px 28px 80px;">
+
+    <div style="display:flex;align-items:center;gap:16px;background:var(--surface-raised);border:1px solid var(--border-subtle);border-radius:18px;padding:14px 20px;box-shadow:var(--shadow-sm);margin-bottom:20px;">
+      <h1 style="margin:0;font-family:var(--font-display);font-size:20px;font-weight:700;letter-spacing:-0.01em;">Vacay</h1>
+      <div style="width:1px;height:22px;background:var(--border-subtle);"></div>
+      <span style="font-size:13px;color:var(--text-muted);">Plan time off and see it alongside your holidays</span>
+      <div style="flex:1;"></div>
+      <button style="display:inline-flex;align-items:center;gap:6px;padding:9px 16px;border-radius:10px;border:none;background:var(--accent-primary);color:var(--text-on-accent);font-size:13px;font-weight:600;cursor:pointer;font-family:inherit;">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2Z"/><circle cx="12" cy="12" r="3"/></svg>
+        Settings
+      </button>
+    </div>
+
+    <div style="display:flex;gap:20px;align-items:flex-start;">
+      <!-- Sidebar -->
+      <div style="width:240px;flex-shrink:0;display:flex;flex-direction:column;gap:14px;position:sticky;top:88px;">
+
+        <div style="background:var(--surface-raised);border:1px solid var(--border-subtle);border-radius:16px;padding:14px;">
+          <div style="font-size:10.5px;text-transform:uppercase;letter-spacing:0.1em;color:var(--text-muted);font-weight:600;margin-bottom:10px;">Year</div>
+          <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:10px;">
+            <button style="border:none;background:var(--surface-sunken);border-radius:8px;width:26px;height:26px;display:flex;align-items:center;justify-content:center;cursor:pointer;color:var(--text-muted);">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
+            </button>
+            <span class="mono" style="font-size:20px;font-weight:700;">2026</span>
+            <button style="border:none;background:var(--surface-sunken);border-radius:8px;width:26px;height:26px;display:flex;align-items:center;justify-content:center;cursor:pointer;color:var(--text-muted);">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg>
+            </button>
+          </div>
+          <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:4px;">
+            <div style="padding:6px 0;border-radius:8px;text-align:center;font-size:11px;font-weight:600;background:var(--surface-sunken);color:var(--text-muted);">24</div>
+            <div style="padding:6px 0;border-radius:8px;text-align:center;font-size:11px;font-weight:600;background:var(--surface-sunken);color:var(--text-muted);">25</div>
+            <div style="padding:6px 0;border-radius:8px;text-align:center;font-size:11px;font-weight:600;background:var(--ink-900);color:var(--stone-50);">26</div>
+            <div style="padding:6px 0;border-radius:8px;text-align:center;font-size:11px;font-weight:600;background:var(--surface-sunken);color:var(--text-muted);">27</div>
+          </div>
+        </div>
+
+        <div style="background:var(--surface-raised);border:1px solid var(--border-subtle);border-radius:16px;padding:14px;">
+          <div style="font-size:10.5px;text-transform:uppercase;letter-spacing:0.1em;color:var(--text-muted);font-weight:600;margin-bottom:10px;">Travelers</div>
+          <div style="display:flex;flex-direction:column;gap:8px;">
+            <div style="display:flex;align-items:center;gap:8px;"><span style="width:10px;height:10px;border-radius:50%;background:var(--petrol-400);"></span><span style="font-size:13px;font-weight:500;">Jae Santos <span style="color:var(--text-faint);">(you)</span></span></div>
+            <div style="display:flex;align-items:center;gap:8px;"><span style="width:10px;height:10px;border-radius:50%;background:var(--olive-400);"></span><span style="font-size:13px;font-weight:500;">Mika Kwan</span></div>
+          </div>
+        </div>
+
+        <div style="background:var(--surface-raised);border:1px solid var(--border-subtle);border-radius:16px;padding:14px;">
+          <div style="font-size:10.5px;text-transform:uppercase;letter-spacing:0.1em;color:var(--text-muted);font-weight:600;margin-bottom:10px;">Legend</div>
+          <div style="display:flex;flex-direction:column;gap:7px;">
+            <div style="display:flex;align-items:center;gap:8px;"><span style="width:16px;height:12px;border-radius:3px;background:color-mix(in oklch, var(--error-500) 22%, var(--surface-raised));"></span><span style="font-size:11px;color:var(--text-muted);">Public holiday</span></div>
+            <div style="display:flex;align-items:center;gap:8px;"><span style="width:16px;height:12px;border-radius:3px;background:color-mix(in oklch, var(--olive-400) 22%, var(--surface-raised));"></span><span style="font-size:11px;color:var(--text-muted);">Company holiday</span></div>
+            <div style="display:flex;align-items:center;gap:8px;"><span style="width:16px;height:12px;border-radius:3px;background:var(--surface-sunken);"></span><span style="font-size:11px;color:var(--text-muted);">Weekend</span></div>
+          </div>
+        </div>
+
+        <div style="background:var(--surface-raised);border:1px solid var(--border-subtle);border-radius:16px;padding:14px;">
+          <div style="display:flex;align-items:center;gap:6px;margin-bottom:12px;">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="var(--text-muted)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+            <span style="font-size:10.5px;text-transform:uppercase;letter-spacing:0.1em;color:var(--text-muted);font-weight:600;">Entitlement 2026</span>
+          </div>
+
+          <div style="border:1px solid var(--border-subtle);border-radius:12px;padding:10px;margin-bottom:8px;">
+            <div style="display:flex;align-items:center;gap:8px;margin-bottom:8px;">
+              <span style="width:10px;height:10px;border-radius:50%;background:var(--petrol-400);flex-shrink:0;"></span>
+              <span style="font-size:12px;font-weight:600;flex:1;">Jae Santos <span style="color:var(--text-faint);font-weight:400;">(you)</span></span>
+              <span class="mono" style="font-size:10px;color:var(--text-faint);">12/28</span>
+            </div>
+            <div style="height:6px;border-radius:3px;background:var(--surface-sunken);overflow:hidden;margin-bottom:8px;"><div style="width:43%;height:100%;background:var(--petrol-400);border-radius:3px;"></div></div>
+            <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:6px;">
+              <div style="background:var(--surface-sunken);border-radius:8px;padding:6px 8px;text-align:center;"><div style="font-size:9px;color:var(--text-faint);">Days</div><div class="mono" style="font-size:14px;font-weight:700;">28</div></div>
+              <div style="background:var(--surface-sunken);border-radius:8px;padding:6px 8px;text-align:center;"><div style="font-size:9px;color:var(--text-faint);">Used</div><div class="mono" style="font-size:14px;font-weight:700;">12</div></div>
+              <div style="background:var(--surface-sunken);border-radius:8px;padding:6px 8px;text-align:center;"><div style="font-size:9px;color:var(--text-faint);">Left</div><div class="mono" style="font-size:14px;font-weight:700;color:var(--success-500);">16</div></div>
+            </div>
+          </div>
+
+          <div style="border:1px solid var(--border-subtle);border-radius:12px;padding:10px;">
+            <div style="display:flex;align-items:center;gap:8px;margin-bottom:8px;">
+              <span style="width:10px;height:10px;border-radius:50%;background:var(--olive-400);flex-shrink:0;"></span>
+              <span style="font-size:12px;font-weight:600;flex:1;">Mika Kwan</span>
+              <span class="mono" style="font-size:10px;color:var(--text-faint);">25/25</span>
+            </div>
+            <div style="height:6px;border-radius:3px;background:var(--surface-sunken);overflow:hidden;margin-bottom:8px;"><div style="width:100%;height:100%;background:var(--olive-400);border-radius:3px;"></div></div>
+            <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:6px;">
+              <div style="background:var(--surface-sunken);border-radius:8px;padding:6px 8px;text-align:center;"><div style="font-size:9px;color:var(--text-faint);">Days</div><div class="mono" style="font-size:14px;font-weight:700;">25</div></div>
+              <div style="background:var(--surface-sunken);border-radius:8px;padding:6px 8px;text-align:center;"><div style="font-size:9px;color:var(--text-faint);">Used</div><div class="mono" style="font-size:14px;font-weight:700;">25</div></div>
+              <div style="background:var(--surface-sunken);border-radius:8px;padding:6px 8px;text-align:center;"><div style="font-size:9px;color:var(--text-faint);">Left</div><div class="mono" style="font-size:14px;font-weight:700;">0</div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Calendar grid -->
+      <div style="flex:1;min-width:0;display:grid;grid-template-columns:repeat(3,1fr);gap:16px;">
+
+        <!-- September (has a vacation range) -->
+        <div style="background:var(--surface-raised);border:1px solid var(--border-subtle);border-radius:14px;overflow:hidden;">
+          <div style="padding:9px 12px;border-bottom:1px solid var(--border-subtle);font-size:12px;font-weight:600;">September</div>
+          <div style="display:grid;grid-template-columns:repeat(7,1fr);">
+            <div style="text-align:center;font-size:9px;color:var(--text-faint);padding:4px 0;">M</div><div style="text-align:center;font-size:9px;color:var(--text-faint);padding:4px 0;">T</div><div style="text-align:center;font-size:9px;color:var(--text-faint);padding:4px 0;">W</div><div style="text-align:center;font-size:9px;color:var(--text-faint);padding:4px 0;">T</div><div style="text-align:center;font-size:9px;color:var(--text-faint);padding:4px 0;">F</div><div style="text-align:center;font-size:9px;color:var(--text-faint);padding:4px 0;">S</div><div style="text-align:center;font-size:9px;color:var(--text-faint);padding:4px 0;">S</div>
+          </div>
+          <div style="display:grid;grid-template-columns:repeat(7,1fr);">
+            <div class="vy-cell" style="border-left:1px solid var(--border-subtle);"></div><div class="vy-cell"></div><div class="vy-cell"></div><div class="vy-cell"></div><div class="vy-cell"></div><div class="vy-cell" style="background:var(--surface-sunken);color:var(--text-faint);">1</div><div class="vy-cell" style="background:var(--surface-sunken);color:var(--text-faint);">2</div>
+            <div class="vy-cell" style="border-left:1px solid var(--border-subtle);">3</div><div class="vy-cell">4</div><div class="vy-cell">5</div><div class="vy-cell">6</div><div class="vy-cell">7</div><div class="vy-cell" style="background:var(--surface-sunken);color:var(--text-faint);">8</div><div class="vy-cell" style="background:var(--surface-sunken);color:var(--text-faint);">9</div>
+            <div class="vy-cell" style="border-left:1px solid var(--border-subtle);background:color-mix(in oklch, var(--petrol-400) 35%, transparent);font-weight:700;">10</div>
+            <div class="vy-cell" style="background:color-mix(in oklch, var(--petrol-400) 35%, transparent);font-weight:700;">11</div>
+            <div class="vy-cell" style="background:color-mix(in oklch, var(--petrol-400) 35%, transparent);font-weight:700;">12</div>
+            <div class="vy-cell" style="background:color-mix(in oklch, var(--petrol-400) 35%, transparent);font-weight:700;">13</div>
+            <div class="vy-cell" style="background:color-mix(in oklch, var(--petrol-400) 35%, transparent);font-weight:700;">14</div>
+            <div class="vy-cell" style="background:color-mix(in oklch, var(--petrol-400) 35%, transparent);font-weight:700;">15</div>
+            <div class="vy-cell" style="background:color-mix(in oklch, var(--petrol-400) 35%, transparent);font-weight:700;">16</div>
+            <div class="vy-cell" style="border-left:1px solid var(--border-subtle);">17</div><div class="vy-cell">18</div><div class="vy-cell">19</div><div class="vy-cell">20</div><div class="vy-cell">21</div><div class="vy-cell" style="background:var(--surface-sunken);color:var(--text-faint);">22</div><div class="vy-cell" style="background:var(--surface-sunken);color:var(--text-faint);">23</div>
+            <div class="vy-cell" style="border-left:1px solid var(--border-subtle);">24</div><div class="vy-cell">25</div><div class="vy-cell">26</div><div class="vy-cell">27</div><div class="vy-cell">28</div><div class="vy-cell" style="background:var(--surface-sunken);color:var(--text-faint);">29</div><div class="vy-cell" style="background:var(--surface-sunken);color:var(--text-faint);">30</div>
+          </div>
+        </div>
+
+        <!-- October (public holiday) -->
+        <div style="background:var(--surface-raised);border:1px solid var(--border-subtle);border-radius:14px;overflow:hidden;">
+          <div style="padding:9px 12px;border-bottom:1px solid var(--border-subtle);font-size:12px;font-weight:600;">October</div>
+          <div style="display:grid;grid-template-columns:repeat(7,1fr);">
+            <div style="text-align:center;font-size:9px;color:var(--text-faint);padding:4px 0;">M</div><div style="text-align:center;font-size:9px;color:var(--text-faint);padding:4px 0;">T</div><div style="text-align:center;font-size:9px;color:var(--text-faint);padding:4px 0;">W</div><div style="text-align:center;font-size:9px;color:var(--text-faint);padding:4px 0;">T</div><div style="text-align:center;font-size:9px;color:var(--text-faint);padding:4px 0;">F</div><div style="text-align:center;font-size:9px;color:var(--text-faint);padding:4px 0;">S</div><div style="text-align:center;font-size:9px;color:var(--text-faint);padding:4px 0;">S</div>
+          </div>
+          <div style="display:grid;grid-template-columns:repeat(7,1fr);">
+            <div class="vy-cell" style="border-left:1px solid var(--border-subtle);"></div><div class="vy-cell"></div><div class="vy-cell"></div><div class="vy-cell"></div><div class="vy-cell" style="background:color-mix(in oklch, var(--error-500) 22%, transparent);color:var(--error-500);font-weight:700;">1</div><div class="vy-cell" style="background:var(--surface-sunken);color:var(--text-faint);">2</div><div class="vy-cell" style="background:var(--surface-sunken);color:var(--text-faint);">3</div>
+            <div class="vy-cell" style="border-left:1px solid var(--border-subtle);">4</div><div class="vy-cell">5</div><div class="vy-cell">6</div><div class="vy-cell">7</div><div class="vy-cell">8</div><div class="vy-cell" style="background:var(--surface-sunken);color:var(--text-faint);">9</div><div class="vy-cell" style="background:var(--surface-sunken);color:var(--text-faint);">10</div>
+            <div class="vy-cell" style="border-left:1px solid var(--border-subtle);">11</div><div class="vy-cell">12</div><div class="vy-cell">13</div><div class="vy-cell">14</div><div class="vy-cell">15</div><div class="vy-cell" style="background:var(--surface-sunken);color:var(--text-faint);">16</div><div class="vy-cell" style="background:var(--surface-sunken);color:var(--text-faint);">17</div>
+          </div>
+        </div>
+
+        <!-- November -->
+        <div style="background:var(--surface-raised);border:1px solid var(--border-subtle);border-radius:14px;overflow:hidden;">
+          <div style="padding:9px 12px;border-bottom:1px solid var(--border-subtle);font-size:12px;font-weight:600;">November</div>
+          <div style="display:grid;grid-template-columns:repeat(7,1fr);">
+            <div style="text-align:center;font-size:9px;color:var(--text-faint);padding:4px 0;">M</div><div style="text-align:center;font-size:9px;color:var(--text-faint);padding:4px 0;">T</div><div style="text-align:center;font-size:9px;color:var(--text-faint);padding:4px 0;">W</div><div style="text-align:center;font-size:9px;color:var(--text-faint);padding:4px 0;">T</div><div style="text-align:center;font-size:9px;color:var(--text-faint);padding:4px 0;">F</div><div style="text-align:center;font-size:9px;color:var(--text-faint);padding:4px 0;">S</div><div style="text-align:center;font-size:9px;color:var(--text-faint);padding:4px 0;">S</div>
+          </div>
+          <div style="display:grid;grid-template-columns:repeat(7,1fr);">
+            <div class="vy-cell" style="border-left:1px solid var(--border-subtle);"></div><div class="vy-cell"></div><div class="vy-cell"></div><div class="vy-cell"></div><div class="vy-cell"></div><div class="vy-cell" style="background:var(--surface-sunken);color:var(--text-faint);">1</div><div class="vy-cell" style="background:var(--surface-sunken);color:var(--text-faint);">2</div>
+            <div class="vy-cell" style="border-left:1px solid var(--border-subtle);background:color-mix(in oklch, var(--olive-400) 25%, transparent);">3</div><div class="vy-cell" style="background:color-mix(in oklch, var(--olive-400) 25%, transparent);">4</div><div class="vy-cell">5</div><div class="vy-cell">6</div><div class="vy-cell">7</div><div class="vy-cell" style="background:var(--surface-sunken);color:var(--text-faint);">8</div><div class="vy-cell" style="background:var(--surface-sunken);color:var(--text-faint);">9</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+</x-dc>
+</body>
+</html>

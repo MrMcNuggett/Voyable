@@ -5,9 +5,9 @@ import { useResetPassword } from './resetPassword/useResetPassword'
 
 const inputBase: React.CSSProperties = {
   width: '100%', padding: '11px 44px 11px 38px', borderRadius: 12,
-  border: '1px solid #e5e7eb', fontSize: 'calc(14px * var(--fs-scale-body, 1))', fontFamily: 'inherit',
+  border: '1px solid var(--border-primary)', fontSize: 'calc(14px * var(--fs-scale-body, 1))', fontFamily: 'inherit',
   outline: 'none', transition: 'border-color 120ms',
-  background: 'white', color: '#111827',
+  background: 'white', color: 'var(--text-primary)',
 }
 
 const ResetPasswordPage: React.FC = () => {
@@ -37,18 +37,18 @@ const ResetPasswordPage: React.FC = () => {
     return shell(
       <div style={{ textAlign: 'center', padding: '12px 0' }}>
         <div style={{
-          width: 56, height: 56, borderRadius: '50%', background: '#ecfdf5',
+          width: 56, height: 56, borderRadius: '50%', background: 'var(--success-soft)',
           display: 'inline-flex', alignItems: 'center', justifyContent: 'center',
-          color: '#059669', marginBottom: 16,
+          color: 'var(--success)', marginBottom: 16,
         }}><CheckCircle2 size={28} /></div>
-        <h1 style={{ fontSize: 'calc(22px * var(--fs-scale-title, 1))', fontWeight: 700, color: '#111827', margin: '0 0 10px 0' }}>
+        <h1 style={{ fontSize: 'calc(22px * var(--fs-scale-title, 1))', fontWeight: 700, color: 'var(--text-primary)', margin: '0 0 10px 0' }}>
           {t('login.resetPasswordSuccessTitle')}
         </h1>
-        <p style={{ fontSize: 'calc(14px * var(--fs-scale-body, 1))', color: '#4b5563', lineHeight: 1.55, margin: 0 }}>
+        <p style={{ fontSize: 'calc(14px * var(--fs-scale-body, 1))', color: 'var(--text-muted)', lineHeight: 1.55, margin: 0 }}>
           {t('login.resetPasswordSuccessBody')}
         </p>
         <button type="button" onClick={() => navigate('/login')} style={{
-          marginTop: 24, padding: '11px 22px', background: '#111827', color: 'white',
+          marginTop: 24, padding: '11px 22px', background: 'var(--accent)', color: 'white',
           border: 'none', borderRadius: 12, fontSize: 'calc(14px * var(--fs-scale-body, 1))', fontWeight: 700,
           cursor: 'pointer', fontFamily: 'inherit',
         }}>{t('login.signIn')}</button>
@@ -60,18 +60,18 @@ const ResetPasswordPage: React.FC = () => {
     return shell(
       <div style={{ textAlign: 'center', padding: '12px 0' }}>
         <div style={{
-          width: 56, height: 56, borderRadius: '50%', background: '#fef2f2',
+          width: 56, height: 56, borderRadius: '50%', background: 'var(--danger-soft)',
           display: 'inline-flex', alignItems: 'center', justifyContent: 'center',
-          color: '#dc2626', marginBottom: 16,
+          color: 'var(--danger)', marginBottom: 16,
         }}><AlertTriangle size={28} /></div>
-        <h1 style={{ fontSize: 'calc(22px * var(--fs-scale-title, 1))', fontWeight: 700, color: '#111827', margin: '0 0 10px 0' }}>
+        <h1 style={{ fontSize: 'calc(22px * var(--fs-scale-title, 1))', fontWeight: 700, color: 'var(--text-primary)', margin: '0 0 10px 0' }}>
           {t('login.resetPasswordInvalidLink')}
         </h1>
-        <p style={{ fontSize: 'calc(14px * var(--fs-scale-body, 1))', color: '#4b5563', lineHeight: 1.55, margin: 0 }}>
+        <p style={{ fontSize: 'calc(14px * var(--fs-scale-body, 1))', color: 'var(--text-muted)', lineHeight: 1.55, margin: 0 }}>
           {t('login.resetPasswordInvalidLinkBody')}
         </p>
         <button type="button" onClick={() => navigate('/forgot-password')} style={{
-          marginTop: 24, padding: '11px 22px', background: '#111827', color: 'white',
+          marginTop: 24, padding: '11px 22px', background: 'var(--accent)', color: 'white',
           border: 'none', borderRadius: 12, fontSize: 'calc(14px * var(--fs-scale-body, 1))', fontWeight: 700,
           cursor: 'pointer', fontFamily: 'inherit',
         }}>{t('login.forgotPasswordSubmit')}</button>
@@ -81,27 +81,27 @@ const ResetPasswordPage: React.FC = () => {
 
   return shell(
     <>
-      <h1 style={{ fontSize: 'calc(22px * var(--fs-scale-title, 1))', fontWeight: 700, color: '#111827', margin: '0 0 8px 0' }}>
+      <h1 style={{ fontSize: 'calc(22px * var(--fs-scale-title, 1))', fontWeight: 700, color: 'var(--text-primary)', margin: '0 0 8px 0' }}>
         {t('login.resetPasswordTitle')}
       </h1>
-      <p style={{ fontSize: 'calc(13.5px * var(--fs-scale-body, 1))', color: '#6b7280', lineHeight: 1.55, margin: '0 0 22px 0' }}>
+      <p style={{ fontSize: 'calc(13.5px * var(--fs-scale-body, 1))', color: 'var(--text-muted)', lineHeight: 1.55, margin: '0 0 22px 0' }}>
         {mfaRequired ? t('login.resetPasswordMfaBody') : t('login.resetPasswordBody')}
       </p>
       {error && (
         <div style={{
-          padding: '10px 12px', background: '#fef2f2', border: '1px solid #fecaca',
-          borderRadius: 10, color: '#991b1b', fontSize: 'calc(13px * var(--fs-scale-body, 1))', marginBottom: 14,
+          padding: '10px 12px', background: 'var(--danger-soft)', border: '1px solid var(--danger)',
+          borderRadius: 10, color: 'var(--danger)', fontSize: 'calc(13px * var(--fs-scale-body, 1))', marginBottom: 14,
         }}>{error}</div>
       )}
       <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: 16 }}>
         {!mfaRequired && (
           <>
             <div>
-              <label style={{ display: 'block', fontSize: 'calc(12.5px * var(--fs-scale-body, 1))', fontWeight: 600, color: '#374151', marginBottom: 6 }}>
+              <label style={{ display: 'block', fontSize: 'calc(12.5px * var(--fs-scale-body, 1))', fontWeight: 600, color: 'var(--text-secondary)', marginBottom: 6 }}>
                 {t('login.newPassword')}
               </label>
               <div style={{ position: 'relative' }}>
-                <Lock size={15} className="text-[#9ca3af]" style={{ position: 'absolute', left: 13, top: '50%', transform: 'translateY(-50%)', pointerEvents: 'none' }} />
+                <Lock size={15} className="text-[var(--text-faint)]" style={{ position: 'absolute', left: 13, top: '50%', transform: 'translateY(-50%)', pointerEvents: 'none' }} />
                 <input
                   type={showPw ? 'text' : 'password'} value={pw}
                   onChange={(e: ChangeEvent<HTMLInputElement>) => setPw(e.target.value)}
@@ -111,16 +111,16 @@ const ResetPasswordPage: React.FC = () => {
                 />
                 <button type="button" onClick={() => setShowPw(v => !v)} style={{
                   position: 'absolute', right: 12, top: '50%', transform: 'translateY(-50%)',
-                  background: 'none', border: 'none', cursor: 'pointer', padding: 2, color: '#9ca3af',
+                  background: 'none', border: 'none', cursor: 'pointer', padding: 2, color: 'var(--text-faint)',
                 }}>{showPw ? <EyeOff size={16} /> : <Eye size={16} />}</button>
               </div>
             </div>
             <div>
-              <label style={{ display: 'block', fontSize: 'calc(12.5px * var(--fs-scale-body, 1))', fontWeight: 600, color: '#374151', marginBottom: 6 }}>
+              <label style={{ display: 'block', fontSize: 'calc(12.5px * var(--fs-scale-body, 1))', fontWeight: 600, color: 'var(--text-secondary)', marginBottom: 6 }}>
                 {t('login.confirmPassword')}
               </label>
               <div style={{ position: 'relative' }}>
-                <Lock size={15} className="text-[#9ca3af]" style={{ position: 'absolute', left: 13, top: '50%', transform: 'translateY(-50%)', pointerEvents: 'none' }} />
+                <Lock size={15} className="text-[var(--text-faint)]" style={{ position: 'absolute', left: 13, top: '50%', transform: 'translateY(-50%)', pointerEvents: 'none' }} />
                 <input
                   type={showPw ? 'text' : 'password'} value={pw2}
                   onChange={(e: ChangeEvent<HTMLInputElement>) => setPw2(e.target.value)}
@@ -134,11 +134,11 @@ const ResetPasswordPage: React.FC = () => {
         )}
         {mfaRequired && (
           <div>
-            <label style={{ display: 'block', fontSize: 'calc(12.5px * var(--fs-scale-body, 1))', fontWeight: 600, color: '#374151', marginBottom: 6 }}>
+            <label style={{ display: 'block', fontSize: 'calc(12.5px * var(--fs-scale-body, 1))', fontWeight: 600, color: 'var(--text-secondary)', marginBottom: 6 }}>
               {t('login.mfaCode')}
             </label>
             <div style={{ position: 'relative' }}>
-              <KeyRound size={15} className="text-[#9ca3af]" style={{ position: 'absolute', left: 13, top: '50%', transform: 'translateY(-50%)', pointerEvents: 'none' }} />
+              <KeyRound size={15} className="text-[var(--text-faint)]" style={{ position: 'absolute', left: 13, top: '50%', transform: 'translateY(-50%)', pointerEvents: 'none' }} />
               <input
                 type="text" inputMode="numeric" value={mfaCode}
                 onChange={(e: ChangeEvent<HTMLInputElement>) => setMfaCode(e.target.value)}
@@ -151,7 +151,7 @@ const ResetPasswordPage: React.FC = () => {
           </div>
         )}
         <button type="submit" disabled={isLoading} style={{
-          width: '100%', padding: '12px', background: '#111827', color: 'white',
+          width: '100%', padding: '12px', background: 'var(--accent)', color: 'white',
           border: 'none', borderRadius: 12, fontSize: 'calc(14px * var(--fs-scale-body, 1))', fontWeight: 700,
           cursor: isLoading ? 'default' : 'pointer', fontFamily: 'inherit',
           opacity: isLoading ? 0.7 : 1,

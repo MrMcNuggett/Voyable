@@ -41,7 +41,7 @@ export default function ConfirmDialog({
 
   return ReactDOM.createPortal(
     <div
-      className="fixed inset-0 z-[10000] flex items-center justify-center px-4 trek-backdrop-enter bg-[rgba(15,23,42,0.5)]"
+      className="fixed inset-0 z-[10000] flex items-center justify-center px-4 trek-backdrop-enter bg-[var(--overlay)]"
       style={{ paddingBottom: 'var(--bottom-nav-h)' }}
       onClick={onClose}
     >
@@ -51,8 +51,8 @@ export default function ConfirmDialog({
       >
         <div className="flex items-start gap-4">
           {danger && (
-            <div className="flex-shrink-0 w-10 h-10 rounded-full bg-red-100 flex items-center justify-center">
-              <AlertTriangle className="w-5 h-5 text-red-600" />
+            <div className="flex-shrink-0 w-10 h-10 rounded-full bg-danger-soft flex items-center justify-center">
+              <AlertTriangle className="w-5 h-5 text-danger" />
             </div>
           )}
           <div className="flex-1">
@@ -68,14 +68,14 @@ export default function ConfirmDialog({
         <div className="flex justify-end gap-3 mt-6">
           <button
             onClick={onClose}
-            className="px-4 py-2 text-sm font-medium rounded-lg transition-colors text-content-secondary border border-edge-secondary"
+            className="px-4 py-2 text-sm font-medium rounded-full transition-colors text-content-secondary border border-edge hover:bg-surface-hover"
           >
             {cancelLabel || t('common.cancel')}
           </button>
           <button
             onClick={() => { onConfirm(); onClose() }}
-            className={`px-4 py-2 text-sm font-medium rounded-lg transition-colors text-white ${
-              danger ? 'bg-red-600 hover:bg-red-700' : 'bg-blue-600 hover:bg-blue-700'
+            className={`px-4 py-2 text-sm font-medium rounded-full transition-colors ${
+              danger ? 'bg-danger text-white hover:brightness-95' : 'bg-accent text-accent-text hover:bg-accent-hover'
             }`}
           >
             {confirmLabel || t('common.delete')}

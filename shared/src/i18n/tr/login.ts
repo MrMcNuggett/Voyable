@@ -44,6 +44,7 @@ const login: TranslationStrings = {
   'login.oidc.invalidState': 'Geçersiz oturum. Lütfen tekrar deneyin.',
   'login.demoFailed': 'Demo girişi başarısız oldu',
   'login.oidcSignIn': '{name} ile oturum açın',
+  'login.continueWithGoogle': 'Continue with Google', // TODO: untranslated
   'login.oidcOnly': 'Parola kimlik doğrulaması devre dışı. Lütfen SSO sağlayıcınızı kullanarak oturum açın.',
   'login.oidcLoggedOut': 'Çıkış yaptınız. SSO sağlayıcınızı kullanarak tekrar oturum açın.',
   'login.demoHint': 'Demoyu deneyin; kayıt olmanıza gerek yok',

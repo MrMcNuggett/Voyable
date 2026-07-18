@@ -175,7 +175,7 @@ export default function VacayPage(): React.ReactElement {
       {/* Mobile Sidebar Drawer */}
       {showMobileSidebar && ReactDOM.createPortal(
         <div className="fixed inset-0 lg:hidden" style={{ zIndex: 99980 }}>
-          <div className="absolute inset-0 bg-[rgba(0,0,0,0.4)]" onClick={() => setShowMobileSidebar(false)} />
+          <div className="absolute inset-0 bg-[var(--overlay)]" onClick={() => setShowMobileSidebar(false)} />
           <div className="absolute left-0 top-0 bottom-0 w-[280px] overflow-y-auto p-3 flex flex-col gap-3 bg-surface"
             style={{ boxShadow: '4px 0 24px rgba(0,0,0,0.15)', animation: 'slideInLeft 0.2s ease-out' }}>
             {sidebarContent}
@@ -192,7 +192,7 @@ export default function VacayPage(): React.ReactElement {
       {/* Delete Year Modal */}
       <Modal isOpen={deleteYear !== null} onClose={() => setDeleteYear(null)} title={t('vacay.removeYear')} size="sm">
         <div className="space-y-4">
-          <div className="flex gap-3 p-3 rounded-lg bg-[rgba(239,68,68,0.08)] border border-[rgba(239,68,68,0.15)]">
+          <div className="flex gap-3 p-3 rounded-lg bg-[var(--danger-soft)] border border-[var(--danger-soft)]">
             <AlertTriangle size={18} className="text-red-500 shrink-0 mt-0.5" />
             <div>
               <p className="text-sm font-medium text-content">
@@ -216,7 +216,7 @@ export default function VacayPage(): React.ReactElement {
 
       {/* Incoming invite — forced fullscreen modal */}
       {incomingInvites.length > 0 && ReactDOM.createPortal(
-        <div className="fixed inset-0 flex items-center justify-center px-4 bg-[rgba(0,0,0,0.7)]"
+        <div className="fixed inset-0 flex items-center justify-center px-4 bg-[var(--overlay)]"
           style={{ zIndex: 99995, backdropFilter: 'blur(8px)' }}>
           {incomingInvites.map(inv => (
             <div key={inv.plan_id} className="trek-modal-enter w-full max-w-md rounded-2xl shadow-2xl overflow-hidden bg-surface-card">

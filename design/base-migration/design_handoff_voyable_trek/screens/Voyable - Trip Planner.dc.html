@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+
+<helmet>
+  <link rel="stylesheet" href="_ds/voyable-design-system-20d63b1d-fb41-47b0-8049-741c2094f669/tokens/fonts.css">
+  <link rel="stylesheet" href="_ds/voyable-design-system-20d63b1d-fb41-47b0-8049-741c2094f669/tokens/colors.css">
+  <link rel="stylesheet" href="_ds/voyable-design-system-20d63b1d-fb41-47b0-8049-741c2094f669/tokens/typography.css">
+  <link rel="stylesheet" href="_ds/voyable-design-system-20d63b1d-fb41-47b0-8049-741c2094f669/tokens/spacing.css">
+  <link rel="stylesheet" href="_ds/voyable-design-system-20d63b1d-fb41-47b0-8049-741c2094f669/tokens/effects.css">
+  <link rel="stylesheet" href="_ds/voyable-design-system-20d63b1d-fb41-47b0-8049-741c2094f669/styles.css">
+  <script src="_ds/voyable-design-system-20d63b1d-fb41-47b0-8049-741c2094f669/_ds_bundle.js"></script>
+  <style>
+    html,body{margin:0;height:100%;background:var(--surface-page);}
+    *{box-sizing:border-box;}
+    a{color:var(--accent-primary);text-decoration:none;}
+    .mono{font-family:var(--font-mono);font-feature-settings:"tnum";}
+    .vy-float{background:color-mix(in oklch, var(--surface-raised) 90%, transparent);backdrop-filter:blur(20px) saturate(1.6);border:1px solid var(--border-subtle);box-shadow:var(--shadow-md);}
+  </style>
+</helmet>
+
+<div style="position:fixed;inset:0;display:flex;flex-direction:column;overflow:hidden;font-family:var(--font-sans);color:var(--text-primary);">
+
+  <!-- Navbar -->
+  <nav style="height:64px;flex-shrink:0;display:flex;align-items:center;padding:0 20px;gap:14px;background:color-mix(in oklch, var(--surface-raised) 92%, transparent);backdrop-filter:blur(16px);border-bottom:1px solid var(--border-subtle);z-index:210;">
+    <button style="display:flex;align-items:center;gap:6px;background:none;border:none;cursor:pointer;color:var(--text-muted);font-size:13px;padding:6px;border-radius:8px;" style-hover="background:var(--surface-sunken);">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      Back
+    </button>
+    <div style="display:flex;align-items:center;gap:9px;">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="11" fill="var(--petrol-500)"/><path d="M12 6c-2.2 0-4 1.7-4 4 0 3 4 8 4 8s4-5 4-8c0-2.3-1.8-4-4-4Zm0 5.5A1.5 1.5 0 1 1 12 8.5a1.5 1.5 0 0 1 0 3Z" fill="var(--stone-50)"/></svg>
+      <span style="color:var(--text-muted);">/</span>
+      <span style="font-size:14px;font-weight:600;">Portugal Road Trip</span>
+    </div>
+    <div style="flex:1;"></div>
+    <button style="display:flex;align-items:center;gap:7px;padding:8px 14px;border-radius:10px;border:1px solid var(--border-subtle);background:var(--surface-raised);font-size:13px;font-weight:600;cursor:pointer;font-family:inherit;color:var(--text-secondary);" style-hover="background:var(--surface-sunken);">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+      Share
+    </button>
+    <div style="width:30px;height:30px;border-radius:50%;background:var(--olive-300);display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;color:var(--ink-900);">JS</div>
+  </nav>
+
+  <!-- Tab bar -->
+  <div style="height:44px;flex-shrink:0;display:flex;align-items:center;justify-content:center;background:color-mix(in oklch, var(--surface-raised) 88%, transparent);backdrop-filter:blur(14px);border-bottom:1px solid var(--border-subtle);z-index:205;">
+    <div style="display:flex;gap:2px;padding:4px;background:var(--surface-sunken);border-radius:999px;">
+      <button onclick="{{ setTabPlan }}" style="padding:6px 16px;border-radius:999px;border:none;font-family:inherit;font-size:13px;font-weight:600;cursor:pointer;background:{{ tabBg.plan }};color:{{ tabFg.plan }};box-shadow:{{ tabShadow.plan }};">Plan</button>
+      <button onclick="{{ setTabTransports }}" style="padding:6px 16px;border-radius:999px;border:none;font-family:inherit;font-size:13px;font-weight:600;cursor:pointer;background:{{ tabBg.transports }};color:{{ tabFg.transports }};box-shadow:{{ tabShadow.transports }};">Transports</button>
+      <button onclick="{{ setTabBookings }}" style="padding:6px 16px;border-radius:999px;border:none;font-family:inherit;font-size:13px;font-weight:600;cursor:pointer;background:{{ tabBg.bookings }};color:{{ tabFg.bookings }};box-shadow:{{ tabShadow.bookings }};">Bookings</button>
+      <button onclick="{{ setTabLists }}" style="padding:6px 16px;border-radius:999px;border:none;font-family:inherit;font-size:13px;font-weight:600;cursor:pointer;background:{{ tabBg.lists }};color:{{ tabFg.lists }};box-shadow:{{ tabShadow.lists }};">Lists</button>
+      <button onclick="{{ setTabCosts }}" style="padding:6px 16px;border-radius:999px;border:none;font-family:inherit;font-size:13px;font-weight:600;cursor:pointer;background:{{ tabBg.costs }};color:{{ tabFg.costs }};box-shadow:{{ tabShadow.costs }};">Costs</button>
+      <button onclick="{{ setTabFiles }}" style="padding:6px 16px;border-radius:999px;border:none;font-family:inherit;font-size:13px;font-weight:600;cursor:pointer;background:{{ tabBg.files }};color:{{ tabFg.files }};box-shadow:{{ tabShadow.files }};">Files</button>
+      <button onclick="{{ setTabCollab }}" style="padding:6px 16px;border-radius:999px;border:none;font-family:inherit;font-size:13px;font-weight:600;cursor:pointer;background:{{ tabBg.collab }};color:{{ tabFg.collab }};box-shadow:{{ tabShadow.collab }};">Collab</button>
+    </div>
+  </div>
+
+  <!-- Body -->
+  <div style="flex:1;position:relative;overflow:hidden;">
+
+    <sc-if value="{{ isPlan }}" hint-placeholder-val="{{ true }}">
+      <div style="position:absolute;inset:0;">
+        <!-- Map placeholder -->
+        <div style="position:absolute;inset:0;background:linear-gradient(135deg, var(--stone-200) 0%, var(--olive-100) 60%, var(--stone-200) 100%);">
+          <svg style="position:absolute;inset:0;width:100%;height:100%;" viewBox="0 0 1000 700" preserveAspectRatio="none">
+            <polyline points="240,180 420,260 470,430 700,380 800,220" fill="none" stroke="var(--accent-route)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="1,10"/>
+          </svg>
+          <div style="position:absolute;left:22%;top:24%;transform:translate(-50%,-100%);">
+            <div style="width:26px;height:26px;border-radius:50% 50% 50% 0;background:var(--accent-route);transform:rotate(45deg);box-shadow:0 2px 6px rgba(0,0,0,0.25);"></div>
+          </div>
+          <div style="position:absolute;left:42%;top:37%;transform:translate(-50%,-100%);">
+            <div style="width:26px;height:26px;border-radius:50% 50% 50% 0;background:var(--accent-route);transform:rotate(45deg);box-shadow:0 2px 6px rgba(0,0,0,0.25);"></div>
+          </div>
+          <div style="position:absolute;left:47%;top:61%;transform:translate(-50%,-100%);">
+            <div style="width:26px;height:26px;border-radius:50% 50% 50% 0;background:var(--accent-route);transform:rotate(45deg);box-shadow:0 2px 6px rgba(0,0,0,0.25);"></div>
+          </div>
+          <div style="position:absolute;left:70%;top:54%;transform:translate(-50%,-100%);">
+            <div style="width:26px;height:26px;border-radius:50% 50% 50% 0;background:var(--accent-route);transform:rotate(45deg);box-shadow:0 2px 6px rgba(0,0,0,0.25);"></div>
+          </div>
+          <div style="position:absolute;left:80%;top:31%;transform:translate(-50%,-100%);">
+            <div style="width:26px;height:26px;border-radius:50% 50% 50% 0;background:var(--accent-route);transform:rotate(45deg);box-shadow:0 2px 6px rgba(0,0,0,0.25);"></div>
+          </div>
+        </div>
+
+        <div style="position:absolute;top:14px;left:50%;transform:translateX(-50%);width:40px;height:40px;border-radius:50%;z-index:20;" class="vy-float">
+          <div style="width:100%;height:100%;display:flex;align-items:center;justify-content:center;color:var(--text-secondary);">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/></svg>
+          </div>
+        </div>
+
+        <!-- Left day plan sidebar -->
+        <div style="position:absolute;left:10px;top:10px;bottom:10px;width:{{ leftWidth }};transition:width 0.25s ease;z-index:20;overflow:hidden;">
+          <button onclick="{{ toggleLeft }}" style="position:absolute;top:14px;left:{{ leftToggleLeft }};z-index:5;width:32px;height:32px;border-radius:10px;border:none;background:var(--ink-900);color:white;display:flex;align-items:center;justify-content:center;cursor:pointer;box-shadow:var(--shadow-md);">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M9 3v18"/><path d="{{ leftIconPath }}"/></svg>
+          </button>
+          <sc-if value="{{ !leftCollapsed }}" hint-placeholder-val="{{ true }}">
+          <div class="vy-float" style="width:340px;height:100%;border-radius:20px;display:flex;flex-direction:column;overflow:hidden;">
+            <div style="padding:12px 16px;display:flex;justify-content:flex-end;gap:8px;border-bottom:1px solid var(--border-subtle);">
+              <button style="display:flex;align-items:center;gap:5px;padding:5px 10px;border-radius:8px;border:none;background:var(--accent-primary);color:var(--text-on-accent);font-size:11px;font-weight:600;cursor:pointer;font-family:inherit;">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M9 15h6M9 11h6"/></svg>
+                PDF
+              </button>
+              <button style="display:flex;align-items:center;gap:5px;padding:5px 10px;border-radius:8px;border:1px solid var(--border-default);background:transparent;color:var(--text-muted);font-size:11px;font-weight:600;cursor:pointer;font-family:inherit;">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg>
+                ICS
+              </button>
+              <button style="width:30px;height:30px;border-radius:8px;border:1px solid var(--border-default);background:transparent;color:var(--text-primary);display:flex;align-items:center;justify-content:center;cursor:pointer;">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"/></svg>
+              </button>
+              <button style="width:30px;height:30px;border-radius:8px;border:1px solid var(--border-default);background:transparent;color:var(--text-primary);display:flex;align-items:center;justify-content:center;cursor:pointer;">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7v6h6"/><path d="M3 13a9 9 0 1 0 3-7.7L3 7"/></svg>
+              </button>
+            </div>
+
+            <div style="flex:1;overflow-y:auto;padding:14px 16px;">
+
+              <!-- Day 1 — expanded -->
+              <div style="margin-bottom:18px;">
+                <button onclick="{{ toggleDay1 }}" style="width:100%;display:flex;align-items:center;justify-content:space-between;background:none;border:none;cursor:pointer;padding:0 0 12px;font-family:inherit;">
+                  <div style="text-align:left;">
+                    <div class="mono" style="font-size:11px;color:var(--accent-route);font-weight:700;letter-spacing:0.06em;">DAY 01</div>
+                    <div style="font-size:15px;font-weight:700;font-family:var(--font-display);color:var(--text-primary);">Sat, Sep 10 · Lisbon</div>
+                  </div>
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--text-muted)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 15l-6-6-6 6"/></svg>
+                </button>
+                <div>
+                  <x-import component-from-global-scope="VoyableDesignSystem_20d63b.DayCard" hint-size="100%,70px" day="1" place="Lisbon Airport" note="Arrival · 08:40"></x-import>
+                  <x-import component-from-global-scope="VoyableDesignSystem_20d63b.DayCard" hint-size="100%,70px" day="1" place="Casa Alfama" note="Check-in · 15:00"></x-import>
+                  <x-import component-from-global-scope="VoyableDesignSystem_20d63b.DayCard" hint-size="100%,70px" day="1" place="Miradouro da Graça" note="Sunset viewpoint" is-last="{{ true }}"></x-import>
+                </div>
+              </div>
+
+              <!-- Day 2 — collapsed -->
+              <div style="margin-bottom:14px;border-top:1px solid var(--border-subtle);padding-top:14px;">
+                <button onclick="{{ toggleDay2 }}" style="width:100%;display:flex;align-items:center;justify-content:space-between;background:none;border:none;cursor:pointer;padding:0;font-family:inherit;">
+                  <div style="text-align:left;">
+                    <div class="mono" style="font-size:11px;color:var(--accent-route);font-weight:700;letter-spacing:0.06em;">DAY 02</div>
+                    <div style="font-size:15px;font-weight:700;font-family:var(--font-display);color:var(--text-primary);">Sun, Sep 11 · Sintra</div>
+                  </div>
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--text-muted)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+                </button>
+              </div>
+
+              <!-- Day 3 — collapsed -->
+              <div style="border-top:1px solid var(--border-subtle);padding-top:14px;">
+                <button onclick="{{ toggleDay3 }}" style="width:100%;display:flex;align-items:center;justify-content:space-between;background:none;border:none;cursor:pointer;padding:0;font-family:inherit;">
+                  <div style="text-align:left;">
+                    <div class="mono" style="font-size:11px;color:var(--accent-route);font-weight:700;letter-spacing:0.06em;">DAY 03</div>
+                    <div style="font-size:15px;font-weight:700;font-family:var(--font-display);color:var(--text-primary);">Mon, Sep 12 · Porto</div>
+                  </div>
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--text-muted)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+                </button>
+              </div>
+            </div>
+
+            <div style="border-top:1px solid var(--border-subtle);padding:10px 16px;display:flex;justify-content:space-between;align-items:center;flex-shrink:0;">
+              <span style="font-size:11px;color:var(--text-muted);">Total cost</span>
+              <span class="mono" style="font-size:13px;font-weight:700;">640.00 EUR</span>
+            </div>
+          </div>
+          </sc-if>
+        </div>
+
+        <!-- Right places sidebar -->
+        <div style="position:absolute;right:10px;top:10px;bottom:10px;width:{{ rightWidth }};transition:width 0.25s ease;z-index:20;overflow:hidden;">
+          <button onclick="{{ toggleRight }}" style="position:absolute;top:14px;right:{{ rightToggleRight }};z-index:5;width:32px;height:32px;border-radius:10px;border:none;background:var(--ink-900);color:white;display:flex;align-items:center;justify-content:center;cursor:pointer;box-shadow:var(--shadow-md);">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M15 3v18"/></svg>
+          </button>
+          <sc-if value="{{ !rightCollapsed }}" hint-placeholder-val="{{ true }}">
+          <div class="vy-float" style="width:320px;height:100%;border-radius:20px;display:flex;flex-direction:column;overflow:hidden;">
+            <div style="padding:14px 16px 10px;border-bottom:1px solid var(--border-subtle);flex-shrink:0;">
+              <button onclick="{{ openAddPlace }}" style="width:100%;display:flex;align-items:center;justify-content:center;gap:6px;padding:8px 12px;border-radius:12px;border:none;background:var(--accent-primary);color:var(--text-on-accent);font-size:13px;font-weight:600;cursor:pointer;font-family:inherit;margin-bottom:10px;">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12h14"/></svg>
+                Add place
+              </button>
+              <div style="display:flex;gap:6px;margin-bottom:10px;">
+                <button style="flex:1;display:flex;align-items:center;justify-content:center;gap:5px;padding:5px 10px;border-radius:8px;border:1px dashed var(--border-default);background:none;font-size:11px;font-weight:600;color:var(--text-muted);cursor:pointer;font-family:inherit;">
+                  <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><path d="M12 15V3"/></svg>
+                  Import file
+                </button>
+                <button style="flex:1;display:flex;align-items:center;justify-content:center;gap:5px;padding:5px 10px;border-radius:8px;border:1px dashed var(--border-default);background:none;font-size:11px;font-weight:600;color:var(--text-muted);cursor:pointer;font-family:inherit;">
+                  <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+                  Import list
+                </button>
+              </div>
+              <div style="display:flex;gap:6px;margin-bottom:10px;">
+                <button style="padding:4px 10px;border-radius:99px;font-size:11px;font-weight:600;border:none;cursor:pointer;font-family:inherit;background:var(--accent-primary);color:var(--text-on-accent);">All <span style="opacity:0.75;">9</span></button>
+                <button style="padding:4px 10px;border-radius:99px;font-size:11px;font-weight:600;border:none;cursor:pointer;font-family:inherit;background:var(--surface-sunken);color:var(--text-secondary);">Unplanned <span style="opacity:0.6;">6</span></button>
+              </div>
+              <div style="position:relative;">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="var(--text-muted)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="position:absolute;left:10px;top:50%;transform:translateY(-50%);"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.3-4.3"/></svg>
+                <input type="text" placeholder="Search places" style="width:100%;padding:7px 10px 7px 30px;border-radius:10px;border:none;background:var(--surface-sunken);font-size:12px;outline:none;font-family:inherit;color:var(--text-primary);">
+              </div>
+            </div>
+
+            <div style="flex:1;overflow-y:auto;">
+              <div style="display:flex;align-items:center;gap:10px;padding:9px 14px;border-bottom:1px solid var(--border-subtle);cursor:grab;" style-hover="background:var(--surface-sunken);">
+                <div style="width:34px;height:34px;border-radius:50%;background:var(--petrol-100);flex-shrink:0;"></div>
+                <div style="flex:1;min-width:0;"><div style="font-size:13px;font-weight:600;color:var(--text-primary);">Lisbon Airport</div><div style="font-size:11px;color:var(--text-muted);">Airport</div></div>
+              </div>
+              <div style="display:flex;align-items:center;gap:10px;padding:9px 14px;border-bottom:1px solid var(--border-subtle);cursor:grab;" style-hover="background:var(--surface-sunken);">
+                <div style="width:34px;height:34px;border-radius:50%;background:var(--olive-100);flex-shrink:0;"></div>
+                <div style="flex:1;min-width:0;"><div style="font-size:13px;font-weight:600;color:var(--text-primary);">Casa Alfama</div><div style="font-size:11px;color:var(--text-muted);">Stay</div></div>
+              </div>
+              <div style="display:flex;align-items:center;gap:10px;padding:9px 14px;border-bottom:1px solid var(--border-subtle);cursor:grab;" style-hover="background:var(--surface-sunken);">
+                <div style="width:34px;height:34px;border-radius:50%;background:var(--stone-200);flex-shrink:0;"></div>
+                <div style="flex:1;min-width:0;"><div style="font-size:13px;font-weight:600;color:var(--text-primary);">Miradouro da Graça</div><div style="font-size:11px;color:var(--text-muted);">Viewpoint</div></div>
+              </div>
+              <div style="display:flex;align-items:center;gap:10px;padding:9px 14px;border-bottom:1px solid var(--border-subtle);cursor:grab;" style-hover="background:var(--surface-sunken);">
+                <div style="width:34px;height:34px;border-radius:50%;background:var(--petrol-100);flex-shrink:0;"></div>
+                <div style="flex:1;min-width:0;"><div style="font-size:13px;font-weight:600;color:var(--text-primary);">Pastéis de Belém</div><div style="font-size:11px;color:var(--text-muted);">Food &amp; drink</div></div>
+                <button style="width:20px;height:20px;border-radius:6px;border:none;background:var(--surface-sunken);color:var(--text-muted);display:flex;align-items:center;justify-content:center;cursor:pointer;flex-shrink:0;">
+                  <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12h14"/></svg>
+                </button>
+              </div>
+              <div style="display:flex;align-items:center;gap:10px;padding:9px 14px;border-bottom:1px solid var(--border-subtle);cursor:grab;" style-hover="background:var(--surface-sunken);">
+                <div style="width:34px;height:34px;border-radius:50%;background:var(--olive-100);flex-shrink:0;"></div>
+                <div style="flex:1;min-width:0;"><div style="font-size:13px;font-weight:600;color:var(--text-primary);">Livraria Lello</div><div style="font-size:11px;color:var(--text-muted);">Sight · Porto</div></div>
+                <button style="width:20px;height:20px;border-radius:6px;border:none;background:var(--surface-sunken);color:var(--text-muted);display:flex;align-items:center;justify-content:center;cursor:pointer;flex-shrink:0;">
+                  <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12h14"/></svg>
+                </button>
+              </div>
+            </div>
+          </div>
+          </sc-if>
+        </div>
+      </div>
+    </sc-if>
+
+    <sc-if value="{{ !isPlan }}" hint-placeholder-val="{{ false }}">
+      <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;padding:40px;">
+        <div style="max-width:420px;">
+          <x-import component-from-global-scope="VoyableDesignSystem_20d63b.EmptyState" hint-size="100%,240px" title="{{ tabEmptyTitle }}" description="{{ tabEmptyDesc }}"></x-import>
+        </div>
+      </div>
+    </sc-if>
+  </div>
+
+  <sc-if value="{{ addPlaceOpen }}" hint-placeholder-val="{{ false }}">
+    <div onclick="{{ closeAddPlace }}" style="position:fixed;inset:0;background:rgba(32,36,35,0.4);z-index:900;display:flex;align-items:center;justify-content:center;">
+      <div onclick="{{ stop }}" style="width:420px;max-width:92vw;background:var(--surface-raised);border-radius:var(--radius-xl);box-shadow:var(--shadow-lg);padding:26px;">
+        <h3 style="margin:0 0 18px;font-family:var(--font-display);font-size:19px;font-weight:700;">Add a place</h3>
+        <div style="display:flex;flex-direction:column;gap:14px;">
+          <x-import component-from-global-scope="VoyableDesignSystem_20d63b.Input" hint-size="100%,46px" label="Name" placeholder="e.g. Torre de Belém"></x-import>
+          <x-import component-from-global-scope="VoyableDesignSystem_20d63b.Input" hint-size="100%,46px" label="Address" placeholder="Optional"></x-import>
+        </div>
+        <div style="display:flex;justify-content:flex-end;gap:10px;margin-top:22px;">
+          <button onclick="{{ closeAddPlace }}" style="height:44px;padding:0 18px;border-radius:999px;border:1.5px solid var(--border-default);background:transparent;font-family:inherit;font-weight:600;font-size:14px;cursor:pointer;color:var(--text-primary);">Cancel</button>
+          <x-import component-from-global-scope="VoyableDesignSystem_20d63b.Button" hint-size="auto,44px" onClick="{{ closeAddPlace }}">Save place</x-import>
+        </div>
+      </div>
+    </div>
+  </sc-if>
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+const TAB_LABELS = {
+  transports: ['No transports yet', 'Flights, trains, and transit legs you add will show up here.'],
+  bookings: ['No bookings yet', 'Reservations for stays and restaurants will show up here.'],
+  lists: ['No lists yet', 'Packing lists and to-dos for this trip will show up here.'],
+  costs: ['No expenses yet', 'Add an expense to start splitting costs with your travelers.'],
+  files: ['No files yet', 'Tickets, documents, and confirmations you upload will show up here.'],
+  collab: ['Nothing here yet', 'Chat, shared notes, and polls for this trip will show up here.'],
+};
+
+class Component extends DCLogic {
+  state = { activeTab: 'plan', leftCollapsed: false, rightCollapsed: false, addPlaceOpen: false, expandedDay: 1 };
+  renderVals() {
+    const tabs = ['plan', 'transports', 'bookings', 'lists', 'costs', 'files', 'collab'];
+    const tabBg = {}, tabFg = {}, tabShadow = {};
+    tabs.forEach(id => {
+      const on = this.state.activeTab === id;
+      tabBg[id] = on ? 'var(--surface-raised)' : 'transparent';
+      tabFg[id] = on ? 'var(--text-primary)' : 'var(--text-muted)';
+      tabShadow[id] = on ? 'var(--shadow-sm)' : 'none';
+    });
+    const isPlan = this.state.activeTab === 'plan';
+    const labels = TAB_LABELS[this.state.activeTab] || ['', ''];
+    return {
+      tabBg, tabFg, tabShadow, isPlan,
+      setTabPlan: () => this.setState({ activeTab: 'plan' }),
+      setTabTransports: () => this.setState({ activeTab: 'transports' }),
+      setTabBookings: () => this.setState({ activeTab: 'bookings' }),
+      setTabLists: () => this.setState({ activeTab: 'lists' }),
+      setTabCosts: () => this.setState({ activeTab: 'costs' }),
+      setTabFiles: () => this.setState({ activeTab: 'files' }),
+      setTabCollab: () => this.setState({ activeTab: 'collab' }),
+      tabEmptyTitle: labels[0], tabEmptyDesc: labels[1],
+      leftCollapsed: this.state.leftCollapsed,
+      rightCollapsed: this.state.rightCollapsed,
+      leftWidth: this.state.leftCollapsed ? '0px' : '340px',
+      rightWidth: this.state.rightCollapsed ? '0px' : '320px',
+      leftToggleLeft: this.state.leftCollapsed ? '0px' : '354px',
+      rightToggleRight: this.state.rightCollapsed ? '0px' : '334px',
+      leftIconPath: this.state.leftCollapsed ? 'M15 3v18' : 'M15 3v18',
+      toggleLeft: () => this.setState(s => ({ leftCollapsed: !s.leftCollapsed })),
+      toggleRight: () => this.setState(s => ({ rightCollapsed: !s.rightCollapsed })),
+      toggleDay1: () => this.setState({ expandedDay: 1 }),
+      toggleDay2: () => this.setState({ expandedDay: 2 }),
+      toggleDay3: () => this.setState({ expandedDay: 3 }),
+      addPlaceOpen: this.state.addPlaceOpen,
+      openAddPlace: () => this.setState({ addPlaceOpen: true }),
+      closeAddPlace: () => this.setState({ addPlaceOpen: false }),
+      stop: (e) => e.stopPropagation(),
+    };
+  }
+}
+</script>
+</body>
+</html>

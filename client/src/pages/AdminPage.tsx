@@ -12,7 +12,7 @@ import PackingTemplateManager from '../components/Admin/PackingTemplateManager'
 import AuditLogPanel from '../components/Admin/AuditLogPanel'
 import AdminMcpTokensPanel from '../components/Admin/AdminMcpTokensPanel'
 import AdminPluginsPanel from '../components/Admin/AdminPluginsPanel'
-import { Users, Map, Briefcase, Shield, FileText, SlidersHorizontal, UserCog, Puzzle, Blocks, Settings as SettingsIcon, Bell, Database, ScrollText, KeyRound, GitBranch, Bug } from 'lucide-react'
+import { Users, Map, Briefcase, Shield, FileText, SlidersHorizontal, UserCog, Puzzle, Blocks, Settings as SettingsIcon, Bell, Database, ScrollText, KeyRound, GitBranch, Bug, MessageCircle } from 'lucide-react'
 import PageSidebar, { type PageSidebarTab } from '../components/Layout/PageSidebar'
 import { useAdmin } from './admin/useAdmin'
 import AdminUpdateBanner from './admin/AdminUpdateBanner'
@@ -21,6 +21,7 @@ import AdminUsersTab from './admin/AdminUsersTab'
 import AdminSettingsTab from './admin/AdminSettingsTab'
 import AdminNotificationsTab from './admin/AdminNotificationsTab'
 import AdminUserModals from './admin/AdminUserModals'
+import AdminInquiriesTab from './admin/AdminInquiriesTab'
 
 export default function AdminPage(): React.ReactElement {
   const { t, locale } = useTranslation()
@@ -37,12 +38,14 @@ export default function AdminPage(): React.ReactElement {
   } = admin
 
   const gUsers = t('admin.group.users')
+  const gAdvisory = t('admin.group.advisory')
   const gConfig = t('admin.group.config')
   const gIntegration = t('admin.group.integration')
   const gMaintenance = t('admin.group.maintenance')
   const TABS: PageSidebarTab[] = [
     { id: 'users', label: t('admin.tabs.users'), icon: Users, group: gUsers },
     { id: 'defaults', label: t('admin.tabs.defaults'), icon: UserCog, group: gUsers },
+    { id: 'inquiries', label: t('admin.tabs.inquiries'), icon: MessageCircle, group: gAdvisory },
     { id: 'config', label: t('admin.tabs.config'), icon: SlidersHorizontal, group: gConfig },
     { id: 'settings', label: t('admin.tabs.settings'), icon: SettingsIcon, group: gConfig },
     { id: 'addons', label: t('admin.tabs.addons'), icon: Puzzle, group: gConfig },
@@ -122,6 +125,10 @@ export default function AdminPage(): React.ReactElement {
             {/* Tab content */}
           {activeTab === 'users' && (
             <AdminUsersTab admin={admin} t={t} locale={locale} />
+          )}
+
+          {activeTab === 'inquiries' && (
+            <AdminInquiriesTab />
           )}
 
           {activeTab === 'config' && (

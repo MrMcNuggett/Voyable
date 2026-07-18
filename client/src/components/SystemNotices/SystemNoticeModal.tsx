@@ -307,8 +307,8 @@ function NoticeContent({ notice, title, body, ctaLabel, secondaryCtaLabel, title
                 onClick={onCTA}
                 className={`flex-1 h-11 inline-flex items-center justify-center gap-2 rounded-lg font-semibold shadow-sm transition active:scale-[0.98] ${
                   notice.cta?.kind === 'link'
-                    ? 'bg-[#FFDD00] text-[#0D0C22] hover:brightness-95'
-                    : 'bg-blue-600 hover:bg-blue-700 text-white'
+                    ? 'bg-[#FFDD00] text-[#0D0C22] hover:brightness-95' /* theme-lint-disable: Ko-fi brand color */
+                    : 'bg-accent hover:bg-accent-hover text-accent-text'
                 }`}
               >
                 {primaryBrand ? <BrandIcon brand={primaryBrand} size={18} /> : (notice.cta?.kind === 'link' && <Coffee size={17} aria-hidden="true" />)}
@@ -320,7 +320,7 @@ function NoticeContent({ notice, title, body, ctaLabel, secondaryCtaLabel, title
                   onClick={onSecondaryCTA}
                   className={`flex-1 h-11 inline-flex items-center justify-center gap-2 rounded-lg font-semibold shadow-sm transition active:scale-[0.98] ${
                     notice.secondaryCta?.kind === 'link'
-                      ? 'bg-[#FF5E5B] text-white hover:brightness-95'
+                      ? 'bg-[#FF5E5B] text-white hover:brightness-95' /* theme-lint-disable: Buy Me a Coffee brand color */
                       : 'bg-blue-600 hover:bg-blue-700 text-white'
                   }`}
                 >

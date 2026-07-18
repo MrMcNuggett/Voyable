@@ -32,8 +32,8 @@ export default function JoinTripPage() {
 
         {state === 'invalid' ? (
           <>
-            <h1 style={{ fontSize: 18, fontWeight: 700, marginBottom: 8 }}>{t('trip.invite.invalidTitle')}</h1>
-            <p className="text-content-secondary" style={{ fontSize: 14, marginBottom: 20 }}>{t('trip.invite.invalid')}</p>
+            <h1 style={{ fontSize: 'calc(18px * var(--fs-scale-body, 1))', fontWeight: 700, marginBottom: 8 }}>{t('trip.invite.invalidTitle')}</h1>
+            <p className="text-content-secondary" style={{ fontSize: 'calc(14px * var(--fs-scale-body, 1))', marginBottom: 20 }}>{t('trip.invite.invalid')}</p>
             <button
               onClick={goToDashboard}
               className="bg-surface-hover text-content"
@@ -44,8 +44,8 @@ export default function JoinTripPage() {
           </>
         ) : (
           <>
-            <h1 style={{ fontSize: 18, fontWeight: 700, marginBottom: 8 }}>{t('trip.invite.joinHeading')}</h1>
-            <p className="text-content-secondary" style={{ fontSize: 14, marginBottom: 22, minHeight: 20 }}>
+            <h1 style={{ fontSize: 'calc(18px * var(--fs-scale-body, 1))', fontWeight: 700, marginBottom: 8 }}>{t('trip.invite.joinHeading')}</h1>
+            <p className="text-content-secondary" style={{ fontSize: 'calc(14px * var(--fs-scale-body, 1))', marginBottom: 22, minHeight: 20 }}>
               {state === 'loading' ? t('common.loading') : t('trip.invite.joinPrompt', { title })}
             </p>
             <div style={{ display: 'flex', gap: 10, justifyContent: 'center' }}>

@@ -207,7 +207,7 @@ export default function AdminUserModals({ admin, t }: AdminUserModalsProps): Rea
       {/* Update instructions popup */}
       {showUpdateModal && (
         <div
-          style={{ position: 'fixed', inset: 0, zIndex: 9999, background: 'rgba(0,0,0,0.5)', backdropFilter: 'blur(4px)', display: 'flex', alignItems: 'center', justifyContent: 'center', padding: 16 }}
+          style={{ position: 'fixed', inset: 0, zIndex: 9999, background: 'var(--overlay)', backdropFilter: 'blur(4px)', display: 'flex', alignItems: 'center', justifyContent: 'center', padding: 16 }}
           onClick={() => setShowUpdateModal(false)}
         >
           <div
@@ -215,13 +215,13 @@ export default function AdminUserModals({ admin, t }: AdminUserModalsProps): Rea
             style={{ width: '100%', maxWidth: 440, borderRadius: 16, overflow: 'hidden' }}
             className="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700"
           >
-            <div style={{ background: 'linear-gradient(135deg, #0f172a, #1e293b)', padding: '20px 24px', display: 'flex', alignItems: 'center', gap: 12 }}>
-              <div className="bg-[rgba(255,255,255,0.2)]" style={{ width: 40, height: 40, borderRadius: 10, display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
+            <div style={{ background: 'linear-gradient(135deg, var(--petrol-800), var(--petrol-700))', padding: '20px 24px', display: 'flex', alignItems: 'center', gap: 12 }}>
+              <div className="bg-[rgba(255,255,255,0.2)]" style={{ /* theme-lint-disable: white icon well on dark-petrol header */ width: 40, height: 40, borderRadius: 10, display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
                 <ArrowUpCircle size={20} className="text-white" />
               </div>
               <div>
                 <h3 className="text-white" style={{ margin: 0, fontSize: 'calc(16px * var(--fs-scale-subtitle, 1))', fontWeight: 700 }}>{t('admin.update.howTo')}</h3>
-                <p className="text-[rgba(255,255,255,0.8)]" style={{ margin: '2px 0 0', fontSize: 'calc(12px * var(--fs-scale-body, 1))' }}>
+                <p className="text-[rgba(255,255,255,0.8)]" style={{ /* theme-lint-disable: white text on dark-petrol header */ margin: '2px 0 0', fontSize: 'calc(12px * var(--fs-scale-body, 1))' }}>
                   v{updateInfo?.current} → v{updateInfo?.latest}
                 </p>
               </div>

@@ -1,0 +1,25 @@
+{
+  "event_id": "evt_placeholder_subscription_updated_001",
+  "event_type": "subscription.updated",
+  "occurred_at": "2026-07-19T00:00:00.000000Z",
+  "notification_id": "ntf_placeholder_002",
+  "_fixture_note": "Synthetic fixture for local testing — not captured from a real Paddle account.",
+  "data": {
+    "id": "sub_placeholder_001",
+    "customer_id": "ctm_placeholder_001",
+    "status": "active",
+    "custom_data": { "userId": "__TEST_USER_ID__" },
+    "current_billing_period": {
+      "starts_at": "2026-08-18T00:00:00Z",
+      "ends_at": "2026-09-18T00:00:00Z"
+    },
+    "items": [
+      {
+        "price": {
+          "id": "pri_placeholder_yearly",
+          "billing_cycle": { "interval": "year", "frequency": 1 }
+        }
+      }
+    ]
+  }
+}

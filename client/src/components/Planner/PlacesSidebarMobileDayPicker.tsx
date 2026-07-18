@@ -10,7 +10,7 @@ export function MobileDayPickerSheet(S: SidebarState) {
   return ReactDOM.createPortal(
     <div
       onClick={() => { setDayPickerPlace(null); setMobileShowDays(false) }}
-      style={{ position: 'fixed', inset: 0, background: 'rgba(0,0,0,0.4)', zIndex: 99999, display: 'flex', alignItems: 'flex-end', justifyContent: 'center' }}
+      style={{ position: 'fixed', inset: 0, background: 'var(--overlay)', zIndex: 99999, display: 'flex', alignItems: 'flex-end', justifyContent: 'center' }}
     >
       <div
         onClick={e => e.stopPropagation()}
@@ -75,7 +75,7 @@ export function MobileDayPickerSheet(S: SidebarState) {
           {canEditPlaces && (
             <button
               onClick={() => { onDeletePlace(dayPickerPlace.id); setDayPickerPlace(null); setMobileShowDays(false) }}
-              style={{ display: 'flex', alignItems: 'center', gap: 12, width: '100%', padding: '12px 14px', borderRadius: 12, border: 'none', cursor: 'pointer', background: 'transparent', fontFamily: 'inherit', textAlign: 'left', fontSize: 'calc(14px * var(--fs-scale-body, 1))', color: '#ef4444' }}
+              style={{ display: 'flex', alignItems: 'center', gap: 12, width: '100%', padding: '12px 14px', borderRadius: 12, border: 'none', cursor: 'pointer', background: 'transparent', fontFamily: 'inherit', textAlign: 'left', fontSize: 'calc(14px * var(--fs-scale-body, 1))', color: 'var(--danger)' }}
             >
               <Trash2 size={18} /> {t('common.delete')}
             </button>

@@ -149,7 +149,7 @@ export function KategorieGruppe({ kategorie, items, tripId, allCategories, onRen
               <div className="assignee-chip"
                 style={{
                   width: 22, height: 22, borderRadius: '50%', flexShrink: 0, cursor: canEdit ? 'pointer' : 'default',
-                  background: `hsl(${a.username.charCodeAt(0) * 37 % 360}, 55%, 55%)`,
+                  background: `hsl(${a.username.charCodeAt(0) * 37 % 360}, 55%, 55%)`,  // theme-lint-disable: deterministic avatar color (data)
                   display: 'flex', alignItems: 'center', justifyContent: 'center',
                   fontSize: 'calc(10px * var(--fs-scale-caption, 1))', fontWeight: 700, color: 'white', textTransform: 'uppercase',
                   border: '2px solid var(--bg-card)', transition: 'opacity 0.15s',
@@ -209,7 +209,7 @@ export function KategorieGruppe({ kategorie, items, tripId, allCategories, onRen
                     >
                       <div style={{
                         width: 20, height: 20, borderRadius: '50%', flexShrink: 0,
-                        background: `hsl(${m.username.charCodeAt(0) * 37 % 360}, 55%, 55%)`,
+                        background: `hsl(${m.username.charCodeAt(0) * 37 % 360}, 55%, 55%)`,  // theme-lint-disable: deterministic avatar color (data)
                         display: 'flex', alignItems: 'center', justifyContent: 'center',
                         fontSize: 'calc(10px * var(--fs-scale-caption, 1))', fontWeight: 700, color: 'white', textTransform: 'uppercase',
                       }}>

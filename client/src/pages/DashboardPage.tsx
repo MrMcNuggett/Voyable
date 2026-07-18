@@ -5,6 +5,7 @@ import DemoBanner from '../components/Layout/DemoBanner'
 import TripFormModal from '../components/Trips/TripFormModal'
 import ConfirmDialog from '../components/shared/ConfirmDialog'
 import CopyTripDialog from '../components/shared/CopyTripDialog'
+import RequestAdvisoryModal from '../components/Trip/RequestAdvisoryModal'
 import CustomSelect from '../components/shared/CustomSelect'
 import PlaceAvatar from '../components/shared/PlaceAvatar'
 import MobileTopBar from '../components/Layout/MobileTopBar'
@@ -16,7 +17,7 @@ import {
 import {
   Plus, Edit2, Trash2, Archive, Copy, ArrowRight, MapPin,
   Plane, Hotel, Utensils, Clock, RefreshCw, ArrowRightLeft, Calendar,
-  LayoutGrid, List, Ticket, X, CalendarPlus,
+  LayoutGrid, List, Ticket, X, CalendarPlus, HelpCircle,
 } from 'lucide-react'
 import { IcsSubscribeModal } from '../components/Planner/IcsSubscribeModal'
 import CollectionsWidget from '../components/Dashboard/CollectionsWidget'
@@ -117,6 +118,7 @@ export default function DashboardPage(): React.ReactElement {
     deleteTrip, setDeleteTrip, copyTrip, setCopyTrip, setTrips,
     handleCreate, handleUpdate, confirmDelete, handleArchive, handleUnarchive, confirmCopy,
     allSubOpen, setAllSubOpen,
+    showAdvisoryModal, setShowAdvisoryModal,
   } = useDashboard()
 
   // Per-device dashboard widget visibility (from the appearance config).
@@ -172,6 +174,7 @@ export default function DashboardPage(): React.ReactElement {
                 onCopy={() => setCopyTrip(spotlight)}
                 onArchive={() => spotlight.is_archived ? handleUnarchive(spotlight.id) : handleArchive(spotlight.id)}
                 onDelete={() => setDeleteTrip(spotlight)}
+                onRequestAdvisory={() => setShowAdvisoryModal(true)}
               />
             )}
 
@@ -293,15 +296,18 @@ export default function DashboardPage(): React.ReactElement {
           onClose={() => setCopyTrip(null)}
         />
       )}
+      {spotlight && (
+        <RequestAdvisoryModal isOpen={showAdvisoryModal} onClose={() => setShowAdvisoryModal(false)} trip={spotlight} />
+      )}
       </div>
     </>
   )
 }
 
 // ── Boarding-pass hero ───────────────────────────────────────────────────────
-function BoardingPassHero({ trip, bundle, locale, onOpen, onEdit, onCopy, onArchive, onDelete }: {
+function BoardingPassHero({ trip, bundle, locale, onOpen, onEdit, onCopy, onArchive, onDelete, onRequestAdvisory }: {
   trip: DashboardTrip; bundle: HeroBundle | null; locale: string; onOpen: () => void
-  onEdit: () => void; onCopy: () => void; onArchive: () => void; onDelete: () => void
+  onEdit: () => void; onCopy: () => void; onArchive: () => void; onDelete: () => void; onRequestAdvisory: () => void
 }): React.ReactElement {
   const { t } = useTranslation()
   const mobile = useIsMobile()
@@ -418,6 +424,10 @@ function BoardingPassHero({ trip, bundle, locale, onOpen, onEdit, onCopy, onArch
 
         <div className="hero-title-block">
           <h2 className="hero-title">{trip.title}</h2>
+          <button className="hero-help-pill" onClick={(e) => stop(e, onRequestAdvisory)}>
+            <HelpCircle size={13} />
+            {t('advisory.heroPill')}
+          </button>
         </div>
 
         {!mobile && (
@@ -488,7 +498,7 @@ function AtlasStats({ stats }: { stats: TravelStats | null }): React.ReactElemen
       {showAtlas && (
         <div className="atlas-card passport">
           <div className="label">{t('dashboard.atlas.countriesVisited')}</div>
-          <div className="value mono">{countries.length} <span className="unit text-[oklch(1_0_0_/_.55)]">{t('dashboard.atlas.ofTotal', { total: 195 })}</span></div>
+          <div className="value mono">{countries.length} <span className="unit text-[oklch(1_0_0_/_.55)]">{t('dashboard.atlas.ofTotal', { total: 195 })}</span></div>{/* theme-lint-disable: white unit text on the dark-petrol passport tile */}
           <div className="passport-flags">
             {countries.slice(0, 5).map((c, i) => (
               <span key={i} className="flag" title={c}>

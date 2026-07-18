@@ -43,6 +43,7 @@ const login: TranslationStrings = {
   'login.oidc.invalidState': 'Neplatná relace. Zkuste to prosím znovu.',
   'login.demoFailed': 'Přihlášení do dema se nezdařilo',
   'login.oidcSignIn': 'Přihlásit se přes {name}',
+  'login.continueWithGoogle': 'Continue with Google', // TODO: untranslated
   'login.oidcOnly': 'Ověřování heslem je zakázáno. Přihlaste se prosím přes SSO poskytovatele.',
   'login.oidcLoggedOut': 'Byl jste odhlášen. Přihlaste se znovu přes SSO poskytovatele.',
   'login.demoHint': 'Vyzkoušejte demo – registrace není nutná',

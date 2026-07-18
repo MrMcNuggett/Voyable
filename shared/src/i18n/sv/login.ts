@@ -44,6 +44,7 @@ const login: TranslationStrings = {
   'login.oidc.invalidState': 'Ogiltig session. Försök igen.',
   'login.demoFailed': 'Inloggningen för demoversionen misslyckades',
   'login.oidcSignIn': 'Logga in med {name}',
+  'login.continueWithGoogle': 'Continue with Google', // TODO: untranslated
   'login.oidcOnly': 'Lösenordsautentisering är inaktiverad. Logga in via din SSO-leverantör.',
   'login.oidcLoggedOut': 'Du har loggats ut. Logga in igen via din SSO-leverantör.',
   'login.demoHint': 'Prova demoversionen – ingen registrering krävs',

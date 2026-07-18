@@ -118,7 +118,7 @@ export default function VacayPersons() {
 
       {/* Invite Modal — Portal to body to avoid z-index issues */}
       {showInvite && ReactDOM.createPortal(
-        <div className="fixed inset-0 flex items-center justify-center px-4 trek-backdrop-enter bg-[rgba(15,23,42,0.5)]" style={{ zIndex: 99990, paddingTop: 70 }}
+        <div className="fixed inset-0 flex items-center justify-center px-4 trek-backdrop-enter bg-[var(--overlay)]" style={{ zIndex: 99990, paddingTop: 70 }}
           onClick={() => setShowInvite(false)}>
           <div className="trek-modal-enter rounded-2xl shadow-2xl w-full max-w-sm bg-surface-card"
             onClick={e => e.stopPropagation()}>
@@ -159,7 +159,7 @@ export default function VacayPersons() {
 
       {/* Color Picker Modal — Portal to body */}
       {showColorPicker && ReactDOM.createPortal(
-        <div className="fixed inset-0 flex items-center justify-center px-4 trek-backdrop-enter bg-[rgba(15,23,42,0.5)]" style={{ zIndex: 99990, paddingTop: 70 }}
+        <div className="fixed inset-0 flex items-center justify-center px-4 trek-backdrop-enter bg-[var(--overlay)]" style={{ zIndex: 99990, paddingTop: 70 }}
           onClick={() => { setShowColorPicker(false); setColorEditUserId(null) }}>
           <div className="trek-modal-enter rounded-2xl shadow-2xl w-full max-w-xs bg-surface-card"
             onClick={e => e.stopPropagation()}>

@@ -42,6 +42,7 @@ const login: TranslationStrings = {
   'login.oidc.invalidState': 'جلسة غير صالحة. حاول مرة أخرى.',
   'login.demoFailed': 'فشل الدخول إلى العرض التجريبي',
   'login.oidcSignIn': 'تسجيل الدخول عبر {name}',
+  'login.continueWithGoogle': 'Continue with Google', // TODO: untranslated
   'login.oidcOnly': 'تم تعطيل المصادقة بكلمة المرور. يرجى تسجيل الدخول عبر مزود SSO.',
   'login.oidcLoggedOut': 'تم تسجيل خروجك. سجّل الدخول مجدداً عبر مزود SSO.',
   'login.demoHint': 'جرّب العرض التجريبي دون الحاجة للتسجيل',

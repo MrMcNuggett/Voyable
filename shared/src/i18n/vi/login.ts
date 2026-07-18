@@ -43,6 +43,7 @@ const login: TranslationStrings = {
   'login.oidc.invalidState': 'Phiên không hợp lệ. Vui lòng thử lại.',
   'login.demoFailed': 'Đăng nhập demo không thành công',
   'login.oidcSignIn': 'Đăng nhập bằng {name}',
+  'login.continueWithGoogle': 'Continue with Google', // TODO: untranslated
   'login.oidcOnly': 'Xác thực mật khẩu bị vô hiệu hóa. Vui lòng đăng nhập bằng nhà cung cấp SSO của bạn.',
   'login.oidcLoggedOut': 'Bạn đã đăng xuất. Đăng nhập lại bằng nhà cung cấp SSO của bạn.',
   'login.demoHint': 'Hãy thử bản demo - không cần đăng ký',

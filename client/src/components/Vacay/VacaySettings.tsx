@@ -192,9 +192,9 @@ export default function VacaySettings({ onClose }: VacaySettingsProps) {
       {/* Dissolve fusion */}
       {isFused && (
         <div className="pt-4 mt-2 border-t border-edge-secondary">
-          <div className="rounded-xl overflow-hidden border border-[rgba(239,68,68,0.2)]">
-            <div className="px-4 py-3 flex items-center gap-3 bg-[rgba(239,68,68,0.06)]">
-              <div className="w-8 h-8 rounded-lg flex items-center justify-center bg-[rgba(239,68,68,0.1)]">
+          <div className="rounded-xl overflow-hidden border border-[var(--danger-soft)]">
+            <div className="px-4 py-3 flex items-center gap-3 bg-[var(--danger-soft)]">
+              <div className="w-8 h-8 rounded-lg flex items-center justify-center bg-[var(--danger-soft)]">
                 <Unlink size={16} className="text-red-500" />
               </div>
               <div>

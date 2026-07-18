@@ -35,6 +35,7 @@ import share from './share';
 import shared from './shared';
 import stats from './stats';
 import system_notice from './system_notice';
+import subscription from './subscription';
 import todo from './todo';
 import transport from './transport';
 import trip from './trip';
@@ -86,5 +87,6 @@ const locale = {
   ...system_notice,
   ...transport,
   ...help,
+  ...subscription,
 };
 export default locale;

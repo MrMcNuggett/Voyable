@@ -8,24 +8,25 @@
    ============================================================================ */
 
 .trek-dash {
-  /* warm light palette (design original) */
-  --bg: #f8fafc;
-  --bg-2: oklch(0.965 0.01 70);
-  --surface: #ffffff;
-  --surface-2: oklch(0.985 0.006 78);
-  --ink: oklch(0.22 0.012 65);
-  --ink-2: oklch(0.42 0.012 65);
-  --ink-3: oklch(0.62 0.01 65);
-  --line: oklch(0.92 0.008 70);
-  --line-2: oklch(0.88 0.01 70);
-  /* Accent follows the user's theme (index.css --accent*): monochrome black/white
-     by default, coloured per data-scheme / custom accent. --accent itself is
+  /* Voyable light palette — stone surfaces + cool ink text (was a warm-neutral
+     original). Cards stay crisp white on the airy stone page. */
+  --bg: #f1f2ef;                    /* stone-100 page */
+  --bg-2: #e6e7e2;                  /* stone-200 */
+  --surface: #ffffff;              /* card */
+  --surface-2: #fbfbfa;            /* stone-50 raised */
+  --ink: #20241f;                  /* ink-900 */
+  --ink-2: #4b564f;                /* ink-700 */
+  --ink-3: #828d85;                /* ink-500 */
+  --line: #e6e7e2;                 /* stone-200 */
+  --line-2: #d5d7d0;               /* stone-300 */
+  /* Accent follows the user's theme (index.css --accent*): Voyable petrol by
+     default, coloured per data-scheme / custom accent. --accent itself is
      inherited from the theme; the ink/soft aliases map onto the theme tokens.
      Category colours are set explicitly per element and are unaffected. */
   --accent-ink: var(--accent-on, var(--accent));
   --accent-soft: var(--accent-subtle, color-mix(in oklch, var(--accent) 12%, transparent));
-  --success: oklch(0.58 0.12 155);
-  --warn: oklch(0.74 0.14 75);
+  --success: #4f7d4a;              /* Voyable success */
+  --warn: #c98736;                 /* Voyable warning (amber family) */
 
   --sh-xs: 0 1px 0 oklch(0.92 0.01 70 / .6), 0 1px 2px oklch(0.4 0.02 60 / .04);
   --sh-sm: 0 1px 2px oklch(0.4 0.02 60 / .04), 0 2px 6px oklch(0.4 0.02 60 / .05);
@@ -41,7 +42,7 @@
 
   background: var(--bg);
   color: var(--ink);
-  font-family: "Poppins", -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+  font-family: var(--font-system);
   font-feature-settings: "ss01", "cv11";
   letter-spacing: -0.005em;
   min-height: 100%;
@@ -91,7 +92,7 @@
 .trek-dash-scroll { flex: 1; overflow: auto; overscroll-behavior: contain; margin-top: var(--nav-h); }
 
 .trek-dash * { box-sizing: border-box; }
-.trek-dash .mono { font-family: "Poppins", -apple-system, BlinkMacSystemFont, system-ui, sans-serif; font-feature-settings: "tnum"; }
+.trek-dash .mono { font-family: var(--font-mono); font-feature-settings: "tnum"; }
 .trek-dash button { font: inherit; color: inherit; background: none; border: 0; cursor: pointer; padding: 0; }
 .trek-dash a { color: inherit; text-decoration: none; }
 
@@ -225,6 +226,15 @@
 }
 .trek-dash .hero-eyebrow::before { content: ""; width: 28px; height: 1px; background: oklch(1 0 0 / .6); }
 .trek-dash .hero-title { font-size: 104px; font-weight: 600; line-height: 0.9; letter-spacing: -0.045em; margin: 0; text-shadow: 0 1px 12px oklch(0 0 0 / .32), 0 1px 3px oklch(0 0 0 / .4); }
+.trek-dash .hero-help-pill {
+  display: inline-flex; align-items: center; gap: 7px;
+  margin-top: 14px; padding: 7px 13px 7px 11px; border-radius: 999px;
+  background: oklch(1 0 0 / .14); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
+  border: 1px solid oklch(1 0 0 / .24); color: #fff;
+  font-size: 12.5px; font-weight: 600; cursor: pointer; transition: background .15s;
+}
+.trek-dash .hero-help-pill:hover { background: oklch(1 0 0 / .22); }
+.trek-dash .hero-help-pill svg { width: 13px; height: 13px; flex-shrink: 0; }
 
 /* ----------------- boarding pass ----------------- */
 /* The pass is split into an outer wrapper (left notch) and an inner glass panel
@@ -364,10 +374,13 @@
 .trek-dash .atlas-card .value .unit { font-size: 17px; color: var(--ink-3); font-weight: 500; letter-spacing: -0.01em; }
 .trek-dash .atlas-card .delta { margin-top: 12px; font-size: 12.5px; color: var(--ink-3); }
 .trek-dash .atlas-card .delta .up { color: var(--success); font-weight: 500; }
+/* Dark-petrol hero tile — the one deliberate dark accent surface on the
+   dashboard (Voyable "max one dark accent per screen" rule). petrol-700→800,
+   never pure black. */
 .trek-dash .atlas-card.passport {
   background:
-    linear-gradient(135deg, oklch(0.95 0.01 70 / .15) 0%, oklch(0.98 0.005 70 / .08) 50%, oklch(1 0 0 / .12) 100%),
-    linear-gradient(180deg, oklch(0.16 0 0), oklch(0.09 0 0));
+    linear-gradient(135deg, oklch(0.95 0.01 70 / .12) 0%, oklch(0.98 0.005 70 / .06) 50%, oklch(1 0 0 / .10) 100%),
+    linear-gradient(180deg, var(--petrol-700, #143a37), var(--petrol-800, #0d2725));
   color: #fff; border: 1px solid oklch(1 0 0 / .12);
   box-shadow: 0 8px 32px oklch(0 0 0 / .15), inset 0 1px 0 oklch(1 0 0 / .15), inset 0 -1px 0 oklch(0 0 0 / .3);
   backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
@@ -392,7 +405,7 @@
 /* ----------------- section heads ----------------- */
 .trek-dash .sec-head { display: flex; align-items: baseline; justify-content: space-between; margin-bottom: 22px; margin-top: 8px; }
 .trek-dash .sec-title { font-size: 28px; font-weight: 600; letter-spacing: -0.025em; margin: 0; display: flex; align-items: baseline; gap: 14px; }
-.trek-dash .sec-title .count { font-size: 14px; color: var(--ink-3); font-weight: 500; letter-spacing: -0.005em; font-family: "Poppins", sans-serif; }
+.trek-dash .sec-title .count { font-size: 14px; color: var(--ink-3); font-weight: 500; letter-spacing: -0.005em; font-family: var(--font-system); }
 .trek-dash .sec-tools { display: flex; gap: 6px; align-items: center; }
 .trek-dash .seg { display: flex; background: oklch(0.94 0.008 70); border-radius: 10px; padding: 3px; }
 .dark .trek-dash .seg { background: var(--bg-2); }
@@ -489,7 +502,7 @@
   box-shadow: var(--glass-shadow-hover), var(--glass-highlight);
 }
 .trek-dash .add-trip-card .circ {
-  width: 48px; height: 48px; border-radius: 50%; background: #111827; color: #fff;
+  width: 48px; height: 48px; border-radius: 50%; background: var(--accent); color: var(--accent-text);
   display: grid; place-items: center; margin: 0 auto 14px; box-shadow: var(--sh-sm);
   transition: transform .4s cubic-bezier(0.34,1.56,0.64,1), background .15s;
 }
@@ -547,19 +560,19 @@
 .trek-dash .fx-input { display: grid; grid-template-columns: 1fr auto 1fr; align-items: stretch; gap: 8px; margin-bottom: 14px; }
 .trek-dash .fx-field { background: var(--surface-2); border-radius: 14px; padding: 12px 14px; }
 .trek-dash .fx-field .lbl { font-size: 10.5px; text-transform: uppercase; letter-spacing: 0.12em; color: var(--ink-3); font-weight: 500; }
-.trek-dash .fx-field .amt { font-size: 26px; font-weight: 600; letter-spacing: -0.025em; margin-top: 2px; background: none; border: 0; width: 100%; outline: none; color: var(--ink); font-family: "Poppins", sans-serif; font-feature-settings: "tnum"; }
+.trek-dash .fx-field .amt { font-size: 26px; font-weight: 600; letter-spacing: -0.025em; margin-top: 2px; background: none; border: 0; width: 100%; outline: none; color: var(--ink); font-family: var(--font-system); font-feature-settings: "tnum"; }
 .trek-dash .fx-field .ccy { display: flex; align-items: center; gap: 6px; margin-top: 4px; font-size: 12.5px; color: var(--ink-2); font-weight: 500; }
 .trek-dash .fx-swap { align-self: center; width: 36px; height: 36px; border-radius: 50%; background: var(--ink); color: var(--bg); display: grid; place-items: center; box-shadow: var(--sh-sm); transition: transform .2s; }
 .trek-dash .fx-swap:hover { transform: rotate(180deg); }
 .trek-dash .fx-swap svg { width: 14px; height: 14px; }
-.trek-dash .fx-rate { font-size: 12px; color: var(--ink-3); display: flex; justify-content: space-between; font-family: "Poppins", sans-serif; }
+.trek-dash .fx-rate { font-size: 12px; color: var(--ink-3); display: flex; justify-content: space-between; font-family: var(--font-system); }
 .trek-dash .fx-rate .delta { color: var(--success); }
 .trek-dash .tz-list { display: flex; flex-direction: column; gap: 14px; }
 .trek-dash .tz-row { display: grid; grid-template-columns: auto 1fr auto 24px; gap: 14px; align-items: center; }
 .trek-dash .tz-dot { width: 28px; height: 28px; border-radius: 50%; background: var(--bg-2); display: grid; place-items: center; color: var(--ink-2); font-size: 11px; font-weight: 600; }
 .trek-dash .tz-city { font-size: 14px; font-weight: 500; }
 .trek-dash .tz-sub { font-size: 11.5px; color: var(--ink-3); margin-top: 2px; }
-.trek-dash .tz-time { font-size: 22px; font-weight: 600; letter-spacing: -0.025em; font-family: "Poppins", sans-serif; font-feature-settings: "tnum"; }
+.trek-dash .tz-time { font-size: 22px; font-weight: 600; letter-spacing: -0.025em; font-family: var(--font-system); font-feature-settings: "tnum"; }
 .trek-dash .tz-del { width: 24px; height: 24px; border-radius: 7px; display: grid; place-items: center; color: var(--ink-3); opacity: 0; transition: opacity .12s, background .12s, color .12s; }
 .trek-dash .tz-row:hover .tz-del { opacity: 1; }
 .trek-dash .tz-del:hover { background: var(--bg-2); color: #ef4444; }
@@ -592,7 +605,7 @@
 .trek-dash .col-badge-tint {
   position: absolute; inset: 0;
   background:
-    linear-gradient(90deg, color-mix(in oklch, var(--badge-color, #6366f1) 88%, black) 0%, color-mix(in oklch, var(--badge-color, #6366f1) 40%, transparent) 62%, rgba(0,0,0,.3) 100%),
+    linear-gradient(90deg, color-mix(in oklch, var(--badge-color, #276b64) 88%, black) 0%, color-mix(in oklch, var(--badge-color, #276b64) 40%, transparent) 62%, rgba(0,0,0,.3) 100%),
     linear-gradient(180deg, rgba(0,0,0,0) 40%, rgba(0,0,0,.4) 100%);
 }
 .trek-dash .col-badge-body { position: relative; z-index: 1; height: 100%; display: flex; align-items: center; justify-content: space-between; gap: 10px; padding: 0 14px; color: #fff; }
@@ -713,7 +726,7 @@
   position: fixed; right: 28px; bottom: 28px; z-index: 150;
   display: inline-flex; align-items: center; gap: 9px;
   height: 56px; padding: 0 24px; border: none; border-radius: 999px;
-  cursor: pointer; background: #111827; color: #fff;
+  cursor: pointer; background: var(--accent); color: var(--accent-text);
   font-size: 15px; font-weight: 600; font-family: inherit;
   box-shadow: 0 6px 16px oklch(0 0 0 / .22), 0 12px 30px oklch(0 0 0 / .18);
   transition: transform .28s cubic-bezier(0.23,1,0.32,1), box-shadow .28s cubic-bezier(0.23,1,0.32,1);

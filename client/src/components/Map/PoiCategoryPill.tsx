@@ -68,7 +68,7 @@ export default function PoiCategoryPill({ active, onToggle, loadingKeys, errorKe
                 {on && !loading && errorKeys?.has(cat.key) && (
                   <span style={{
                     position: 'absolute', top: 2, right: 2, width: 8, height: 8,
-                    borderRadius: 999, background: '#ef4444', border: '1.5px solid var(--sidebar-bg)',
+                    borderRadius: 999, background: 'var(--danger)', border: '1.5px solid var(--sidebar-bg)',
                   }} />
                 )}
               </button>
@@ -85,7 +85,7 @@ export default function PoiCategoryPill({ active, onToggle, loadingKeys, errorKe
           style={{
             display: 'inline-flex', alignItems: 'center', gap: 6,
             padding: '6px 13px', borderRadius: 999, border: 'none', cursor: 'pointer',
-            fontSize: 12, fontWeight: 600, fontFamily: 'inherit', pointerEvents: 'auto',
+            fontSize: 'calc(12px * var(--fs-scale-body, 1))', fontWeight: 600, fontFamily: 'inherit', pointerEvents: 'auto',
             color: anyError ? '#ef4444' : undefined,
             ...frosted,
           }}

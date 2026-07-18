@@ -126,7 +126,7 @@ export default function TodoListPanel({ tripId, items, addItemSignal = 0 }: { tr
             </span>
           </div>
           <div style={{ height: 4, background: 'var(--border-faint)', borderRadius: 2, overflow: 'hidden', marginBottom: 6 }}>
-            <div style={{ height: '100%', width: totalCount > 0 ? `${Math.round((doneCount / totalCount) * 100)}%` : '0%', background: '#22c55e', borderRadius: 2, transition: 'width 0.3s' }} />
+            <div style={{ height: '100%', width: totalCount > 0 ? `${Math.round((doneCount / totalCount) * 100)}%` : '0%', background: 'var(--success)', borderRadius: 2, transition: 'width 0.3s' }} />
           </div>
           <div style={{ fontSize: 'calc(11px * var(--fs-scale-caption, 1))', color: 'var(--text-faint)' }}>
             {doneCount} / {totalCount} {t('todo.completed')}
@@ -178,7 +178,7 @@ export default function TodoListPanel({ tripId, items, addItemSignal = 0 }: { tr
                 onKeyDown={e => { if (e.key === 'Enter') addCategory(); if (e.key === 'Escape') { setAddingCategory(false); setNewCategoryName('') } }}
                 placeholder={t('todo.newCategory')}
                 style={{ flex: 1, fontSize: 'calc(12px * var(--fs-scale-body, 1))', padding: '4px 6px', border: '1px solid var(--border-primary)', borderRadius: 5, background: 'var(--bg-hover)', color: 'var(--text-primary)', fontFamily: 'inherit', minWidth: 0 }} />
-              <button onClick={addCategory} style={{ background: 'none', border: 'none', cursor: 'pointer', color: '#22c55e', padding: 2 }}><Check size={13} /></button>
+              <button onClick={addCategory} style={{ background: 'none', border: 'none', cursor: 'pointer', color: 'var(--success)', padding: 2 }}><Check size={13} /></button>
             </div>
           ) : (
             <button onClick={() => setAddingCategory(true)}
@@ -252,7 +252,7 @@ export default function TodoListPanel({ tripId, items, addItemSignal = 0 }: { tr
       )}
       {selectedItem && !isAddingNew && isMobile && (
         <div onClick={e => { if (e.target === e.currentTarget) setSelectedId(null) }}
-          style={{ position: 'fixed', inset: 0, zIndex: 1000, background: 'rgba(0,0,0,0.4)', display: 'flex', justifyContent: 'center', alignItems: 'flex-end', paddingBottom: 'var(--bottom-nav-h)' }}>
+          style={{ position: 'fixed', inset: 0, zIndex: 1000, background: 'var(--overlay)', display: 'flex', justifyContent: 'center', alignItems: 'flex-end', paddingBottom: 'var(--bottom-nav-h)' }}>
           <div style={{ width: '100%', maxHeight: '85vh', borderRadius: '16px 16px 0 0', overflow: 'auto' }}
             ref={el => { if (el) { const child = el.firstElementChild as HTMLElement; if (child) { child.style.width = '100%'; child.style.borderLeft = 'none'; child.style.borderRadius = '16px 16px 0 0' } } }}>
             <DetailPane
@@ -268,7 +268,7 @@ export default function TodoListPanel({ tripId, items, addItemSignal = 0 }: { tr
       {isAddingNew && !selectedItem && !isMobile && ReactDOM.createPortal(
         <div onClick={e => { if (e.target === e.currentTarget) setIsAddingNew(false) }}
           className="trek-modal-backdrop"
-          style={{ position: 'fixed', inset: 0, zIndex: 1000, background: 'rgba(15,23,42,0.5)', display: 'flex', justifyContent: 'center', alignItems: 'flex-start', paddingTop: 'calc(var(--nav-h) + 60px)', paddingBottom: 40 }}>
+          style={{ position: 'fixed', inset: 0, zIndex: 1000, background: 'var(--overlay)', display: 'flex', justifyContent: 'center', alignItems: 'flex-start', paddingTop: 'calc(var(--nav-h) + 60px)', paddingBottom: 40 }}>
           <div style={{ width: 'min(520px, 92vw)', maxHeight: 'calc(100vh - var(--nav-h) - 120px)', overflow: 'auto', borderRadius: 16, boxShadow: '0 20px 60px rgba(0,0,0,0.25)' }}
             ref={el => { if (el) { const child = el.firstElementChild as HTMLElement; if (child) { child.style.width = '100%'; child.style.borderLeft = 'none'; child.style.borderRadius = '16px' } } }}>
             <NewTaskPane
@@ -286,7 +286,7 @@ export default function TodoListPanel({ tripId, items, addItemSignal = 0 }: { tr
       {isAddingNew && !selectedItem && isMobile && ReactDOM.createPortal(
         <div onClick={e => { if (e.target === e.currentTarget) setIsAddingNew(false) }}
           className="trek-modal-backdrop"
-          style={{ position: 'fixed', inset: 0, zIndex: 1000, background: 'rgba(0,0,0,0.4)', display: 'flex', justifyContent: 'center', alignItems: 'flex-end', paddingBottom: 'var(--bottom-nav-h)' }}>
+          style={{ position: 'fixed', inset: 0, zIndex: 1000, background: 'var(--overlay)', display: 'flex', justifyContent: 'center', alignItems: 'flex-end', paddingBottom: 'var(--bottom-nav-h)' }}>
           <div style={{ width: '100%', maxHeight: '85vh', borderRadius: '16px 16px 0 0', overflow: 'auto' }}
             ref={el => { if (el) { const child = el.firstElementChild as HTMLElement; if (child) { child.style.width = '100%'; child.style.borderLeft = 'none'; child.style.borderRadius = '16px 16px 0 0' } } }}>
             <NewTaskPane
@@ -453,7 +453,7 @@ function DetailPane({ item, tripId, categories, members, onClose }: {
                     })),
                     ...(category && !categories.includes(category) ? [{
                       value: category, label: `${category} (${t('todo.newCategoryLabel') || 'new'})`,
-                      icon: <span style={{ width: 8, height: 8, borderRadius: '50%', background: '#9ca3af', display: 'inline-block' }} />,
+                      icon: <span style={{ width: 8, height: 8, borderRadius: '50%', background: 'var(--text-faint)', display: 'inline-block' }} />,
                     }] : []),
                   ]}
                   placeholder={t('todo.noCategory')}
@@ -629,7 +629,7 @@ function NewTaskPane({ tripId, categories, members, defaultCategory, onCreated, 
                     })),
                     ...(category && !categories.includes(category) ? [{
                       value: category, label: `${category} (${t('todo.newCategoryLabel') || 'new'})`,
-                      icon: <span style={{ width: 8, height: 8, borderRadius: '50%', background: '#9ca3af', display: 'inline-block' }} />,
+                      icon: <span style={{ width: 8, height: 8, borderRadius: '50%', background: 'var(--text-faint)', display: 'inline-block' }} />,
                     }] : []),
                   ]}
                   placeholder={t('todo.noCategory')}

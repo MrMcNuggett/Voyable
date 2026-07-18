@@ -223,8 +223,8 @@ describe('JourneyPublicPage', () => {
     await waitFor(() => {
       expect(screen.getByText('Tokyo 2026')).toBeInTheDocument();
     });
-    // Footer shows "TREK" brand and "Made with" text
-    expect(screen.getByText('TREK')).toBeInTheDocument();
+    // Footer shows "Voyable" brand and "Made with" text
+    expect(screen.getByText('Voyable')).toBeInTheDocument();
     expect(screen.getByText(/Made with/)).toBeInTheDocument();
     expect(screen.getByText('GitHub')).toBeInTheDocument();
   });

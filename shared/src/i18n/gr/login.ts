@@ -44,6 +44,7 @@ const login: TranslationStrings = {
   'login.oidc.invalidState': 'Μη έγκυρη συνεδρία. Παρακαλώ δοκιμάστε ξανά.',
   'login.demoFailed': 'Η σύνδεση demo απέτυχε',
   'login.oidcSignIn': 'Σύνδεση με {name}',
+  'login.continueWithGoogle': 'Continue with Google', // TODO: untranslated
   'login.oidcOnly':
     'Ο έλεγχος ταυτότητας με κωδικό είναι απενεργοποιημένος. Παρακαλώ συνδεθείτε χρησιμοποιώντας τον πάροχο SSO σας.',
   'login.oidcLoggedOut': 'Έχετε αποσυνδεθεί. Συνδεθείτε ξανά χρησιμοποιώντας τον πάροχο SSO σας.',

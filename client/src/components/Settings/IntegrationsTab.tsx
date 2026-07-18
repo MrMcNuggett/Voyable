@@ -335,7 +335,7 @@ function IntegrationsMcpSection(props: any) {
                 activeMcpTab === 'apitokens' ? 'bg-slate-900 text-white' : 'text-slate-600 hover:text-slate-900 hover:bg-slate-50'
               }`}>
               {t('settings.mcp.apiTokens')}
-              <span className="px-1.5 py-0.5 rounded text-[10px] font-medium bg-[rgba(245,158,11,0.15)] text-[#b45309] border border-[rgba(245,158,11,0.4)]">
+              <span className="px-1.5 py-0.5 rounded text-[10px] font-medium bg-[var(--warning-soft)] text-[var(--warning)] border border-[var(--warning-soft)]">
                 Deprecated
               </span>
             </button>
@@ -393,7 +393,7 @@ function IntegrationsMcpSection(props: any) {
                             <div className="flex items-center gap-2">
                               <p className="text-sm font-medium truncate text-content">{client.name}</p>
                               {client.allows_client_credentials && (
-                                <span className="px-1.5 py-0.5 rounded text-[10px] font-medium flex-shrink-0 bg-[rgba(99,102,241,0.12)] text-[#4f46e5] border border-[rgba(99,102,241,0.3)]">
+                                <span className="px-1.5 py-0.5 rounded text-[10px] font-medium flex-shrink-0 bg-[var(--accent-subtle)] text-accent-on border border-[var(--accent-subtle)]">
                                   {t('settings.oauth.badge.machine')}
                                 </span>
                               )}
@@ -463,9 +463,9 @@ function IntegrationsMcpSection(props: any) {
           {/* API Tokens tab (deprecated) */}
           {activeMcpTab === 'apitokens' && (
             <>
-              <div className="flex items-baseline gap-2 px-3 py-2.5 rounded-lg bg-[rgba(245,158,11,0.06)] border border-[rgba(245,158,11,0.3)]">
+              <div className="flex items-baseline gap-2 px-3 py-2.5 rounded-lg bg-[var(--warning-soft)] border border-[var(--warning-soft)]">
                 <span className="text-amber-500 flex-shrink-0 leading-none">⚠</span>
-                <p className="text-xs text-[#92400e]">{t('settings.mcp.apiTokensDeprecated')}</p>
+                <p className="text-xs text-[var(--warning)]">{t('settings.mcp.apiTokensDeprecated')}</p>
               </div>
 
               {/* JSON config — API Token (collapsible) */}
@@ -541,7 +541,7 @@ function McpTokenModals(props: any) {
     <>
       {/* Create MCP Token modal */}
       {mcpModalOpen && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-[rgba(0,0,0,0.5)]"
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-[var(--overlay)]"
           onClick={e => { if (e.target === e.currentTarget && !mcpCreatedToken) setMcpModalOpen(false) }}>
           <div className="rounded-xl shadow-xl w-full max-w-md p-6 space-y-4 bg-surface-card">
             {!mcpCreatedToken ? (
@@ -569,7 +569,7 @@ function McpTokenModals(props: any) {
             ) : (
               <>
                 <h3 className="text-lg font-semibold text-content">{t('settings.mcp.modal.createdTitle')}</h3>
-                <div className="flex items-start gap-2 p-3 rounded-lg border border-amber-200 bg-[rgba(251,191,36,0.1)]">
+                <div className="flex items-start gap-2 p-3 rounded-lg border border-amber-200 bg-[var(--warning-soft)]">
                   <span className="text-amber-500 mt-0.5">⚠</span>
                   <p className="text-sm text-content-secondary">{t('settings.mcp.modal.createdWarning')}</p>
                 </div>
@@ -597,7 +597,7 @@ function McpTokenModals(props: any) {
 
       {/* Delete MCP Token confirm */}
       {mcpDeleteId !== null && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-[rgba(0,0,0,0.5)]"
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-[var(--overlay)]"
           onClick={e => { if (e.target === e.currentTarget) setMcpDeleteId(null) }}>
           <div className="rounded-xl shadow-xl w-full max-w-sm p-6 space-y-4 bg-surface-card">
             <h3 className="text-base font-semibold text-content">{t('settings.mcp.deleteTokenTitle')}</h3>
@@ -628,7 +628,7 @@ function OAuthClientModals(props: any) {
     <>
       {/* Create OAuth Client modal */}
       {oauthCreateOpen && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-[rgba(0,0,0,0.5)]"
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-[var(--overlay)]"
           onClick={e => { if (e.target === e.currentTarget && !oauthCreatedClient) setOauthCreateOpen(false) }}>
           <div className="rounded-xl shadow-xl w-full max-w-lg p-6 space-y-4 overflow-y-auto max-h-[90vh] bg-surface-card">
             {!oauthCreatedClient ? (
@@ -703,7 +703,7 @@ function OAuthClientModals(props: any) {
             ) : (
               <>
                 <h3 className="text-lg font-semibold text-content">{t('settings.oauth.modal.createdTitle')}</h3>
-                <div className="flex items-start gap-2 p-3 rounded-lg border border-amber-200 bg-[rgba(251,191,36,0.1)]">
+                <div className="flex items-start gap-2 p-3 rounded-lg border border-amber-200 bg-[var(--warning-soft)]">
                   <span className="text-amber-500 mt-0.5">⚠</span>
                   <p className="text-sm text-content-secondary">{t('settings.oauth.modal.createdWarning')}</p>
                 </div>
@@ -755,7 +755,7 @@ function OAuthClientModals(props: any) {
 
       {/* Delete OAuth Client confirm */}
       {oauthDeleteId !== null && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-[rgba(0,0,0,0.5)]"
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-[var(--overlay)]"
           onClick={e => { if (e.target === e.currentTarget) setOauthDeleteId(null) }}>
           <div className="rounded-xl shadow-xl w-full max-w-sm p-6 space-y-4 bg-surface-card">
             <h3 className="text-base font-semibold text-content">{t('settings.oauth.deleteClient')}</h3>
@@ -776,7 +776,7 @@ function OAuthClientModals(props: any) {
 
       {/* Rotate OAuth Client Secret confirm */}
       {oauthRotateId !== null && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-[rgba(0,0,0,0.5)]"
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-[var(--overlay)]"
           onClick={e => { if (e.target === e.currentTarget) setOauthRotateId(null) }}>
           <div className="rounded-xl shadow-xl w-full max-w-sm p-6 space-y-4 bg-surface-card">
             <h3 className="text-base font-semibold text-content">{t('settings.oauth.rotateSecret')}</h3>
@@ -797,10 +797,10 @@ function OAuthClientModals(props: any) {
 
       {/* Rotated Secret display */}
       {oauthRotatedSecret !== null && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-[rgba(0,0,0,0.5)]">
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-[var(--overlay)]">
           <div className="rounded-xl shadow-xl w-full max-w-md p-6 space-y-4 bg-surface-card">
             <h3 className="text-lg font-semibold text-content">{t('settings.oauth.rotateSecretDoneTitle')}</h3>
-            <div className="flex items-start gap-2 p-3 rounded-lg border border-amber-200 bg-[rgba(251,191,36,0.1)]">
+            <div className="flex items-start gap-2 p-3 rounded-lg border border-amber-200 bg-[var(--warning-soft)]">
               <span className="text-amber-500 mt-0.5">⚠</span>
               <p className="text-sm text-content-secondary">{t('settings.oauth.rotateSecretDoneWarning')}</p>
             </div>
@@ -828,7 +828,7 @@ function OAuthClientModals(props: any) {
 
       {/* Revoke OAuth Session confirm */}
       {oauthRevokeId !== null && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-[rgba(0,0,0,0.5)]"
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-[var(--overlay)]"
           onClick={e => { if (e.target === e.currentTarget) setOauthRevokeId(null) }}>
           <div className="rounded-xl shadow-xl w-full max-w-sm p-6 space-y-4 bg-surface-card">
             <h3 className="text-base font-semibold text-content">{t('settings.oauth.revokeSession')}</h3>

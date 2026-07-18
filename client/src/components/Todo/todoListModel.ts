@@ -6,9 +6,9 @@ export const KAT_COLORS = [
 ]
 
 export const PRIO_CONFIG: Record<number, { label: string; color: string }> = {
-  1: { label: 'P1', color: '#ef4444' },
-  2: { label: 'P2', color: '#f59e0b' },
-  3: { label: 'P3', color: '#3b82f6' },
+  1: { label: 'P1', color: 'var(--danger)' },
+  2: { label: 'P2', color: 'var(--warning)' },
+  3: { label: 'P3', color: 'var(--info)' },
 }
 
 export function katColor(kat: string, allCategories: string[]) {

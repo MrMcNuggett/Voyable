@@ -80,6 +80,7 @@ const login: TranslationStrings = {
   'login.oidc.invalidState': 'Ongeldige sessie. Probeer het opnieuw.',
   'login.demoFailed': 'Demo-login mislukt',
   'login.oidcSignIn': 'Inloggen met {name}',
+  'login.continueWithGoogle': 'Continue with Google', // TODO: untranslated
   'login.oidcOnly': 'Wachtwoordauthenticatie is uitgeschakeld. Log in via je SSO-provider.',
   'login.oidcLoggedOut': 'Je bent uitgelogd. Log opnieuw in via je SSO-provider.',
   'login.demoHint': 'Probeer de demo — geen registratie nodig',

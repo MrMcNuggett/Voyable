@@ -93,7 +93,7 @@ export default function PageSidebar({
       {mobileOpen && (
         <>
           <div
-            className="lg:hidden fixed inset-0 z-40 bg-[rgba(0,0,0,0.35)]"
+            className="lg:hidden fixed inset-0 z-40 bg-[var(--overlay)]"
             onClick={() => setMobileOpen(false)}
           />
           <aside

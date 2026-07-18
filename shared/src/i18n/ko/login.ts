@@ -43,6 +43,7 @@ const login: TranslationStrings = {
   'login.oidc.invalidState': '유효하지 않은 세션입니다. 다시 시도하세요.',
   'login.demoFailed': '데모 로그인 실패',
   'login.oidcSignIn': '{name}으로 로그인',
+  'login.continueWithGoogle': 'Continue with Google', // TODO: untranslated
   'login.oidcOnly': '비밀번호 인증이 비활성화되었습니다. SSO 공급자로 로그인하세요.',
   'login.oidcLoggedOut': '로그아웃되었습니다. SSO 공급자로 다시 로그인하세요.',
   'login.demoHint': '데모 체험 — 회원가입 불필요',

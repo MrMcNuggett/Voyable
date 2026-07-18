@@ -124,7 +124,7 @@ function CreatePollModal({ onClose, onCreate, t }: CreatePollModalProps) {
               background: multiChoice ? '#007AFF' : 'var(--border-primary)', transition: 'background 0.2s',
               display: 'flex', alignItems: 'center',
             }}>
-              <div style={{ width: 16, height: 16, borderRadius: '50%', background: '#fff', transition: 'transform 0.2s', transform: multiChoice ? 'translateX(16px)' : 'translateX(0)' }} />
+              <div style={{ width: 16, height: 16, borderRadius: '50%', background: 'var(--bg-card)', transition: 'transform 0.2s', transform: multiChoice ? 'translateX(16px)' : 'translateX(0)' }} />
             </div>
             <span style={{ fontSize: 'calc(12px * var(--fs-scale-body, 1))', color: 'var(--text-muted)', fontFamily: FONT }}>{t('collab.polls.multiChoice')}</span>
           </label>
@@ -227,7 +227,7 @@ function PollCard({ poll, currentUser, canEdit, onVote, onClose, onDelete, t }: 
               </span>
             )}
             {remaining && !isClosed && (
-              <span style={{ display: 'inline-flex', alignItems: 'center', gap: 3, fontSize: 'calc(9px * var(--fs-scale-caption, 1))', fontWeight: 600, color: '#f59e0b', background: '#f59e0b18', padding: '2px 7px', borderRadius: 99 }}>
+              <span style={{ display: 'inline-flex', alignItems: 'center', gap: 3, fontSize: 'calc(9px * var(--fs-scale-caption, 1))', fontWeight: 600, color: 'var(--warning)', background: 'var(--warning-soft)', padding: '2px 7px', borderRadius: 99 }}>
                 <Clock size={8} /> {remaining}
               </span>
             )}

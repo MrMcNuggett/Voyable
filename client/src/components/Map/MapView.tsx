@@ -695,17 +695,18 @@ export const MapView = memo(function MapView({
         {markers}
       </MarkerClusterGroup>
 
-      {/* Apple-Maps style: darker-blue casing under a bright-blue core, rounded. */}
+      {/* Voyable amber route: darker amber casing under a bright amber core,
+          rounded. Amber (--accent-route) is the reserved route/map accent. */}
       {route && route.length > 0 && route.flatMap((seg, i) => seg.length > 1 ? [
         <Polyline
           key={`${i}-casing`}
           positions={seg}
-          pathOptions={{ color: '#0a5cc2', weight: 8, opacity: 1, lineCap: 'round', lineJoin: 'round' }}
+          pathOptions={{ color: '#8a561f', weight: 8, opacity: 1, lineCap: 'round', lineJoin: 'round' }}
         />,
         <Polyline
           key={`${i}-core`}
           positions={seg}
-          pathOptions={{ color: '#0a84ff', weight: 5, opacity: 1, lineCap: 'round', lineJoin: 'round' }}
+          pathOptions={{ color: '#c98736', weight: 5, opacity: 1, lineCap: 'round', lineJoin: 'round' }}
         />,
       ] : [])}
 

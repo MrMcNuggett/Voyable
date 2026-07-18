@@ -18,7 +18,7 @@ export default function CategoryManager() {
   const [categories, setCategories] = useState([])
   const [showForm, setShowForm] = useState(false)
   const [editingId, setEditingId] = useState(null)
-  const [form, setForm] = useState({ name: '', color: '#6366f1', icon: 'MapPin' })
+  const [form, setForm] = useState({ name: '', color: '#276b64', icon: 'MapPin' })  // theme-lint-disable: default category color (data value)
   const [isSaving, setIsSaving] = useState(false)
   const [isLoading, setIsLoading] = useState(true)
   const colorInputRef = useRef(null)
@@ -47,7 +47,7 @@ export default function CategoryManager() {
 
   const handleStartCreate = () => {
     setEditingId(null)
-    setForm({ name: '', color: '#6366f1', icon: 'MapPin' })
+    setForm({ name: '', color: '#276b64', icon: 'MapPin' })  // theme-lint-disable: default category color (data value)
     setShowForm(true)
   }
 
@@ -71,7 +71,7 @@ export default function CategoryManager() {
         setShowForm(false)
         toast.success(t('categories.toast.created'))
       }
-      setForm({ name: '', color: '#6366f1', icon: 'MapPin' })
+      setForm({ name: '', color: '#276b64', icon: 'MapPin' })  // theme-lint-disable: default category color (data value)
     } catch (err: unknown) {
       toast.error(getApiErrorMessage(err, t('categories.toast.saveError')))
     } finally {
@@ -124,7 +124,7 @@ export default function CategoryManager() {
                   }`}
                   style={{ background: isSelected ? `${form.color}18` : undefined }}
                 >
-                  <Icon size={17} strokeWidth={1.8} color={isSelected ? form.color : '#374151'} />
+                  <Icon size={17} strokeWidth={1.8} color={isSelected ? form.color : 'var(--text-secondary)'} />
                 </button>
               )
             })}

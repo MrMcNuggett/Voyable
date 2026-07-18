@@ -376,7 +376,7 @@ function ViewNoteModal(S: NotesState) {
   return ReactDOM.createPortal(
     <div
       style={{
-        position: 'fixed', inset: 0, background: 'rgba(0,0,0,0.5)',
+        position: 'fixed', inset: 0, background: 'var(--overlay)',
         backdropFilter: 'blur(6px)', WebkitBackdropFilter: 'blur(6px)',
         display: 'flex', alignItems: 'center', justifyContent: 'center',
         zIndex: 10000, padding: 16,

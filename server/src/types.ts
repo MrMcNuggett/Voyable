@@ -22,6 +22,9 @@ export interface User {
   // Guest members (#1362): accountless trip participants. Flagged guests must never
   // authenticate or appear in the global user directory.
   is_guest?: number | boolean;
+  ai_planning_status?: 'none' | 'active' | 'canceled' | 'past_due';
+  ai_planning_provider_ref?: string | null;
+  ai_planning_current_period_end?: string | null;
   created_at?: string;
   updated_at?: string;
 }

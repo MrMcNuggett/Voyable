@@ -71,7 +71,7 @@ export default function CollectionHero({
                   ? <img key={m.user_id} className="col-av" src={avatarSrc(m.avatar)!} alt={m.username} />
                   : <span key={m.user_id} className="col-av" style={{ background: AV_COLORS[m.user_id % AV_COLORS.length] }}>{initials(m.username)}</span>
               ))}
-              {extra > 0 && <span className="col-av" style={{ background: 'rgba(255,255,255,.28)' }}>+{extra}</span>}
+              {extra > 0 && <span className="col-av" style={{ background: 'rgba(255,255,255,.28)' /* theme-lint-disable: translucent overflow chip on cover image */ }}>+{extra}</span>}
             </span>
           )}
           {links && links.length > 0 && (

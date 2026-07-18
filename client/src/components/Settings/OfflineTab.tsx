@@ -238,7 +238,7 @@ export default function OfflineTab(): React.ReactElement {
               </div>
             )}
             {!preparing && progress?.phase === 'done' && (
-              <div className="text-content-muted" style={{ display: 'flex', alignItems: 'center', gap: 6, fontSize: 'calc(12px * var(--fs-scale-body, 1))', marginTop: 10, color: '#10b981' }}>
+              <div className="text-content-muted" style={{ display: 'flex', alignItems: 'center', gap: 6, fontSize: 'calc(12px * var(--fs-scale-body, 1))', marginTop: 10, color: 'var(--success)' }}>
                 <Check size={14} /> {t('settings.offline.prepare.done')}
               </div>
             )}
@@ -337,7 +337,7 @@ export default function OfflineTab(): React.ReactElement {
             <button
               onClick={handleClear}
               disabled={clearing || rows.length === 0}
-              className="border border-edge bg-surface-secondary text-[#ef4444]"
+              className="border border-edge bg-surface-secondary text-[var(--danger)]"
               style={btnStyle(clearing || rows.length === 0)}
             >
               <Trash2 size={14} />

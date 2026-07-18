@@ -112,7 +112,7 @@ export default function BookingImportModal({ isOpen, onClose, tripId }: BookingI
 
   return ReactDOM.createPortal(
     <div
-      className="bg-[rgba(0,0,0,0.4)]"
+      className="bg-[var(--overlay)]"
       style={{ position: 'fixed', inset: 0, zIndex: 99999, display: 'flex', alignItems: 'center', justifyContent: 'center', padding: 16 }}
       onMouseDown={(e) => { mouseDownTarget.current = e.target }}
       onClick={(e) => {
@@ -176,7 +176,7 @@ export default function BookingImportModal({ isOpen, onClose, tripId }: BookingI
           </div>
 
           {error && (
-            <div className="bg-[rgba(239,68,68,0.08)] text-[#b91c1c]" style={{ border: '1px solid rgba(239,68,68,0.35)', borderRadius: 10, padding: '8px 10px', fontSize: 'calc(12px * var(--fs-scale-body, 1))', whiteSpace: 'pre-wrap', marginTop: 8 }}>
+            <div className="bg-[var(--danger-soft)] text-[var(--danger)]" style={{ border: '1px solid rgba(239,68,68,0.35)', borderRadius: 10, padding: '8px 10px', fontSize: 'calc(12px * var(--fs-scale-body, 1))', whiteSpace: 'pre-wrap', marginTop: 8 }}>
               {error}
             </div>
           )}

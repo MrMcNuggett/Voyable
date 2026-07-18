@@ -91,7 +91,7 @@ export default function GitHubPanel({ isPrerelease = false }: { isPrerelease?: b
         .replace(/`(.+?)`/g, '<code style="font-size:11px;padding:1px 4px;border-radius:4px;background:var(--bg-secondary)">$1</code>')
         .replace(/\[([^\]]+)\]\(([^)]+)\)/g, (_, label, url) => {
           const safeUrl = url.startsWith('http://') || url.startsWith('https://') ? url : '#'
-          return `<a href="${escapeHtml(safeUrl)}" target="_blank" rel="noopener noreferrer" style="color:#3b82f6;text-decoration:underline">${label}</a>`
+          return `<a href="${escapeHtml(safeUrl)}" target="_blank" rel="noopener noreferrer" style="color:var(--info);text-decoration:underline">${label}</a>`
         })
     }
 
@@ -140,8 +140,8 @@ export default function GitHubPanel({ isPrerelease = false }: { isPrerelease?: b
           onMouseEnter={e => { e.currentTarget.style.borderColor = '#ff5e5b'; e.currentTarget.style.boxShadow = '0 0 0 1px #ff5e5b22' }}
           onMouseLeave={e => { e.currentTarget.style.borderColor = 'var(--border-primary)'; e.currentTarget.style.boxShadow = 'none' }}
         >
-          <div className="bg-[#ff5e5b15]" style={{ width: 40, height: 40, borderRadius: 10, display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
-            <Coffee size={20} className="text-[#ff5e5b]" />
+          <div className="bg-[#ff5e5b15]" style={{ width: 40, height: 40, borderRadius: 10, display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>{/* theme-lint-disable: third-party brand color */}
+            <Coffee size={20} className="text-[#ff5e5b]" />{/* theme-lint-disable: third-party brand color */}
           </div>
           <div>
             <div className="text-sm font-semibold text-content">Ko-fi</div>
@@ -157,8 +157,8 @@ export default function GitHubPanel({ isPrerelease = false }: { isPrerelease?: b
           onMouseEnter={e => { e.currentTarget.style.borderColor = '#ffdd00'; e.currentTarget.style.boxShadow = '0 0 0 1px #ffdd0022' }}
           onMouseLeave={e => { e.currentTarget.style.borderColor = 'var(--border-primary)'; e.currentTarget.style.boxShadow = 'none' }}
         >
-          <div className="bg-[#ffdd0015]" style={{ width: 40, height: 40, borderRadius: 10, display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
-            <Heart size={20} className="text-[#ffdd00]" />
+          <div className="bg-[#ffdd0015]" style={{ width: 40, height: 40, borderRadius: 10, display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>{/* theme-lint-disable: third-party brand color */}
+            <Heart size={20} className="text-[#ffdd00]" />{/* theme-lint-disable: third-party brand color */}
           </div>
           <div>
             <div className="text-sm font-semibold text-content">Buy Me a Coffee</div>
@@ -174,7 +174,7 @@ export default function GitHubPanel({ isPrerelease = false }: { isPrerelease?: b
           onMouseEnter={e => { e.currentTarget.style.borderColor = '#5865F2'; e.currentTarget.style.boxShadow = '0 0 0 1px #5865F222' }}
           onMouseLeave={e => { e.currentTarget.style.borderColor = 'var(--border-primary)'; e.currentTarget.style.boxShadow = 'none' }}
         >
-          <div className="bg-[#5865F215]" style={{ width: 40, height: 40, borderRadius: 10, display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
+          <div className="bg-[#5865F215]" style={{ width: 40, height: 40, borderRadius: 10, display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>{/* theme-lint-disable: third-party brand color */}
             <svg width="20" height="20" viewBox="0 0 24 24" fill="#5865F2"><path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028c.462-.63.874-1.295 1.226-1.994a.076.076 0 0 0-.041-.106 13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.956-2.419 2.157-2.419 1.21 0 2.176 1.095 2.157 2.42 0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.095 2.157 2.42 0 1.333-.946 2.418-2.157 2.418z"/></svg>
           </div>
           <div>
@@ -194,8 +194,8 @@ export default function GitHubPanel({ isPrerelease = false }: { isPrerelease?: b
           onMouseEnter={e => { e.currentTarget.style.borderColor = '#ef4444'; e.currentTarget.style.boxShadow = '0 0 0 1px #ef444422' }}
           onMouseLeave={e => { e.currentTarget.style.borderColor = 'var(--border-primary)'; e.currentTarget.style.boxShadow = 'none' }}
         >
-          <div className="bg-[#ef444415]" style={{ width: 40, height: 40, borderRadius: 10, display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
-            <Bug size={20} className="text-[#ef4444]" />
+          <div className="bg-[#ef444415]" style={{ width: 40, height: 40, borderRadius: 10, display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>{/* theme-lint-disable: third-party brand color */}
+            <Bug size={20} className="text-[var(--danger)]" />
           </div>
           <div>
             <div className="text-sm font-semibold text-content">{t('settings.about.reportBug')}</div>
@@ -211,8 +211,8 @@ export default function GitHubPanel({ isPrerelease = false }: { isPrerelease?: b
           onMouseEnter={e => { e.currentTarget.style.borderColor = '#f59e0b'; e.currentTarget.style.boxShadow = '0 0 0 1px #f59e0b22' }}
           onMouseLeave={e => { e.currentTarget.style.borderColor = 'var(--border-primary)'; e.currentTarget.style.boxShadow = 'none' }}
         >
-          <div className="bg-[#f59e0b15]" style={{ width: 40, height: 40, borderRadius: 10, display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
-            <Lightbulb size={20} className="text-[#f59e0b]" />
+          <div className="bg-[#f59e0b15]" style={{ width: 40, height: 40, borderRadius: 10, display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>{/* theme-lint-disable: third-party brand color */}
+            <Lightbulb size={20} className="text-[var(--warning)]" />
           </div>
           <div>
             <div className="text-sm font-semibold text-content">{t('settings.about.featureRequest')}</div>
@@ -228,8 +228,8 @@ export default function GitHubPanel({ isPrerelease = false }: { isPrerelease?: b
           onMouseEnter={e => { e.currentTarget.style.borderColor = '#6366f1'; e.currentTarget.style.boxShadow = '0 0 0 1px #6366f122' }}
           onMouseLeave={e => { e.currentTarget.style.borderColor = 'var(--border-primary)'; e.currentTarget.style.boxShadow = 'none' }}
         >
-          <div className="bg-[#6366f115]" style={{ width: 40, height: 40, borderRadius: 10, display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
-            <BookOpen size={20} className="text-[#6366f1]" />
+          <div className="bg-[#6366f115]" style={{ width: 40, height: 40, borderRadius: 10, display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>{/* theme-lint-disable: third-party brand color */}
+            <BookOpen size={20} className="text-[#6366f1]" />{/* theme-lint-disable: third-party brand color */}
           </div>
           <div>
             <div className="text-sm font-semibold text-content">Wiki</div>
@@ -302,12 +302,12 @@ export default function GitHubPanel({ isPrerelease = false }: { isPrerelease?: b
                           {release.tag_name}
                         </span>
                         {isLatest && (
-                          <span className="text-[10px] font-semibold px-2 py-0.5 rounded-full bg-[rgba(34,197,94,0.12)] text-[#16a34a]">
+                          <span className="text-[10px] font-semibold px-2 py-0.5 rounded-full bg-[var(--success-soft)] text-[var(--success)]">
                             {t('admin.github.latest')}
                           </span>
                         )}
                         {release.prerelease && (
-                          <span className="text-[10px] font-semibold px-2 py-0.5 rounded-full bg-[rgba(245,158,11,0.12)] text-[#d97706]">
+                          <span className="text-[10px] font-semibold px-2 py-0.5 rounded-full bg-[var(--warning-soft)] text-[var(--warning)]">
                             {t('admin.github.prerelease')}
                           </span>
                         )}

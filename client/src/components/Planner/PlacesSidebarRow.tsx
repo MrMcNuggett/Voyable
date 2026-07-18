@@ -1,8 +1,13 @@
 import React from 'react'
-import { Plus, Check, Route } from 'lucide-react'
+import { Plus, Check, Route, BedDouble } from 'lucide-react'
 import PlaceAvatar from '../shared/PlaceAvatar'
 import { getCategoryIcon } from '../shared/categoryIcons'
 import type { Place, Category } from '../../types'
+
+// No fixed place-type enum exists — categories are per-trip and user-renamable.
+// This is a pragmatic name-based heuristic for "this place is accommodation",
+// not a stable classification; a renamed/localized category simply won't match.
+const STAY_CATEGORY_RE = /hotel|stay|unterkunft|lodging/i
 
 interface MemoPlaceRowProps {
   place: Place
@@ -22,15 +27,19 @@ interface MemoPlaceRowProps {
   toggleSelected: (id: number) => void
   setDayPickerPlace: (place: any) => void
   registerPlaceRow: (placeId: number, element: HTMLDivElement | null) => void
+  onComparePrices?: () => void
 }
 
 export const MemoPlaceRow = React.memo(function MemoPlaceRow({
   place, category: cat, isSelected, isPlanned, inDay, isChecked,
   selectMode, selectedDayId, canEditPlaces, isMobile, t,
   onPlaceClick, onContextMenu, onAssignToDay, toggleSelected, setDayPickerPlace, registerPlaceRow,
+  onComparePrices,
 }: MemoPlaceRowProps) {
   const hasGeometry = Boolean(place.route_geometry)
+  const isStay = onComparePrices && !!cat?.name && STAY_CATEGORY_RE.test(cat.name)
   return (
+    <div style={{ borderBottom: '1px solid var(--border-faint)' }}>
     <div
       key={place.id}
       ref={element => registerPlaceRow(place.id, element)}
@@ -55,10 +64,9 @@ export const MemoPlaceRow = React.memo(function MemoPlaceRow({
       onContextMenu={selectMode ? undefined : e => onContextMenu(e, place)}
       style={{
         display: 'flex', alignItems: 'center', gap: 10,
-        padding: '9px 14px 9px 16px',
+        padding: isStay ? '9px 14px 4px 16px' : '9px 14px 9px 16px',
         cursor: selectMode || isMobile ? 'pointer' : 'grab',
         background: isChecked ? 'color-mix(in srgb, var(--accent) 8%, transparent)' : isSelected ? 'var(--border-faint)' : 'transparent',
-        borderBottom: '1px solid var(--border-faint)',
         transition: 'background 0.1s',
         contentVisibility: 'auto',
         containIntrinsicSize: '0 52px',
@@ -111,6 +119,20 @@ export const MemoPlaceRow = React.memo(function MemoPlaceRow({
           ><Plus size={12} strokeWidth={2.5} /></button>
         )}
       </div>
+    </div>
+    {isStay && (
+      <button
+        onClick={e => { e.stopPropagation(); onComparePrices?.() }}
+        className="border border-edge bg-surface-hover text-content-secondary"
+        style={{
+          margin: '2px 14px 9px 58px', display: 'inline-flex', alignItems: 'center', gap: 5,
+          padding: '3px 9px', borderRadius: 99, fontSize: 'calc(10.5px * var(--fs-scale-caption, 1))',
+          fontWeight: 600, cursor: 'pointer', fontFamily: 'inherit',
+        }}
+      >
+        <BedDouble size={10} strokeWidth={2} /> {t('places.comparePrices')}
+      </button>
+    )}
     </div>
   )
 })

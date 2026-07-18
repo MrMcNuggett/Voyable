@@ -499,7 +499,7 @@ export function ActionButton({ onClick, variant, icon, label }: ActionButtonProp
   const base = {
     primary: { background: 'var(--accent)', color: 'var(--accent-text)', border: 'none', hoverBg: 'var(--text-secondary)' },
     ghost: { background: 'var(--bg-hover)', color: 'var(--text-secondary)', border: 'none', hoverBg: 'var(--bg-tertiary)' },
-    danger: { background: 'rgba(239,68,68,0.08)', color: '#dc2626', border: 'none', hoverBg: 'rgba(239,68,68,0.16)' },
+    danger: { background: 'var(--danger-soft)', color: 'var(--danger)', border: 'none', hoverBg: 'rgba(239,68,68,0.16)' },
   }
   const s = base[variant] || base.ghost
   return (
@@ -575,7 +575,7 @@ function ParticipantsBox({ tripMembers, participantIds, allJoined, onSetParticip
               onMouseEnter={() => setHoveredId(member.id)}
               onMouseLeave={() => setHoveredId(null)}
               onClick={() => { if (canRemove) handleRemove(member.id) }}
-              className={isHovered && canRemove ? 'bg-[rgba(239,68,68,0.06)] text-[#ef4444]' : 'bg-surface-hover text-content'}
+              className={isHovered && canRemove ? 'bg-[var(--danger-soft)] text-[var(--danger)]' : 'bg-surface-hover text-content'}
               style={{
                 display: 'flex', alignItems: 'center', gap: 4, padding: '2px 7px 2px 3px', borderRadius: 99,
                 border: `1.5px solid ${isHovered && canRemove ? 'rgba(239,68,68,0.4)' : 'var(--accent)'}`,
@@ -756,9 +756,9 @@ function PlaceReservationParticipants({ selectedAssignmentId, reservations, assi
                   const confirmed = res.status === 'confirmed'
                   return (
                     <div style={{ borderRadius: 12, overflow: 'hidden', border: `1px solid ${confirmed ? 'rgba(22,163,74,0.2)' : 'rgba(217,119,6,0.2)'}` }}>
-                      <div className={confirmed ? 'bg-[rgba(22,163,74,0.08)]' : 'bg-[rgba(217,119,6,0.08)]'} style={{ display: 'flex', alignItems: 'center', gap: 8, padding: '6px 10px' }}>
-                        <div className={confirmed ? 'bg-[#16a34a]' : 'bg-[#d97706]'} style={{ width: 6, height: 6, borderRadius: '50%', flexShrink: 0 }} />
-                        <span className={confirmed ? 'text-[#16a34a]' : 'text-[#d97706]'} style={{ fontSize: 'calc(10px * var(--fs-scale-caption, 1))', fontWeight: 700 }}>{confirmed ? t('reservations.confirmed') : t('reservations.pending')}</span>
+                      <div className={confirmed ? 'bg-[var(--success-soft)]' : 'bg-[var(--warning-soft)]'} style={{ display: 'flex', alignItems: 'center', gap: 8, padding: '6px 10px' }}>
+                        <div className={confirmed ? 'bg-[var(--success)]' : 'bg-[var(--warning)]'} style={{ width: 6, height: 6, borderRadius: '50%', flexShrink: 0 }} />
+                        <span className={confirmed ? 'text-[var(--success)]' : 'text-[var(--warning)]'} style={{ fontSize: 'calc(10px * var(--fs-scale-caption, 1))', fontWeight: 700 }}>{confirmed ? t('reservations.confirmed') : t('reservations.pending')}</span>
                         <span style={{ flex: 1 }} />
                         <span className="text-content" style={{ fontSize: 'calc(11px * var(--fs-scale-caption, 1))', fontWeight: 600, overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>{res.title}</span>
                       </div>

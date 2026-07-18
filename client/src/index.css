@@ -144,6 +144,30 @@ html.dark button[class*="text-slate-600"][class*="border-slate-200"]:hover { bac
 html.dark .border-dashed.border-gray-300 { border-color: var(--border-primary) !important; }
 html.dark .bg-slate-50\/60, html.dark [class*="bg-slate-50/"] { background-color: transparent !important; }
 
+/* ── Voyable light-scheme neutral bridge ──────────────────────────
+   The mirror of the dark shim above, for LIGHT mode: TREK's original light
+   design used raw slate/gray/zinc utility classes. Under the Voyable reskin
+   the light scheme is stone/ink, so redirect those neutral utilities to the
+   semantic tokens app-wide — the same low-risk, cascade-everywhere pattern the
+   dark shim uses. Scoped to html:not(.dark) so it never fights the dark shim.
+   Genuine data/category colors (mood, day, place-category, chart series) don't
+   use these neutral scales, so they're untouched. Migrate components to tokens
+   over time and this bridge shrinks. */
+html:not(.dark) :is(.bg-slate-50, .bg-gray-50, .bg-zinc-50, .bg-neutral-50) { background-color: var(--bg-secondary) !important; }
+html:not(.dark) :is(.bg-slate-100, .bg-gray-100, .bg-zinc-100, .bg-neutral-100) { background-color: var(--bg-tertiary) !important; }
+html:not(.dark) :is(.bg-slate-200, .bg-gray-200, .bg-zinc-200, .bg-neutral-200) { background-color: var(--bg-selected) !important; }
+html:not(.dark) :is(.text-slate-900, .text-gray-900, .text-zinc-900, .text-neutral-900, .text-slate-950, .text-gray-950, .text-zinc-950) { color: var(--text-primary) !important; }
+html:not(.dark) :is(.text-slate-800, .text-gray-800, .text-zinc-800, .text-neutral-800, .text-slate-700, .text-gray-700, .text-zinc-700, .text-neutral-700) { color: var(--text-secondary) !important; }
+html:not(.dark) :is(.text-slate-600, .text-gray-600, .text-zinc-600, .text-neutral-600, .text-slate-500, .text-gray-500, .text-zinc-500, .text-neutral-500) { color: var(--text-muted) !important; }
+html:not(.dark) :is(.text-slate-400, .text-gray-400, .text-zinc-400, .text-neutral-400, .text-slate-300, .text-gray-300, .text-zinc-300, .text-neutral-300) { color: var(--text-faint) !important; }
+html:not(.dark) :is(.border-slate-100, .border-gray-100, .border-zinc-100, .border-neutral-100, .border-slate-200, .border-gray-200, .border-zinc-200, .border-neutral-200) { border-color: var(--border-secondary) !important; }
+html:not(.dark) :is(.border-slate-300, .border-gray-300, .border-zinc-300, .border-neutral-300, .border-slate-400, .border-gray-400, .border-zinc-400, .border-neutral-400) { border-color: var(--border-primary) !important; }
+html:not(.dark) :is(.divide-slate-100, .divide-gray-100, .divide-zinc-100) > :not([hidden]) ~ :not([hidden]) { border-color: var(--border-secondary) !important; }
+html:not(.dark) :is(.divide-slate-200, .divide-gray-200, .divide-zinc-200) > :not([hidden]) ~ :not([hidden]) { border-color: var(--border-primary) !important; }
+html:not(.dark) :is(.hover\:bg-slate-50, .hover\:bg-gray-50, .hover\:bg-zinc-50, .hover\:bg-slate-100, .hover\:bg-gray-100, .hover\:bg-zinc-100):hover { background-color: var(--bg-hover) !important; }
+html:not(.dark) :is(.hover\:text-slate-900, .hover\:text-gray-900, .hover\:text-zinc-900):hover { color: var(--text-primary) !important; }
+html:not(.dark) :is(.hover\:border-slate-300, .hover\:border-gray-300, .hover\:border-zinc-300):hover { border-color: var(--border-primary) !important; }
+
 /* Reorder buttons: desktop = original style; mobile = always visible, larger touch targets */
 .reorder-buttons {
   flex-direction: column;
@@ -450,74 +474,104 @@ input[type="number"], input[type="time"], input[type="date"], input[type="dateti
   --safe-top: env(safe-area-inset-top, 0px);
   --nav-h: 0px;
   --bottom-nav-h: 0px;
-  --font-system: 'Poppins', -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Segoe UI', system-ui, sans-serif;
-  /* Secondary "subtext"/caption tier renders in Geist; primary text + headings stay Poppins. */
-  --font-subtext: 'Geist Sans', 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+  /* ── Voyable Design System type roles ─────────────────────────────
+     Body/UI = Plus Jakarta Sans (400–700). Display/headlines = Bricolage
+     Grotesque (600–800). Data/mono = JetBrains Mono (dates, day numbers,
+     prices, coordinates). Replaces the earlier Poppins/Geist pairing. */
+  --font-system: 'Plus Jakarta Sans', ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-display: 'Bricolage Grotesque', 'Plus Jakarta Sans', ui-sans-serif, system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, 'SFMono-Regular', 'SF Mono', monospace;
+  /* Legacy alias — TREK's "subtext"/caption tier now shares the body family. */
+  --font-subtext: var(--font-system);
   --sp-1: 4px;
   --sp-2: 8px;
   --sp-3: 12px;
   --sp-4: 16px;
   --sp-6: 24px;
+  /* Radius — Voyable soft-rounded scale (no sharp corners anywhere). */
   --radius-sm: 8px;
   --radius-md: 12px;
   --radius-lg: 16px;
-  --radius-xl: 20px;
-  --shadow-card: 0 1px 3px rgba(0,0,0,0.08), 0 1px 2px rgba(0,0,0,0.04);
-  --shadow-elevated: 0 4px 16px rgba(0,0,0,0.1);
+  --radius-xl: 22px;
+  --radius-2xl: 28px;
+  --radius-full: 999px;
+  /* Shadows — soft, stone-tinted (rgba(32,36,35,…)), never pure black. */
+  --shadow-card: 0 1px 2px rgba(32,36,35,.06), 0 1px 1px rgba(32,36,35,.04);
+  --shadow-elevated: 0 4px 12px rgba(32,36,35,.08), 0 1px 2px rgba(32,36,35,.05);
 
-  /* Theme colors */
-  --bg-primary: #ffffff;
-  --bg-secondary: #f8fafc;
-  --bg-tertiary: #f1f5f9;
-  --bg-elevated: rgba(250,250,250,0.82);
-  --bg-card: #ffffff;
+  /* ── Voyable raw palette (source of truth: design-system/tokens) ──
+     Petrol (primary), olive (secondary), amber (route/map/warning ONLY),
+     stone (surfaces/borders), ink (text/dark accents). Semantic tokens below
+     alias onto these; components should prefer the semantic tokens. */
+  --stone-50:#fbfbfa; --stone-100:#f1f2ef; --stone-200:#e6e7e2; --stone-300:#d5d7d0;
+  --ink-900:#20241f; --ink-800:#333d37; --ink-700:#4b564f; --ink-600:#66716a;
+  --ink-500:#828d85; --ink-400:#a3aca5; --ink-300:#c3cac3; --ink-200:#dcdfda;
+  --petrol-50:#eaf2f1; --petrol-100:#cde3e0; --petrol-200:#9fc9c4; --petrol-300:#6dada6;
+  --petrol-400:#3f8d85; --petrol-500:#276b64; --petrol-600:#1c514c; --petrol-700:#143a37; --petrol-800:#0d2725;
+  --olive-50:#f6f4e9; --olive-100:#eae3c5; --olive-200:#d7c98f; --olive-300:#bfab5f; --olive-400:#9c8a44;
+  --amber-50:#fbf1e3; --amber-100:#f5dcb2; --amber-300:#dc9a4c; --amber-400:#c98736; --amber-500:#b9752c; --amber-700:#8a561f;
+  /* Amber is reserved for route lines, map pins and warning state — never brand UI. */
+  --accent-route: var(--amber-500);
+  --accent-route-subtle: var(--amber-50);
+
+  /* Theme colors — Voyable light scheme (the only Voyable scheme; dark stays a
+     TREK feature, harmonized below). Page = stone, cards = raised stone/white,
+     text = cool ink, accent = petrol. */
+  --bg-primary: #f1f2ef;               /* page surface — airy stone, not white */
+  --bg-secondary: #fbfbfa;             /* raised subtle fill */
+  --bg-tertiary: #e6e7e2;              /* sunken fill */
+  --bg-elevated: rgba(251,251,250,0.85);
+  --bg-card: #ffffff;                  /* crisp cards on the stone page */
   --bg-input: #ffffff;
-  --bg-hover: rgba(0,0,0,0.03);
-  --bg-selected: #e2e8f0;
-  --text-primary: #111827;
-  --text-secondary: #374151;
-  --text-muted: #6b7280;
-  --text-faint: #9ca3af;
-  --border-primary: #e5e7eb;
-  --border-secondary: #f3f4f6;
-  --border-faint: rgba(0,0,0,0.06);
-  --accent: #111827;
-  --accent-text: #ffffff;
-  --sidebar-bg: rgba(250,250,250,0.82);
-  --sidebar-shadow: 0 4px 32px rgba(0,0,0,0.10), 0 0 0 1px rgba(0,0,0,0.06);
-  --tooltip-bg: rgba(255,255,255,0.96);
-  --scrollbar-track: #f1f5f9;
-  --scrollbar-thumb: #d1d5db;
-  --scrollbar-hover: #9ca3af;
+  --bg-hover: rgba(32,36,35,0.04);     /* stone-tinted hover, never grey/black */
+  --bg-selected: #eaf2f1;              /* petrol-50 selected tint */
+  --text-primary: #20241f;             /* ink-900 */
+  --text-secondary: #4b564f;           /* ink-700 */
+  --text-muted: #828d85;               /* ink-500 */
+  --text-faint: #a3aca5;               /* ink-400 */
+  --border-primary: #d5d7d0;           /* stone-300 */
+  --border-secondary: #e6e7e2;         /* stone-200 */
+  --border-faint: rgba(32,36,35,0.06);
+  --accent: #276b64;                   /* petrol-500 — Voyable primary */
+  --accent-text: #fbfbfa;              /* text/icon on an accent fill */
+  --sidebar-bg: rgba(251,251,250,0.85);
+  --sidebar-shadow: 0 4px 32px rgba(32,36,35,0.10), 0 0 0 1px rgba(32,36,35,0.06);
+  --tooltip-bg: rgba(251,251,250,0.96);
+  --scrollbar-track: #e6e7e2;
+  --scrollbar-thumb: #c3cac3;
+  --scrollbar-hover: #a3aca5;
 
   /* ── Extended semantic tokens (appearance platform) ──────────────
      Accent variants + status/shadow/overlay/inverse + per-tier type scales.
      Additive: nothing consumes these until components migrate to them, so
      defining them is visually inert. Colored schemes override --accent* via
      [data-scheme]; status/shadow/inverse stay scheme-independent. */
-  --accent-on: var(--accent);       /* accent as text/icon/border on a surface */
-  --accent-hover: #1f2937;          /* hover state of an accent fill */
-  --accent-subtle: #f1f5f9;         /* faint accent-tinted surface (chips, selected) */
+  --accent-on: #1c514c;             /* petrol-600 — accent as text/icon/border on a surface */
+  --accent-hover: #1c514c;          /* petrol-600 — hover state of an accent fill */
+  --accent-subtle: #eaf2f1;         /* petrol-50 — faint accent-tinted surface (chips, selected) */
 
   --fs-scale-title: 1;
   --fs-scale-subtitle: 1;
   --fs-scale-body: 1;
   --fs-scale-caption: 1;
 
-  --success: #16a34a;  --success-soft: #dcfce7;
-  --danger:  #dc2626;  --danger-soft:  #fef2f2;
-  --warning: #d97706;  --warning-soft: #fffbeb;
-  --info:    #2563eb;  --info-soft:    #eff6ff;
+  /* Status — Voyable semantic palette (warning shares the amber route family). */
+  --success: #4f7d4a;  --success-soft: #eef4ea;
+  --danger:  #b3402c;  --danger-soft:  #f8e1da;
+  --warning: #c98736;  --warning-soft: #fbf1e3;
+  --info:    #4a7c94;  --info-soft:    #eaf1f4;
 
-  --bg-inverse: #111827;  --text-inverse: #ffffff;
-  --overlay: rgba(0, 0, 0, 0.5);
+  /* Inverse pill surface — dark petrol (not near-black). */
+  --bg-inverse: #143a37;  --text-inverse: #fbfbfa;
+  --overlay: rgba(20, 24, 20, 0.5);
 
-  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
-  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.08);
-  --shadow-lg: 0 12px 32px rgba(0, 0, 0, 0.12);
-  --shadow-modal: 0 16px 48px rgba(0, 0, 0, 0.20);
-  --shadow-dropdown: 0 8px 24px rgba(0, 0, 0, 0.12);
-  --shadow-popover: 0 8px 32px rgba(0, 0, 0, 0.18);
+  /* Soft, stone-tinted elevation. */
+  --shadow-sm: 0 1px 2px rgba(32,36,35,.06), 0 1px 1px rgba(32,36,35,.04);
+  --shadow-md: 0 4px 12px rgba(32,36,35,.08), 0 1px 2px rgba(32,36,35,.05);
+  --shadow-lg: 0 12px 32px rgba(32,36,35,.12), 0 2px 6px rgba(32,36,35,.06);
+  --shadow-modal: 0 16px 48px rgba(32,36,35,.20);
+  --shadow-dropdown: 0 8px 24px rgba(32,36,35,.12);
+  --shadow-popover: 0 8px 32px rgba(32,36,35,.18);
 
   /* Journey design tokens */
   --journal-bg: #FAFAFA;
@@ -558,8 +612,10 @@ input[type="number"], input[type="time"], input[type="date"], input[type="dateti
   --border-primary: #27272a;
   --border-secondary: #1c1c21;
   --border-faint: rgba(255,255,255,0.07);
-  --accent: #e4e4e7;
-  --accent-text: #09090b;
+  /* Dark stays a TREK feature (Voyable itself is light-only); the accent is
+     harmonized to petrol so brand color carries across schemes. */
+  --accent: #6dada6;                 /* petrol-300 — legible on dark surfaces */
+  --accent-text: #0d2725;            /* petrol-800 text on the light-petrol fill */
   --sidebar-bg: rgba(19,19,22,0.82);
   --sidebar-shadow: 0 4px 32px rgba(0,0,0,0.4), 0 0 0 1px rgba(255,255,255,0.05);
   --tooltip-bg: rgba(19,19,22,0.96);
@@ -568,14 +624,14 @@ input[type="number"], input[type="time"], input[type="date"], input[type="dateti
   --scrollbar-hover: #52525b;
 
   /* Extended semantic tokens (dark) */
-  --accent-on: var(--accent);
-  --accent-hover: #d4d4d8;
-  --accent-subtle: rgba(255, 255, 255, 0.08);
+  --accent-on: #9fc9c4;              /* petrol-200 — accent as text/icon on dark */
+  --accent-hover: #3f8d85;           /* petrol-400 */
+  --accent-subtle: rgba(63, 141, 133, 0.20);
 
-  --success: #22c55e;  --success-soft: rgba(34, 197, 94, 0.15);
-  --danger:  #ef4444;  --danger-soft:  rgba(239, 68, 68, 0.15);
-  --warning: #f59e0b;  --warning-soft: rgba(245, 158, 11, 0.15);
-  --info:    #3b82f6;  --info-soft:    rgba(59, 130, 246, 0.15);
+  --success: #6aa06a;  --success-soft: rgba(79, 125, 74, 0.18);
+  --danger:  #cf5a44;  --danger-soft:  rgba(179, 64, 44, 0.20);
+  --warning: #dc9a4c;  --warning-soft: rgba(201, 135, 54, 0.18);
+  --info:    #6a9db2;  --info-soft:    rgba(74, 124, 148, 0.18);
 
   --bg-inverse: #e4e4e7;  --text-inverse: #09090b;
   --overlay: rgba(0, 0, 0, 0.6);
@@ -725,6 +781,42 @@ html[data-scheme]:not([data-scheme="default"])
   border-color: var(--accent) !important;
 }
 
+/* ── Voyable default-scheme accent bridge (light only) ────────────
+   With the Voyable reskin the DEFAULT scheme is a real brand color (petrol),
+   not the old monochrome black — so redirect the un-migrated hardcoded
+   "primary/black" action surfaces and raw indigo accents to petrol here too,
+   the same way the colored-scheme bridge above does. Light mode only: dark
+   keeps TREK's tested inverse pill behavior (near-black → near-white). This
+   is what carries the petrol reskin across the ~19 screens whose primary
+   buttons/badges still use bg-slate-900 / bg-black / indigo utility classes. */
+html:not(.dark):not([data-scheme]) :is(.bg-slate-900, .bg-gray-900, .bg-zinc-900, .bg-neutral-900, .bg-black),
+html:not(.dark)[data-scheme="default"] :is(.bg-slate-900, .bg-gray-900, .bg-zinc-900, .bg-neutral-900, .bg-black) {
+  background-color: var(--accent) !important;
+  color: var(--accent-text) !important;
+}
+html:not(.dark):not([data-scheme]) :is(.bg-slate-900, .bg-gray-900, .bg-zinc-900, .bg-neutral-900, .bg-black):hover,
+html:not(.dark)[data-scheme="default"] :is(.bg-slate-900, .bg-gray-900, .bg-zinc-900, .bg-neutral-900, .bg-black):hover {
+  background-color: var(--accent-hover) !important;
+}
+html:not(.dark):not([data-scheme]) :is(.hover\:bg-slate-900, .hover\:bg-slate-800, .hover\:bg-slate-700, .hover\:bg-gray-900, .hover\:bg-gray-800, .hover\:bg-black):hover,
+html:not(.dark)[data-scheme="default"] :is(.hover\:bg-slate-900, .hover\:bg-slate-800, .hover\:bg-slate-700, .hover\:bg-gray-900, .hover\:bg-gray-800, .hover\:bg-black):hover {
+  background-color: var(--accent-hover) !important;
+  color: var(--accent-text) !important;
+}
+html:not(.dark):not([data-scheme]) :is(.bg-indigo-500, .bg-indigo-600, .bg-indigo-700),
+html:not(.dark)[data-scheme="default"] :is(.bg-indigo-500, .bg-indigo-600, .bg-indigo-700) {
+  background-color: var(--accent) !important;
+  color: var(--accent-text) !important;
+}
+html:not(.dark):not([data-scheme]) :is(.text-indigo-400, .text-indigo-500, .text-indigo-600, .text-indigo-700),
+html:not(.dark)[data-scheme="default"] :is(.text-indigo-400, .text-indigo-500, .text-indigo-600, .text-indigo-700) {
+  color: var(--accent-on) !important;
+}
+html:not(.dark):not([data-scheme]) :is(.border-indigo-500, .border-indigo-600, .ring-indigo-500, .ring-indigo-600),
+html:not(.dark)[data-scheme="default"] :is(.border-indigo-500, .border-indigo-600, .ring-indigo-500, .ring-indigo-600) {
+  border-color: var(--accent) !important;
+}
+
 /* ── Transparency off (data-no-transparency) ──────────────────────
    Solidify the alpha-bearing surface tokens, flatten the dashboard liquid-glass,
    and disable backdrop blur app-wide so content over the map is fully opaque
@@ -797,10 +889,19 @@ body {
   transition: background-color 0.2s, color 0.2s;
 }
 
-/* Subtext tier in Geist. The faint text token is TREK's caption/secondary tier;
-   a direct rule on the element beats the Poppins inherited from wrapper styles,
-   giving the design's "Geist text · Poppins numbers" hierarchy. */
 .text-content-faint { font-family: var(--font-subtext); }
+
+/* ── Voyable type roles ───────────────────────────────────────────
+   Display family (Bricolage Grotesque) for headlines + hero numerals; data
+   family (JetBrains Mono) for the .mono metadata class used across the app
+   (dates, day numbers, prices, coordinates). Utility classes let components
+   opt in explicitly where the cascade doesn't reach. */
+h1, h2,
+.font-display,
+.hero-title,
+.hero-number { font-family: var(--font-display); letter-spacing: -0.02em; }
+.mono,
+.font-mono { font-family: var(--font-mono); font-feature-settings: 'tnum'; }
 
 /* ── Marker cluster custom styling ────────────── */
 .marker-cluster-wrapper {

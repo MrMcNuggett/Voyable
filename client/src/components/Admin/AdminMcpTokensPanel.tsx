@@ -213,7 +213,7 @@ export default function AdminMcpTokensPanel() {
 
       {/* Revoke OAuth session modal */}
       {revokeConfirmId !== null && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-[rgba(0,0,0,0.5)]"
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-[var(--overlay)]"
           onClick={e => { if (e.target === e.currentTarget) setRevokeConfirmId(null) }}>
           <div className="rounded-xl shadow-xl w-full max-w-sm p-6 space-y-4 bg-surface-card">
             <h3 className="text-base font-semibold text-content">{t('admin.oauthSessions.revokeTitle')}</h3>
@@ -234,7 +234,7 @@ export default function AdminMcpTokensPanel() {
 
       {/* Delete MCP token modal */}
       {deleteConfirmId !== null && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-[rgba(0,0,0,0.5)]"
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-[var(--overlay)]"
           onClick={e => { if (e.target === e.currentTarget) setDeleteConfirmId(null) }}>
           <div className="rounded-xl shadow-xl w-full max-w-sm p-6 space-y-4 bg-surface-card">
             <h3 className="text-base font-semibold text-content">{t('admin.mcpTokens.deleteTitle')}</h3>

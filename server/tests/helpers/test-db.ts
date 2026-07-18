@@ -96,6 +96,9 @@ const RESET_TABLES = [
   'audit_log',
   // System notices
   'user_notice_dismissals',
+  // Subscription/billing (#paddle-billing)
+  'subscription_events',
+  'ai_planning_usage',
   // User data
   'settings',
   'mcp_tokens',

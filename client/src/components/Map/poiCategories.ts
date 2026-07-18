@@ -12,14 +12,14 @@ export interface PoiCategory {
 }
 
 export const POI_CATEGORIES: PoiCategory[] = [
-  { key: 'restaurant', labelKey: 'poi.cat.restaurants', Icon: Utensils, color: '#EF4444' },
-  { key: 'cafe', labelKey: 'poi.cat.cafes', Icon: Coffee, color: '#B45309' },
-  { key: 'bar', labelKey: 'poi.cat.bars', Icon: Wine, color: '#A855F7' },
-  { key: 'hotel', labelKey: 'poi.cat.hotels', Icon: BedDouble, color: '#2563EB' },
-  { key: 'sights', labelKey: 'poi.cat.sights', Icon: Camera, color: '#EC4899' },
-  { key: 'museum', labelKey: 'poi.cat.museums', Icon: Landmark, color: '#6366F1' },
-  { key: 'nature', labelKey: 'poi.cat.nature', Icon: Trees, color: '#16A34A' },
-  { key: 'activity', labelKey: 'poi.cat.activities', Icon: Ticket, color: '#F59E0B' },
+  { key: 'restaurant', labelKey: 'poi.cat.restaurants', Icon: Utensils, color: 'var(--danger)' },
+  { key: 'cafe', labelKey: 'poi.cat.cafes', Icon: Coffee, color: 'var(--warning)' },
+  { key: 'bar', labelKey: 'poi.cat.bars', Icon: Wine, color: '#A855F7' },  // theme-lint-disable: intentional data/category color
+  { key: 'hotel', labelKey: 'poi.cat.hotels', Icon: BedDouble, color: 'var(--info)' },
+  { key: 'sights', labelKey: 'poi.cat.sights', Icon: Camera, color: '#EC4899' },  // theme-lint-disable: intentional data/category color
+  { key: 'museum', labelKey: 'poi.cat.museums', Icon: Landmark, color: '#6366F1' },  // theme-lint-disable: intentional data/category color
+  { key: 'nature', labelKey: 'poi.cat.nature', Icon: Trees, color: 'var(--success)' },
+  { key: 'activity', labelKey: 'poi.cat.activities', Icon: Ticket, color: 'var(--warning)' },
 ]
 
 export const POI_CATEGORY_BY_KEY: Record<string, PoiCategory> = Object.fromEntries(

@@ -77,7 +77,7 @@ export function PlacesSelectionBar(S: SidebarState) {
         }}
         disabled={selectedIds.size === 0}
         aria-label={t('places.deleteSelected')}
-        className={selectedIds.size > 0 ? 'bg-transparent text-[#ef4444]' : 'bg-transparent text-content-faint'}
+        className={selectedIds.size > 0 ? 'bg-transparent text-[var(--danger)]' : 'bg-transparent text-content-faint'}
         style={{
           display: 'flex', alignItems: 'center', justifyContent: 'center',
           width: 24, height: 24, borderRadius: 6, border: 'none',

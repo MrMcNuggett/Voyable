@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+
+<helmet>
+  <link rel="stylesheet" href="_ds/voyable-design-system-20d63b1d-fb41-47b0-8049-741c2094f669/tokens/fonts.css">
+  <link rel="stylesheet" href="_ds/voyable-design-system-20d63b1d-fb41-47b0-8049-741c2094f669/tokens/colors.css">
+  <link rel="stylesheet" href="_ds/voyable-design-system-20d63b1d-fb41-47b0-8049-741c2094f669/tokens/typography.css">
+  <link rel="stylesheet" href="_ds/voyable-design-system-20d63b1d-fb41-47b0-8049-741c2094f669/tokens/spacing.css">
+  <link rel="stylesheet" href="_ds/voyable-design-system-20d63b1d-fb41-47b0-8049-741c2094f669/tokens/effects.css">
+  <link rel="stylesheet" href="_ds/voyable-design-system-20d63b1d-fb41-47b0-8049-741c2094f669/styles.css">
+  <script src="_ds/voyable-design-system-20d63b1d-fb41-47b0-8049-741c2094f669/_ds_bundle.js"></script>
+  <style>
+    html,body{margin:0;background:var(--surface-page);}
+    *{box-sizing:border-box;}
+    a{color:var(--accent-primary);text-decoration:none;}
+    a:hover{color:var(--accent-primary-hover);}
+  </style>
+</helmet>
+
+<div style="font-family:var(--font-sans);color:var(--text-primary);min-height:100vh;">
+  <nav style="height:64px;display:flex;align-items:center;padding:0 24px;gap:10px;background:color-mix(in oklch, var(--surface-raised) 92%, transparent);backdrop-filter:blur(16px);border-bottom:1px solid var(--border-subtle);">
+    <svg width="26" height="26" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="11" fill="var(--petrol-500)"/><path d="M12 6c-2.2 0-4 1.7-4 4 0 3 4 8 4 8s4-5 4-8c0-2.3-1.8-4-4-4Zm0 5.5A1.5 1.5 0 1 1 12 8.5a1.5 1.5 0 0 1 0 3Z" fill="var(--stone-50)"/></svg>
+    <span style="font-family:var(--font-display);font-weight:700;font-size:var(--text-xl);letter-spacing:-0.01em;">voyable</span>
+    <div style="flex:1;"></div>
+    <a href="Voyable - Dashboard.dc.html" style="font-size:13px;font-weight:600;color:var(--text-secondary);">Back to dashboard</a>
+  </nav>
+
+  <div style="max-width:980px;margin:0 auto;padding:64px 28px 96px;text-align:center;">
+    <h1 style="margin:0 0 12px;font-family:var(--font-display);font-size:40px;font-weight:700;letter-spacing:-0.02em;">Plan free. Get help when you want it.</h1>
+    <p style="margin:0 0 48px;font-size:15px;color:var(--text-secondary);max-width:520px;margin-left:auto;margin-right:auto;line-height:var(--leading-relaxed);">The trip planner carries no paywall, ever. These are optional add-ons for when you want more.</p>
+
+    <div style="display:flex;justify-content:center;gap:20px;flex-wrap:wrap;align-items:stretch;">
+
+      <div style="width:260px;padding:28px 24px;border-radius:var(--radius-xl);background:var(--surface-raised);border:1px solid var(--border-subtle);box-shadow:var(--shadow-sm);display:flex;flex-direction:column;gap:16px;text-align:left;">
+        <div style="font-family:var(--font-display);font-weight:700;font-size:var(--text-lg);">Planner</div>
+        <div style="display:flex;align-items:baseline;gap:4px;"><span style="font-family:var(--font-display);font-weight:800;font-size:var(--text-4xl);">Free</span></div>
+        <div style="font-size:var(--text-sm);color:var(--text-secondary);">Routes, days, budgets, and collaboration — no catch.</div>
+        <div style="display:flex;flex-direction:column;gap:10px;margin-top:4px;">
+          <div style="display:flex;gap:8px;align-items:center;font-size:var(--text-sm);"><span style="color:var(--accent-route);">✓</span>Unlimited trips &amp; places</div>
+          <div style="display:flex;gap:8px;align-items:center;font-size:var(--text-sm);"><span style="color:var(--accent-route);">✓</span>Day-by-day route planning</div>
+          <div style="display:flex;gap:8px;align-items:center;font-size:var(--text-sm);"><span style="color:var(--accent-route);">✓</span>Budget splitting &amp; collaboration</div>
+        </div>
+        <button disabled style="margin-top:8px;height:44px;border-radius:var(--radius-full);border:1.5px solid var(--border-default);background:none;color:var(--text-muted);font-weight:600;font-size:var(--text-sm);cursor:default;">Always included</button>
+      </div>
+
+      <x-import component-from-global-scope="VoyableDesignSystem_20d63b.PricingCard" hint-size="260px,420px" tier="AI planning" price="9" period="/ month" description="AI-generated route and day suggestions for any trip." features="{{ aiFeatures }}" cta-label="Start subscription"></x-import>
+
+      <x-import component-from-global-scope="VoyableDesignSystem_20d63b.PricingCard" hint-size="260px,420px" tier="Advisory" price="79" period="/ request" description="A real person plans or refines a trip with you." features="{{ advisoryFeatures }}" featured="{{ true }}" cta-label="Request advisory"></x-import>
+    </div>
+
+    <div style="margin-top:56px;padding-top:32px;border-top:1px solid var(--border-subtle);text-align:left;max-width:640px;margin-left:auto;margin-right:auto;">
+      <h2 style="font-family:var(--font-display);font-size:18px;font-weight:700;margin:0 0 14px;">Also worth knowing</h2>
+      <div style="display:flex;flex-direction:column;gap:14px;">
+        <div style="display:flex;gap:12px;">
+          <div style="width:34px;height:34px;border-radius:10px;background:var(--petrol-50);color:var(--accent-primary);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 4v16"/><path d="M2 8h18a2 2 0 0 1 2 2v10"/><path d="M2 17h20"/><path d="M6 8v9"/></svg>
+          </div>
+          <div style="font-size:13.5px;color:var(--text-secondary);line-height:var(--leading-relaxed);"><strong style="color:var(--text-primary);">Hotel search</strong> compares prices across booking partners for free — Voyable earns an affiliate commission, separate from advisory and never tied to a personal recommendation.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  renderVals() {
+    return {
+      aiFeatures: ['AI route generation', 'Smart day balancing', 'Unlimited regenerations', 'Cancel anytime'],
+      advisoryFeatures: ['1:1 with a travel advisor', 'Full itinerary review', 'Commission-free picks', 'Delivered in 3 days'],
+    };
+  }
+}
+
+</script>
+</body>
+</html>

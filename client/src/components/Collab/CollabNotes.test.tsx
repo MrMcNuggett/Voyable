@@ -197,7 +197,7 @@ describe('CollabNotes', () => {
     // Deleting now asks for confirmation first — the note stays until confirmed.
     expect(screen.getByText('Delete note?')).toBeInTheDocument();
     expect(screen.getByText('Remove Me')).toBeInTheDocument();
-    await user.click(document.querySelector('button.bg-red-600') as HTMLElement);
+    await user.click(document.querySelector('button.bg-danger') as HTMLElement);
     await waitFor(() => expect(screen.queryByText('Remove Me')).not.toBeInTheDocument());
   });
 

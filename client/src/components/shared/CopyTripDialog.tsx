@@ -42,7 +42,7 @@ export default function CopyTripDialog({ isOpen, tripTitle, onClose, onConfirm }
 
   return ReactDOM.createPortal(
     <div
-      className="fixed inset-0 z-[10000] flex items-center justify-center px-4 trek-backdrop-enter bg-[rgba(15,23,42,0.5)]"
+      className="fixed inset-0 z-[10000] flex items-center justify-center px-4 trek-backdrop-enter bg-[var(--overlay)]"
       style={{ paddingBottom: 'var(--bottom-nav-h)' }}
       onClick={onClose}
     >
@@ -59,13 +59,13 @@ export default function CopyTripDialog({ isOpen, tripTitle, onClose, onConfirm }
 
         <div className="flex flex-col gap-3">
           <div className="rounded-xl p-3 border border-edge-secondary" style={{ background: 'var(--bg-subtle)' }}>
-            <p className="text-xs font-semibold uppercase tracking-wide mb-2 text-[#16a34a]">
+            <p className="text-xs font-semibold uppercase tracking-wide mb-2 text-[var(--success)]">
               {t('dashboard.confirm.copy.willCopy')}
             </p>
             <ul className="flex flex-col gap-1">
               {WILL_COPY_KEYS.map(key => (
                 <li key={key} className="flex items-center gap-2 text-sm text-content-secondary">
-                  <Check size={13} className="flex-shrink-0 text-[#16a34a]" />
+                  <Check size={13} className="flex-shrink-0 text-[var(--success)]" />
                   {t(key)}
                 </li>
               ))}

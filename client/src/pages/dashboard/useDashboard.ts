@@ -35,6 +35,7 @@ export function useDashboard() {
   const [tripFilter, setTripFilter] = useState<'planned' | 'archive' | 'completed'>('planned')
   const [allSubOpen, setAllSubOpen] = useState<boolean>(false)
   const [loadError, setLoadError] = useState<boolean>(false)
+  const [showAdvisoryModal, setShowAdvisoryModal] = useState<boolean>(false)
 
   const [stats, setStats] = useState<TravelStats | null>(null)
   const [upcoming, setUpcoming] = useState<UpcomingReservation[]>([])
@@ -194,6 +195,7 @@ export function useDashboard() {
     showForm, setShowForm, editingTrip, setEditingTrip,
     deleteTrip, setDeleteTrip, copyTrip, setCopyTrip, setTrips,
     allSubOpen, setAllSubOpen,
+    showAdvisoryModal, setShowAdvisoryModal,
     // actions
     handleCreate, handleUpdate, confirmDelete, handleArchive, handleUnarchive, confirmCopy,
   }

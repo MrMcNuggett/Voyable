@@ -3626,6 +3626,100 @@ function runMigrations(db: Database.Database): void {
         );
       `);
     },
+
+    // Advisory-request inquiries (#advisory). trip_id/trip_snapshot are nullable —
+    // a request can be filed with no trip attached (global entry point) or with a
+    // frozen snapshot of an in-progress trip (per-trip entry points), immune to
+    // later trip edits/deletion since the snapshot is denormalized JSON at submit time.
+    () => {
+      db.exec(`
+        CREATE TABLE IF NOT EXISTS inquiries (
+          id INTEGER PRIMARY KEY AUTOINCREMENT,
+          trip_id INTEGER REFERENCES trips(id) ON DELETE SET NULL,
+          user_id INTEGER REFERENCES users(id) ON DELETE SET NULL,
+          trip_snapshot TEXT,
+          budget_range TEXT,
+          travel_start TEXT,
+          travel_end TEXT,
+          interests TEXT,
+          message TEXT,
+          email TEXT NOT NULL,
+          status TEXT NOT NULL DEFAULT 'new' CHECK (status IN ('new', 'answered', 'archived')),
+          created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+          updated_at DATETIME DEFAULT CURRENT_TIMESTAMP
+        );
+      `);
+      db.exec('CREATE INDEX IF NOT EXISTS idx_inquiries_status ON inquiries (status, id DESC);');
+      db.exec('CREATE INDEX IF NOT EXISTS idx_inquiries_trip ON inquiries (trip_id);');
+    },
+
+    // Subscription/entitlement state on users (#subscription). Greenfield — no
+    // billing provider wired in yet (see paymentAdapter.ts's NullPaymentAdapter).
+    // Advisory has no subscription state of its own — it's pay-per-request,
+    // tracked via the inquiries table. subscription_events is an append-only
+    // ledger for the billing-history UI and future provider webhooks.
+    () => {
+      const cols = db.prepare("PRAGMA table_info('users')").all() as Array<{ name: string }>;
+      if (!cols.some((c) => c.name === 'ai_planning_status')) {
+        db.exec("ALTER TABLE users ADD COLUMN ai_planning_status TEXT NOT NULL DEFAULT 'none' CHECK (ai_planning_status IN ('none', 'active', 'canceled', 'past_due'));");
+      }
+      if (!cols.some((c) => c.name === 'ai_planning_provider_ref')) {
+        db.exec('ALTER TABLE users ADD COLUMN ai_planning_provider_ref TEXT;');
+      }
+      if (!cols.some((c) => c.name === 'ai_planning_current_period_end')) {
+        db.exec('ALTER TABLE users ADD COLUMN ai_planning_current_period_end TEXT;');
+      }
+      db.exec(`
+        CREATE TABLE IF NOT EXISTS subscription_events (
+          id INTEGER PRIMARY KEY AUTOINCREMENT,
+          user_id INTEGER NOT NULL REFERENCES users(id) ON DELETE CASCADE,
+          kind TEXT NOT NULL,
+          amount_cents INTEGER,
+          currency TEXT DEFAULT 'EUR',
+          provider TEXT,
+          provider_ref TEXT,
+          created_at DATETIME DEFAULT CURRENT_TIMESTAMP
+        );
+      `);
+      db.exec('CREATE INDEX IF NOT EXISTS idx_subscription_events_user ON subscription_events (user_id, id DESC);');
+    },
+
+    // Durable per-user usage ledger for the AI planning add-on (#ai-planning).
+    // Mirrors the plugin DailyBudget pattern (server/src/nest/plugins/host/daily-budget.ts)
+    // but the counting window is a calendar month, not a UTC day, and it's keyed by
+    // user_id instead of plugin_id. Seeded from this table on boot so a restart
+    // doesn't reset the month's quota.
+    () => {
+      db.exec(`
+        CREATE TABLE IF NOT EXISTS ai_planning_usage (
+          id INTEGER PRIMARY KEY AUTOINCREMENT,
+          user_id INTEGER NOT NULL REFERENCES users(id) ON DELETE CASCADE,
+          trip_id INTEGER REFERENCES trips(id) ON DELETE SET NULL,
+          created_at DATETIME DEFAULT CURRENT_TIMESTAMP
+        );
+      `);
+      db.exec('CREATE INDEX IF NOT EXISTS idx_ai_planning_usage_user_month ON ai_planning_usage (user_id, created_at);');
+    },
+
+    // Paddle billing correlation IDs + subscription plan cadence (#paddle-billing).
+    // ai_planning_status/ai_planning_current_period_end (added above) remain the
+    // single source of truth for entitlement — this only adds the provider-
+    // correlation columns needed to map a Paddle webhook back to a user, plus
+    // which cadence they're on. ai_planning_provider_ref is left unused/untouched
+    // (nothing reads it today) — now a superseded legacy column.
+    () => {
+      const cols = db.prepare("PRAGMA table_info('users')").all() as Array<{ name: string }>;
+      if (!cols.some((c) => c.name === 'paddle_customer_id')) {
+        db.exec('ALTER TABLE users ADD COLUMN paddle_customer_id TEXT;');
+      }
+      if (!cols.some((c) => c.name === 'paddle_subscription_id')) {
+        db.exec('ALTER TABLE users ADD COLUMN paddle_subscription_id TEXT;');
+      }
+      if (!cols.some((c) => c.name === 'ai_planning_plan')) {
+        db.exec("ALTER TABLE users ADD COLUMN ai_planning_plan TEXT CHECK (ai_planning_plan IN ('monthly', 'yearly'));");
+      }
+      db.exec('CREATE INDEX IF NOT EXISTS idx_users_paddle_customer_id ON users (paddle_customer_id);');
+    },
   ];
 
   if (currentVersion < migrations.length) {

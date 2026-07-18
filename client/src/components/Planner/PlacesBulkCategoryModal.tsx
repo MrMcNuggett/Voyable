@@ -29,19 +29,19 @@ export function PlacesBulkCategoryModal({ count, categories, onPick, onClose }: 
   return createPortal(
     <div
       onClick={e => { if (e.target === e.currentTarget) onClose() }}
-      style={{ position: 'fixed', inset: 0, zIndex: 9999, background: 'rgba(0,0,0,0.5)', display: 'flex', alignItems: 'center', justifyContent: 'center', padding: 16 }}
+      style={{ position: 'fixed', inset: 0, zIndex: 9999, background: 'var(--overlay)', display: 'flex', alignItems: 'center', justifyContent: 'center', padding: 16 }}
     >
       <div className="bg-surface-card text-content" style={{
         borderRadius: 14, padding: '18px 20px', width: '100%', maxWidth: 380,
         boxShadow: '0 16px 48px rgba(0,0,0,0.22)', border: '1px solid var(--border-faint)', fontFamily: 'inherit',
       }}>
         <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: 4 }}>
-          <span style={{ fontWeight: 600, fontSize: 14 }}>{t('places.changeCategory')}</span>
+          <span style={{ fontWeight: 600, fontSize: 'calc(14px * var(--fs-scale-body, 1))' }}>{t('places.changeCategory')}</span>
           <button onClick={onClose} aria-label={t('common.close')} className="text-content-muted" style={{ background: 'none', border: 'none', cursor: 'pointer', padding: 4, display: 'flex' }}>
             <X size={15} strokeWidth={2} />
           </button>
         </div>
-        <p className="text-content-faint" style={{ fontSize: 12, marginBottom: 12 }}>{t('places.selectionCount', { count })}</p>
+        <p className="text-content-faint" style={{ fontSize: 'calc(12px * var(--fs-scale-body, 1))', marginBottom: 12 }}>{t('places.selectionCount', { count })}</p>
 
         <div style={{ display: 'flex', flexDirection: 'column', gap: 2, maxHeight: 300, overflowY: 'auto' }}>
           {categories.map(c => {

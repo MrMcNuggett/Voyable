@@ -98,13 +98,13 @@ export default function WeatherWidget({ lat, lng, date, compact = false, stacked
 
   if (loading) {
     return (
-      <span style={{ fontSize: 'calc(11px * var(--fs-scale-caption, 1))', color: '#d1d5db', ...fontStyle }}>…</span>
+      <span style={{ fontSize: 'calc(11px * var(--fs-scale-caption, 1))', color: 'var(--text-faint)', ...fontStyle }}>…</span>
     )
   }
 
   if (failed || !weather) {
     return (
-      <span style={{ fontSize: 'calc(11px * var(--fs-scale-caption, 1))', color: '#9ca3af', ...fontStyle }}>—</span>
+      <span style={{ fontSize: 'calc(11px * var(--fs-scale-caption, 1))', color: 'var(--text-faint)', ...fontStyle }}>—</span>
     )
   }
 
@@ -132,10 +132,10 @@ export default function WeatherWidget({ lat, lng, date, compact = false, stacked
   }
 
   return (
-    <div style={{ display: 'flex', alignItems: 'center', gap: 6, fontSize: 'calc(13px * var(--fs-scale-body, 1))', color: isClimate ? '#71717a' : '#374151', background: 'rgba(0,0,0,0.04)', borderRadius: 8, padding: '5px 10px', ...fontStyle }}>
+    <div style={{ display: 'flex', alignItems: 'center', gap: 6, fontSize: 'calc(13px * var(--fs-scale-body, 1))', color: isClimate ? 'var(--text-muted)' : 'var(--text-secondary)', background: 'var(--bg-hover)', borderRadius: 8, padding: '5px 10px', ...fontStyle }}>
       <WeatherIcon main={weather.main} size={15} />
       {temp !== null && <span style={{ fontWeight: 500 }}>{isClimate ? 'Ø ' : ''}{temp}{unit}</span>}
-      {weather.description && <span style={{ fontSize: 'calc(11px * var(--fs-scale-caption, 1))', color: '#9ca3af', textTransform: 'capitalize' }}>{weather.description}</span>}
+      {weather.description && <span style={{ fontSize: 'calc(11px * var(--fs-scale-caption, 1))', color: 'var(--text-faint)', textTransform: 'capitalize' }}>{weather.description}</span>}
     </div>
   )
 }

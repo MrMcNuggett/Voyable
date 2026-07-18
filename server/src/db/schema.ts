@@ -28,6 +28,12 @@ function createTables(db: Database.Database): void {
       password_version INTEGER NOT NULL DEFAULT 0,
       feed_token TEXT,
       is_guest INTEGER NOT NULL DEFAULT 0,
+      ai_planning_status TEXT NOT NULL DEFAULT 'none' CHECK (ai_planning_status IN ('none', 'active', 'canceled', 'past_due')),
+      ai_planning_provider_ref TEXT, -- legacy/unused; superseded by paddle_subscription_id (kept for schema stability, not dual-written)
+      ai_planning_current_period_end TEXT,
+      paddle_customer_id TEXT,
+      paddle_subscription_id TEXT,
+      ai_planning_plan TEXT CHECK (ai_planning_plan IN ('monthly', 'yearly')),
       created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
       updated_at DATETIME DEFAULT CURRENT_TIMESTAMP
     );
@@ -590,6 +596,50 @@ function createTables(db: Database.Database): void {
       PRIMARY KEY (user_id, event_type, channel)
     );
     CREATE INDEX IF NOT EXISTS idx_ncp_user ON notification_channel_preferences(user_id);
+
+    CREATE TABLE IF NOT EXISTS inquiries (
+      id INTEGER PRIMARY KEY AUTOINCREMENT,
+      trip_id INTEGER REFERENCES trips(id) ON DELETE SET NULL,
+      user_id INTEGER REFERENCES users(id) ON DELETE SET NULL,
+      trip_snapshot TEXT,
+      budget_range TEXT,
+      travel_start TEXT,
+      travel_end TEXT,
+      interests TEXT,
+      message TEXT,
+      email TEXT NOT NULL,
+      status TEXT NOT NULL DEFAULT 'new' CHECK (status IN ('new', 'answered', 'archived')),
+      created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+      updated_at DATETIME DEFAULT CURRENT_TIMESTAMP
+    );
+    CREATE INDEX IF NOT EXISTS idx_inquiries_status ON inquiries (status, id DESC);
+    CREATE INDEX IF NOT EXISTS idx_inquiries_trip ON inquiries (trip_id);
+
+    CREATE TABLE IF NOT EXISTS subscription_events (
+      id INTEGER PRIMARY KEY AUTOINCREMENT,
+      user_id INTEGER NOT NULL REFERENCES users(id) ON DELETE CASCADE,
+      kind TEXT NOT NULL,
+      amount_cents INTEGER,
+      currency TEXT DEFAULT 'EUR',
+      provider TEXT,
+      provider_ref TEXT,
+      created_at DATETIME DEFAULT CURRENT_TIMESTAMP
+    );
+    CREATE INDEX IF NOT EXISTS idx_subscription_events_user ON subscription_events (user_id, id DESC);
+    -- idx_users_paddle_customer_id is created by the migration (migrations.ts),
+    -- not here: paddle_customer_id/paddle_subscription_id/ai_planning_plan are
+    -- new columns on the existing users table above, but CREATE TABLE IF NOT
+    -- EXISTS is a no-op on a pre-existing table — it doesn't retroactively add
+    -- those columns, so an index on them here would fail on any DB that
+    -- predates this change (the table exists, the column doesn't, yet).
+
+    CREATE TABLE IF NOT EXISTS ai_planning_usage (
+      id INTEGER PRIMARY KEY AUTOINCREMENT,
+      user_id INTEGER NOT NULL REFERENCES users(id) ON DELETE CASCADE,
+      trip_id INTEGER REFERENCES trips(id) ON DELETE SET NULL,
+      created_at DATETIME DEFAULT CURRENT_TIMESTAMP
+    );
+    CREATE INDEX IF NOT EXISTS idx_ai_planning_usage_user_month ON ai_planning_usage (user_id, created_at);
 
     CREATE TABLE IF NOT EXISTS migrations (id integer PRIMARY KEY AUTOINCREMENT NOT NULL, timestamp bigint NOT NULL, name varchar NOT NULL);
   `);

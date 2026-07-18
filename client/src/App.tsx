@@ -4,6 +4,7 @@ import { useAuthStore } from './store/authStore'
 import { useSettingsStore } from './store/settingsStore'
 import { applyAppearance } from './theme/applyAppearance'
 import { useAddonStore } from './store/addonStore'
+import { useSubscriptionStore } from './store/subscriptionStore'
 import { usePluginStore } from './store/pluginStore'
 import PluginPage from './pages/PluginPage'
 import LoginPage from './pages/LoginPage'
@@ -14,6 +15,7 @@ import TripPlannerPage from './pages/TripPlannerPage'
 import FilesPage from './pages/FilesPage'
 import AdminPage from './pages/AdminPage'
 import SettingsPage from './pages/SettingsPage'
+import PricingPage from './pages/PricingPage'
 import VacayPage from './pages/VacayPage'
 import HelpPage from './pages/HelpPage'
 import AtlasPage from './pages/AtlasPage'
@@ -114,6 +116,7 @@ export default function App() {
   const { loadSettings } = useSettingsStore()
   const { loadAddons } = useAddonStore()
   const { loadPlugins } = usePluginStore()
+  const { load: loadSubscription } = useSubscriptionStore()
 
   useEffect(() => {
     if (!location.pathname.startsWith('/shared/') && !location.pathname.startsWith('/public/') && !location.pathname.startsWith('/login')) {
@@ -172,6 +175,7 @@ export default function App() {
       loadSettings()
       loadAddons()
       loadPlugins()
+      loadSubscription()
     }
   }, [isAuthenticated])
 
@@ -285,6 +289,14 @@ export default function App() {
           element={
             <ProtectedRoute>
               <SettingsPage />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/pricing"
+          element={
+            <ProtectedRoute>
+              <PricingPage />
             </ProtectedRoute>
           }
         />

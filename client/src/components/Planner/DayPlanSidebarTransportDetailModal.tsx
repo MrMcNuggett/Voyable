@@ -25,7 +25,7 @@ export function DayPlanSidebarTransportDetailModal({
 }: DayPlanSidebarTransportDetailModalProps) {
   if (!transportDetail) return null
   return ReactDOM.createPortal(
-    <div className="bg-[rgba(0,0,0,0.3)]" style={{
+    <div className="bg-[var(--overlay)]" style={{
       position: 'fixed', inset: 0, zIndex: 1000,
       display: 'flex', alignItems: 'center', justifyContent: 'center',
       backdropFilter: 'blur(3px)',
@@ -86,7 +86,7 @@ export function DayPlanSidebarTransportDetailModal({
                     })()}
                   </div>
                 </div>
-                <div className={res.status === 'confirmed' ? 'bg-[rgba(22,163,74,0.1)] text-[#16a34a]' : 'bg-[rgba(217,119,6,0.1)] text-[#d97706]'} style={{
+                <div className={res.status === 'confirmed' ? 'bg-[var(--success-soft)] text-[var(--success)]' : 'bg-[var(--warning-soft)] text-[var(--warning)]'} style={{
                   padding: '3px 8px', borderRadius: 6, fontSize: 'calc(10px * var(--fs-scale-caption, 1))', fontWeight: 600,
                 }}>
                   {(res.status === 'confirmed' ? t('planner.resConfirmed') : t('planner.resPending')).replace(/\s*·\s*$/, '')}

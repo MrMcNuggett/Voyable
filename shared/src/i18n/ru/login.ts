@@ -81,6 +81,7 @@ const login: TranslationStrings = {
   'login.oidc.invalidState': 'Недействительная сессия. Попробуйте снова.',
   'login.demoFailed': 'Ошибка демо-входа',
   'login.oidcSignIn': 'Войти через {name}',
+  'login.continueWithGoogle': 'Continue with Google', // TODO: untranslated
   'login.oidcOnly': 'Вход по паролю отключён. Используйте вашего провайдера SSO для входа.',
   'login.oidcLoggedOut': 'Вы вышли из системы. Войдите снова через вашего провайдера SSO.',
   'login.demoHint': 'Попробуйте демо — регистрация не требуется',

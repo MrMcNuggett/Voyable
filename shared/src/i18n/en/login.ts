@@ -43,6 +43,7 @@ const login: TranslationStrings = {
   'login.oidc.invalidState': 'Invalid session. Please try again.',
   'login.demoFailed': 'Demo login failed',
   'login.oidcSignIn': 'Sign in with {name}',
+  'login.continueWithGoogle': 'Continue with Google',
   'login.oidcOnly': 'Password authentication is disabled. Please sign in using your SSO provider.',
   'login.oidcLoggedOut': 'You have been logged out. Sign in again using your SSO provider.',
   'login.demoHint': 'Try the demo — no registration needed',

@@ -332,20 +332,21 @@ export function MapViewGL({
       // initial route source — kept around so updates can setData() cheaply
       if (!map.getSource('trip-route')) {
         map.addSource('trip-route', { type: 'geojson', data: { type: 'FeatureCollection', features: [] } })
-        // Apple-Maps style: a darker-blue casing under a bright-blue core, both
-        // rounded. Casing is added first so it sits beneath the core line.
+        // Voyable amber route: a darker-amber casing under a bright-amber core,
+        // both rounded. Casing is added first so it sits beneath the core line.
+        // Amber (--accent-route) is the reserved route/map accent.
         map.addLayer({
           id: 'trip-route-casing',
           type: 'line',
           source: 'trip-route',
-          paint: { 'line-color': '#0a5cc2', 'line-width': 8 },
+          paint: { 'line-color': '#8a561f', 'line-width': 8 },
           layout: { 'line-cap': 'round', 'line-join': 'round' },
         })
         map.addLayer({
           id: 'trip-route-line',
           type: 'line',
           source: 'trip-route',
-          paint: { 'line-color': '#0a84ff', 'line-width': 5 },
+          paint: { 'line-color': '#c98736', 'line-width': 5 },
           layout: { 'line-cap': 'round', 'line-join': 'round' },
         })
       }

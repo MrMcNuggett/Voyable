@@ -54,7 +54,7 @@ export default function InAppNotificationBell(): React.ReactElement {
           <span
             className="absolute -top-0.5 -right-0.5 flex items-center justify-center rounded-full text-white font-bold"
             style={{
-              background: '#ef4444',
+              background: 'var(--danger)',
               fontSize: 'calc(9px * var(--fs-scale-caption, 1))',
               minWidth: 14,
               height: 14,

@@ -7,7 +7,39 @@ export default {
   ],
   theme: {
     extend: {
+      // Voyable Design System type roles — body (Plus Jakarta Sans), display
+      // (Bricolage Grotesque), data/mono (JetBrains Mono). Resolve to the CSS
+      // variables defined in src/index.css so the whole app stays consistent.
+      fontFamily: {
+        sans: ['var(--font-system)'],
+        display: ['var(--font-display)'],
+        mono: ['var(--font-mono)'],
+      },
       colors: {
+        // Voyable brand scales — petrol (primary), olive (secondary), amber
+        // (reserved: route lines / map pins / warning only). Use the semantic
+        // `accent`/`surface`/`content` tokens for general UI; these raw scales
+        // are for the deliberate brand/map surfaces the design calls out.
+        petrol: {
+          50: '#eaf2f1', 100: '#cde3e0', 200: '#9fc9c4', 300: '#6dada6',
+          400: '#3f8d85', 500: '#276b64', 600: '#1c514c', 700: '#143a37', 800: '#0d2725',
+        },
+        olive: {
+          50: '#f6f4e9', 100: '#eae3c5', 200: '#d7c98f',
+          300: '#bfab5f', 400: '#9c8a44', 500: '#7d6f37', 600: '#5f552a',
+        },
+        // Amber = route/map/warning accent only, never general brand UI.
+        route: {
+          50: '#fbf1e3', 100: '#f5dcb2', 300: '#dc9a4c',
+          400: '#c98736', 500: '#b9752c', 700: '#8a561f',
+        },
+        stone: {
+          50: '#fbfbfa', 100: '#f1f2ef', 200: '#e6e7e2', 300: '#d5d7d0',
+        },
+        ink: {
+          200: '#dcdfda', 300: '#c3cac3', 400: '#a3aca5', 500: '#828d85',
+          600: '#66716a', 700: '#4b564f', 800: '#333d37', 900: '#20241f',
+        },
         primary: {
           50: '#eef2ff',
           100: '#e0e7ff',
@@ -22,14 +54,14 @@ export default {
           950: '#1e1b4b',
         },
         planner: {
-          day: '#f8fafc',
-          dayBorder: '#e2e8f0',
-          dayHeader: '#1e293b',
+          day: '#fbfbfa',          // stone-50
+          dayBorder: '#e6e7e2',    // stone-200
+          dayHeader: '#333d37',    // ink-800
           sidebar: '#ffffff',
-          sidebarBorder: '#f1f5f9',
-          overlay: 'rgba(15, 23, 42, 0.4)',
-          dragActive: '#eef2ff',
-          dragOver: '#c7d2fe',
+          sidebarBorder: '#e6e7e2', // stone-200
+          overlay: 'rgba(20, 24, 20, 0.4)',
+          dragActive: '#eaf2f1',   // petrol-50
+          dragOver: '#cde3e0',     // petrol-100
         },
         // Semantic theme tokens — resolve to the CSS variables in src/index.css
         // (:root light / .dark dark). Use these utilities (bg-surface, text-content,

@@ -141,7 +141,7 @@ export default function BackgroundTasksWidget() {
             )}
 
             {task.status === 'error' && (
-              <div style={{ fontSize: 'calc(11px * var(--fs-scale-caption, 1))', color: '#b91c1c', marginTop: 1, whiteSpace: 'pre-wrap' }}>{task.error}</div>
+              <div style={{ fontSize: 'calc(11px * var(--fs-scale-caption, 1))', color: 'var(--danger)', marginTop: 1, whiteSpace: 'pre-wrap' }}>{task.error}</div>
             )}
           </div>
 

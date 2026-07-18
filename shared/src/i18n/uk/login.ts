@@ -80,6 +80,7 @@ const login: TranslationStrings = {
   'login.oidc.invalidState': 'Недійсна сесія. Спробуйте знову.',
   'login.demoFailed': 'Помилка демо-входу',
   'login.oidcSignIn': 'Увійти через {name}',
+  'login.continueWithGoogle': 'Continue with Google', // TODO: untranslated
   'login.oidcOnly': 'Вхід за паролем вимкнено. Використайте вашого SSO-провайдера для входу.',
   'login.oidcLoggedOut': 'Ви вийшли з системи. Увійдіть знову через вашого SSO-провайдера.',
   'login.demoHint': 'Спробуйте демо — реєстрація не потрібна',

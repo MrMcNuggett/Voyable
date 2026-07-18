@@ -8,7 +8,7 @@ export function PdfPreviewModal(S: FileManagerState) {
   const { previewFile, setPreviewFile, previewFileUrl, toast, t } = S
   return ReactDOM.createPortal(
     <div
-      style={{ position: 'fixed', inset: 0, background: 'rgba(0,0,0,0.85)', zIndex: 10000, display: 'flex', alignItems: 'center', justifyContent: 'center', padding: 16 }}
+      style={{ position: 'fixed', inset: 0, background: 'rgba(0,0,0,0.85)', zIndex: 10000, display: 'flex', alignItems: 'center', justifyContent: 'center', padding: 16 }}  // theme-lint-disable: fixed dark document-viewer surface
       onClick={() => setPreviewFile(null)}
     >
       <div

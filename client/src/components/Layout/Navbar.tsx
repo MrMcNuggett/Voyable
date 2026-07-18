@@ -6,15 +6,19 @@ import { useSettingsStore } from '../../store/settingsStore'
 import { useAddonStore } from '../../store/addonStore'
 import { usePluginStore } from '../../store/pluginStore'
 import { useTranslation } from '../../i18n'
-import { Plane, LogOut, Settings, ChevronDown, Shield, ArrowLeft, Users, Moon, Sun, Monitor, CalendarDays, Briefcase, Globe, Compass, BookOpen, Bookmark, Blocks } from 'lucide-react'
+import { Plane, LogOut, Settings, ChevronDown, Shield, ArrowLeft, Users, Moon, Sun, Monitor, CalendarDays, Briefcase, Globe, Compass, BookOpen, Bookmark, Blocks, HelpCircle } from 'lucide-react'
 import type { LucideIcon } from 'lucide-react'
 import InAppNotificationBell from './InAppNotificationBell.tsx'
+import RequestAdvisoryModal from '../Trip/RequestAdvisoryModal'
+import type { Trip } from '../../types'
+import { ADVISORY_PRICE } from '@trek/shared'
 
 const ADDON_ICONS: Record<string, LucideIcon> = { CalendarDays, Briefcase, Globe, Compass, Bookmark }
 
 interface NavbarProps {
   tripTitle?: string
   tripId?: number | string
+  trip?: Trip
   onBack?: () => void
   showBack?: boolean
   onShare?: () => void
@@ -28,7 +32,7 @@ interface Addon {
   enabled: boolean
 }
 
-export default function Navbar({ tripTitle, tripId, onBack, showBack, onShare }: NavbarProps): React.ReactElement {
+export default function Navbar({ tripTitle, tripId, trip, onBack, showBack, onShare }: NavbarProps): React.ReactElement {
   const { user, logout, isPrerelease, appVersion } = useAuthStore()
   const { settings, updateSetting } = useSettingsStore()
   const { addons: allAddons, loadAddons } = useAddonStore()
@@ -37,6 +41,7 @@ export default function Navbar({ tripTitle, tripId, onBack, showBack, onShare }:
   const location = useLocation()
   const [userMenuOpen, setUserMenuOpen] = useState<boolean>(false)
   const [scrolled, setScrolled] = useState<boolean>(false)
+  const [showAdvisoryModal, setShowAdvisoryModal] = useState<boolean>(false)
   const darkMode = settings.dark_mode
   const dark = darkMode === true || darkMode === 'dark' || (darkMode === 'auto' && window.matchMedia('(prefers-color-scheme: dark)').matches)
 
@@ -93,6 +98,7 @@ export default function Navbar({ tripTitle, tripId, onBack, showBack, onShare }:
   }
 
   return (
+    <>
     <nav style={{
       background: dark
         ? (scrolled ? 'rgba(9,9,11,0.78)' : 'rgba(9,9,11,0.95)')
@@ -121,8 +127,8 @@ export default function Navbar({ tripTitle, tripId, onBack, showBack, onShare }:
         )}
 
         <Link to="/dashboard" className="flex items-center transition-colors flex-shrink-0">
-          <img src={dark ? '/icons/icon-white.svg' : '/icons/icon-dark.svg'} alt="TREK" className="sm:hidden" style={{ height: 22, width: 22 }} />
-          <img src={dark ? '/logo-light.svg' : '/logo-dark.svg'} alt="TREK" className="hidden sm:block" style={{ height: 28 }} />
+          <img src={dark ? '/icons/icon-white.svg' : '/icons/icon-dark.svg'} alt="Voyable" className="sm:hidden" style={{ height: 22, width: 22 }} />
+          <img src={dark ? '/logo-light.svg' : '/logo-dark.svg'} alt="Voyable" className="hidden sm:block" style={{ height: 28 }} />
         </Link>
 
         {tripTitle && (
@@ -190,6 +196,14 @@ export default function Navbar({ tripTitle, tripId, onBack, showBack, onShare }:
       {/* Spacer */}
       <div className="flex-1" />
 
+      {/* Request advisory — global entry point, always visible (not conditional on trip context) */}
+      <button onClick={() => setShowAdvisoryModal(true)}
+        className="flex items-center gap-1.5 py-1.5 px-3 rounded-lg transition-colors text-sm font-medium flex-shrink-0 bg-accent text-accent-text hover:bg-accent-hover">
+        <HelpCircle className="w-4 h-4" />
+        <span className="hidden sm:inline">{t('advisory.navButton')}</span>
+        <span className="hidden sm:inline text-xs opacity-75">· {ADVISORY_PRICE} EUR</span>
+      </button>
+
       {/* Share button */}
       {onShare && (
         <button onClick={onShare}
@@ -204,9 +218,9 @@ export default function Navbar({ tripTitle, tripId, onBack, showBack, onShare }:
       {/* Prerelease badge */}
       {isPrerelease && appVersion && (
         <span
-          className="hidden sm:flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[11px] font-semibold flex-shrink-0 bg-[rgba(245,158,11,0.15)] text-[#d97706] border border-[rgba(245,158,11,0.3)]"
+          className="hidden sm:flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[11px] font-semibold flex-shrink-0 bg-[var(--warning-soft)] text-[var(--warning)] border border-[var(--warning-soft)]"
         >
-          <span className="w-1.5 h-1.5 rounded-full flex-shrink-0 bg-[#f59e0b]" />
+          <span className="w-1.5 h-1.5 rounded-full flex-shrink-0 bg-[var(--warning)]" />
           {appVersion}
         </span>
       )}
@@ -299,7 +313,7 @@ export default function Navbar({ tripTitle, tripId, onBack, showBack, onShare }:
                     <div className="px-4 pt-2 pb-2.5 text-center border-t border-edge-secondary" style={{ marginTop: 4 }}>
                       <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 6 }}>
                         <div style={{ display: 'inline-flex', alignItems: 'center', gap: 5, background: 'var(--bg-tertiary)', borderRadius: 99, padding: '4px 12px' }}>
-                          <img src={dark ? '/text-light.svg' : '/text-dark.svg'} alt="TREK" style={{ height: 10, opacity: 0.5 }} />
+                          <img src={dark ? '/text-light.svg' : '/text-dark.svg'} alt="Voyable" style={{ height: 10, opacity: 0.5 }} />
                           <span style={{ fontSize: 'calc(10px * var(--fs-scale-caption, 1))', fontWeight: 600, color: 'var(--text-faint)' }}>v{appVersion}</span>
                         </div>
                         <a href="https://discord.gg/NhZBDSd4qW" target="_blank" rel="noopener noreferrer"
@@ -320,5 +334,7 @@ export default function Navbar({ tripTitle, tripId, onBack, showBack, onShare }:
         </div>
       )}
     </nav>
+    <RequestAdvisoryModal isOpen={showAdvisoryModal} onClose={() => setShowAdvisoryModal(false)} trip={trip} />
+    </>
   )
 }

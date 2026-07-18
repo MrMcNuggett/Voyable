@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+
+<helmet>
+  <link rel="stylesheet" href="_ds/voyable-design-system-20d63b1d-fb41-47b0-8049-741c2094f669/tokens/fonts.css">
+  <link rel="stylesheet" href="_ds/voyable-design-system-20d63b1d-fb41-47b0-8049-741c2094f669/tokens/colors.css">
+  <link rel="stylesheet" href="_ds/voyable-design-system-20d63b1d-fb41-47b0-8049-741c2094f669/tokens/typography.css">
+  <link rel="stylesheet" href="_ds/voyable-design-system-20d63b1d-fb41-47b0-8049-741c2094f669/tokens/spacing.css">
+  <link rel="stylesheet" href="_ds/voyable-design-system-20d63b1d-fb41-47b0-8049-741c2094f669/tokens/effects.css">
+  <link rel="stylesheet" href="_ds/voyable-design-system-20d63b1d-fb41-47b0-8049-741c2094f669/styles.css">
+  <script src="_ds/voyable-design-system-20d63b1d-fb41-47b0-8049-741c2094f669/_ds_bundle.js"></script>
+  <style>
+    html,body{margin:0;background:var(--surface-page);}
+    *{box-sizing:border-box;}
+  </style>
+</helmet>
+
+<div style="font-family:var(--font-sans);color:var(--text-primary);min-height:100vh;">
+  <nav style="height:64px;display:flex;align-items:center;padding:0 24px;gap:14px;background:color-mix(in oklch, var(--surface-raised) 92%, transparent);backdrop-filter:blur(16px);border-bottom:1px solid var(--border-subtle);">
+    <button style="display:flex;align-items:center;gap:6px;background:none;border:none;cursor:pointer;color:var(--text-muted);font-size:13px;padding:6px;border-radius:8px;">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      Back to planning
+    </button>
+    <div style="flex:1;"></div>
+    <span style="font-family:var(--font-display);font-weight:700;font-size:var(--text-xl);letter-spacing:-0.01em;">voyable</span>
+  </nav>
+
+  <div style="max-width:860px;margin:0 auto;padding:32px 28px 80px;">
+    <h1 style="margin:0;font-family:var(--font-display);font-size:22px;font-weight:700;letter-spacing:-0.01em;">Files</h1>
+    <p style="margin:4px 0 24px;font-size:13px;color:var(--text-muted);">6 files · Portugal Road Trip</p>
+
+    <div style="border:2px dashed var(--border-default);border-radius:16px;padding:26px 16px;text-align:center;margin-bottom:22px;background:var(--surface-raised);">
+      <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="var(--text-muted)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" style="margin:0 auto 10px;display:block;"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><path d="M12 15V3"/></svg>
+      <p style="margin:0;font-size:13.5px;font-weight:600;color:var(--text-secondary);">Drop files here or click to upload</p>
+      <p style="margin:4px 0 0;font-size:11.5px;color:var(--text-muted);">Tickets, confirmations, and documents for this trip</p>
+      <p style="margin:8px 0 0;font-size:10px;color:var(--text-faint);">JPG, PNG, PDF, DOC, XLS · Max 50 MB</p>
+    </div>
+
+    <div style="display:flex;gap:6px;margin-bottom:16px;">
+      <button style="padding:5px 13px;border-radius:999px;border:none;font-size:12px;font-weight:600;cursor:pointer;font-family:inherit;background:var(--ink-900);color:var(--stone-50);">All</button>
+      <button style="padding:5px 13px;border-radius:999px;border:none;font-size:12px;cursor:pointer;font-family:inherit;background:transparent;color:var(--text-muted);">PDFs</button>
+      <button style="padding:5px 13px;border-radius:999px;border:none;font-size:12px;cursor:pointer;font-family:inherit;background:transparent;color:var(--text-muted);">Images</button>
+      <button style="padding:5px 13px;border-radius:999px;border:none;font-size:12px;cursor:pointer;font-family:inherit;background:transparent;color:var(--text-muted);">Documents</button>
+      <div style="flex:1;"></div>
+      <span style="font-size:11.5px;color:var(--text-faint);align-self:center;">6 files</span>
+    </div>
+
+    <div style="display:flex;flex-direction:column;gap:8px;">
+
+      <div style="display:flex;align-items:flex-start;gap:12px;padding:12px 14px;border:1px solid var(--border-subtle);border-radius:12px;background:var(--surface-raised);">
+        <div style="width:38px;height:38px;border-radius:9px;background:color-mix(in oklch, var(--error-500) 12%, transparent);display:flex;align-items:center;justify-content:center;flex-shrink:0;color:var(--error-500);font-size:9px;font-weight:700;">PDF</div>
+        <div style="flex:1;min-width:0;">
+          <div style="font-size:13.5px;font-weight:600;">Flight_confirmation_TAP1234.pdf</div>
+          <div style="display:flex;align-items:center;gap:8px;margin-top:4px;flex-wrap:wrap;">
+            <span style="font-size:11px;color:var(--text-faint);">240 KB</span>
+            <span style="font-size:11px;color:var(--text-faint);">Sep 2</span>
+            <span style="display:inline-flex;align-items:center;gap:4px;font-size:10.5px;color:var(--text-muted);background:var(--surface-sunken);padding:2px 8px;border-radius:999px;">
+              <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.42 4.58a5.4 5.4 0 0 0-7.65 0l-.77.78-.77-.78a5.4 5.4 0 0 0-7.65 7.65l.77.78L12 20.23l7.65-7.65.77-.78a5.4 5.4 0 0 0 0-7.65Z"/></svg>
+              Booking
+            </span>
+          </div>
+        </div>
+        <div style="display:flex;gap:2px;flex-shrink:0;">
+          <button style="width:26px;height:26px;border:none;background:none;color:var(--text-faint);cursor:pointer;border-radius:6px;"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg></button>
+          <button style="width:26px;height:26px;border:none;background:none;color:var(--text-faint);cursor:pointer;border-radius:6px;"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><path d="M12 15V3"/></svg></button>
+        </div>
+      </div>
+
+      <div style="display:flex;align-items:flex-start;gap:12px;padding:12px 14px;border:1px solid var(--border-subtle);border-radius:12px;background:var(--surface-raised);">
+        <div style="width:38px;height:38px;border-radius:9px;background:var(--olive-100);flex-shrink:0;"></div>
+        <div style="flex:1;min-width:0;">
+          <div style="font-size:13.5px;font-weight:600;">Casa_Alfama_receipt.jpg</div>
+          <div style="display:flex;align-items:center;gap:8px;margin-top:4px;">
+            <span style="font-size:11px;color:var(--text-faint);">1.2 MB</span>
+            <span style="font-size:11px;color:var(--text-faint);">Sep 10</span>
+          </div>
+        </div>
+        <div style="display:flex;gap:2px;flex-shrink:0;">
+          <button style="width:26px;height:26px;border:none;background:none;color:var(--text-faint);cursor:pointer;border-radius:6px;"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg></button>
+          <button style="width:26px;height:26px;border:none;background:none;color:var(--text-faint);cursor:pointer;border-radius:6px;"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><path d="M12 15V3"/></svg></button>
+        </div>
+      </div>
+
+      <div style="display:flex;align-items:flex-start;gap:12px;padding:12px 14px;border:1px solid var(--border-subtle);border-radius:12px;background:var(--surface-raised);">
+        <div style="width:38px;height:38px;border-radius:9px;background:var(--surface-sunken);display:flex;align-items:center;justify-content:center;flex-shrink:0;color:var(--text-muted);font-size:9px;font-weight:700;">DOC</div>
+        <div style="flex:1;min-width:0;">
+          <div style="font-size:13.5px;font-weight:600;">Packing_notes.docx</div>
+          <div style="display:flex;align-items:center;gap:8px;margin-top:4px;">
+            <span style="font-size:11px;color:var(--text-faint);">18 KB</span>
+            <span style="font-size:11px;color:var(--text-faint);">Aug 28</span>
+          </div>
+        </div>
+        <div style="display:flex;gap:2px;flex-shrink:0;">
+          <button style="width:26px;height:26px;border:none;background:none;color:var(--text-faint);cursor:pointer;border-radius:6px;"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg></button>
+          <button style="width:26px;height:26px;border:none;background:none;color:var(--text-faint);cursor:pointer;border-radius:6px;"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><path d="M12 15V3"/></svg></button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+</x-dc>
+</body>
+</html>

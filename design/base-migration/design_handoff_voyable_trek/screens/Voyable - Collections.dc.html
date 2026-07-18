@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+
+<helmet>
+  <link rel="stylesheet" href="_ds/voyable-design-system-20d63b1d-fb41-47b0-8049-741c2094f669/tokens/fonts.css">
+  <link rel="stylesheet" href="_ds/voyable-design-system-20d63b1d-fb41-47b0-8049-741c2094f669/tokens/colors.css">
+  <link rel="stylesheet" href="_ds/voyable-design-system-20d63b1d-fb41-47b0-8049-741c2094f669/tokens/typography.css">
+  <link rel="stylesheet" href="_ds/voyable-design-system-20d63b1d-fb41-47b0-8049-741c2094f669/tokens/spacing.css">
+  <link rel="stylesheet" href="_ds/voyable-design-system-20d63b1d-fb41-47b0-8049-741c2094f669/tokens/effects.css">
+  <link rel="stylesheet" href="_ds/voyable-design-system-20d63b1d-fb41-47b0-8049-741c2094f669/styles.css">
+  <script src="_ds/voyable-design-system-20d63b1d-fb41-47b0-8049-741c2094f669/_ds_bundle.js"></script>
+  <style>
+    html,body{margin:0;height:100%;background:var(--surface-page);}
+    *{box-sizing:border-box;}
+  </style>
+</helmet>
+
+<div style="height:100vh;display:flex;flex-direction:column;overflow:hidden;font-family:var(--font-sans);color:var(--text-primary);">
+  <nav style="height:64px;flex-shrink:0;display:flex;align-items:center;padding:0 24px;gap:10px;background:color-mix(in oklch, var(--surface-raised) 92%, transparent);backdrop-filter:blur(16px);border-bottom:1px solid var(--border-subtle);z-index:20;">
+    <svg width="26" height="26" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="11" fill="var(--petrol-500)"/><path d="M12 6c-2.2 0-4 1.7-4 4 0 3 4 8 4 8s4-5 4-8c0-2.3-1.8-4-4-4Zm0 5.5A1.5 1.5 0 1 1 12 8.5a1.5 1.5 0 0 1 0 3Z" fill="var(--stone-50)"/></svg>
+    <span style="font-family:var(--font-display);font-weight:700;font-size:var(--text-xl);letter-spacing:-0.01em;">voyable</span>
+  </nav>
+
+  <div style="flex:1;display:flex;overflow:hidden;">
+
+    <!-- Rail -->
+    <aside style="width:220px;flex-shrink:0;border-right:1px solid var(--border-subtle);background:var(--surface-raised);padding:16px;overflow-y:auto;">
+      <button style="width:100%;display:flex;align-items:center;justify-content:center;gap:6px;padding:9px;border-radius:10px;border:1.5px dashed var(--border-default);background:none;font-size:12.5px;font-weight:600;color:var(--text-muted);cursor:pointer;font-family:inherit;margin-bottom:14px;">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12h14"/></svg>
+        New list
+      </button>
+
+      <button style="width:100%;display:flex;align-items:center;gap:9px;padding:9px 10px;border-radius:10px;border:none;background:var(--surface-sunken);font-size:13px;font-weight:600;cursor:pointer;font-family:inherit;margin-bottom:4px;color:var(--text-primary);">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+        All saved
+      </button>
+      <button style="width:100%;display:flex;align-items:center;gap:9px;padding:9px 10px;border-radius:10px;border:none;background:none;font-size:13px;cursor:pointer;font-family:inherit;color:var(--text-secondary);">
+        <span style="width:9px;height:9px;border-radius:50%;background:var(--petrol-400);flex-shrink:0;"></span>
+        <span style="flex:1;text-align:left;">Want to go</span>
+        <span style="color:var(--text-faint);font-size:11px;">12</span>
+      </button>
+      <button style="width:100%;display:flex;align-items:center;gap:9px;padding:9px 10px;border-radius:10px;border:none;background:none;font-size:13px;cursor:pointer;font-family:inherit;color:var(--text-secondary);">
+        <span style="width:9px;height:9px;border-radius:50%;background:var(--olive-400);flex-shrink:0;"></span>
+        <span style="flex:1;text-align:left;">Best coffee</span>
+        <span style="color:var(--text-faint);font-size:11px;">6</span>
+      </button>
+
+      <div style="margin-top:14px;font-size:10px;text-transform:uppercase;letter-spacing:0.1em;color:var(--text-faint);font-weight:700;padding:6px 10px;display:flex;align-items:center;gap:6px;">
+        <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>
+        Shared
+      </div>
+      <button style="width:100%;display:flex;align-items:center;gap:9px;padding:9px 10px;border-radius:10px;border:none;background:none;font-size:13px;cursor:pointer;font-family:inherit;color:var(--text-secondary);">
+        <span style="width:9px;height:9px;border-radius:50%;background:var(--ink-400);flex-shrink:0;"></span>
+        <span style="flex:1;text-align:left;">Group trip ideas</span>
+        <span style="color:var(--text-faint);font-size:11px;">9</span>
+      </button>
+    </aside>
+
+    <!-- Body -->
+    <div style="flex:1;display:flex;flex-direction:column;overflow:hidden;">
+      <div style="padding:24px 28px 0;flex-shrink:0;">
+        <div style="border-radius:20px;overflow:hidden;position:relative;height:150px;background:linear-gradient(135deg, var(--petrol-400), var(--petrol-600));">
+          <div style="position:absolute;inset:0;background:linear-gradient(180deg, transparent 40%, rgba(0,0,0,0.35) 100%);"></div>
+          <div style="position:relative;height:100%;padding:22px;display:flex;flex-direction:column;justify-content:flex-end;color:white;">
+            <span style="font-size:10.5px;text-transform:uppercase;letter-spacing:0.12em;font-weight:600;opacity:0.85;">Your list</span>
+            <h1 style="margin:4px 0 0;font-family:var(--font-display);font-size:28px;font-weight:700;letter-spacing:-0.01em;">Want to go</h1>
+          </div>
+          <button style="position:absolute;top:16px;right:16px;display:flex;align-items:center;gap:6px;padding:6px 12px;background:color-mix(in oklch, white 18%, transparent);border:1px solid color-mix(in oklch, white 24%, transparent);border-radius:999px;color:white;font-size:12px;font-weight:600;cursor:pointer;font-family:inherit;">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>
+            Share
+          </button>
+        </div>
+      </div>
+
+      <div style="display:flex;align-items:center;gap:10px;padding:16px 28px;flex-shrink:0;">
+        <div style="display:flex;gap:6px;">
+          <button style="padding:6px 13px;border-radius:999px;border:none;font-size:12.5px;font-weight:600;cursor:pointer;font-family:inherit;background:var(--ink-900);color:var(--stone-50);">All</button>
+          <button style="padding:6px 13px;border-radius:999px;border:none;font-size:12.5px;font-weight:600;cursor:pointer;font-family:inherit;background:var(--surface-sunken);color:var(--text-muted);">Want to go</button>
+          <button style="padding:6px 13px;border-radius:999px;border:none;font-size:12.5px;font-weight:600;cursor:pointer;font-family:inherit;background:var(--surface-sunken);color:var(--text-muted);">Been there</button>
+        </div>
+        <div style="flex:1;"></div>
+        <div style="position:relative;width:200px;">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="var(--text-muted)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="position:absolute;left:10px;top:50%;transform:translateY(-50%);"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.3-4.3"/></svg>
+          <input type="text" placeholder="Search places" style="width:100%;padding:6px 10px 6px 30px;border-radius:999px;border:1px solid var(--border-subtle);font-size:12.5px;outline:none;font-family:inherit;color:var(--text-primary);background:var(--surface-raised);">
+        </div>
+        <button style="width:32px;height:32px;border-radius:10px;border:1px solid var(--border-subtle);background:var(--surface-raised);display:flex;align-items:center;justify-content:center;color:var(--text-muted);cursor:pointer;">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12h14"/></svg>
+        </button>
+      </div>
+
+      <div style="flex:1;display:flex;overflow:hidden;padding:0 28px 24px;gap:20px;">
+        <div style="flex:1;overflow-y:auto;display:flex;flex-direction:column;gap:8px;min-width:0;">
+
+          <div style="display:flex;align-items:center;gap:12px;padding:10px 14px;border:1px solid var(--border-subtle);border-radius:14px;background:var(--surface-raised);cursor:pointer;" style-hover="box-shadow:var(--shadow-sm);">
+            <div style="width:44px;height:44px;border-radius:12px;background:var(--petrol-100);flex-shrink:0;"></div>
+            <div style="flex:1;min-width:0;">
+              <div style="font-size:13.5px;font-weight:600;">Livraria Lello</div>
+              <div style="font-size:11.5px;color:var(--text-muted);margin-top:2px;">Bookshop · Porto</div>
+            </div>
+            <span style="padding:3px 9px;border-radius:999px;font-size:10.5px;font-weight:600;background:var(--petrol-50);color:var(--petrol-600);">Want to go</span>
+          </div>
+
+          <div style="display:flex;align-items:center;gap:12px;padding:10px 14px;border:1px solid var(--border-subtle);border-radius:14px;background:var(--surface-raised);cursor:pointer;" style-hover="box-shadow:var(--shadow-sm);">
+            <div style="width:44px;height:44px;border-radius:12px;background:var(--olive-100);flex-shrink:0;"></div>
+            <div style="flex:1;min-width:0;">
+              <div style="font-size:13.5px;font-weight:600;">Praia da Marinha</div>
+              <div style="font-size:11.5px;color:var(--text-muted);margin-top:2px;">Beach · Algarve</div>
+            </div>
+            <span style="padding:3px 9px;border-radius:999px;font-size:10.5px;font-weight:600;background:var(--petrol-50);color:var(--petrol-600);">Want to go</span>
+          </div>
+
+          <div style="display:flex;align-items:center;gap:12px;padding:10px 14px;border:1px solid var(--border-subtle);border-radius:14px;background:var(--surface-raised);cursor:pointer;" style-hover="box-shadow:var(--shadow-sm);">
+            <div style="width:44px;height:44px;border-radius:12px;background:var(--stone-200);flex-shrink:0;"></div>
+            <div style="flex:1;min-width:0;">
+              <div style="font-size:13.5px;font-weight:600;">Pastéis de Belém</div>
+              <div style="font-size:11.5px;color:var(--text-muted);margin-top:2px;">Bakery · Lisbon</div>
+            </div>
+            <span style="padding:3px 9px;border-radius:999px;font-size:10.5px;font-weight:600;background:var(--state-success-subtle);color:var(--success-700);">Been there</span>
+          </div>
+        </div>
+
+        <!-- Map panel placeholder -->
+        <div style="width:38%;flex-shrink:0;border-radius:20px;overflow:hidden;position:relative;background:linear-gradient(150deg, var(--stone-200), var(--olive-100));">
+          <div style="position:absolute;left:32%;top:28%;width:12px;height:12px;border-radius:50%;background:var(--accent-route);box-shadow:0 0 0 4px color-mix(in oklch, var(--accent-route) 20%, transparent);"></div>
+          <div style="position:absolute;left:58%;top:50%;width:12px;height:12px;border-radius:50%;background:var(--accent-route);box-shadow:0 0 0 4px color-mix(in oklch, var(--accent-route) 20%, transparent);"></div>
+          <div style="position:absolute;left:44%;top:68%;width:12px;height:12px;border-radius:50%;background:var(--accent-route);box-shadow:0 0 0 4px color-mix(in oklch, var(--accent-route) 20%, transparent);"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+</x-dc>
+</body>
+</html>

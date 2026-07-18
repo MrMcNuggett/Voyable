@@ -192,8 +192,8 @@ export function useBudgetPanel(tripId: number, tripMembers: TripMember[]) {
     URL.revokeObjectURL(url)
   }
 
-  const th: CSSProperties = { padding: '6px 8px', textAlign: 'center', fontSize: 11, fontWeight: 600, color: 'var(--text-muted)', textTransform: 'uppercase', letterSpacing: '0.05em', borderBottom: '2px solid var(--border-primary)', whiteSpace: 'nowrap', background: 'var(--bg-secondary)' }
-  const td: CSSProperties = { padding: '2px 6px', borderBottom: '1px solid var(--border-secondary)', fontSize: 13, verticalAlign: 'middle', color: 'var(--text-primary)' }
+  const th: CSSProperties = { padding: '6px 8px', textAlign: 'center', fontSize: 'calc(11px * var(--fs-scale-body, 1))', fontWeight: 600, color: 'var(--text-muted)', textTransform: 'uppercase', letterSpacing: '0.05em', borderBottom: '2px solid var(--border-primary)', whiteSpace: 'nowrap', background: 'var(--bg-secondary)' }
+  const td: CSSProperties = { padding: '2px 6px', borderBottom: '1px solid var(--border-secondary)', fontSize: 'calc(13px * var(--fs-scale-body, 1))', verticalAlign: 'middle', color: 'var(--text-primary)' }
 
   return {
     trip, budgetItems,

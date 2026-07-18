@@ -16,18 +16,18 @@ export interface CostCategoryMeta {
 }
 
 export const COST_CAT_META: Record<CostCategory, CostCategoryMeta> = {
-  accommodation: { key: 'accommodation', labelKey: 'costs.cat.accommodation', Icon: Hotel, color: '#16a34a' },
-  food:          { key: 'food',          labelKey: 'costs.cat.food',          Icon: Utensils, color: '#ea580c' },
-  groceries:     { key: 'groceries',     labelKey: 'costs.cat.groceries',     Icon: ShoppingCart, color: '#65a30d' },
-  transport:     { key: 'transport',     labelKey: 'costs.cat.transport',     Icon: Bus, color: '#2563eb' },
-  flights:       { key: 'flights',       labelKey: 'costs.cat.flights',       Icon: Plane, color: '#0ea5e9' },
-  activities:    { key: 'activities',    labelKey: 'costs.cat.activities',    Icon: Ticket, color: '#9333ea' },
-  sightseeing:   { key: 'sightseeing',   labelKey: 'costs.cat.sightseeing',   Icon: Camera, color: '#db2777' },
-  shopping:      { key: 'shopping',      labelKey: 'costs.cat.shopping',      Icon: ShoppingBag, color: '#e11d48' },
-  fees:          { key: 'fees',          labelKey: 'costs.cat.fees',          Icon: FileText, color: '#475569' },
-  health:        { key: 'health',        labelKey: 'costs.cat.health',        Icon: HeartPulse, color: '#dc2626' },
-  tips:          { key: 'tips',          labelKey: 'costs.cat.tips',          Icon: Coins, color: '#d97706' },
-  other:         { key: 'other',         labelKey: 'costs.cat.other',         Icon: MoreHorizontal, color: '#6b7280' },
+  accommodation: { key: 'accommodation', labelKey: 'costs.cat.accommodation', Icon: Hotel, color: 'var(--success)' },
+  food:          { key: 'food',          labelKey: 'costs.cat.food',          Icon: Utensils, color: 'var(--warning)' },
+  groceries:     { key: 'groceries',     labelKey: 'costs.cat.groceries',     Icon: ShoppingCart, color: '#65a30d' },  // theme-lint-disable: intentional data/category color
+  transport:     { key: 'transport',     labelKey: 'costs.cat.transport',     Icon: Bus, color: 'var(--info)' },
+  flights:       { key: 'flights',       labelKey: 'costs.cat.flights',       Icon: Plane, color: '#0ea5e9' },  // theme-lint-disable: intentional data/category color
+  activities:    { key: 'activities',    labelKey: 'costs.cat.activities',    Icon: Ticket, color: '#9333ea' },  // theme-lint-disable: intentional data/category color
+  sightseeing:   { key: 'sightseeing',   labelKey: 'costs.cat.sightseeing',   Icon: Camera, color: '#db2777' },  // theme-lint-disable: intentional data/category color
+  shopping:      { key: 'shopping',      labelKey: 'costs.cat.shopping',      Icon: ShoppingBag, color: 'var(--danger)' },
+  fees:          { key: 'fees',          labelKey: 'costs.cat.fees',          Icon: FileText, color: 'var(--text-secondary)' },
+  health:        { key: 'health',        labelKey: 'costs.cat.health',        Icon: HeartPulse, color: 'var(--danger)' },
+  tips:          { key: 'tips',          labelKey: 'costs.cat.tips',          Icon: Coins, color: 'var(--warning)' },
+  other:         { key: 'other',         labelKey: 'costs.cat.other',         Icon: MoreHorizontal, color: 'var(--text-muted)' },
 }
 
 export const COST_CATEGORY_LIST: CostCategoryMeta[] = COST_CATEGORIES.map(k => COST_CAT_META[k])
